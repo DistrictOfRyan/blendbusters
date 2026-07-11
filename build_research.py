@@ -625,10 +625,21 @@ RESEARCH=[
     'plant protein powder pea rice','Fitness & performance'),
 ]
 
-# These products already have a bespoke teardown page (build_teardowns.py) covering
-# the same brand. Skip the research duplicate to avoid two pages for one product.
-SKIP_DUP={'nutrafol-alternative','vital-proteins-alternative','seed-ds01-alternative',
-          'olly-sleep-alternative','mudwtr-alternative','onnit-alpha-brain-alternative'}
+# These products already have a canonical page — a bespoke teardown (build_teardowns.py)
+# or a spreadsheet-generated catalog page (build_from_sheet.py, which carries the Amazon
+# ASIN one-click cart). Skip the research duplicate so there is one page per product.
+SKIP_DUP={
+ # bespoke-teardown twins
+ 'nutrafol-alternative','vital-proteins-alternative','seed-ds01-alternative',
+ 'olly-sleep-alternative','mudwtr-alternative','onnit-alpha-brain-alternative',
+ # spreadsheet-catalog twins
+ 'align-probiotic-alternative','cure-hydration-alternative','emergen-c-alternative',
+ 'colonbroom-alternative','hydrant-alternative','kachava-alternative','bloom-greens-alternative',
+ 'goli-acv-alternative','lmnt-alternative','tru-niagen-alternative','gatorlyte-alternative',
+ 'viviscal-alternative','thorne-multivitamin-alternative','five-hour-energy-alternative',
+ 'ritual-multivitamin-alternative','ritual-synbiotic-alternative','magnesi-om-alternative',
+ 'ag1-alternative','beam-dream-alternative',
+}
 
 if __name__=='__main__':
     made=[]
