@@ -625,9 +625,15 @@ RESEARCH=[
     'plant protein powder pea rice','Fitness & performance'),
 ]
 
+# These products already have a bespoke teardown page (build_teardowns.py) covering
+# the same brand. Skip the research duplicate to avoid two pages for one product.
+SKIP_DUP={'nutrafol-alternative','vital-proteins-alternative','seed-ds01-alternative',
+          'olly-sleep-alternative','mudwtr-alternative','onnit-alpha-brain-alternative'}
+
 if __name__=='__main__':
     made=[]
     for d,bucket in RESEARCH:
+        if d['slug'] in SKIP_DUP: continue
         with open(d['slug']+'.html','w',encoding='utf-8') as f: f.write(render_compare(d))
         swap=sum(s['cost'] for s in d['swap_rows'])
         made.append((bucket,d['name'],d['slug'],d['brand_price'],round(swap)))
