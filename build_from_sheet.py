@@ -43,6 +43,62 @@ def cart_url(alt_ids):
         parts.append('ASIN.%d=%s&Quantity.%d=1'%(i,a,i))
     return '&'.join(parts)
 
+# Brand behind each catalog swap (from the ASIN research).
+BRAND_BY_GID={
+ 'G01':'Kirkland','G02':'Nature Made','G03':'Sports Research','G04':'Nature Made','G05':'NOW Foods',
+ 'G06':'Nutricost','G07':"Doctor's Best",'G08':'NOW Foods','G09':'Nature Made','G10':'NOW Foods',
+ 'G11':'Nutricost','G12':'Liquid I.V.','G13':'LMNT','G14':'TRIORAL','G15':'Starbucks','G16':'Nutricost',
+ 'G17':'Nutricost','G18':'NOW Foods','G19':'Nature Made','G20':'NOW Foods','G21':'Nutricost','G22':'Nutricost',
+ 'G23':'NOW Foods','G24':'NOW Foods','G25':"Doctor's Best",'G26':'NOW Foods','G27':"Doctor's Best",
+ 'G28':'Nutricost','G29':'Bausch + Lomb','G30':'Nutricost','G31':'Nutricost','G32':'Nutricost','G33':'Nutricost',
+ 'G34':'Nutricost','G35':'Nutricost','G36':'Nutricost','G37':'Nutricost','G38':'Nutricost','G39':'Nutricost',
+ 'G40':'NOW Foods','G41':'Double Wood','G42':'Nutricost','G43':'Double Wood','G44':"Doctor's Best",
+ 'G45':'NOW Foods','G46':'Double Wood','G47':'NOW Foods','G48':'Sports Research','G49':'NOW Foods',
+ 'G50':"Doctor's Best",'G51':'Nature Made','G52':'Nutricost','G53':'Nutricost','G54':'NOW Foods',
+ 'G55':'Nuun','G56':'LMNT','G57':'Nature Made','G58':"Nature's Bounty",'G59':'Sports Research','G60':'Nutricost',
+}
+# DTC affiliate programs (typically 10-40% vs Amazon's ~1-4.5%). Fill 'url' with
+# the brand's affiliate/referral landing link once approved; buy_link() then
+# prefers the DTC link over Amazon automatically. Leave '' until approved.
+DTC_PROGRAMS={
+ 'Nutricost':{'url':'','network':'ShareASale / direct'},
+ 'NOW Foods':{'url':'','network':'direct'},
+ 'Double Wood':{'url':'','network':'Impact'},
+ 'Sports Research':{'url':'','network':'ShareASale'},
+ "Doctor's Best":{'url':'','network':'direct'},
+ 'Nature Made':{'url':'','network':'direct'},
+ 'LMNT':{'url':'','network':'direct'},
+ 'Nuun':{'url':'','network':'direct'},
+}
+
+def buy_link(gid):
+    """DTC affiliate link if the brand program is live, else the Amazon link."""
+    brand=BRAND_BY_GID.get(gid)
+    if brand and DTC_PROGRAMS.get(brand,{}).get('url'):
+        return DTC_PROGRAMS[brand]['url'], brand
+    return amz(CAT[gid]['url']) if gid in CAT else '#get', brand
+
+def short(s,n):
+    s=str(s or '').strip()
+    if len(s)<=n: return s
+    cut=s[:n]; sp=cut.rfind(' ')
+    return (cut[:sp] if sp>0 else cut).rstrip(' ,.;')+'…'
+
+CAT_HOOK={
+ 'Energy':('The real active is caffeine',
+   'A cup of coffee or a ~5¢ caffeine tablet delivers the same lift — the rest is flavor, B-vitamins you already get, and branding.'),
+ 'Hydration':('Electrolytes only matter when you are actually losing them',
+   'Heavy sweat, heat, or illness — then sodium and potassium help. For a normal day, water does the job, and the mix is cheap either way.'),
+ 'Sleep & calm':('Melatonin and magnesium do the heavy lifting',
+   'Both cost pennies on their own — and lower melatonin doses often work as well. The botanicals are usually a sprinkle.'),
+ 'Daily multis & greens':('A cheap multivitamin covers the vitamins',
+   'Greens powders are weak versus eating actual vegetables, and the "superfood" extras are mostly fairy-dusted.'),
+ 'Beauty, joint, immune & nootropic':('One or two ingredients do the real work',
+   'The rest is dosed low or thin on evidence — buy the actives that matter on their own.'),
+ 'Probiotic, omega, magnesium & fiber':('The active is a commodity',
+   'Probiotic strains, fish oil, magnesium, and fiber are all cheap generics — the brand markup is the product.'),
+}
+
 GA = ('<!-- Google tag (gtag.js) -->\n'
       '<script async src="https://www.googletagmanager.com/gtag/js?id=G-529DGYE1QB"></script>\n'
       '<script>\nwindow.dataLayer = window.dataLayer || [];\n'
@@ -232,14 +288,19 @@ for r in P:
     for i,(gid,q) in enumerate(alts[:4]):
         c=CAT[gid]; til.append((esc(c['name'])[:26],'≈ $%.2f/serving'%c['cost'],PAL[i%6]))
     # copy
+    hook=CAT_HOOK.get(cat)
     h1=('%s is <span class="g">$%s</span>/mo you can cover for <span class="g">$%s</span>.'%(esc(name),od,bd))
-    sub=(esc(summ)+' The same job, built from cheaper commodity pieces, runs about <b>%d%% less</b>.'%pct) if summ \
+    sub=(esc(summ)+' Strip the branding and the same job, built from cheaper commodity pieces, runs about <b>%d%% less</b>.'%pct) if summ \
         else 'The same job, built from cheaper commodity pieces, runs about <b>%d%% less</b>.'%pct
-    talk=['<b>Same job, ~%d%% less.</b> About $%s/mo instead of $%s — roughly $%d a year back in your pocket.'%(pct,bd,od,round(save*12))]
+    talk=['<b>Same job, ~%d%% less.</b> About $%s/mo instead of $%s — roughly <b>$%d a year</b> back in your pocket.'%(pct,bd,od,round(save*12))]
+    if hook: talk.append('<b>%s.</b> %s'%(hook[0],hook[1]))
     if plan: talk.append('<b>'+esc(plan)+'</b>')
     if safety: talk.append('<b>Heads up:</b> '+esc(safety))
-    talk.append('<b>You are paying for branding and convenience</b> — the actives are commodity ingredients you can buy on their own.')
+    talk.append('<b>You are paying for branding and convenience</b> — the actives are commodity ingredients you can buy on their own, at doses you can actually read.')
     a1=CAT[alts[0][0]]
+    b_url,b_brand=buy_link(alts[0][0])
+    b_title=(b_brand+' — '+esc(a1['name'])) if b_brand else esc(a1['name'])
+    b_desc=('The cheaper substitute from %s, ready to buy.'%b_brand) if b_brand else 'The cheaper substitute, ready to buy on Amazon.'
     curl=cart_url([g for g,_ in alts])
     cart=('<div class="cartrow" style="margin:16px 0 2px">'
           '<a class="btn volt block" href="%s" target="_blank" rel="sponsored nofollow noopener" '
@@ -247,8 +308,8 @@ for r in P:
           '<div style="font-size:12px;color:var(--muted);margin-top:6px;text-align:center">'
           'Opens Amazon with the cheaper swaps loaded. Affiliate link — commissions activate once our Associates account is approved.</div></div>'
           %(curl,len(alts))) if curl else ''
-    d={'slug':slug,'num':'No. %d'%pid,'name':esc(name),'h1':h1,'sub':sub,'cart':cart,
-       'villain_tg':'$%s/mo'%od,'villain_cap':esc(summ[:66]) or 'The brand price.',
+    d={'slug':slug,'num':'%s · No. %d'%(esc(cat),pid),'name':esc(name),'h1':h1,'sub':sub,'cart':cart,
+       'villain_tg':'$%s/mo'%od,'villain_cap':esc(short(summ,72)) or 'The brand price.',
        'winner_cap':'The same actives, bought as commodities.',
        'inside_h2':'What the brand is, and the cheap version of each piece.',
        'inside_lead':esc(summ) or 'The actives are commodity ingredients available far cheaper on their own.',
@@ -259,9 +320,9 @@ for r in P:
        'pathA':path('Path A · Cheapest',False,'Do it yourself','≈ $%s/mo'%bd,
                     esc(plan) or 'Buy the commodity pieces separately.',
                     ['~%d%% cheaper'%pct,'Buy only what you want']),
-       'pathB':path('Path B · Shop the swap',True,esc(a1['name']),'≈ $%s/mo'%bd,
-                    'The cheaper substitute, ready to buy on Amazon.',
-                    ['Same purpose, less markup','Ships to your door'],href=amz(a1['url']),ext=True)}
+       'pathB':path('Path B · Shop the swap',True,b_title,'≈ $%s/mo'%bd,
+                    b_desc,
+                    ['Same purpose, less markup','Ships to your door'],href=b_url,ext=True)}
     with open('%s.html'%slug,'w',encoding='utf-8') as f: f.write(render(d))
     made+=1
     bucket=BUCKET_BY_CAT.get(cat,'More teardowns')
