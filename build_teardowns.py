@@ -33,6 +33,62 @@ JS = ("(function(){var rows=document.querySelectorAll('#rows .row input[type=che
       "if(e.isIntersecting){e.target.classList.add('in');ob.unobserve(e.target)}})},{threshold:0.1,rootMargin:'0px 0px -40px 0px'});"
       "els.forEach(function(el){ob.observe(el)})}else{els.forEach(function(el){el.classList.add('in')})}})();")
 
+# ---- Affiliate / one-click cart (mirrors build_from_sheet.py) ----
+AFFILIATE_TAG='blendbusters-20'  # replace with the real Amazon Associates tag
+A={  # short key -> representative Amazon ASIN (from catalog + research)
+ 'multi':'B006VRNEFO','probiotic':'B002S1U7RU','d3':'B0019LVGPC','zinc':'B0D1VWSPFH',
+ 'maggly':'B000BD0RT0','ksm':'B079K32QB6','biotin':'B01AMJCHB8','collagen':'B06XKM7P97',
+ 'vitc':'B0001SR3EC','theanine':'B00GQV9YX6','alphagpc':'B001RYKA3U','bacopa':'B09CX59Q91',
+ 'ps':'B079YF1K1B','betaalanine':'B07BTGCJTW','betaine':'B01BCQ3RLE','caffeine':'B01MY5CW7S',
+ 'colostrum':'B09WJPFVVP','bcomplex':'B005D0DTS2','psyllium':'B002RWUNYM','fishoil':'B0046XC528',
+ 'algaedha':'B0842DJJYC','melatonin':'B005FKTWCC','creatine':'B00E9M4XEE','beetroot':'B017KYQCFU',
+ 'sawpalmetto':'B0013OXII8','huperzine':'B0767MS2KF','tyrosine':'B0013OUPSE','acv':'B01A698E20',
+ 'niacinamide':'B000OSUDJQ','vitex':'B00O5EIEJ6','peaprotein':'B00NBIUGA2','marinecollagen':'B084GK5B1S',
+ 'fenugreek':'B00772D3C6','nr':'B0C548YN1B','lionsmane':'B07PM8X5CG',
+ 'boron':'B0BBY9TXSB','citrulline':'B00EYDJTRE','daa':'B00E7JO0EW','inulin':'B01JGYA7O4',
+ 'tongkat':'B07TTDFXFV','oatflour':'B08GD24F85',
+}
+BESPOKE_CART={
+ 'ag1':['multi','probiotic','d3'],
+ 'testofuel':['daa','d3','zinc','boron','maggly'],
+ 'prime-male':['daa','d3','ksm','maggly','zinc'],
+ 'seed':['probiotic','inulin'],
+ 'kachava':['peaprotein','multi','fishoil'],
+ 'ritual':['multi','algaedha'],
+ 'alpha-brain':['theanine','alphagpc','bacopa','huperzine','tyrosine'],
+ 'nugenix':['fenugreek','zinc','boron','d3'],
+ 'mud-wtr':['lionsmane'],
+ 'balance-of-nature':['multi'],
+ 'prevagen':['d3','fishoil','bcomplex'],
+ 'vital-proteins':['collagen','vitc'],
+ 'goli':['acv'],
+ 'nutrafol':['sawpalmetto','ksm','biotin','marinecollagen','multi'],
+ 'peachy':['psyllium','probiotic'],
+ 'bloom':['multi','probiotic'],
+ 'olly-sleep':['melatonin','theanine'],
+ 'creatine-gummies':['creatine'],
+ 'superbeets':['beetroot'],
+ 'armra':['colostrum'],
+ 'huel':['peaprotein','oatflour','multi'],
+ 'cymbiotika':['vitc'],
+ 'pre-workout':['citrulline','betaalanine','betaine','caffeine','theanine'],
+ 'magnesium-breakthrough':['maggly'],
+ 'tru-niagen':['niacinamide','nr'],
+ 'neuriva':['ps','bcomplex'],
+ 'flo-pms':['vitex'],
+}
+
+def cart_html(slug):
+    asins=[A[k] for k in BESPOKE_CART.get(slug,[]) if A.get(k)]
+    if not asins: return ''
+    url='https://www.amazon.com/gp/aws/cart/add.html?AssociateTag='+AFFILIATE_TAG
+    for i,a in enumerate(asins,1): url+='&ASIN.%d=%s&Quantity.%d=1'%(i,a,i)
+    return ('<div class="cartrow" style="margin:16px 0 2px">'
+            '<a class="btn volt block" href="%s" target="_blank" rel="sponsored nofollow noopener" style="font-size:15px">'
+            '\U0001f6d2 One click: add all %d swaps to your Amazon cart</a>'
+            '<div style="font-size:12px;color:var(--muted);margin-top:6px;text-align:center">'
+            'Opens Amazon with the cheaper swaps loaded. Affiliate link — commissions activate once our Associates account is approved.</div></div>'%(url,len(asins)))
+
 def tiles(items):
     h=""
     for label,note,color in items:
@@ -96,7 +152,7 @@ def render(d):
       '<ul class="rows" id="rows">%s</ul>'
       '<div class="foot"><div class="f"><div class="lbl">%s, same month</div><div class="amt">$%d.00</div></div>'
       '<div class="f b"><div class="lbl">Your swap</div><div class="amt" id="diy-total">$%.2f <s id="diy-save">save $%.2f</s></div></div></div></div>'
-      '<div class="paths">%s%s</div>'
+      '%s<div class="paths">%s%s</div>'
       '<div class="disclose">Disclosure: picks are affiliate links; we may earn a commission at no extra cost to you. (Links activate once our affiliate accounts are approved.)</div>'
       '</section>\n'
       '<section id="realtalk"><div class="realtalk"><h3>\U0001f525 Real talk: what actually works</h3><ul>%s</ul></div></section>\n'
@@ -117,7 +173,7 @@ def render(d):
         d['inside_h2'], d['inside_lead'], tiles(d['inside']),
         d['teardown_lead'], d['orig'], d['name'], swap, year, pct,
         d['name'], d['orig_sub'], rows(d['rows']), d['name'], d['orig'], swap, save,
-        d['pathA'], d['pathB'], talk, LOGO, JS.replace('%%BASE%%', str(d['orig']))))
+        d.get('cart',''), d['pathA'], d['pathB'], talk, LOGO, JS.replace('%%BASE%%', str(d['orig']))))
 
 # ---- images ----
 def compress(src, dst, maxw=1400, q=80):
@@ -795,6 +851,7 @@ TEARDOWNS=[
 ]
 
 for d in TEARDOWNS:
+    d['cart']=cart_html(d['slug'])
     html=render(d)
     with open(d['slug']+'.html','w',encoding='utf-8') as f: f.write(html)
     swap=sum(c for _,_,c,_,_ in d['rows'])
