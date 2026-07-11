@@ -5,7 +5,7 @@ Copy uses approved phrasing only ('lower-cost ingredient match', 'overlapping
 ingredients', 'similar intended use', 'important differences', 'Data unavailable')."""
 
 import json
-AFFILIATE_TAG='blendbusters-20'  # replace with the real Amazon Associates tag once approved
+AFFILIATE_TAG='blendbusters-20'  # confirmed Amazon Associates tag (approved 2026-07-11)
 SITE='https://blendbusters.com'
 GA=('<!-- Google tag (gtag.js) -->\n'
     '<script async src="https://www.googletagmanager.com/gtag/js?id=G-529DGYE1QB"></script>\n'

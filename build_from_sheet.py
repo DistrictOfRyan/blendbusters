@@ -22,7 +22,7 @@ XLSX='/root/.claude/uploads/89659117-1595-510e-9d89-38cba852da22/b6dbc339-high_p
 # ---- Affiliate config ----
 # Set this to the real Amazon Associates tracking ID once approved; every link
 # and the one-click cart activate earnings the moment this is filled in.
-AFFILIATE_TAG='blendbusters-20'  # TODO: replace with the real Associates tag
+AFFILIATE_TAG='blendbusters-20'  # confirmed Amazon Associates tag (approved 2026-07-11)
 
 # One representative Amazon ASIN per catalog ingredient (fills the one-click cart).
 ASIN_MAP={
