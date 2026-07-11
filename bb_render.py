@@ -4,7 +4,9 @@ Both generators (bespoke + spreadsheet) build a `d` dict and call render_compare
 Copy uses approved phrasing only ('lower-cost ingredient match', 'overlapping
 ingredients', 'similar intended use', 'important differences', 'Data unavailable')."""
 
+import json
 AFFILIATE_TAG='blendbusters-20'  # replace with the real Amazon Associates tag once approved
+SITE='https://blendbusters.com'
 GA=('<!-- Google tag (gtag.js) -->\n'
     '<script async src="https://www.googletagmanager.com/gtag/js?id=G-529DGYE1QB"></script>\n'
     '<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}'
@@ -146,6 +148,21 @@ def render_compare(d):
 
     body=_head('%s — lower-cost comparison · BlendBusters'%d['name'],
                '%s: ingredient, dose, cost, and evidence comparison with a lower-cost ingredient match. Estimated savings, what matches, and what differs.'%d['name'])
+    # structured data: Article + BreadcrumbList (no fake ratings — compliant)
+    url='%s/%s.html'%(SITE,d['slug'])
+    ld=[{"@context":"https://schema.org","@type":"Article",
+         "headline":"%s — lower-cost ingredient comparison"%d['name'],
+         "description":"Ingredient, dose, cost, and evidence comparison of %s with a lower-cost ingredient match."%d['name'],
+         "datePublished":"2026-07-08","dateModified":"2026-07-11",
+         "author":{"@type":"Organization","name":"BlendBusters"},
+         "publisher":{"@type":"Organization","name":"BlendBusters"},
+         "mainEntityOfPage":url,"about":d.get('category','')},
+        {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[
+         {"@type":"ListItem","position":1,"name":"Home","item":SITE+"/"},
+         {"@type":"ListItem","position":2,"name":d.get('category',''),"item":SITE+"/"},
+         {"@type":"ListItem","position":3,"name":d['name'],"item":url}]}]
+    ldjs='<script type="application/ld+json">%s</script>\n'%json.dumps(ld)
+    body=body.replace('</head>',ldjs+'</head>',1)
     body+=('<body data-slug="%s" data-base="%d">\n'%(esc(d['slug']),d['brand_price']))+_header()
     body+='<div class="wrap"><nav class="crumb" aria-label="Breadcrumb"><a href="/">Home</a> / <a href="/">Comparisons</a> / <a href="/">%s</a> / <b>%s</b></nav>\n'%(esc(d.get('category','')),esc(d['name']))
     body+='<div class="title"><span class="cat">%s</span><h1>%s, and a lower-cost ingredient match</h1>'%(esc(d.get('category','')),esc(d['name']))
