@@ -8,6 +8,41 @@ import openpyxl
 
 XLSX='/root/.claude/uploads/89659117-1595-510e-9d89-38cba852da22/b6dbc339-high_price_supplement_cost_comparison_100_products.xlsx'
 
+# ---- Affiliate config ----
+# Set this to the real Amazon Associates tracking ID once approved; every link
+# and the one-click cart activate earnings the moment this is filled in.
+AFFILIATE_TAG='blendbusters-20'  # TODO: replace with the real Associates tag
+
+# One representative Amazon ASIN per catalog ingredient (fills the one-click cart).
+ASIN_MAP={
+ 'G01':'B006VRNEFO','G02':'B00YMSLT88','G03':'B0842DJJYC','G04':'B0046XC528','G05':'B0019LVGPC',
+ 'G06':'B09126BY8S','G07':'B000BD0RT0','G08':'B004189JCW','G09':'B005D0DTS2','G10':'B0001SR3EC',
+ 'G11':'B0D1VWSPFH','G12':'B01IT9NLHW','G13':'B07TT8B1JJ','G14':'B00OG8G9UM','G15':'B07KXWY1WY',
+ 'G16':'B01MY5CW7S','G17':'B01CUYHCX6','G18':'B00GQV9YX6','G19':'B005FKTWCC','G20':'B0013OVZJW',
+ 'G21':'B079K32QB6','G22':'B09QFSDLL5','G23':'B002S1U7RU','G24':'B002RWUNYM','G25':'B0019GW3G8',
+ 'G26':'B000Z8ZKW0','G27':'B000I4DFAK','G28':'B07Y2H11DP','G29':'B01ANLKJ9M','G30':'B01AMJCHB8',
+ 'G31':'B06XKM7P97','G32':'B07X7J7GVK','G33':'B0D7QMVHP8','G34':'B07T8C9N97','G35':'B094XMC514',
+ 'G36':'B01CUQFKW4','G37':'B076TT43SR','G38':'B07BTGCJTW','G39':'B01BCQ3RLE','G40':'B001RYKA3U',
+ 'G41':'B07PM8X5CG','G42':'B09CX59Q91','G43':'B079YF1K1B','G44':'B00NMPP4WY','G45':'B00KHQJJ0Y',
+ 'G46':'B09DGTBBSF','G47':'B0078W47PM','G48':'B00EEOGIWC','G49':'B000O2TNKW','G50':'B0B4PKGQXC',
+ 'G51':'B07Q3SWL3X','G52':'B09SP6HLLP','G53':'B09WJPFVVP','G54':'B07JQFPL61','G55':'B019GU4ILQ',
+ 'G56':'B084HQ4DYQ','G57':'B07BXVFC32','G58':'B07MWCPRDC','G59':'B01BTBZWBU','G60':'B0DJ1NFCS3',
+}
+
+def amz(url):
+    if not url: return url
+    if AFFILIATE_TAG and 'tag=' not in url:
+        url=url+('&' if '?' in url else '?')+'tag='+AFFILIATE_TAG
+    return url
+
+def cart_url(alt_ids):
+    asins=[ASIN_MAP[g] for g in alt_ids if g in ASIN_MAP and ASIN_MAP[g]]
+    if not asins: return None
+    parts=['https://www.amazon.com/gp/aws/cart/add.html?AssociateTag='+(AFFILIATE_TAG or '')]
+    for i,a in enumerate(asins,1):
+        parts.append('ASIN.%d=%s&Quantity.%d=1'%(i,a,i))
+    return '&'.join(parts)
+
 GA = ('<!-- Google tag (gtag.js) -->\n'
       '<script async src="https://www.googletagmanager.com/gtag/js?id=G-529DGYE1QB"></script>\n'
       '<script>\nwindow.dataLayer = window.dataLayer || [];\n'
@@ -101,7 +136,7 @@ def render(d):
       '<ul class="rows" id="rows">%s</ul>'
       '<div class="foot"><div class="f"><div class="lbl">%s, same month</div><div class="amt">$%d.00</div></div>'
       '<div class="f b"><div class="lbl">Your swap</div><div class="amt" id="diy-total">$%.2f <s id="diy-save">save $%.2f</s></div></div></div></div>'
-      '<div class="paths">%s%s</div>'
+      '%s<div class="paths">%s%s</div>'
       '<div class="disclose">Disclosure: shopping links are affiliate links; we may earn a commission at no extra cost to you. (Amazon commissions activate once our Associates account is approved.)</div>'
       '</section>\n'
       '<section id="realtalk"><div class="realtalk"><h3>\U0001f525 Real talk: what actually works</h3><ul>%s</ul></div></section>\n'
@@ -122,7 +157,7 @@ def render(d):
         d['inside_h2'], d['inside_lead'], tiles(d['inside']),
         d['teardown_lead'], d['orig'], d['name'], swap, year, pct,
         d['name'], d['orig_sub'], rows(d['rows']), d['name'], d['orig'], swap, save,
-        d['pathA'], d['pathB'], talk, LOGO, JS.replace('%%BASE%%', str(d['orig']))))
+        d.get('cart',''), d['pathA'], d['pathB'], talk, LOGO, JS.replace('%%BASE%%', str(d['orig']))))
 
 # ---------- load spreadsheet ----------
 wb=openpyxl.load_workbook(XLSX, data_only=True)
@@ -205,7 +240,14 @@ for r in P:
     if safety: talk.append('<b>Heads up:</b> '+esc(safety))
     talk.append('<b>You are paying for branding and convenience</b> — the actives are commodity ingredients you can buy on their own.')
     a1=CAT[alts[0][0]]
-    d={'slug':slug,'num':'No. %d'%pid,'name':esc(name),'h1':h1,'sub':sub,
+    curl=cart_url([g for g,_ in alts])
+    cart=('<div class="cartrow" style="margin:16px 0 2px">'
+          '<a class="btn volt block" href="%s" target="_blank" rel="sponsored nofollow noopener" '
+          'style="font-size:15px">\U0001f6d2 One click: add all %d swaps to your Amazon cart</a>'
+          '<div style="font-size:12px;color:var(--muted);margin-top:6px;text-align:center">'
+          'Opens Amazon with the cheaper swaps loaded. Affiliate link — commissions activate once our Associates account is approved.</div></div>'
+          %(curl,len(alts))) if curl else ''
+    d={'slug':slug,'num':'No. %d'%pid,'name':esc(name),'h1':h1,'sub':sub,'cart':cart,
        'villain_tg':'$%s/mo'%od,'villain_cap':esc(summ[:66]) or 'The brand price.',
        'winner_cap':'The same actives, bought as commodities.',
        'inside_h2':'What the brand is, and the cheap version of each piece.',
@@ -219,7 +261,7 @@ for r in P:
                     ['~%d%% cheaper'%pct,'Buy only what you want']),
        'pathB':path('Path B · Shop the swap',True,esc(a1['name']),'≈ $%s/mo'%bd,
                     'The cheaper substitute, ready to buy on Amazon.',
-                    ['Same purpose, less markup','Ships to your door'],href=a1['url'],ext=True)}
+                    ['Same purpose, less markup','Ships to your door'],href=amz(a1['url']),ext=True)}
     with open('%s.html'%slug,'w',encoding='utf-8') as f: f.write(render(d))
     made+=1
     bucket=BUCKET_BY_CAT.get(cat,'More teardowns')
