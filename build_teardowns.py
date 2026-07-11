@@ -892,7 +892,15 @@ TEARDOWNS=[
   'pathB':path('Path B · Easiest · Recommended',True,'One generic C15:0','≈ $17/mo','If you want the capsule, a generic pentadecanoic-acid (C15:0) supplement — same molecule, ~a third of fatty15.',['Same single molecule','Pick one with a COA'])},
 ]
 
+# Prevagen is intentionally excluded: its signature active (apoaequorin) has no
+# generic equivalent and its memory claims were struck down by a federal court,
+# so the "lower-cost ingredient match / estimated savings" template would overclaim.
+# We do not publish a savings comparison we can't honestly stand behind.
+SKIP_SLUGS={'prevagen'}
+_rendered=0
 for d in TEARDOWNS:
+    if d['slug'] in SKIP_SLUGS: continue
     html=render_compare(to_new(d))
     with open(d['slug']+'.html','w',encoding='utf-8') as f: f.write(html)
-print('rendered %d bespoke comparison pages'%len(TEARDOWNS))
+    _rendered+=1
+print('rendered %d bespoke comparison pages'%_rendered)

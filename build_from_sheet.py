@@ -349,7 +349,6 @@ BESPOKE=[  # bucket, name, slug/href, orig, budget
  ('Energy drinks & mixes','MUD\\WTR','/mud-wtr.html',40,30),
  ('Sleep & calm','OLLY Sleep','/olly-sleep.html',17,6),
  ('Brain & nootropics','Alpha Brain','/alpha-brain.html',53,27),
- ('Brain & nootropics','Prevagen','/prevagen.html',40,14),
  ('Brain & nootropics','Neuriva','/neuriva.html',32,11),
  ('Beauty, hair, joint & immune','Nutrafol','/nutrafol.html',79,38),
  ('Beauty, hair, joint & immune','Vital Proteins','/vital-proteins.html',48,19),
@@ -407,6 +406,11 @@ BESPOKE=[  # bucket, name, slug/href, orig, budget
  ('Energy drinks & mixes','MUD\\WTR :rise Cacao','/mudwtr-alternative.html',40,20),
  ('Fitness & performance','Momentous Creatine Monohydrate','/momentous-creatine-alternative.html',14,7),
  ('Fitness & performance','Legion Pulse Pre-Workout','/legion-pulse-alternative.html',53,14),
+ ('Brain & nootropics','Onnit Alpha Brain','/onnit-alpha-brain-alternative.html',44,20),
+ ('Sleep & calm','OLLY Sleep Gummies','/olly-sleep-alternative.html',15,6),
+ ('Beauty, hair, joint & immune','Emergen-C Immune Support','/emergen-c-alternative.html',16,4),
+ ('Longevity & everyday','Tru Niagen (Nicotinamide Riboside)','/tru-niagen-alternative.html',38,20),
+ ('Fitness & performance','Orgain Organic Plant Protein','/orgain-protein-alternative.html',42,27),
 ]
 for b,nm,slug,o,bu in BESPOKE:
     href=slug if slug.startswith('/') else '/'+slug+'.html'
