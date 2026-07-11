@@ -41,6 +41,7 @@ def ev_html(cls):
 
 def _head(title,desc):
     return ('<!doctype html>\n<html lang="en">\n<head>\n<meta charset="utf-8">\n'
+      '<meta name="impact-site-verification" value="28f09547-363d-4c48-b94c-a336cd55b52a">\n'
       '<title>%s</title>\n<meta name="viewport" content="width=device-width, initial-scale=1">\n'
       '<meta name="description" content="%s">\n%s\n<link rel="stylesheet" href="/bb.css">\n</head>\n'%(esc(title),esc(desc),GA))
 
