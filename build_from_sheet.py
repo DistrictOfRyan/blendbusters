@@ -540,4 +540,44 @@ dk.append('<div class="dk-cta" style="text-align:center;margin:10px 0 40px"><a c
 dk.append(bb_render._footer()+'</body>\n</html>\n')
 open('savings-index.html','w',encoding='utf-8').write(''.join(dk))
 print('wrote savings-index.html (%d products, $%s/yr total)'%(len(allrows),'{:,}'.format(round(tot_year))))
+
+# ---------- methodology / editorial standards / disclosure hub ----------
+WEIGHTS=[('Ingredient match','20','Which actives actually overlap between the brand and the lower-cost option.'),
+ ('Dose match','20','How the disclosed amounts line up. Hidden behind a proprietary blend → <span class="mono">Data unavailable</span>.'),
+ ('Cost per serving','20','Price normalized to the dose that matters, not the sticker price.'),
+ ('Evidence quality','15','Strength of human evidence for each active, rated and sourced.'),
+ ('Convenience','10','What you trade for the savings — format, number of products, steps.'),
+ ('Transparency','10','Whether the brand discloses its doses or hides them in a blend.'),
+ ('Savings','10','Estimated monthly and annual, with the price-checked date attached.'),
+ ('Tradeoffs','10','What you give up. If the match falls short, the score reflects it.')]
+wrows=''.join('<div class="sr"><span class="lb">%s</span><span class="strack"><span class="sfill" style="width:%d%%"></span></span><span class="sv">%s pts</span></div>'%(n,int(w)/20*100,w) for n,w,_ in WEIGHTS)
+wlist=''.join('<div class="wcell"><div class="k">%s pts</div><h4>%s</h4><p>%s</p></div>'%(w,n,dsc) for n,w,dsc in WEIGHTS)
+mp=(bb_render._head('Methodology & editorial standards · BlendBusters',
+      'How BlendBusters scores comparisons: a transparent 100-point model, how we handle undisclosed doses, price checking, sourcing, corrections, and affiliate independence.')
+  +'<body>\n'+bb_render._header()
+  +'<div class="wrap"><nav class="crumb"><a href="/">Home</a> / <b>Methodology</b></nav>'
+   '<div class="title"><span class="cat">How we work</span><h1>Methodology &amp; editorial standards</h1>'
+   '<div class="meta"><span>Last updated <b>Jul 2026</b></span></div></div></div>\n'
+  +'<section><div class="wrap"><div class="shead"><h2>The BlendBuster Score</h2><span class="ctag an">BlendBusters analysis</span></div>'
+   '<p class="lead" style="margin-bottom:16px">Every comparison is scored on the same eight factors, out of 100. We show the weight of each, and where a value cannot be sourced we mark it <span class="mono">Data unavailable</span> rather than invent a number.</p>'
+   '<div class="score"><div class="sub">'+wrows+'</div></div>'
+   '<div class="weigh" style="margin-top:22px">'+wlist+'</div></div></section>\n'
+  +'<section><div class="wrap"><div class="shead"><h2>How we handle undisclosed doses</h2></div>'
+   '<p class="lead">Many premium products list a proprietary blend, so the amount of each ingredient is not published. When that happens we cannot verify a dose match, and we say so: the <span class="mono">Dose match</span> field reads <span class="mono">Data unavailable</span> and does not contribute to the score. A large price gap alone does not make two products equivalent.</p></div></section>\n'
+  +'<section><div class="wrap"><div class="shead"><h2>Prices &amp; sourcing</h2></div>'
+   '<p class="lead">Prices are estimates from public sources with the date we checked, and they change often — always verify on the merchant’s site. Every comparison ships with dated, linked sources. Numbers marked “to be verified” are placeholders pending editorial sign-off. We do not copy merchant descriptions; the analysis and calculations are our own.</p></div></section>\n'
+  +'<section id="standards"><div class="wrap"><div class="shead"><h2>Editorial standards</h2></div>'
+   '<div class="safe"><ul><li>We label <b style="color:var(--ink)">brand claims</b>, <b style="color:var(--ink)">BlendBusters analysis</b>, and <b style="color:var(--ink)">scientific evidence</b> separately, so you always know who is saying what.</li>'
+   '<li>We use language like “lower-cost ingredient match,” “overlapping ingredients,” and “similar intended use” — never “exactly the same,” “works just as well,” or “guaranteed equivalent.”</li>'
+   '<li>We do not fabricate reviews, testimonials, endorsements, test results, prices, or scientific findings.</li>'
+   '<li>We do not state that a product treats, cures, prevents, or diagnoses any condition.</li>'
+   '<li>Anyone can send a correction; we date and log every edit.</li></ul></div></div></section>\n'
+  +'<section id="affiliate"><div class="wrap"><div class="shead"><h2>Affiliate independence</h2></div>'
+   '<div class="affbox"><span class="k">How we make money</span>'
+   '<p>BlendBusters earns affiliate commissions when you buy through some merchant links. We don’t manufacture or sell products — purchases happen on third-party merchant sites. Comparisons and verdicts are written before any link is added, and a commission never changes a verdict or a score. We keep a better option in a comparison even when another merchant pays more.</p></div>'
+   '<p class="disc-inline" style="margin-top:14px">This content is for general informational purposes and is not individualized medical advice. Consult a qualified healthcare professional before changing any supplement.</p></div></section>\n'
+  +'</div>\n'+bb_render._footer()
+  +'<script>(function(){var r=document.documentElement,t=document.getElementById("theme");t&&t.addEventListener("click",function(){var c=r.getAttribute("data-theme");if(!c)c=matchMedia("(prefers-color-scheme:dark)").matches?"dark":"light";r.setAttribute("data-theme",c==="dark"?"light":"dark");t.textContent=c==="dark"?"\\u263e":"\\u2600"})})();</script>\n</body>\n</html>\n')
+open('methodology.html','w',encoding='utf-8').write(mp)
+print('wrote methodology.html')
 print('done')
