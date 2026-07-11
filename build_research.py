@@ -36,7 +36,7 @@ CAFF_CONSULT=['<b style="color:var(--ink)">Count all your daily caffeine</b> (co
 RESEARCH=[
  mk('bellway-alternative','Bellway Super Fiber + Fruit','Gut health · fiber',18,'$0.60','1 scoop/day · ~50/tub',False,
     'Organic psyllium husk delivering ~5 g fiber per scoop, plus real-fruit powders and monk-fruit/stevia for flavor (those amounts are not disclosed).',
-    [{'name':'Generic organic psyllium husk powder','desc':'~5 g fiber/day','cost':6,'cls':'strong'}],
+    [{'name':'NOW Organic Psyllium Husk Powder','desc':'~5 g fiber/day','cost':6,'cls':'strong'}],
     ['Both deliver soluble fiber from psyllium husk — the same core ingredient and a similar intended use (daily regularity).','A comparable per-serving fiber amount (~5 g).','Organic psyllium options exist on both sides.'],
     ['Bellway is pre-flavored and sweetened for taste; plain psyllium is unflavored and can be grittier.','The fruit-powder, sweetener, and flavor amounts are not disclosed, so those can’t be matched.','Third-party testing and certifications vary by generic brand — check the label.'],
     [{'name':'Psyllium (soluble fiber)','cls':'strong','note':'Well-studied bulk-forming fiber for regularity.'},{'name':'Added fruit powders','cls':'weak','note':'Amounts undisclosed; no product-specific outcome data.'}],
@@ -48,7 +48,7 @@ RESEARCH=[
 
  mk('pure-for-men-alternative','Pure for Men Stay Ready Fiber','Gut health · fiber',36,'$1.20','6 caps/day · 120/bottle',True,
     'A proprietary fiber blend — psyllium husk, aloe vera, chia, and flaxseed — at ~750 mg per capsule (~4,500 mg/day). Per-ingredient amounts are not disclosed.',
-    [{'name':'Generic psyllium husk capsules','desc':'~6 caps/day','cost':6,'cls':'strong'}],
+    [{'name':'NOW Psyllium Husk Caps (500 mg)','desc':'~6 caps/day','cost':6,'cls':'strong'}],
     ['Both center on psyllium husk — a soluble fiber — for a similar intended use (digestive regularity).','Same swallowable-capsule format taken with water.','A generic psyllium capsule is a lower-cost ingredient match for the blend’s primary fiber.'],
     ['The brand adds aloe, chia, and flaxseed alongside psyllium; plain psyllium does not — so it’s an overlapping-ingredient match, not an identical formula.','The brand uses a proprietary blend, so the psyllium amount can’t be verified or matched exactly.','Aloe’s evidence for regularity is weak; you lose little by dropping it.'],
     [{'name':'Psyllium (soluble fiber)','cls':'strong','note':'First-line, well-studied bulk fiber for regularity.'},{'name':'Flaxseed','cls':'weak','note':'Provides fiber; less consistent than psyllium for regularity.'},{'name':'Chia','cls':'weak','note':'Gel-forming fiber; little direct clinical data.'},{'name':'Aloe vera leaf','cls':'weak','note':'Limited evidence; can cause GI cramping.'}],
@@ -60,7 +60,7 @@ RESEARCH=[
 
  mk('peachy-plump-alternative','Peachy Plump Creatine Bites','Fitness · creatine',60,'$2.00','1 serving/day · 30/container',False,
     'Creatine monohydrate gummies at ~5 g per serving (label claim), plus sugar and a gummy base (amounts not disclosed).',
-    [{'name':'Creatine monohydrate powder (bulk)','desc':'5 g/day','cost':6,'cls':'strong'}],
+    [{'name':'Nutricost Creatine Monohydrate','desc':'5 g/day','cost':6,'cls':'strong'}],
     ['Both deliver the same active molecule — creatine monohydrate — at a comparable ~5 g daily target.','A similar intended use (supporting strength and exercise performance).','The powder is a lower-cost ingredient match on the creatine itself.'],
     ['Gummy convenience and flavor vs. unflavored powder you mix into water.','Independent testing across the creatine-gummy category has flagged under-dosing and stability concerns; powder dosing is measured by you and more consistent.','Gummies typically add sugar; the plain powder does not.'],
     [{'name':'Creatine monohydrate','cls':'strong','note':'One of the most-studied sport-nutrition ingredients for strength.'},{'name':'Gummy format','cls':'weak','note':'Stability and actual-delivered-dose over shelf life is a documented question.'}],
@@ -73,7 +73,7 @@ RESEARCH=[
 
  mk('pedialyte-alternative','Pedialyte AdvancedCare Plus','Hydration · electrolytes',45,'$1.50','1 packet/day',False,
     'A glucose-electrolyte oral-rehydration powder: ~650 mg sodium, 370 mg potassium, 840 mg chloride, ~10 g sugar per packet, plus a prebiotic (FOS).',
-    [{'name':'Generic WHO oral rehydration salts (ORS)','desc':'1 packet/day','cost':11,'cls':'strong'}],
+    [{'name':'TRIORAL WHO ORS packets','desc':'1 packet/day','cost':11,'cls':'strong'}],
     ['Both are glucose-plus-electrolyte formulas built on the same oral-rehydration (ORS) approach — sodium, potassium, chloride, glucose.','A similar intended use: replacing fluids and electrolytes lost to illness or heavy sweating.','The generic ORS delivers a comparable-to-higher electrolyte load per liter at a fraction of the price.'],
     ['Pedialyte adds a prebiotic (FOS) and comes pre-flavored and sweetened; generic ORS is usually plain.','One Pedialyte packet makes ~16 oz; one ORS packet makes ~1 liter — follow each label, they’re not spoon-for-spoon interchangeable.','Neither lists zinc; some other ORS products add it.'],
     [{'name':'Oral rehydration / electrolytes','cls':'strong','note':'Clinically established when genuinely needed (illness, heavy sweat).'},{'name':'Everyday routine use','cls':'weak','note':'Little benefit for well-hydrated people; water usually suffices.'}],
@@ -85,7 +85,7 @@ RESEARCH=[
 
  mk('nuun-instant-alternative','Nuun Instant','Hydration · electrolytes',26,'$0.87','1 stick/day',False,
     'A rehydration stick with ~520 mg sodium, ~150 mg potassium, ~25 mg magnesium, plus cane sugar/dextrose and vitamins C and B12 (exact sugar grams not disclosed).',
-    [{'name':'Store-brand electrolyte drink mix','desc':'1 stick/day','cost':6,'cls':'mod'}],
+    [{'name':'Great Value Electrolyte Drink Mix','desc':'1 stick/day','cost':6,'cls':'mod'}],
     ['Both deliver sodium and potassium as the primary rehydration minerals, for a similar intended use.','Both are single-serve stick packs mixed into water.','The store-brand option is a lower-cost ingredient match on the key electrolytes.'],
     ['Nuun Instant is glucose-based (cane sugar + dextrose); the store-brand match is often sugar-free, so it lacks that carbohydrate.','Nuun adds magnesium, calcium, and vitamins the leaner store brand may omit.','Sweetener and flavor systems differ (stevia + sugar vs. sucralose).'],
     [{'name':'Electrolytes / rehydration','cls':'strong','note':'Well supported when genuinely losing fluids.'},{'name':'Everyday use','cls':'weak','note':'Plain water usually suffices for well-hydrated people.'}],
@@ -97,7 +97,7 @@ RESEARCH=[
 
  mk('dose-and-co-alternative','Dose & Co Collagen Peptides','Beauty · collagen',60,'$2.00','1 scoop (20 g)/day',False,
     'A single commodity ingredient — 20 g of hydrolyzed bovine collagen peptides (Types I & III) per serving, unflavored, with no added actives.',
-    [{'name':'Store-brand bovine collagen peptides','desc':'20 g/day','cost':27,'cls':'mod'}],
+    [{'name':'BulkSupplements Collagen Peptides','desc':'20 g/day','cost':27,'cls':'mod'}],
     ['Both deliver the same commodity active — hydrolyzed bovine collagen peptides (Types I & III) — at the same 20 g daily dose.','Single-ingredient unflavored powders with no proprietary actives.','A similar intended use (hair, skin & nails / general collagen support).'],
     ['Branding, sourcing story, and packaging differ; the core peptide does not.','Dose & Co sells flavored and vitamin-C/biotin variants the plain store brand doesn’t replicate.','Collagen is an incomplete protein (low in tryptophan) — don’t count it as a complete protein source, either brand.'],
     [{'name':'Collagen for skin','cls':'mod','note':'Some trials suggest support for hydration/elasticity; effects modest.'},{'name':'Collagen for joints','cls':'weak','note':'Mixed, less consistent evidence.'},{'name':'Collagen for hair & nails','cls':'weak','note':'Heavily marketed, little rigorous human data.'}],
@@ -110,7 +110,7 @@ RESEARCH=[
 
  mk('metamucil-alternative','Metamucil Premium Blend','Gut health · fiber',7,'$0.24','1 tsp/day · 114/tub',False,
     'Psyllium husk delivering ~2.4 g soluble fiber per teaspoon, plus orange flavor, stevia, and color (additive amounts not disclosed).',
-    [{'name':'Generic psyllium husk powder','desc':'~3.4 g/day','cost':3,'cls':'strong'}],
+    [{'name':'NOW Psyllium Husk Powder','desc':'~3.4 g/day','cost':3,'cls':'strong'}],
     ['Both deliver soluble fiber from psyllium husk at a similar per-dose amount.','A similar intended use — daily fiber and regularity.','A lower-cost ingredient match on the core fiber, unflavored and sugar-free.'],
     ['Metamucil adds orange flavor, stevia, and color; the generic is plain and can be grittier.','Metamucil is pre-measured; the generic you measure yourself.','Metamucil markets a "4-in-1" positioning; the generic is fiber only.'],
     [{'name':'Psyllium (soluble fiber)','cls':'strong','note':'Well-studied for regularity; also supports LDL as part of a diet.'}],
@@ -122,7 +122,7 @@ RESEARCH=[
 
  mk('benefiber-alternative','Benefiber Prebiotic Fiber','Gut health · fiber',6,'$0.19','1 serving/day · 125/bottle',False,
     'Wheat dextrin (soluble prebiotic fiber), ~3 g fiber per 2-tsp serving; unflavored, sugar-free, non-thickening.',
-    [{'name':'Store-brand wheat dextrin fiber','desc':'3 g/day','cost':2,'cls':'strong'}],
+    [{'name':'Equate Clear & Natural Fiber','desc':'3 g/day','cost':2,'cls':'strong'}],
     ['Both deliver the same active — soluble wheat dextrin, ~3 g fiber per serving.','A similar intended use — a daily prebiotic / soluble-fiber supplement.','Comparable format: unflavored, sugar-free, non-thickening powder.'],
     ['Brand, manufacturing, and testing programs differ; a store brand may require a specific retail channel.','Bottle sizes and serving counts differ — compare per-serving price, not sticker.','Both list under 20 ppm gluten (not certified gluten-free); avoid with a wheat allergy.'],
     [{'name':'Soluble fiber (wheat dextrin)','cls':'mod','note':'Solid overall; its effect on stool output is modest vs psyllium.'},{'name':'Prebiotic effect','cls':'mod','note':'Demonstrated in fermentation studies.'}],
@@ -134,7 +134,7 @@ RESEARCH=[
 
  mk('liquid-iv-sugar-free-alternative','Liquid I.V. Sugar-Free','Hydration · electrolytes',39,'$1.30','1 stick/day',True,
     'A sugar-free rehydration stick: ~500 mg sodium, ~370 mg potassium, ~4 g allulose, an amino-acid blend, plus vitamins C and B (exact vitamin amounts not disclosed).',
-    [{'name':'Store-brand sugar-free electrolyte mix','desc':'1 stick/day','cost':13,'cls':'mod'}],
+    [{'name':'Great Value Sugar-Free Electrolyte Mix','desc':'1 stick/day','cost':13,'cls':'mod'}],
     ['Both deliver the core hydration electrolytes — sodium and potassium — in a sugar-free single-serve powder.','A similar intended use — mixed into water for everyday hydration.','A lower-cost ingredient match on the electrolyte base.'],
     ['Liquid I.V. adds a proprietary amino-acid + allulose blend and a fuller vitamin profile; store brands carry fewer add-ons.','Electrolyte amounts vary between products — check each label.','Flavor range and stick size differ; store-brand availability may be regional.'],
     [{'name':'Electrolytes / rehydration','cls':'strong','note':'Well supported when genuinely losing fluids.'},{'name':'Everyday use','cls':'weak','note':'Limited benefit over water for well-hydrated people.'}],
@@ -146,7 +146,7 @@ RESEARCH=[
 
  mk('gatorlyte-alternative','Gatorade Gatorlyte','Hydration · electrolytes',40,'$1.33','1 stick/day',False,
     'A rapid-rehydration stick: ~490 mg sodium, ~350 mg potassium, ~1,040 mg chloride, calcium and magnesium, and ~10 g sugar per stick.',
-    [{'name':'Generic WHO oral rehydration salts (ORS)','desc':'1 packet/day','cost':9,'cls':'strong'}],
+    [{'name':'TRIORAL WHO ORS packets','desc':'1 packet/day','cost':9,'cls':'strong'}],
     ['Both deliver sodium, potassium, and chloride plus glucose for fluid absorption.','A similar intended use — rehydration after fluid loss from exercise, heat, or illness.','A lower-cost ingredient match on the primary electrolytes.'],
     ['A generic ORS packet makes ~1 L vs Gatorlyte’s ~500 mL — doses per glass are not identical.','Gatorlyte adds calcium and magnesium and consumer flavors; generic ORS is a clinical formula.','They are not interchangeable serving-for-serving — the glucose-sodium ratio differs.'],
     [{'name':'Oral rehydration salts','cls':'strong','note':'WHO-endorsed, extensively studied for dehydration.'},{'name':'Everyday routine use','cls':'weak','note':'Limited benefit for healthy, hydrated people.'}],
@@ -158,7 +158,7 @@ RESEARCH=[
 
  mk('opti-greens-50-alternative','1st Phorm Opti-Greens 50','Greens · superfood',60,'$2.00','1 serving/day · 30/bag',True,
     'A greens powder built on five proprietary blends (greens, glycemic, phytonutrient, enzymes) plus a 10-strain probiotic — the per-ingredient doses inside the blends are not disclosed.',
-    [{'name':'Budget greens powder','desc':'1 scoop/day','cost':27,'cls':'weak'},{'name':'Daily multivitamin','desc':'1/day','cost':2,'cls':'strong'},{'name':'Generic probiotic','desc':'1/day','cost':6,'cls':'mod'}],
+    [{'name':'Nutricost Organic Super Greens','desc':'1 scoop/day','cost':27,'cls':'weak'},{'name':'Kirkland Daily Multi','desc':'1/day','cost':2,'cls':'strong'},{'name':'Amazon Basics Probiotic','desc':'1/day','cost':6,'cls':'mod'}],
     ['The match stack covers the same core categories — a greens/superfood powder, broad vitamins and minerals, and live probiotic strains.','A similar intended use — daily nutritional and gut support.','A lower-cost ingredient match on the ingredient categories.'],
     ['Opti-Greens uses five proprietary blends with undisclosed doses, so its greens and enzyme amounts can’t be matched or verified.','The match is a 2–3 product stack (more steps) rather than one scoop; the strains and enzymes won’t be identical.','Any greens powder is a supplement, not a replacement for eating vegetables.'],
     [{'name':'Greens powders','cls':'weak','note':'Limited evidence they match whole vegetables.'},{'name':'Multivitamin','cls':'strong','note':'Reliably fills common gaps; disclosed doses.'},{'name':'Probiotic','cls':'mod','note':'Strain-specific; effects not universal.'}],
@@ -171,7 +171,7 @@ RESEARCH=[
 
  mk('gruns-alternative','Grüns Daily Greens','Greens · superfood',56,'$2.00','1 pack/day',True,
     'A daily greens gummy pack: 20+ vitamins and minerals (disclosed), 6 g prebiotic fiber, and a 60+ ingredient fruit/veg/greens blend whose weights are largely proprietary. It contains prebiotic fiber, not probiotics.',
-    [{'name':'Budget multivitamin','desc':'1/day','cost':8,'cls':'strong'},{'name':'Budget greens powder (optional)','desc':'1 scoop/day','cost':28,'cls':'weak'}],
+    [{'name':'Kirkland Daily Multi','desc':'1/day','cost':8,'cls':'strong'},{'name':'Nutricost Super Greens (optional)','desc':'1 scoop/day','cost':28,'cls':'weak'}],
     ['A budget multivitamin delivers a similar core set of 20+ vitamins and minerals.','A similar intended use — a once-daily general nutritional-support supplement.','Adding a budget greens gives overlapping greens/superfood ingredients at lower cost.'],
     ['Grüns is a portable no-water gummy; the match is a pill plus an optional powder — less convenient.','Grüns bundles greens, 6 g prebiotic fiber, and adaptogens; a plain multivitamin lacks the fiber and greens.','Grüns discloses vitamin amounts but its greens-blend weights are largely proprietary.'],
     [{'name':'Multivitamin','cls':'strong','note':'Fills common micronutrient gaps; broadly studied.'},{'name':'Greens / superfood','cls':'weak','note':'Not a substitute for whole vegetables.'},{'name':'Prebiotic fiber','cls':'mod','note':'Moderate evidence for digestion; Grüns has no probiotics.'}],
@@ -184,7 +184,7 @@ RESEARCH=[
 
  mk('shakeology-alternative','Shakeology','Meal replacement · shake',130,'$4.33','1 serving/day · 30/bag',True,
     'A meal-replacement shake: 16–17 g protein, 6 g fiber, a 2 B CFU probiotic, plus broad vitamins and minerals and a large greens/adaptogen/mushroom blend whose per-ingredient doses are proprietary.',
-    [{'name':'Budget plant meal-replacement shake','desc':'1 serving/day','cost':53,'cls':'mod'}],
+    [{'name':'Orgain Organic Meal Powder','desc':'1 serving/day','cost':53,'cls':'mod'}],
     ['Overlapping ingredients — plant protein, fiber, a greens/superfood blend, and added vitamins and minerals.','A similar intended use as a once-daily meal-replacement shake.','Comparable protein (16–20 g) and fiber (6–11 g) per serving.'],
     ['Shakeology carries a far broader adaptogen/mushroom/superfood matrix; the budget shake’s blend is narrower.','Shakeology offers a whey option; the budget match shown is plant-only.','Shakeology’s superfood doses are proprietary, so potency can’t be verified head-to-head.'],
     [{'name':'Protein','cls':'strong','note':'Solid for satiety and muscle support.'},{'name':'Greens / superfood blend','cls':'weak','note':'Small blended doses; whole vegetables are better studied.'},{'name':'Probiotic','cls':'mod','note':'Some gut-support evidence; strain-specific.'}],
@@ -196,7 +196,7 @@ RESEARCH=[
 
  mk('isalean-alternative','Isagenix IsaLean Shake','Meal replacement · shake',296,'$4.93','2 shakes/day · 14/canister',True,
     'A meal-replacement shake: ~24 g protein, 8 g fiber, 24 vitamins and minerals per serving, plus 9 digestive enzymes and a probiotic — the protein is a proprietary "Myo-IsaLean Complex" whose sub-doses are not broken out.',
-    [{'name':'Budget complete-nutrition shake','desc':'2 servings/day','cost':70,'cls':'mod'}],
+    [{'name':'Orgain Organic Meal Powder','desc':'2 servings/day','cost':70,'cls':'mod'}],
     ['Overlapping core ingredient — a whey/milk-based protein at a comparable ~15–25 g per serving.','A similar intended use — a convenient meal-replacement shake.','Both provide broad added vitamins and minerals.'],
     ['IsaLean bundles digestive enzymes, a probiotic, and MCT/plant-oil fats a budget shake usually lacks.','Protein grams differ (IsaLean ~24 g vs a budget shake ~15 g); a DIY whey route can match protein but not the enzyme/probiotic blend.','The proprietary protein blend means exact ratios aren’t disclosed.'],
     [{'name':'Protein','cls':'strong','note':'Solid at ~24 g for satiety and muscle support.'},{'name':'Meal-replacement completeness','cls':'mod','note':'Reasonably complete with fiber and 24 micronutrients.'}],
@@ -208,7 +208,7 @@ RESEARCH=[
 
  mk('jocko-go-alternative','Jocko GO Energy Drink','Energy · drink',92,'$3.08','1 can/day · 12/pack',True,
     '95 mg caffeine plus L-theanine, alpha-GPC, theobromine, bacopa, B-vitamins, and electrolytes (some amounts not disclosed); zero sugar.',
-    [{'name':'Coffee (or a caffeine tablet)','desc':'~95 mg caffeine/day','cost':10,'cls':'strong'}],
+    [{'name':'Store coffee, or a Vivarin caffeine tablet','desc':'~95 mg caffeine/day','cost':10,'cls':'strong'}],
     ['The primary active is caffeine — a cup of coffee or a caffeine tablet gives a comparable ~95 mg dose.','A similar intended use — alertness and focus.','A lower-cost ingredient match on the main stimulant.'],
     ['Jocko GO also supplies L-theanine, alpha-GPC, theobromine, bacopa, B-vitamins, and electrolytes that coffee alone does not.','A ready-to-drink flavored can vs. brewing coffee or dosing a tablet.','Some of Jocko GO’s amounts are undisclosed, so the non-caffeine actives can’t be directly compared.'],
     [{'name':'Caffeine','cls':'strong','note':'Strong for short-term alertness and vigilance.'},{'name':'L-theanine','cls':'mod','note':'Moderate for calm focus, paired with caffeine.'},{'name':'Alpha-GPC / bacopa / theobromine','cls':'weak','note':'Weaker evidence at single-serving doses.'}],
@@ -257,7 +257,7 @@ RESEARCH=[
 
  mk('colonbroom-alternative','ColonBroom Psyllium Fiber','Gut health · fiber',65,'$2.17','1–2 scoops/day · ~60/tub',False,
     'Psyllium husk delivering 3.6 g fiber per scoop, plus crystallized lemon, citric acid, sea salt, and stevia for flavor (those amounts are not disclosed).',
-    [{'name':'Generic plain psyllium husk powder','desc':'~one serving/day','cost':8,'cls':'strong'}],
+    [{'name':'NOW Psyllium Husk Powder','desc':'~one serving/day','cost':8,'cls':'strong'}],
     ['Both deliver soluble fiber from psyllium husk — the same active ingredient and a similar intended use (daily regularity).','Both are water-mixed powders taken once or twice a day.','A lower-cost ingredient match on the fiber itself, at a fraction of the per-serving price.'],
     ['ColonBroom is pre-flavored and sweetened (lemon, stevia, citric acid, salt, color); plain psyllium is unflavored and grittier.','Per-serving fiber differs — ColonBroom discloses 3.6 g/scoop while a generic tablespoon can run ~6 g, so titrate to your own comfort.','ColonBroom is sold on a recurring subscription; the generic tub you buy once and measure yourself.'],
     [{'name':'Psyllium (soluble fiber)','cls':'strong','note':'The most-studied bulk-forming fiber for regularity; AGA-recommended for chronic constipation.'},{'name':'Added flavor & sweetener','cls':'weak','note':'Amounts undisclosed; no product-specific outcome data.'}],
@@ -282,7 +282,7 @@ RESEARCH=[
 
  mk('organifi-green-juice-alternative','Organifi Green Juice','Greens · superfood powder',70,'$2.33','1 scoop/day · 30/container',True,
     'A once-daily greens powder built on two proprietary blends (~6.55 g total): moringa, spirulina, chlorella, matcha, ashwagandha, turmeric and more. Individual ingredient amounts are not disclosed.',
-    [{'name':'Budget organic greens powder','desc':'1 scoop/day','cost':25,'cls':'weak'},{'name':'Daily multivitamin','desc':'1/day','cost':1,'cls':'mod'}],
+    [{'name':'Nutricost Organic Super Greens','desc':'1 scoop/day','cost':25,'cls':'weak'},{'name':'Kirkland Daily Multi','desc':'1/day','cost':1,'cls':'mod'}],
     ['The budget greens powder shares core greens — spirulina, chlorella, grasses — for a similar intended use (a daily greens drink).','Adding a multivitamin gives broad vitamin and mineral coverage a greens powder alone does not guarantee.','A lower-cost ingredient match on the overlapping greens, at roughly a third of the price.'],
     ['Organifi hides its greens and adaptogen doses inside proprietary blends, so exact potency can’t be verified or matched.','Organifi adds ashwagandha, matcha, and turmeric a plain budget greens powder may under-supply or omit — an important difference.','A two-product routine is less convenient than one scoop; taste and certifications vary.'],
     [{'name':'Greens powders vs vegetables','cls':'weak','note':'Limited, often brand-funded evidence; not a replacement for eating vegetables.'},{'name':'Multivitamin basics','cls':'mod','note':'Well-established for filling common vitamin and mineral gaps.'},{'name':'Ashwagandha','cls':'mod','note':'Moderate for stress at studied doses — undercut when hidden in a proprietary blend.'}],
@@ -294,7 +294,7 @@ RESEARCH=[
 
  mk('cure-hydration-alternative','Cure Hydration Electrolyte Mix','Hydration · electrolytes',44,'$1.47','1 stick/day · 14/pack',False,
     'A coconut-water-based rehydration stick: 240 mg sodium (pink Himalayan salt + sodium citrate), 300 mg potassium (from coconut water), 4 g sugar (no added sugar), sweetened with stevia and monk fruit.',
-    [{'name':'Store-brand sugar-free electrolyte mix','desc':'1 stick/day','cost':12,'cls':'mod'}],
+    [{'name':'Great Value Sugar-Free Electrolyte Mix','desc':'1 stick/day','cost':12,'cls':'mod'}],
     ['Both deliver sodium and potassium as the primary rehydration minerals, for a similar intended use.','Both are single-serve powder sticks mixed into water, in a no-added-sugar / sugar-free format.','The store-brand option is a lower-cost ingredient match on the key electrolytes.'],
     ['Cure uses a coconut-water base (natural potassium) and pink Himalayan salt; store brands typically use synthetic sodium and potassium citrate.','Cure carries organic, non-GMO, and vegan positioning with stevia and monk fruit; many store brands use artificial sweeteners and flavors.','Exact electrolyte levels, taste, and additives differ — these are similar, not identical, products.'],
     [{'name':'Electrolytes / rehydration','cls':'strong','note':'Well supported when genuinely losing fluids (heat, exercise, illness).'},{'name':'Everyday use','cls':'weak','note':'Plain water usually suffices for well-hydrated people.'}],
@@ -332,7 +332,7 @@ RESEARCH=[
 
  mk('ag1-alternative','AG1 by Athletic Greens','Greens · superfood powder',79,'$2.63','1 scoop/day · 30/pouch',True,
     'A once-daily greens-plus-multivitamin powder. Vitamins and minerals are disclosed (e.g. vitamin C ~420 mg, biotin ~330 mcg), but the greens, herb, mushroom, adaptogen, and 7.2 billion CFU probiotic amounts are locked inside proprietary blends.',
-    [{'name':'Budget organic greens powder','desc':'1 scoop/day','cost':20,'cls':'weak'},{'name':'Daily multivitamin','desc':'1/day','cost':12,'cls':'mod'},{'name':'Multi-strain probiotic','desc':'1/day','cost':10,'cls':'mod'}],
+    [{'name':'Nutricost Organic Super Greens','desc':'1 scoop/day','cost':20,'cls':'weak'},{'name':'Kirkland Daily Multi','desc':'1/day','cost':12,'cls':'mod'},{'name':'Multi-strain probiotic','desc':'1/day','cost':10,'cls':'mod'}],
     ['The stack covers the same three categories AG1 bundles — a greens powder, broad vitamin and mineral coverage, and a daily probiotic — for a similar intended use.','A multivitamin can supply comparable, clearly-labeled doses of the same core vitamins and minerals AG1 lists.','A lower-cost ingredient match on the overlapping components, at a fraction of the per-serving price.'],
     ['AG1 hides its greens, herb, mushroom, adaptogen, and probiotic amounts in proprietary blends, so per-ingredient potency can’t be verified or matched exactly.','Convenience differs — one AG1 scoop versus a powder plus two capsules; third-party testing also varies (AG1 is NSF Certified for Sport).','Exact strain lists, CFU counts, and superfood ratios differ between products — important differences to weigh.'],
     [{'name':'Greens powders vs vegetables','cls':'weak','note':'Limited evidence; not a substitute for eating vegetables.'},{'name':'Multivitamin basics','cls':'mod','note':'Reliably fills common micronutrient gaps.'},{'name':'Probiotic','cls':'mod','note':'Moderate and strain-specific; effects don’t generalize across products.'}],
@@ -344,7 +344,7 @@ RESEARCH=[
 
  mk('vital-proteins-alternative','Vital Proteins Collagen Peptides','Beauty · collagen',43,'$1.53','2 scoops (20 g)/day · ~28/tub',False,
     'A single commodity ingredient — 20 g of hydrolyzed bovine collagen peptides (Types I & III) per serving, unflavored. The standard tub has no added hyaluronic acid or vitamin C.',
-    [{'name':'Store-brand bovine collagen peptides','desc':'20 g/day','cost':19,'cls':'mod'}],
+    [{'name':'BulkSupplements Collagen Peptides','desc':'20 g/day','cost':19,'cls':'mod'}],
     ['Both deliver the same commodity active — hydrolyzed bovine collagen peptides (Types I & III) — at the same 20 g daily dose.','Both are unflavored single-ingredient powders that mix into liquids, for a similar intended use.','A lower-cost ingredient match delivering the same collagen dose at a materially lower cost per gram.'],
     ['Serving sizes differ — Vital Proteins is 20 g/scoop while the match is often labeled ~11 g, so measure to match and a tub lasts longer per gram.','Sourcing and certification claims differ (grass-fed marketing; an NSF Certified for Sport version) — verify third-party testing on any store brand.','Collagen is an incomplete protein (low in tryptophan) — don’t count it as a sole protein source, either brand.'],
     [{'name':'Collagen for skin','cls':'mod','note':'Moderate but mixed; effects shrink in higher-quality, non-industry-funded trials.'},{'name':'Collagen for joints','cls':'weak','note':'Weak-to-emerging; some support at ~5 g/day over 12+ weeks.'},{'name':'Collagen for hair & nails','cls':'weak','note':'Limited direct human evidence.'}],
@@ -396,7 +396,7 @@ RESEARCH=[
 
  mk('olly-probiotic-alternative','OLLY Probiotic + Prebiotic Gummy','Gut health · probiotic',13,'$0.43','1 gummy/day · 30/bottle',False,
     'A chewable probiotic gummy: Bacillus coagulans (MTCC 5856) at 500 million CFU, a 1.5 g prebiotic blend (FOS, inulin, xylitol), and 2 g of added sugar per gummy.',
-    [{'name':'Generic Bacillus coagulans capsule (higher CFU)','desc':'1/day','cost':12,'cls':'mod'}],
+    [{'name':'Swanson Bacillus Coagulans (6 Billion)','desc':'1/day','cost':12,'cls':'mod'}],
     ['Both deliver Bacillus coagulans as the probiotic organism, for a similar intended use (everyday digestive support).','A lower-cost ingredient match on the same probiotic species at a comparable monthly cost.','Both are once-daily formats.'],
     ['This is more about format than price — the capsule is sugar-free while the gummy adds 2 g sugar per day.','OLLY discloses a low 500 million CFU; a plain capsule commonly discloses far more (e.g. 6 billion).','OLLY bundles prebiotic fiber the plain capsule doesn’t, and strains are not identical, so effects are not interchangeable — important differences.'],
     [{'name':'Probiotics (strain-specific)','cls':'mod','note':'Moderate; benefits shown for one strain don’t transfer to another.'},{'name':'Bacillus coagulans','cls':'mod','note':'Some clinical data for digestive support.'}],
@@ -422,7 +422,7 @@ RESEARCH=[
 
  mk('native-path-alternative','NativePath Collagen Peptides','Beauty · collagen',50,'$1.67','2 scoops (20 g)/day · 25/tub',False,
     'A single commodity ingredient — 10 g of hydrolyzed grass-fed bovine collagen peptides (Types I & III) per scoop (20 g at two scoops), unflavored, no added co-factors.',
-    [{'name':'Store-brand bovine collagen peptides','desc':'20 g/day','cost':19,'cls':'mod'}],
+    [{'name':'BulkSupplements Collagen Peptides','desc':'20 g/day','cost':19,'cls':'mod'}],
     ['Both deliver the same commodity active — hydrolyzed bovine collagen peptides (Types I & III) — at a comparable ~20 g daily dose.','Both are unflavored powders mixed into liquid, for a similar intended use (skin, hair & nails).','A lower-cost ingredient match at a materially lower cost per gram.'],
     ['NativePath markets grass-fed, pasture-raised sourcing and brand testing; a store brand may not carry identical sourcing claims — an important difference, not equivalence.','NativePath pushes multi-tub "stock up" bundles to lower the per-tub price; the generic competes on plain per-gram cost.','Collagen is an incomplete protein (low in tryptophan) — don’t count it as a sole protein source, either brand.'],
     [{'name':'Collagen for skin','cls':'mod','note':'Moderate but mixed; several independent studies found no significant benefit.'},{'name':'Collagen for joints','cls':'weak','note':'Limited, mixed evidence.'},{'name':'Collagen for hair & nails','cls':'weak','note':'Limited controlled evidence.'}],
@@ -435,7 +435,7 @@ RESEARCH=[
 
  mk('bloom-greens-alternative','Bloom Nutrition Greens & Superfoods','Greens · superfood powder',35,'$1.17','1 scoop/day · 30/tub',True,
     'A once-daily greens powder of 38 ingredients grouped into ~7 proprietary blends (greens, fruit & veggie, pre/probiotic, adaptogen, digestive enzyme, fiber, antioxidant). Only blend totals are shown; per-ingredient amounts and probiotic CFU are not disclosed.',
-    [{'name':'Budget super-greens powder','desc':'1 scoop/day','cost':16,'cls':'weak'},{'name':'Daily multivitamin','desc':'1/day','cost':1,'cls':'mod'}],
+    [{'name':'Nutricost Organic Super Greens','desc':'1 scoop/day','cost':16,'cls':'weak'},{'name':'Kirkland Daily Multi','desc':'1/day','cost':1,'cls':'mod'}],
     ['Overlapping ingredients — both deliver core greens (spirulina, chlorella, grasses) plus fruit and veggie powders, for a similar intended use (a daily greens drink).','Adding a multivitamin gives standardized, disclosed vitamin and mineral doses the greens powder alone lacks.','A lower-cost ingredient match at roughly half the price.'],
     ['Bloom uses proprietary blends, so individual ingredient amounts and probiotic CFU are undisclosed — you can’t verify potency; the match’s multivitamin at least lists exact amounts.','Bloom’s adaptogen (~100 mg total) and probiotic totals appear low, so neither option should be assumed to deliver a clinically meaningful dose.','Flavor, mixability, and formulation differ — the match is not identical.'],
     [{'name':'Greens powders vs vegetables','cls':'weak','note':'Limited evidence; a small scoop does not replace whole vegetables.'},{'name':'Multivitamin basics','cls':'mod','note':'Solid for covering common vitamin and mineral gaps.'},{'name':'Digestive enzymes','cls':'limited','note':'Limited evidence of meaningful benefit in healthy people.'}],
@@ -447,7 +447,7 @@ RESEARCH=[
 
  mk('hydrant-alternative','Hydrant Hydrate Electrolyte Mix','Hydration · electrolytes',37,'$1.23','1 stick/day · 30/pack',False,
     'A single-serve stick with 260 mg sodium, 200 mg potassium, 30 mg magnesium, 2 mg zinc, and 4 g cane sugar, flavored with real fruit juice powder — all disclosed.',
-    [{'name':'Store-brand electrolyte drink mix','desc':'1 stick/day','cost':12,'cls':'mod'}],
+    [{'name':'Great Value Electrolyte Drink Mix','desc':'1 stick/day','cost':12,'cls':'mod'}],
     ['Overlapping core ingredients — both deliver sodium and potassium as the primary electrolytes, for a similar intended use (daily fluid replacement).','Both are single-serve powder sticks mixed into water.','The store-brand packet is a lower-cost ingredient match covering the main electrolyte function at a fraction of the per-serving price.'],
     ['Hydrant adds magnesium and zinc and uses real cane sugar and juice; many store-brand packets are sugar-free and may omit magnesium or zinc — check the label.','Sodium and potassium amounts per stick differ by product and flavor, so electrolyte levels are not identical.','Taste, flavor range, and "no artificial sweetener" positioning differ.'],
     [{'name':'Electrolytes when needed','cls':'strong','note':'Well supported for heat, exercise, or illness-related fluid loss.'},{'name':'Everyday use','cls':'weak','note':'Plain water usually suffices for well-hydrated people.'}],
@@ -459,7 +459,7 @@ RESEARCH=[
 
  mk('just-thrive-alternative','Just Thrive Probiotic & Antioxidant','Gut health · probiotic',50,'$1.67','1 capsule/day · 30/bottle',True,
     'A 100% spore-based blend totaling ~3 billion CFU across four Bacillus strains — B. subtilis HU58, B. coagulans SC-208, B. clausii SC-109, and B. indicus HU36 (an antioxidant-producing strain). The per-strain CFU split is not disclosed.',
-    [{'name':'Generic Bacillus spore probiotic (disclosed CFU)','desc':'1 capsule/day','cost':21,'cls':'mod'}],
+    [{'name':'Dynamic Enzymes Biome Ultra (spore probiotic)','desc':'1 capsule/day','cost':21,'cls':'mod'}],
     ['Overlapping ingredients — both are 100% Bacillus spore-forming probiotics sharing three of the four strain species (B. subtilis, B. coagulans, B. clausii).','A similar intended use (daily digestive and gut support), both shelf-stable and acid-resistant.','A lower-cost ingredient match that discloses a higher labeled CFU per capsule.'],
     ['The exact branded spore strains aren’t reproduced — HU58, HU36, SC-208, and SC-109 are proprietary, and probiotic effects are strain-specific, so a same-species generic may not deliver identical results.','The generic lacks B. indicus HU36, the antioxidant-producing strain that distinguishes Just Thrive — so that feature is not matched.','Higher labeled CFU in the generic doesn’t equal an equivalent effect given different strains.'],
     [{'name':'Spore probiotics (strain-specific)','cls':'mod','note':'Moderate/emerging; data on one strain does not transfer to another.'}],
@@ -498,7 +498,7 @@ RESEARCH=[
 
  mk('kachava-alternative','Ka’Chava Whole Body Meal','Meal replacement · superfood shake',120,'$4.00','1 shake/day · 15/bag',True,
     'A plant-protein meal shake (~25 g protein, ~6 g fiber per serving) plus "85+ superfoods" — greens, adaptogens, probiotics, and digestive enzymes bundled into proprietary blends whose individual amounts are not disclosed.',
-    [{'name':'Budget plant protein powder','desc':'~25 g/day','cost':19,'cls':'mod'},{'name':'Greens powder','desc':'1 scoop/day','cost':27,'cls':'weak'},{'name':'Daily multivitamin','desc':'1/day','cost':9,'cls':'mod'}],
+    [{'name':'Budget plant protein powder','desc':'~25 g/day','cost':19,'cls':'mod'},{'name':'Greens powder','desc':'1 scoop/day','cost':27,'cls':'weak'},{'name':'Kirkland Daily Multi','desc':'1/day','cost':9,'cls':'mod'}],
     ['Overlapping ingredients — both deliver ~25 g plant protein plus a greens/superfood component and added micronutrients.','A similar intended use — a once-daily plant-based shake to supplement or replace a meal.','A lower-cost ingredient match assembling the same core categories (protein + greens + multivitamin) separately.'],
     ['Ka’Chava’s superfood, adaptogen, and probiotic content is in proprietary blends with undisclosed per-ingredient doses; a DIY match can’t replicate the exact 85+ item formula, and neither can be dose-verified.','Ka’Chava is one all-in-one scoop with a single flavor system and added enzymes; the match is 2–3 products to mix and manage.','Fortification, amino-acid profile, and taste differ — important differences, not an identical substitute.'],
     [{'name':'Plant protein','cls':'mod','note':'Solid — ~25 g plant protein is a well-supported contributor to daily needs.'},{'name':'Greens powders vs vegetables','cls':'weak','note':'Do not match whole vegetables for nutrition.'},{'name':'Adaptogens & probiotics','cls':'limited','note':'Undisclosed doses prevent an evidence-based assessment.'}],
@@ -511,7 +511,7 @@ RESEARCH=[
 
  mk('ancient-nutrition-alternative','Ancient Nutrition Multi Collagen Protein','Beauty · collagen',30,'$1.00','1 scoop/day · 45/tub',True,
     'A ~10 g "Multi Collagen Complex" per scoop from four sources — bovine, chicken, fish, and eggshell membrane — providing Types I, II, III, V, and X, plus added vitamin C and probiotics. The grams per source are not disclosed.',
-    [{'name':'Store-brand bovine collagen peptides (Types I & III)','desc':'~10 g/day','cost':15,'cls':'mod'}],
+    [{'name':'Spring Valley Collagen Peptides','desc':'~10 g/day','cost':15,'cls':'mod'}],
     ['Overlapping core ingredient — both deliver hydrolyzed collagen peptides with Types I and III.','A similar intended use — marketed for skin, hair, nail, and joint support.','The store brand is a genuine lower-cost ingredient match on the primary collagen component.'],
     ['Multi-source vs single-source — Ancient Nutrition blends four animal sources; the store brand is bovine only, so it doesn’t reproduce Types II, V, or X.','Ancient Nutrition uses a proprietary blend (grams per source undisclosed) and adds vitamin C and probiotics; exact ingredient-level matching isn’t possible.','Per-scoop dose differs (~10 g vs ~6.7 g in some store brands) — measure to match.'],
     [{'name':'Collagen for skin','cls':'mod','note':'Moderate evidence for elasticity/hydration.'},{'name':'Collagen for joints','cls':'weak','note':'Weak; Type II specifically has limited evidence.'},{'name':'Collagen for hair & nails','cls':'weak','note':'Limited controlled evidence.'}],
@@ -537,7 +537,7 @@ RESEARCH=[
 
  mk('momentous-creatine-alternative','Momentous Creatine Monohydrate','Fitness · creatine',14,'$0.47','5 g/day · 90/tub',False,
     'A single ingredient — 5 g of creatine monohydrate per serving, unflavored, no additives. Historically Creapure-sourced (verify per lot).',
-    [{'name':'Bulk creatine monohydrate (Creapure)','desc':'5 g/day','cost':7,'cls':'strong'}],
+    [{'name':'Nutricost Creapure Creatine Monohydrate','desc':'5 g/day','cost':7,'cls':'strong'}],
     ['Both deliver the same molecule — 5 g of creatine monohydrate per serving — as a single unflavored ingredient, for a similar intended use (strength and performance).','Both are offered in Creapure-branded creatine, the same source form.','A lower-cost ingredient match at the same standard 5 g daily dose.'],
     ['Certification differs — Momentous is NSF Certified for Sport and Informed Sport (relevant for tested athletes); a bulk match is third-party lab tested but usually not sport-certified.','Sourcing — Momentous has moved some SKUs from Creapure to a proprietary "Signature Spec" creatine; confirm current sourcing on each before assuming identical origin.','The bulk match is a larger tub driving the lower per-serving cost; Momentous is a smaller premium-positioned tub.'],
     [{'name':'Creatine monohydrate','cls':'strong','note':'One of the most-studied sport-nutrition ingredients for strength, power, and lean mass.'}],
@@ -550,7 +550,7 @@ RESEARCH=[
 
  mk('legion-pulse-alternative','Legion Pulse Pre-Workout','Fitness · pre-workout',53,'$1.77','1 serving/day · ~21/tub',False,
     'A fully disclosed formula (no proprietary blends): L-citrulline DL-malate ~8 g, beta-alanine ~3.6 g, betaine ~2.5 g, caffeine ~350 mg, L-theanine ~350 mg, and alpha-GPC ~300 mg per serving.',
-    [{'name':'Bulk L-citrulline malate','desc':'~8 g/day','cost':7,'cls':'mod'},{'name':'Bulk beta-alanine','desc':'~3.6 g/day','cost':3,'cls':'mod'},{'name':'Bulk caffeine + betaine + theanine','desc':'daily','cost':4,'cls':'strong'}],
+    [{'name':'BulkSupplements L-Citrulline Malate','desc':'~8 g/day','cost':7,'cls':'mod'},{'name':'BulkSupplements Beta-Alanine','desc':'~3.6 g/day','cost':3,'cls':'mod'},{'name':'BulkSupplements caffeine + betaine + theanine','desc':'daily','cost':4,'cls':'strong'}],
     ['Overlapping ingredients — a DIY stack replicates 5 of Legion’s 6 actives (citrulline malate, beta-alanine, caffeine, betaine, theanine) at similar disclosed doses.','A similar intended use — a pre-workout for energy, focus, and muscular endurance.','A lower-cost ingredient match — buying these actives in bulk costs a fraction of the finished product per month.'],
     ['DIY requires weighing and mixing each dose accurately (a gram scale) and has no ready flavor system, so taste and mixability are worse.','The match omits alpha-GPC and Legion’s flavoring; Legion arrives pre-blended and flavored.','Legion is fully label-transparent with no proprietary blends and third-party lab tested — a genuine plus versus self-sourcing multiple raw powders.'],
     [{'name':'L-citrulline','cls':'mod','note':'Moderate for exercise performance/muscular endurance.'},{'name':'Beta-alanine','cls':'mod','note':'Moderate for muscular endurance.'},{'name':'Caffeine','cls':'strong','note':'Strong for exercise performance and perceived energy.'}],
@@ -613,7 +613,7 @@ RESEARCH=[
 
  mk('orgain-protein-alternative','Orgain Organic Plant Protein','Fitness · plant protein',42,'$1.40','1 scoop/day · 20/tub',False,
     'A pea + brown rice + mung bean + chia blend delivering 21 g plant protein and 5–6 g fiber per serving, flavored and stevia-sweetened (1 g sugar), USDA Organic.',
-    [{'name':'Budget pea protein powder','desc':'~20 g protein/day','cost':27,'cls':'mod'}],
+    [{'name':'Nutricost Pea Protein','desc':'~20 g protein/day','cost':27,'cls':'mod'}],
     ['Overlapping core ingredient — both are pea-protein-based plant powders.','A similar intended use — a daily plant-based protein shake to support protein intake.','Comparable protein dose (~20–21 g per serving) at a lower cost.'],
     ['Orgain is USDA Organic and a multi-source blend (pea + rice + mung + chia); a budget pea isolate is single-source and usually not organic.','Orgain is pre-flavored and formulated for smoothness; budget pea isolate is often unflavored and grittier.','A single pea source is slightly lower in methionine — combining pea with rice gives a more complete amino profile.'],
     [{'name':'Protein for muscle & satiety','cls':'strong','note':'Well-supported for building/maintaining muscle and appetite regulation.'},{'name':'Plant protein blends','cls':'mod','note':'Supply complete essential amino acids when legume + grain sources are combined.'}],
@@ -626,7 +626,7 @@ RESEARCH=[
 
  mk('maryruths-multivitamin-alternative','MaryRuth’s Liquid Morning Multivitamin','Daily multivitamin',36,'$1.20','1 serving/day · 32/bottle',False,
     'A vegan, sugar-free liquid multivitamin: vitamin A ~1,000 mcg, C 90 mg, E ~18 mg, D3, and a full B-complex with methylfolate and methylcobalamin, plus choline and trace minerals. Several B-vitamin and mineral amounts are not individually disclosed. No iron, minimal calcium.',
-    [{'name':'Generic complete adult multivitamin (gummy or tablet)','desc':'daily','cost':3,'cls':'mod'}],
+    [{'name':'Equate Adult Multivitamin','desc':'daily','cost':3,'cls':'mod'}],
     ['Both are complete daily multivitamins with a similar intended use — filling everyday micronutrient gaps in vitamins A, C, D, E and the B-complex.','Overlapping ingredients across the core vitamin panel, including added zinc.','The generic is a lower-cost ingredient match for that vitamin coverage.'],
     ['Format differs — MaryRuth’s is a liquid (flexible, age-scalable dosing); the match is a gummy or tablet.','MaryRuth’s is vegan and markets organic/clean-label sourcing with extras (choline, MSM, botanicals) not in a basic multi; check the generic’s vegetarian status and added sugar.','Mineral coverage is limited on both — neither is a strong iron or calcium source.'],
     [{'name':'Multivitamin (fills gaps)','cls':'mod','note':'Solid for filling dietary micronutrient gaps when intake is inadequate.'},{'name':'Liquid vs pill absorption','cls':'weak','note':'Largely marketing — no strong evidence a liquid absorbs meaningfully better for most nutrients.'}],
@@ -639,7 +639,7 @@ RESEARCH=[
 
  mk('transparent-labs-whey-alternative','Transparent Labs Grass-Fed Whey Isolate','Fitness · whey protein',60,'$2.00','1 serving/day · 30/tub',False,
     'Grass-fed whey protein isolate delivering ~28 g protein per serving, with a short disclosed ingredient list (natural flavor, stevia, sunflower lecithin) — no proprietary blends.',
-    [{'name':'Budget whey protein isolate','desc':'~25 g protein/day','cost':29,'cls':'strong'}],
+    [{'name':'NOW Sports Whey Protein Isolate','desc':'~25 g protein/day','cost':29,'cls':'strong'}],
     ['Overlapping core ingredient — both are whey protein isolate delivering ~25–28 g protein per serving.','A similar intended use — post-workout / daily protein to support muscle and total protein intake.','A lower-cost ingredient match on the primary protein source.'],
     ['Sourcing — Transparent Labs uses grass-fed, hormone-free whey; a budget isolate is usually standard whey, an important difference for shoppers who prioritize grass-fed.','Transparent Labs is fully disclosed with no proprietary blends and third-party tested; verify the generic’s own testing.','Additives, flavor, and sweetener systems differ.'],
     [{'name':'Whey protein','cls':'strong','note':'Well-studied for muscle protein synthesis (leucine-rich, fast-absorbed) and satiety with resistance training.'}],
@@ -652,7 +652,7 @@ RESEARCH=[
 
  mk('kion-aminos-alternative','Kion Aminos (Essential Amino Acids)','Fitness · amino acids',54,'$1.80','1 serving/day · 30/tub',False,
     'A leucine-forward free-form EAA powder — ~5 g total across all nine essential amino acids per serving (L-leucine 2,000 mg, lysine 850 mg, isoleucine 550 mg, valine 500 mg, plus the rest), fully disclosed to the milligram, sugar-free.',
-    [{'name':'Bulk generic EAA powder (all 9 EAAs disclosed)','desc':'~5 g EAAs/day','cost':8,'cls':'mod'}],
+    [{'name':'BulkSupplements EAA Powder','desc':'~5 g EAAs/day','cost':8,'cls':'mod'}],
     ['Overlapping ingredients — both are free-form powders containing all nine essential amino acids, including the BCAAs leucine, isoleucine, and valine.','A similar intended use — supporting muscle recovery and protein synthesis around training.','A lower-cost ingredient match delivering the same category of disclosed EAAs at a much lower price per gram.'],
     ['Kion uses a defined leucine-forward ratio (~40% leucine); a generic’s default serving has its own ratio, so matching Kion’s profile means measuring your own dose.','Kion is flavored and sweetened; the generic is usually unflavored and plainer.','Kion advertises third-party finished-product testing and NSF-certified cGMP manufacturing — verify the generic’s COA before assuming equal QC.'],
     [{'name':'EAAs for muscle protein synthesis','cls':'mod','note':'Moderate — free-form EAAs reliably trigger MPS, but adequate whole-food protein usually does the job on its own, and cheaper.'}],
@@ -665,7 +665,7 @@ RESEARCH=[
 
  mk('bulletproof-mct-alternative','Bulletproof Brain Octane C8 MCT Oil','Energy · MCT oil',24,'$0.79','1 tbsp/day · ~63/bottle',False,
     'A single-ingredient oil — 100% C8 (caprylic acid) MCT from coconut, ~14 g MCTs per tablespoon, no additives.',
-    [{'name':'Generic C8/C10 MCT oil','desc':'1 tbsp/day','cost':13,'cls':'limited'}],
+    [{'name':'Sports Research Organic MCT Oil','desc':'1 tbsp/day','cost':13,'cls':'limited'}],
     ['Overlapping ingredient — both are coconut-derived MCT oils delivering ~14 g MCTs per tablespoon.','A similar intended use — an unflavored oil added to coffee, tea, or smoothies at ~1 tbsp.','A lower-cost ingredient match on a per-serving basis.'],
     ['Composition — Brain Octane is pure C8; the lower-cost match is often a C8/C10 blend, so the fatty-acid profile is not identical (a pure-C8 generic exists but costs more).','Sourcing and processing (distillation, organic status) vary by brand.','Third-party testing and certifications differ — check each label.'],
     [{'name':'MCTs','cls':'limited','note':'Limited/mixed evidence for the marketed uses; functionally a source of ~120 kcal of fat per tbsp.'}],
@@ -678,7 +678,7 @@ RESEARCH=[
 
  mk('olipop-alternative','Olipop Prebiotic Soda','Gut · prebiotic soda',75,'$2.50','1 can/day · 12/pack',True,
     'A 12 oz can with a proprietary "OLISMART" fiber blend (~9 g fiber: chicory inulin, cassava, Jerusalem artichoke, plus marshmallow root, calendula, kudzu, nopal) and ~2–5 g sugar. The per-ingredient fiber amounts are not disclosed.',
-    [{'name':'Generic chicory inulin fiber powder','desc':'~7–9 g fiber/day','cost':13,'cls':'mod'},{'name':'Store-brand sparkling water','desc':'1 can/day','cost':12,'cls':'strong'}],
+    [{'name':'Nutricost Organic Inulin','desc':'~7–9 g fiber/day','cost':13,'cls':'mod'},{'name':'Great Value Sparkling Water','desc':'1 can/day','cost':12,'cls':'strong'}],
     ['Overlapping ingredient — both deliver chicory-root inulin, Olipop’s headline prebiotic fiber.','A similar intended use — a daily fizzy drink carrying a meaningful prebiotic-fiber dose (~7–9 g).','A lower-cost ingredient match on the core functional input (fiber) at a fraction of the per-serving price.'],
     ['Format and taste — Olipop is a ready-made flavored soda; the match is DIY (stir powder into sparkling water) with a mixing step and plainer taste.','Olipop’s OLISMART adds cassava, Jerusalem artichoke, and four botanicals a single-inulin powder doesn’t replicate — important differences.','Olipop is pre-sweetened and low-sugar; the DIY version is unsweetened unless you add your own.'],
     [{'name':'Prebiotic fiber (inulin)','cls':'mod','note':'Moderate for feeding beneficial gut bacteria; ~5–10 g/day is a commonly studied range.'},{'name':'Fiber contribution','cls':'mod','note':'~9 g is a real contribution against the 25–36 g/day target most people miss.'}],
@@ -688,6 +688,84 @@ RESEARCH=[
      ('Generic organic inulin fiber (match) — Amazon','https://www.amazon.com/Nutricost-Organic-Inulin-Powder-Serving/dp/B08RRSZ8H6',True),
      ('Prebiotic fiber & gut bacteria — Medical News Today','https://www.medicalnewstoday.com/articles/318593',True)],
     'chicory inulin prebiotic fiber','Gut, probiotic, omega & fiber'),
+
+ mk('goli-ashwagandha-alternative','Goli Ashwagandha Gummies','Stress · ashwagandha',19,'$0.63','2 gummies/day · 60/bottle',False,
+    'KSM-66 ashwagandha root extract 300 mg per 2-gummy serving, plus vitamin D2 (1,000 IU) and ~4 g added sugar.',
+    [{'name':'Nutricost KSM-66 Ashwagandha 600 mg (capsules)','desc':'1 capsule/day','cost':9,'cls':'mod'}],
+    ['Both deliver the same branded KSM-66 ashwagandha root extract, for a similar intended use (stress / relaxation support).','The Nutricost capsule is a lower-cost ingredient match on the primary active, stocked at Amazon, Walmart, and Target.','Both cover the ~300–600 mg KSM-66 daily range studied.'],
+    ['The gummy adds ~4 g sugar per serving; the capsule has none.','The capsule is a higher, standardized single dose (600 mg, 5% withanolides, with BioPerine); Goli’s is 300 mg per serving.','Goli also adds vitamin D2 and a berry gummy format; the capsule is ashwagandha-only — important differences in formulation.'],
+    [{'name':'Ashwagandha (KSM-66)','cls':'mod','note':'Moderate for stress-related outcomes at ~300–600 mg/day in randomized trials.'}],
+    'Generally well tolerated short-term; mild GI upset or drowsiness are reported.',
+    ['<b style="color:var(--ink)">Consult a healthcare professional</b> before use if you are pregnant or nursing, or have thyroid, autoimmune, or liver concerns — rare liver-injury cases have been reported with ashwagandha products.'],
+    [('Goli Ashwagandha Gummies — brand page (price Jul 2026)','https://goli.com/products/goli-nutrition-ashwagandha-gummies',True),
+     ('Nutricost KSM-66 Ashwagandha 600 mg (match) — Amazon','https://www.amazon.com/Nutricost-KSM-66-Ashwagandha-Extract-Veggie/dp/B079K32QB6',True),
+     ('Ashwagandha — NIH Office of Dietary Supplements','https://ods.od.nih.gov/factsheets/Ashwagandha-HealthProfessional/',True)],
+    'ksm-66 ashwagandha capsules','Sleep & calm'),
+
+ mk('ryze-mushroom-coffee-alternative','RYZE Mushroom Coffee','Coffee alternative · mushroom',36,'$1.20','1 cup/day · 30/bag',True,
+    'Organic instant arabica coffee (~48 mg caffeine) plus a ~2 g "Super6" mushroom blend (lion’s mane, cordyceps, reishi, turkey tail, shiitake, king trumpet), MCT, and a prebiotic blend. The per-mushroom amounts are not disclosed.',
+    [{'name':'Nescafé/store-brand instant coffee','desc':'1 cup/day','cost':5,'cls':'strong'},{'name':'Nutricost Lion’s Mane capsules','desc':'1/day','cost':14,'cls':'limited'}],
+    ['Overlapping ingredients — both deliver caffeine from coffee plus lion’s mane.','A similar intended use — a daily coffee-style cup marketed for energy and focus.','Pairing instant coffee with a named lion’s mane capsule targets the same headline ingredients at a lower cost.'],
+    ['Caffeine — a full-strength instant coffee gives standard coffee caffeine (~70–100 mg); RYZE medium roast is intentionally lower (~48 mg).','RYZE is a 6-mushroom proprietary blend (per-species doses undisclosed) plus MCT and prebiotics; a single lion’s mane capsule won’t replicate the full blend.','RYZE is one pre-mixed scoop; the match is two purchases — less all-in-one convenience.'],
+    [{'name':'Functional mushrooms','cls':'limited','note':'Limited/emerging human evidence for cognition and energy.'},{'name':'Coffee / caffeine','cls':'strong','note':'Well established for alertness and short-term focus.'}],
+    'Functional-mushroom products are not FDA-evaluated to treat any condition.',
+    ['<b style="color:var(--ink)">Consult a healthcare professional</b> before use if you have a mushroom allergy, take medication (e.g. blood thinners or immunosuppressants), are pregnant or nursing, or are caffeine-sensitive.'],
+    [('RYZE Mushroom Coffee — brand page (price Jul 2026)','https://www.ryzesuperfoods.com/products/mushroom-coffee',True),
+     ('RYZE ingredients page','https://www.ryzesuperfoods.com/pages/ryze-ingredients',True),
+     ('Nutricost Lion’s Mane (match) — Amazon','https://www.amazon.com/Nutricost-Lions-Mane-Extract-Capsules/dp/B07T8C9N97',True)],
+    'lions mane mushroom capsules instant coffee','Energy drinks & mixes'),
+
+ mk('soylent-alternative','Soylent Complete Meal','Meal replacement · complete shake',84,'$2.80','1 meal/day · 12/tub',False,
+    'A soy-protein complete-meal powder: ~20 g protein, ~28–36 vitamins and minerals (~20% DV each), ~20 g mostly-monounsaturated fat, and ~5 g fiber per ~400-cal meal.',
+    [{'name':'Huel Essential complete-meal powder','desc':'1 meal/day','cost':46,'cls':'mod'}],
+    ['Overlapping ingredients — both are complete meal powders with ~20 g plant protein plus a broad vitamin and mineral panel per ~400-cal serving.','A similar intended use — a mixable powdered meal for balanced on-the-go nutrition.','Huel Essential is a named, lower-cost complete-meal match ("Soylent vs Huel" is a common shopper question).'],
+    ['Protein source differs — Soylent uses soy and isomaltulose slow-carbs; Huel uses a pea/rice/oat base — so the macro and amino profiles aren’t identical.','Both are powders that require mixing; ready-to-drink Soylent bottles cost more and aren’t matched here.','Taste, texture, and sweetener systems differ by preference.'],
+    [{'name':'Complete meal-replacement','cls':'mod','note':'Solid for balanced macros + a full micronutrient panel in one serving; not superior to a well-balanced whole-food diet.'}],
+    'Soylent contains soy — not suitable with a soy allergy. Meal-replacement powders aren’t meant as sole long-term nutrition without guidance.',
+    ['<b style="color:var(--ink)">Consult a doctor or registered dietitian</b> before use if you are pregnant or nursing, manage a condition (diabetes, kidney disease), take medication, or plan to replace most daily meals.'],
+    [('Soylent Complete Meal Powder — brand page (price Jul 2026)','https://soylent.com/products/powder-original',True),
+     ('Huel Essential complete-meal powder (match)','https://huel.com/products/huel-essential',True),
+     ('Soylent review — BarBend','https://barbend.com/soylent-meal-replacement-powder-review/',True)],
+    'complete meal replacement powder','Daily multivitamins & greens'),
+
+ mk('smartypants-alternative','SmartyPants Adult Complete Gummies','Daily multivitamin',24,'$0.80','6 gummies/day · 180/bottle',False,
+    'A gummy multivitamin plus omega-3: vitamins A/C/D3/E, a methylated B-complex, iodine, zinc, choline, and ~87 mg EPA/DHA fish oil per 6-gummy serving, with ~5 g added sugar. No iron or calcium.',
+    [{'name':'Nature Made Multivitamin + Omega-3 Gummies','desc':'2 gummies/day','cost':9,'cls':'mod'}],
+    ['Overlapping ingredients — both deliver the core adult multivitamin set (A, C, D3, E, B-complex, zinc) plus EPA/DHA omega-3 in one gummy.','A similar intended use — a daily gummy multivitamin to help fill common nutrient gaps.','Nature Made Multi + Omega-3 is a named, lower-cost match on the same key nutrients.'],
+    ['Omega-3 dose and sourcing differ; SmartyPants emphasizes premium sourcing and methylated B12/folate — an important difference from most generics.','SmartyPants uses a 6-gummy/day serving; the match is typically 2/day.','Exact vitamin and mineral amounts vary between products — not identical formulations.'],
+    [{'name':'Multivitamin (fills gaps)','cls':'mod','note':'Solid rationale for covering common dietary shortfalls.'},{'name':'Omega-3 dose','cls':'weak','note':'~87 mg EPA/DHA is modest — well below typical study doses.'}],
+    'Contains fish oil (allergen) and iodine; no iron. Don’t exceed the labeled serving.',
+    ['<b style="color:var(--ink)">Consult a physician, pharmacist, or registered dietitian</b> before use if you are pregnant or nursing, take blood-thinning or thyroid medication, or are considering it for a child.'],
+    [('SmartyPants Adult Complete — brand page (price Jul 2026)','https://www.smartypantsvitamins.com/products/multi-and-omegas',True),
+     ('Nature Made Multivitamin + Omega-3 Gummies (match) — Walmart','https://www.walmart.com/ip/Nature-Made-Multivitamin-Omega-3-Gummies-Gummy-Vitamins-for-Nutritional-Support-80-Ct/857048132',True),
+     ('SmartyPants Adult Complete — Amazon listing','https://www.amazon.com/SmartyPants-Adult-Complete-Gummy-Vitamins/dp/B00Q2Q3YE0',True)],
+    'multivitamin omega 3 gummies','Daily multivitamins & greens'),
+
+ mk('garden-of-life-whey-alternative','Garden of Life Sport Grass-Fed Whey','Fitness · whey protein',72,'$2.40','1 serving/day · 20/tub',False,
+    'Certified grass-fed whey (~24 g protein/serving, isolate-forward), plus 4 g glutamine and 2 billion CFU Bifidobacterium lactis Bl-04, with organic ingredients. NSF Certified for Sport.',
+    [{'name':'NOW Sports Whey Protein Isolate','desc':'~25 g protein/day','cost':23,'cls':'strong'}],
+    ['Overlapping core ingredient — both deliver whey protein (~24–25 g per serving) as the primary protein source.','A similar intended use — post-workout / recovery protein for active adults.','NOW Sports Whey Isolate is a named, lower-cost ingredient match on protein content.'],
+    ['Garden of Life uses certified grass-fed, organic, Non-GMO-verified dairy; the budget match typically does not.','Garden of Life adds probiotics (2B CFU B. lactis Bl-04) and 4 g glutamine the match generally lacks.','Garden of Life carries NSF Certified for Sport (screened for banned substances) — an important difference for tested athletes.'],
+    [{'name':'Whey protein','cls':'strong','note':'Well-studied for muscle protein synthesis (leucine-rich) with resistance training.'}],
+    'Contains milk/dairy — not suitable with a milk allergy; may cause GI discomfort with lactose sensitivity (isolate is lower-lactose, not lactose-free). Contains erythritol/stevia.',
+    ['<b style="color:var(--ink)">Consult a physician or registered dietitian</b> before regular use if you are pregnant or nursing, have kidney concerns, or manage a medical condition.'],
+    [('Garden of Life Sport Grass-Fed Whey — brand page (price Jul 2026)','https://www.gardenoflife.com/sport-certified-grass-fed-whey-vanilla',True),
+     ('NOW Sports Whey Protein Isolate (match) — Amazon','https://www.amazon.com/NOW-Sports-Nutrition-Unflavored-Powder/dp/B0015R37GU',True),
+     ('Whey protein & muscle protein synthesis — meta-analysis (PMC)','https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2901380/',True)],
+    'grass fed whey protein isolate','Fitness & performance'),
+
+ mk('wonderfeel-nmn-alternative','Wonderfeel Youngr NMN','Longevity · NAD support',88,'$2.93','2 capsules/day · 60/bottle',False,
+    'NMN 900 mg/day (2 × 450 mg), plus trans-resveratrol 50 mg, hydroxytyrosol (olive extract) 40 mg, ergothioneine 2 mg, and vitamin D3 — all disclosed.',
+    [{'name':'Neurogan Beta NMN 900 mg','desc':'daily','cost':15,'cls':'mod'},{'name':'Nutricost Trans-Resveratrol','desc':'daily','cost':8,'cls':'weak'}],
+    ['Overlapping primary ingredient — both deliver ~900 mg/day NMN, a NAD+ precursor.','A similar intended use — NAD+ support in the healthy-aging category.','Adding a named generic resveratrol covers Wonderfeel’s second disclosed sirtuin-activator ingredient.'],
+    ['Added cofactors — Wonderfeel bundles hydroxytyrosol, ergothioneine, and vitamin D3 a bare NMN doesn’t include; important differences in formulation.','Purity and testing — Wonderfeel states >99% purity; generic NMN quality varies, so verify third-party COAs.','Format — Wonderfeel uses a refillable glass bottle + refill subscription; generics are standard bottles.'],
+    [{'name':'NMN raises NAD+ markers','cls':'mod','note':'Human trials show oral NMN raises blood NAD+ dose-dependently (safe/tolerated up to 900 mg/day).'},{'name':'Downstream health/longevity outcomes','cls':'limited','note':'Limited/emerging — a NAD+ marker rise is not a proven clinical benefit.'}],
+    'NMN was generally well tolerated in short/medium-term trials, but long-term data are limited and its supplement regulatory status is still settling (FDA reinstated NMN’s lawful status in late 2025).',
+    ['<b style="color:var(--ink)">Consult a qualified healthcare professional</b> before use if you are pregnant or nursing, take medications, or manage a health condition.'],
+    [('Wonderfeel Youngr NMN — brand page (price Jul 2026)','https://getwonderfeel.com/product/wonderfeel-youngr-nmn/',True),
+     ('Neurogan Beta NMN 900 mg (match) — Amazon','https://www.amazon.com/Neurogan-Beta-NMN-%CE%B2-NMN-Supplement/dp/B0FVGCLR3J',True),
+     ('NMN up to 900 mg/day — RCT (PMC)','https://pmc.ncbi.nlm.nih.gov/articles/PMC9735188/',True)],
+    'NMN nicotinamide mononucleotide supplement','Longevity & everyday'),
 ]
 
 # These products already have a canonical page — a bespoke teardown (build_teardowns.py)
