@@ -396,7 +396,8 @@ present=[b for b in ORDER if b in cards]
 nav=''.join('<a href="#cat-%d" style="display:inline-block;margin:0 8px 8px 0;padding:7px 13px;border:1px solid rgba(255,138,61,.35);border-radius:999px;color:var(--flame2);text-decoration:none;font-size:13px">%s <span style="color:var(--muted)">%d</span></a>'%(i,esc(b),len(cards[b])) for i,b in enumerate(present))
 sec=['<div class="wrap"><section id="teardowns"><div class="shead"><p class="kick">The teardown library</p>'
      '<h2>%d overpriced products, busted.</h2>'
-     '<p class="lead">Same ingredients, less markup. Pick a category — every page shows the cheaper swap and the math.</p></div>'%total,
+     '<p class="lead">Same ingredients, less markup. Pick a category — every page shows the cheaper swap and the math.</p>'
+     '<div style="margin-top:12px"><a class="btn flame" href="/dupe-kit.html">📄 Get the free Dupe Kit — all %d, one printable list</a></div></div>'%(total,total),
      '<div class="catnav" style="margin:0 0 8px">%s</div>'%nav]
 for i,b in enumerate(present):
     lst=sorted(cards[b],key=lambda x:-x[0])
@@ -434,4 +435,50 @@ sm.append('</urlset>')
 open('sitemap.xml','w',encoding='utf-8').write('\n'.join(sm)+'\n')
 open('robots.txt','w',encoding='utf-8').write('User-agent: *\nAllow: /\nSitemap: %ssitemap.xml\n'%BASE)
 print('wrote sitemap.xml (%d urls) + robots.txt'%len(urls))
+
+# ---------- Dupe Kit: printable master reference (the $19 / lead-magnet asset) ----------
+allrows=[]
+for b in present:
+    for yr,nm,href,o,bu in sorted(cards[b],key=lambda x:-x[0]):
+        allrows.append((b,nm,href,o,bu,yr))
+tot_year=sum(r[5] for r in allrows)
+tot_mo=sum((r[3]-r[4]) for r in allrows)
+dk=['<!doctype html>\n<html lang="en">\n<head>\n<meta charset="utf-8">\n'
+    '<title>The BlendBusters Dupe Kit</title>\n<meta name="viewport" content="width=device-width, initial-scale=1">\n'
+    '<meta name="description" content="Every overpriced supplement and its cheaper commodity swap, with the exact monthly and annual savings.">\n'
+    '%s\n<link rel="stylesheet" href="/bb.css">\n'
+    '<style>@media print{.top,.dk-cta,footer{display:none}body{background:#fff;color:#000}}'
+    '.dk-t{width:100%%;border-collapse:collapse;margin:10px 0 26px;font-size:14px}'
+    '.dk-t th{text-align:left;color:var(--flame2);border-bottom:1px solid rgba(255,138,61,.3);padding:8px 10px;font-size:12px;letter-spacing:.1em;text-transform:uppercase}'
+    '.dk-t td{padding:9px 10px;border-bottom:1px solid rgba(255,255,255,.06)}'
+    '.dk-t a{color:inherit;text-decoration:none;border-bottom:1px dotted rgba(255,138,61,.5)}'
+    '.dk-save{color:var(--volt2);font-weight:700;white-space:nowrap}.dk-old{color:var(--muted);text-decoration:line-through}'
+    '.dk-hero{text-align:center;padding:30px 0 6px}.dk-big{font-size:clamp(40px,8vw,72px);font-weight:800;color:var(--volt2);line-height:1}'
+    '</style>\n</head>\n<body>\n'
+    '<header class="top"><div class="wrap"><a class="brand" href="/">%s BlendBusters</a>'
+    '<nav class="main"><a class="lnk" href="/">← All teardowns</a></nav></div></header>\n'%(GA,LOGO),
+    '<div class="wrap">'
+    '<div class="dk-hero"><p class="kick">The Dupe Kit</p>'
+    '<h1 class="display">Every overpriced supplement, and the cheaper swap.</h1>'
+    '<p class="sub">One printable master list of %d products, the exact commodity swap, and what you keep by switching. Prices approximate; verify before buying.</p>'
+    '<div style="margin:22px 0 6px"><div class="dk-big">$%s/yr</div>'
+    '<div style="color:var(--muted);font-size:14px">total you could stop overpaying — about $%s a month across the whole list</div></div>'
+    '</div>'%(len(allrows),'{:,}'.format(round(tot_year)),'{:,}'.format(round(tot_mo)))]
+for b in present:
+    rws=sorted(cards[b],key=lambda x:-x[0])
+    sub_y=sum(x[0] for x in rws)
+    dk.append('<h3 class="cathead" style="margin:26px 0 6px;color:var(--flame2);font-size:14px;letter-spacing:.12em;text-transform:uppercase">%s <span style="color:var(--muted);text-transform:none;letter-spacing:0">— save ~$%s/yr</span></h3>'%(esc(b),'{:,}'.format(round(sub_y))))
+    dk.append('<table class="dk-t"><thead><tr><th>Brand</th><th>Brand cost</th><th>Your swap</th><th>You save</th><th></th></tr></thead><tbody>')
+    for yr,nm,href,o,bu in rws:
+        h2=href if href.startswith('/') else '/'+href+'.html'
+        bud=('%g'%bu) if bu<10 else str(int(round(bu)))
+        dk.append('<tr><td>%s</td><td class="dk-old">$%d/mo</td><td>$%s/mo</td><td class="dk-save">$%s/yr</td><td><a href="%s">see the swap →</a></td></tr>'%(nm,o,bud,'{:,}'.format(yr),h2))
+    dk.append('</tbody></table>')
+dk.append('<div class="dk-cta" style="text-align:center;margin:10px 0 40px"><a class="btn flame" href="/#get">Get weekly teardowns free</a> '
+          '<a class="btn ghost" href="/" >Browse all teardowns</a></div></div>')
+dk.append('<footer><div class="wrap"><p class="disc">© 2026 Hunt Web Consulting Services. Informational only; not medical advice. '
+          'Prices are approximate and change; verify before purchasing. Statements not evaluated by the FDA; products are not intended to diagnose, treat, cure, or prevent any disease. '
+          'Affiliate links may earn commissions per FTC guidelines. Brand names used for comparison only.</p></div></footer>\n</body>\n</html>\n')
+open('dupe-kit.html','w',encoding='utf-8').write(''.join(dk))
+print('wrote dupe-kit.html (%d products, $%s/yr total)'%(len(allrows),'{:,}'.format(round(tot_year))))
 print('done')
