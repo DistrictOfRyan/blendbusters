@@ -28,6 +28,9 @@ HYD_CONSULT=['<b style="color:var(--ink)">Consult a healthcare professional</b> 
 FIBER_CONSULT=['<b style="color:var(--ink)">Talk to a doctor or pharmacist first</b> if you are pregnant or nursing, have a swallowing difficulty or a GI condition (bowel narrowing, IBD), have diabetes, or take prescription medication.',
  'See a professional for rectal bleeding, persistent GI symptoms, or unexplained changes in bowel habits — a fiber supplement is not a treatment.']
 FIBER_SAFETY='With any psyllium fiber, increase the amount gradually and drink plenty of water to reduce gas, bloating, or choking risk; take it a couple of hours apart from medications, since fiber can affect absorption.'
+SLEEP_CONSULT=['<b style="color:var(--ink)">Talk to a healthcare professional</b> before use if you are pregnant or nursing, take sedatives, blood-pressure, or blood-thinner medications, or have a health condition — melatonin and some botanicals can interact with medications.']
+GREENS_CONSULT=['<b style="color:var(--ink)">Consult a physician, pharmacist, or registered dietitian</b> before starting if you are pregnant or nursing, on medication (especially blood thinners, thyroid, or blood-sugar drugs), immunocompromised, or managing a health condition.']
+CAFF_CONSULT=['<b style="color:var(--ink)">Count all your daily caffeine</b> (coffee, soda, pre-workout) toward a general ~400 mg adult limit, and don’t stack sources. Not for children or anyone pregnant or nursing; consult a professional if you have a heart condition, high blood pressure, anxiety, caffeine sensitivity, or take medications.']
 
 # ---- RESEARCH DATA (filled from verified agent packs, price-checked Jul 2026) ----
 RESEARCH=[
@@ -178,6 +181,79 @@ RESEARCH=[
      ('Grüns review — Fortune','https://fortune.com/article/gruns-superfood-gummies-review/',True),
      ('Multivitamin overview — GoodRx','https://www.goodrx.com/multivitamin-and-mineral-supplements',True)],
     'multivitamin','Daily multivitamins & greens'),
+
+ mk('shakeology-alternative','Shakeology','Meal replacement · shake',130,'$4.33','1 serving/day · 30/bag',True,
+    'A meal-replacement shake: 16–17 g protein, 6 g fiber, a 2 B CFU probiotic, plus broad vitamins and minerals and a large greens/adaptogen/mushroom blend whose per-ingredient doses are proprietary.',
+    [{'name':'Budget plant meal-replacement shake','desc':'1 serving/day','cost':53,'cls':'mod'}],
+    ['Overlapping ingredients — plant protein, fiber, a greens/superfood blend, and added vitamins and minerals.','A similar intended use as a once-daily meal-replacement shake.','Comparable protein (16–20 g) and fiber (6–11 g) per serving.'],
+    ['Shakeology carries a far broader adaptogen/mushroom/superfood matrix; the budget shake’s blend is narrower.','Shakeology offers a whey option; the budget match shown is plant-only.','Shakeology’s superfood doses are proprietary, so potency can’t be verified head-to-head.'],
+    [{'name':'Protein','cls':'strong','note':'Solid for satiety and muscle support.'},{'name':'Greens / superfood blend','cls':'weak','note':'Small blended doses; whole vegetables are better studied.'},{'name':'Probiotic','cls':'mod','note':'Some gut-support evidence; strain-specific.'}],
+    'Contains adaptogens (ashwagandha, maca) and mushroom extracts that can interact with medications or conditions.',GREENS_CONSULT,
+    [('Shakeology — BODi product page (list price Jul 2026)','https://shop.bodi.com/products/shakeology',True),
+     ('Shakeology — Amazon listing','https://www.amazon.com/Shakeology-Superfood-Probiotics-Adaptogens-Chocolate/dp/B0BKCR5X28',True),
+     ('Orgain organic meal-replacement (match) — Walmart','https://www.walmart.com/ip/Orgain-Organic-Vegan-Meal-Replacement-Powder-20g-Plant-Based-Protein-Chocolate-2-01lb/119363804',True)],
+    'plant meal replacement shake','Daily multivitamins & greens'),
+
+ mk('isalean-alternative','Isagenix IsaLean Shake','Meal replacement · shake',296,'$4.93','2 shakes/day · 14/canister',True,
+    'A meal-replacement shake: ~24 g protein, 8 g fiber, 24 vitamins and minerals per serving, plus 9 digestive enzymes and a probiotic — the protein is a proprietary "Myo-IsaLean Complex" whose sub-doses are not broken out.',
+    [{'name':'Budget complete-nutrition shake','desc':'2 servings/day','cost':70,'cls':'mod'}],
+    ['Overlapping core ingredient — a whey/milk-based protein at a comparable ~15–25 g per serving.','A similar intended use — a convenient meal-replacement shake.','Both provide broad added vitamins and minerals.'],
+    ['IsaLean bundles digestive enzymes, a probiotic, and MCT/plant-oil fats a budget shake usually lacks.','Protein grams differ (IsaLean ~24 g vs a budget shake ~15 g); a DIY whey route can match protein but not the enzyme/probiotic blend.','The proprietary protein blend means exact ratios aren’t disclosed.'],
+    [{'name':'Protein','cls':'strong','note':'Solid at ~24 g for satiety and muscle support.'},{'name':'Meal-replacement completeness','cls':'mod','note':'Reasonably complete with fiber and 24 micronutrients.'}],
+    'Contains milk/dairy (whey, milk protein) — not for a dairy allergy; added fiber and probiotics may cause GI adjustment. Replacing multiple daily meals should be approached carefully.',GREENS_CONSULT,
+    [('IsaLean Shake — Isagenix product page (Jul 2026)','https://www.isagenix.com/en-us/shop/weight-management/isalean-protein-shake',True),
+     ('IsaLean Shake review — BarBend','https://barbend.com/isagenix-isalean-shake-review/',True),
+     ('Kirkland complete nutrition shakes (match) — Costco','https://www.costco.com/kirkland-signature-complete-nutrition-shakes,-8.2-fl.-oz.,-32-pack.product.100399081.html',True)],
+    'complete nutrition meal shake','Daily multivitamins & greens'),
+
+ mk('jocko-go-alternative','Jocko GO Energy Drink','Energy · drink',92,'$3.08','1 can/day · 12/pack',True,
+    '95 mg caffeine plus L-theanine, alpha-GPC, theobromine, bacopa, B-vitamins, and electrolytes (some amounts not disclosed); zero sugar.',
+    [{'name':'Coffee (or a caffeine tablet)','desc':'~95 mg caffeine/day','cost':10,'cls':'strong'}],
+    ['The primary active is caffeine — a cup of coffee or a caffeine tablet gives a comparable ~95 mg dose.','A similar intended use — alertness and focus.','A lower-cost ingredient match on the main stimulant.'],
+    ['Jocko GO also supplies L-theanine, alpha-GPC, theobromine, bacopa, B-vitamins, and electrolytes that coffee alone does not.','A ready-to-drink flavored can vs. brewing coffee or dosing a tablet.','Some of Jocko GO’s amounts are undisclosed, so the non-caffeine actives can’t be directly compared.'],
+    [{'name':'Caffeine','cls':'strong','note':'Strong for short-term alertness and vigilance.'},{'name':'L-theanine','cls':'mod','note':'Moderate for calm focus, paired with caffeine.'},{'name':'Alpha-GPC / bacopa / theobromine','cls':'weak','note':'Weaker evidence at single-serving doses.'}],
+    'Total caffeine is the main consideration — count all sources toward a general ~400 mg/day adult limit.',CAFF_CONSULT,
+    [('Jocko GO — Jocko Fuel product page (Jul 2026)','https://jockofuel.com/products/jocko-go-energy-drink',True),
+     ('Jocko Fuel — Vitamin Shoppe','https://www.vitaminshoppe.com/b/jocko-fuel/food-drinks/drinks/energy-drinks',True),
+     ('Caffeine tablets (match) — Walmart','https://www.walmart.com/ip/Prolab-Nutrition-Caffeine-200-mg-100-Tabs/24812008',True)],
+    'caffeine tablets','Energy drinks & mixes'),
+
+ mk('five-hour-energy-alternative','5-hour Energy Extra Strength','Energy · shot',80,'$2.62','1 shot/day · 12/pack',True,
+    '~230 mg caffeine plus B-vitamins and a proprietary ~1,870 mg "Energy Blend" (taurine, tyrosine, citicoline and more — individual amounts not disclosed); sugar-free.',
+    [{'name':'Caffeine tablet (200 mg)','desc':'~200 mg/day','cost':2,'cls':'strong'}],
+    ['The active driver is caffeine — a 200 mg tablet is the closest single-ingredient overlap (~230 mg shot vs ~200 mg tablet).','A similar intended use — a fast, portable caffeine boost.','A lower-cost ingredient match on the component that drives the effect.'],
+    ['The shot adds B-vitamins, taurine, tyrosine, and citicoline a plain caffeine tablet does not.','Slightly lower caffeine in the tablet, and a liquid shot vs. a pill.','The shot’s blend amounts are proprietary, so total non-caffeine intake can’t be compared.'],
+    [{'name':'Caffeine','cls':'strong','note':'Strong for alertness and reaction time.'},{'name':'B-vitamins','cls':'weak','note':'Minimal added benefit unless deficient.'},{'name':'Taurine / amino blend','cls':'weak','note':'Limited, mixed evidence beyond caffeine.'}],
+    'One shot is ~230 mg caffeine — count all sources toward a general ~400 mg/day limit and don’t stack shots or pre-workouts.',CAFF_CONSULT,
+    [('5-hour Energy caffeine facts — brand','https://5hourenergy.com/blogs/the-feed/5-hour-energy-caffeine-facts',True),
+     ('5-hour Energy Extra Strength — Walmart','https://www.walmart.com/ip/5-hour-ENERGY-Shot-Extra-Strength-Sour-Apple-1-93-oz-12-Count/35437566',True),
+     ('Caffeine tablets (match) — Amazon','https://www.amazon.com/Nutricost-Caffeine-Pills-Serving-Bottle/dp/B01KKX0GXM',True)],
+    'caffeine pills 200mg','Energy drinks & mixes'),
+
+ mk('beam-dream-alternative','Beam Dream Powder','Sleep · calm',34,'$1.13','1 scoop/night · 30/bag',True,
+    'A bedtime cocoa with magnesium glycinate, L-theanine, 3 mg melatonin, reishi, apigenin, and nano-hemp — several amounts are not fully broken out on the label.',
+    [{'name':'Magnesium glycinate + L-theanine + low-dose melatonin','desc':'1/night','cost':17,'cls':'mod'}],
+    ['Both deliver the core sleep-onset stack — magnesium, L-theanine, and low-dose melatonin.','A similar intended use — winding down before bed.','A lower-cost ingredient match on the primary evidence-backed actives.'],
+    ['The cocoa drink-mix format and flavors aren’t reproduced by a capsule.','Reishi, apigenin, and nano-hemp/CBD are generally not reproduced in the low-cost match.','Beam’s exact per-ingredient doses are partly undisclosed, so the match is an approximation.'],
+    [{'name':'Melatonin','cls':'mod','note':'Moderate for reducing sleep-onset time.'},{'name':'Magnesium','cls':'mod','note':'Moderate, mainly if intake is low.'},{'name':'L-theanine','cls':'weak','note':'Weak-to-moderate for relaxation.'},{'name':'Reishi','cls':'weak','note':'Limited clinical evidence for sleep.'}],
+    'Melatonin can cause drowsiness and may interact with sedatives, blood-pressure, or blood-thinner medications; hemp/CBD can interact with other drugs.',SLEEP_CONSULT,
+    [('Beam Dream — label & ingredients (Amazon)','https://www.amazon.com/Beam-Ingredients-L-Theanine-Magnesium-Supplement/dp/B0BM4ZVR78',True),
+     ('Natural Vitality CALM Sleep (match) — Walmart','https://www.walmart.com/ip/Natural-Vitality-CALM-Sleep-Aid-Capsules-with-Magnesium-Glycinate-Melatonin-and-L-Theanine-60-count/785229559',True),
+     ('Stress-Relax Nighttime (alt match) — Amazon','https://www.amazon.com/Stress-Relax-Nighttime-Magnesium-GLYCINATE-Capsules/dp/B0F8PQX431',True)],
+    'magnesium glycinate l-theanine melatonin','Sleep & calm'),
+
+ mk('magnesi-om-alternative','Moon Juice Magnesi-Om','Sleep · calm · magnesium',44,'$1.47','1 tsp/day · 30/jar',False,
+    '310 mg elemental magnesium from a citrate/gluconate/acetyl-taurinate blend, plus 112 mg L-theanine — all amounts disclosed.',
+    [{'name':'Generic magnesium glycinate','desc':'1/day','cost':6,'cls':'mod'},{'name':'L-theanine (optional)','desc':'1/day','cost':3,'cls':'weak'}],
+    ['Both deliver supplemental elemental magnesium for the same intended use (rest and relaxation).','The optional L-theanine adds the same second active found in Magnesi-Om.','A lower-cost ingredient match at a fraction of the per-serving price.'],
+    ['Different magnesium forms — Magnesi-Om uses a citrate/gluconate/acetyl-taurinate blend; the match uses glycinate (gentler on the gut).','A flavored drink mix vs. capsules.','The L-theanine dose isn’t identical (a 200 mg cap vs 112 mg).'],
+    [{'name':'Magnesium','cls':'mod','note':'Moderate, mainly when dietary intake is low.'},{'name':'L-theanine','cls':'weak','note':'Weak-to-moderate for calm and sleep quality.'}],
+    'Magnesium (especially citrate) can cause loose stools; high doses may interact with some medications.',
+    ['<b style="color:var(--ink)">Consult a healthcare professional</b> before use if you have kidney disease, are pregnant or nursing, or take prescription medication.'],
+    [('Magnesi-Om — Moon Juice product page (Jul 2026)','https://moonjuice.com/products/magnesi-om-magnesium-supplement',True),
+     ('Magnesi-Om review — Forbes Health','https://www.forbes.com/health/supplements/moon-juice-magnesi-om-review/',True),
+     ('Generic magnesium glycinate (match) — Amazon','https://www.amazon.com/Natures-Bounty-Absorption-Supporting-Relaxation/dp/B0DT1JKGPH',True)],
+    'magnesium glycinate','Sleep & calm'),
 ]
 
 if __name__=='__main__':
