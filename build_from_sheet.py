@@ -201,7 +201,7 @@ def render(d):
       '<form id="capform" novalidate><input type="email" id="capemail" placeholder="you@email.com" aria-label="Email address">'
       '<button class="btn flame" type="submit">Send me the swaps</button></form>'
       '<div id="capmsg" role="status" aria-live="polite"></div><p class="fine">No spam. (Demo form for now.)</p></div></section>\n'
-      '</div>\n'
+      '</div>\n%s'
       '<footer><div class="wrap"><div class="fgrid"><a class="brand" href="/">%s BlendBusters</a>'
       '<nav><a href="/">Home</a><a href="/#about">About</a><a href="/#about-legal">Disclosures</a></nav></div>'
       '<p class="disc">© 2026 Hunt Web Consulting Services. Informational only; not medical advice. '
@@ -213,7 +213,7 @@ def render(d):
         d['inside_h2'], d['inside_lead'], tiles(d['inside']),
         d['teardown_lead'], d['orig'], d['name'], swap, year, pct,
         d['name'], d['orig_sub'], rows(d['rows']), d['name'], d['orig'], swap, save,
-        d.get('cart',''), d['pathA'], d['pathB'], talk, LOGO, JS.replace('%%BASE%%', str(d['orig']))))
+        d.get('cart',''), d['pathA'], d['pathB'], talk, d.get('related',''), LOGO, JS.replace('%%BASE%%', str(d['orig']))))
 
 # ---------- load spreadsheet ----------
 wb=openpyxl.load_workbook(XLSX, data_only=True)
@@ -248,6 +248,7 @@ BUCKET_BY_CAT={
 }
 
 cards={}  # bucket -> list of (savings_year, name, slug, orig, budget)
+pages=[]  # (dict, bucket, slug) deferred for pass-2 render with related links
 used_slugs=set()
 made=0
 for r in P:
@@ -323,12 +324,10 @@ for r in P:
        'pathB':path('Path B · Shop the swap',True,b_title,'≈ $%s/mo'%bd,
                     b_desc,
                     ['Same purpose, less markup','Ships to your door'],href=b_url,ext=True)}
-    with open('%s.html'%slug,'w',encoding='utf-8') as f: f.write(render(d))
-    made+=1
     bucket=BUCKET_BY_CAT.get(cat,'More teardowns')
     cards.setdefault(bucket,[]).append((round(save*12),esc(name),slug,int(round(orig)),budget))
-
-print('generated %d sheet pages'%made)
+    pages.append((d,bucket,slug))
+    made+=1
 
 # ---------- bespoke pages (already built) folded into the library grid ----------
 BESPOKE=[  # bucket, name, slug/href, orig, budget
@@ -381,6 +380,17 @@ def card_html(name,href,o,bu):
             '<h3 style="text-transform:none">$%d &#8594; $%s / mo</h3>'
             '<p>save ~$%s/yr</p></a>'%(href2,name,o,bud,'{:,}'.format(yr)))
 
+# ---- pass 2: render each sheet page with related-teardown internal links ----
+for d,bucket,slug in pages:
+    rel=sorted([c for c in cards.get(bucket,[]) if c[2]!=slug],key=lambda x:-x[0])[:6]
+    if rel:
+        ch=''.join(card_html(nm,href,o,bu) for _,nm,href,o,bu in rel)
+        d['related']=('<div class="wrap"><section id="related"><div class="shead">'
+                      '<p class="kick">Keep going</p><h2>More in %s</h2></div>'
+                      '<div class="steps3">%s</div></section></div>\n'%(esc(bucket),ch))
+    with open('%s.html'%slug,'w',encoding='utf-8') as f: f.write(render(d))
+print('rendered %d pages with related links'%len(pages))
+
 total=sum(len(v) for v in cards.values())
 sec=['<div class="wrap"><section id="teardowns"><div class="shead"><p class="kick">The teardown library</p>'
      '<h2>%d overpriced products, busted.</h2>'
@@ -405,4 +415,21 @@ if m:
     print('rewrote homepage library: %d total cards across %d categories'%(total,len([b for b in ORDER if b in cards])))
 else:
     print('WARN: could not find teardowns section to splice')
+
+# ---------- sitemap.xml + robots.txt (all pages, for indexing) ----------
+import glob as _glob
+BASE='https://blendbusters.com/'
+urls=['']  # homepage
+for f in sorted(_glob.glob('*.html')):
+    if f=='index.html': continue
+    urls.append(f)
+sm=['<?xml version="1.0" encoding="UTF-8"?>',
+    '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">']
+for u in urls:
+    pri='1.0' if u=='' else '0.7'
+    sm.append('  <url><loc>%s%s</loc><changefreq>weekly</changefreq><priority>%s</priority></url>'%(BASE,u,pri))
+sm.append('</urlset>')
+open('sitemap.xml','w',encoding='utf-8').write('\n'.join(sm)+'\n')
+open('robots.txt','w',encoding='utf-8').write('User-agent: *\nAllow: /\nSitemap: %ssitemap.xml\n'%BASE)
+print('wrote sitemap.xml (%d urls) + robots.txt'%len(urls))
 print('done')
