@@ -1,7 +1,49 @@
 #!/usr/bin/env python3
-# Generates BlendBusters teardown pages from data, using shared /bb.css.
-import io, os
+# Generates BlendBusters comparison pages (bespoke set) via the shared renderer.
+import io, os, re
+from urllib.parse import quote
 from PIL import Image
+import bb_render
+from bb_render import render_compare, compute_score
+
+def strip_tags(s):
+    s=re.sub(r'<[^>]+>','',str(s or ''))
+    return s.replace('&amp;','&').replace('&rsquo;','’').replace('&nbsp;',' ').replace('&middot;','·').strip()
+
+CATS={'ag1':'Daily greens & multi','kachava':'Meal replacement','balance-of-nature':'Daily greens','bloom':'Daily greens',
+ 'huel':'Meal replacement','testofuel':'Men’s wellness','prime-male':'Men’s wellness','nugenix':'Men’s wellness',
+ 'lmnt':'Hydration','liquid-iv':'Hydration','mud-wtr':'Coffee alternative','seed':'Gut & probiotic','peachy':'Gut health · fiber',
+ 'armra':'Gut & immune','alpha-brain':'Nootropic','prevagen':'Brain','neuriva':'Brain','olly-sleep':'Sleep','nutrafol':'Hair',
+ 'vital-proteins':'Collagen','goli':'Everyday','creatine-gummies':'Fitness','pre-workout':'Pre-workout','superbeets':'Circulation',
+ 'tru-niagen':'Longevity','fatty15':'Longevity','cymbiotika':'Vitamin C','magnesium-breakthrough':'Magnesium','flo-pms':'Women’s wellness','ritual':'Multivitamin'}
+_EVMAP={'strong':3,'mod':2,'weak':1}
+
+def to_new(d):
+    slug=d['slug']; orig=d['orig']; rws=d['rows']
+    swap=sum(c for _,_,c,_,_ in rws); pct=round((orig-swap)/orig*100) if orig else 0
+    ctx=(d.get('inside_lead','')+' '+d.get('sub','')).lower()
+    proprietary=('proprietar' in ctx or 'blend' in ctx or 'undisclosed' in ctx)
+    verdict='Lower-cost ingredient match' if pct>=40 else 'Partial match' if pct>=15 else 'Important differences'
+    swap_rows=[{'name':strip_tags(nm),'desc':strip_tags(ds),'cost':c,'cls':cl,'asin':None} for nm,ds,c,_,cl in rws]
+    ev_dots=[_EVMAP.get(cl,2) for _,_,_,_,cl in rws]; ev_avg=sum(ev_dots)/len(ev_dots) if ev_dots else 2
+    evidence=[{'name':strip_tags(nm),'cls':cl,'note':''} for nm,_,_,_,cl in rws]
+    asins=[A[k] for k in BESPOKE_CART.get(slug,[]) if A.get(k)]
+    differs=['Format, flavor, and convenience differ from the brand.']
+    if proprietary: differs.append('The brand uses a proprietary blend, so exact doses cannot be matched or verified.')
+    differs.append('Some botanicals or extras in the brand are not reproduced.')
+    return {'slug':slug,'name':strip_tags(d['name']),'category':CATS.get(slug,'Wellness'),'reviewed':'Jul 2026',
+      'brand_price':orig,'brand_per_day':'$%.2f'%(orig/30.0),
+      'label_summary':strip_tags(d.get('inside_lead','')),'proprietary':proprietary,
+      'verdict':verdict,'match_pct':72 if verdict.startswith('Lower') else 55 if verdict.startswith('Partial') else 45,
+      'verdict_note':'A pairing of lower-cost generics covers several overlapping ingredients and a similar intended use, for about %d%% less. Some ingredients and exact doses don’t carry over.'%pct,
+      'swap_rows':swap_rows,
+      'matches':['Several overlapping ingredients — %s — available as lower-cost generics.'%(', '.join(s['name'] for s in swap_rows[:3])),
+                 'A similar intended use, at a comparable daily amount where the dose is disclosed.','Doses you can read on a plain generic label.'],
+      'differs':differs,'evidence':evidence,'score':compute_score(pct,proprietary,ev_avg),
+      'safety':'Introduce any new supplement gradually, and review it against your current medications and conditions.',
+      'consult':['<b style="color:var(--ink)">Talk to a qualified healthcare professional</b> before changing supplements if you are pregnant or nursing, immunocompromised, managing a health condition, or taking medications.'],
+      'sources':[('Brand label & price — merchant listing (price checked Jul 2026)','#',False)],
+      'cart_asins':asins,'primary_buy':('https://www.amazon.com/s?k='+quote(strip_tags(rws[0][0]))) if rws else None,'primary_brand':None,'related':[]}
 
 GA = ('<!-- Google tag (gtag.js) -->\n'
       '<script async src="https://www.googletagmanager.com/gtag/js?id=G-529DGYE1QB"></script>\n'
@@ -851,9 +893,6 @@ TEARDOWNS=[
 ]
 
 for d in TEARDOWNS:
-    d['cart']=cart_html(d['slug'])
-    html=render(d)
+    html=render_compare(to_new(d))
     with open(d['slug']+'.html','w',encoding='utf-8') as f: f.write(html)
-    swap=sum(c for _,_,c,_,_ in d['rows'])
-    print('wrote %s.html  $%d -> $%.2f  (%dKB)'%(d['slug'], d['orig'], swap, len(html)//1024))
-print('done')
+print('rendered %d bespoke comparison pages'%len(TEARDOWNS))

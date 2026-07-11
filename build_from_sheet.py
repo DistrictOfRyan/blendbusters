@@ -5,6 +5,17 @@
 import re, warnings
 warnings.filterwarnings('ignore')
 import openpyxl
+import bb_render
+from bb_render import render_compare, compute_score, esc as _esc
+
+EVDOTS={'strong':3,'mod':2,'weak':1}
+def cls_for(gid):
+    if gid in STRONG: return 'strong'
+    if gid in WEAK: return 'weak'
+    return 'mod'
+def evnote(name,cls):
+    return {'strong':'Solid human evidence for this ingredient.','mod':'Reasonable evidence; benefit varies.',
+            'weak':'Limited or mixed human evidence.'}.get(cls,'')
 
 XLSX='/root/.claude/uploads/89659117-1595-510e-9d89-38cba852da22/b6dbc339-high_price_supplement_cost_comparison_100_products.xlsx'
 
@@ -283,47 +294,40 @@ for r in P:
     slug=slugify(name)
     if slug in used_slugs: slug=slug+'-'+str(pid)
     used_slugs.add(slug)
-    od=money(orig); bd=money(budget)
-    # tiles: brand + savings meta + swap ingredients
-    til=[('$%s/mo'%od,'the brand price',PAL[7]),('%d%%'%pct,'cheaper, built smart',PAL[1])]
-    for i,(gid,q) in enumerate(alts[:4]):
-        c=CAT[gid]; til.append((esc(c['name'])[:26],'≈ $%.2f/serving'%c['cost'],PAL[i%6]))
-    # copy
-    hook=CAT_HOOK.get(cat)
-    h1=('%s is <span class="g">$%s</span>/mo you can cover for <span class="g">$%s</span>.'%(esc(name),od,bd))
-    sub=(esc(summ)+' Strip the branding and the same job, built from cheaper commodity pieces, runs about <b>%d%% less</b>.'%pct) if summ \
-        else 'The same job, built from cheaper commodity pieces, runs about <b>%d%% less</b>.'%pct
-    talk=['<b>Same job, ~%d%% less.</b> About $%s/mo instead of $%s — roughly <b>$%d a year</b> back in your pocket.'%(pct,bd,od,round(save*12))]
-    if hook: talk.append('<b>%s.</b> %s'%(hook[0],hook[1]))
-    if plan: talk.append('<b>'+esc(plan)+'</b>')
-    if safety: talk.append('<b>Heads up:</b> '+esc(safety))
-    talk.append('<b>You are paying for branding and convenience</b> — the actives are commodity ingredients you can buy on their own, at doses you can actually read.')
-    a1=CAT[alts[0][0]]
+    proprietary = ('proprietar' in summ.lower() or 'blend' in summ.lower())
+    verdict = 'Lower-cost ingredient match' if pct>=40 else 'Partial match' if pct>=15 else 'Important differences'
+    match_pct = 72 if verdict.startswith('Lower') else 55 if verdict.startswith('Partial') else 45
+    # swap rows -> new schema
+    swap_rows=[]; ev_dots=[]
+    for gid,q in alts:
+        c=CAT[gid]; cost=round(q*c['cost']*30,2) or round(c['cost']*30,2)
+        cl=cls_for(gid); ev_dots.append(EVDOTS[cl])
+        swap_rows.append({'name':_esc(c['name']),'desc':('%g/day'%q if q!=1 else '1/day'),'cost':cost,'cls':cl,'asin':ASIN_MAP.get(gid)})
+    ev_avg=sum(ev_dots)/len(ev_dots) if ev_dots else 2
+    verdict_note=('A pairing of lower-cost generics covers several overlapping ingredients and a similar intended use, for about %d%% less. Some ingredients and exact doses don’t carry over.'%pct)
+    matches=['Several overlapping ingredients — %s — available as lower-cost generics.'%(', '.join(s['name'] for s in swap_rows[:3])),
+             'A similar intended use, at a comparable daily amount where the dose is disclosed.',
+             'Doses you can read on a plain generic label.']
+    differs=[]
+    if plan: differs.append(_esc(plan))
+    differs.append('Format, flavor, and convenience differ from the brand.')
+    if proprietary: differs.append('The brand uses a proprietary blend, so exact doses cannot be matched or verified.')
+    evidence=[{'name':s['name'],'cls':s['cls'],'note':evnote(s['name'],s['cls'])} for s in swap_rows]
+    consult=['<b style="color:var(--ink)">Talk to a qualified healthcare professional</b> before changing supplements if you are pregnant or nursing, immunocompromised, managing a health condition, or taking medications.',
+             'See a professional for persistent or unusual symptoms — a supplement is not a substitute for evaluation.']
     b_url,b_brand=buy_link(alts[0][0])
-    b_title=(b_brand+' — '+esc(a1['name'])) if b_brand else esc(a1['name'])
-    b_desc=('The cheaper substitute from %s, ready to buy.'%b_brand) if b_brand else 'The cheaper substitute, ready to buy on Amazon.'
-    curl=cart_url([g for g,_ in alts])
-    cart=('<div class="cartrow" style="margin:16px 0 2px">'
-          '<a class="btn volt block" href="%s" target="_blank" rel="sponsored nofollow noopener" '
-          'style="font-size:15px">\U0001f6d2 One click: add all %d swaps to your Amazon cart</a>'
-          '<div style="font-size:12px;color:var(--muted);margin-top:6px;text-align:center">'
-          'Opens Amazon with the cheaper swaps loaded. Affiliate link — commissions activate once our Associates account is approved.</div></div>'
-          %(curl,len(alts))) if curl else ''
-    d={'slug':slug,'num':'%s · No. %d'%(esc(cat),pid),'name':esc(name),'h1':h1,'sub':sub,'cart':cart,
-       'villain_tg':'$%s/mo'%od,'villain_cap':esc(short(summ,72)) or 'The brand price.',
-       'winner_cap':'The same actives, bought as commodities.',
-       'inside_h2':'What the brand is, and the cheap version of each piece.',
-       'inside_lead':esc(summ) or 'The actives are commodity ingredients available far cheaper on their own.',
-       'inside':til,'teardown_lead':esc(plan) or 'Buy the commodity pieces separately and watch the price drop.',
-       'orig':int(round(orig)),'orig_sub':esc(str(r[7] or 'label serving')),
-       'rows':rws,
-       'talk':talk,
-       'pathA':path('Path A · Cheapest',False,'Do it yourself','≈ $%s/mo'%bd,
-                    esc(plan) or 'Buy the commodity pieces separately.',
-                    ['~%d%% cheaper'%pct,'Buy only what you want']),
-       'pathB':path('Path B · Shop the swap',True,b_title,'≈ $%s/mo'%bd,
-                    b_desc,
-                    ['Same purpose, less markup','Ships to your door'],href=b_url,ext=True)}
+    d={'slug':slug,'name':_esc(name),'category':_esc(cat),'reviewed':'Jul 2026',
+       'brand_price':int(round(orig)),'brand_per_day':'$%.2f'%(orig/30),
+       'label_summary':_esc(summ),'proprietary':proprietary,
+       'verdict':verdict,'verdict_note':verdict_note,'match_pct':match_pct,
+       'swap_rows':swap_rows,'matches':matches,'differs':differs,'evidence':evidence,
+       'score':compute_score(pct,proprietary,ev_avg),
+       'safety':_esc(safety) or 'Introduce any new supplement gradually, and review it against your current medications and conditions.',
+       'consult':consult,
+       'sources':[('Brand label & price — merchant listing (price checked Jul 2026)','#',False),
+                  ('Lower-cost generic pricing — retail listings (checked Jul 2026)','#',False)],
+       'cart_asins':[ASIN_MAP.get(g) for g,_ in alts],'primary_buy':b_url,'primary_brand':b_brand,
+       'related':[]}
     bucket=BUCKET_BY_CAT.get(cat,'More teardowns')
     cards.setdefault(bucket,[]).append((round(save*12),esc(name),slug,int(round(orig)),budget))
     pages.append((d,bucket,slug))
@@ -380,44 +384,105 @@ def card_html(name,href,o,bu):
             '<h3 style="text-transform:none">$%d &#8594; $%s / mo</h3>'
             '<p>save ~$%s/yr</p></a>'%(href2,name,o,bud,'{:,}'.format(yr)))
 
-# ---- pass 2: render each sheet page with related-teardown internal links ----
-for d,bucket,slug in pages:
-    rel=sorted([c for c in cards.get(bucket,[]) if c[2]!=slug],key=lambda x:-x[0])[:6]
-    if rel:
-        ch=''.join(card_html(nm,href,o,bu) for _,nm,href,o,bu in rel)
-        d['related']=('<div class="wrap"><section id="related"><div class="shead">'
-                      '<p class="kick">Keep going</p><h2>More in %s</h2></div>'
-                      '<div class="steps3">%s</div></section></div>\n'%(esc(bucket),ch))
-    with open('%s.html'%slug,'w',encoding='utf-8') as f: f.write(render(d))
-print('rendered %d pages with related links'%len(pages))
+def _href(c2): return c2 if str(c2).startswith('/') else '/'+c2+'.html'
+def verdict_of(o,bu): return 'Lower-cost match' if o and (o-bu)/float(o)>=0.4 else 'Partial match'
 
+# ---- pass 2: related internal links + render via shared compliant template ----
+for d,bucket,slug in pages:
+    rel=sorted([c for c in cards.get(bucket,[]) if c[2]!=slug],key=lambda x:-x[0])[:3]
+    d['related']=[(nm,_href(href),verdict_of(o,bu),yr) for yr,nm,href,o,bu in rel]
+    with open('%s.html'%slug,'w',encoding='utf-8') as f: f.write(render_compare(d))
+print('rendered %d comparison pages'%len(pages))
+
+# ---------- homepage (editorial) ----------
+def lib_card(name,href,o,bu):
+    yr=round((o-bu)*12); bud=('%g'%bu) if bu<10 else str(int(round(bu)))
+    return ('<a class="rc" href="%s"><span class="cat mono">$%d/mo &#8594; $%s/mo</span>'
+            '<h4>%s</h4><span class="s">%s · save ~$%s/yr</span></a>'
+            %(_href(href),o,bud,_esc(name),verdict_of(o,bu),'{:,}'.format(yr)))
 total=sum(len(v) for v in cards.values())
 present=[b for b in ORDER if b in cards]
-nav=''.join('<a href="#cat-%d" style="display:inline-block;margin:0 8px 8px 0;padding:7px 13px;border:1px solid rgba(255,138,61,.35);border-radius:999px;color:var(--flame2);text-decoration:none;font-size:13px">%s <span style="color:var(--muted)">%d</span></a>'%(i,esc(b),len(cards[b])) for i,b in enumerate(present))
-sec=['<div class="wrap"><section id="teardowns"><div class="shead"><p class="kick">The teardown library</p>'
-     '<h2>%d overpriced products, busted.</h2>'
-     '<p class="lead">Same ingredients, less markup. Pick a category — every page shows the cheaper swap and the math.</p>'
-     '<div style="margin-top:12px"><a class="btn flame" href="/dupe-kit.html">📄 Get the free Dupe Kit — all %d, one printable list</a></div></div>'%(total,total),
-     '<div class="catnav" style="margin:0 0 8px">%s</div>'%nav]
+allcards=sorted([c for v in cards.values() for c in v],key=lambda x:-x[0])
+trending=allcards[:4]
+def bar_card(yr,name,href,o,bu):
+    ov=o/30.0; mv=bu/30.0; w=max(8,round(mv/ov*100)) if ov else 20
+    vd=verdict_of(o,bu); vc='match' if vd.startswith('Lower') else ''
+    return ('<a class="card" href="%s"><div class="top"><div><span class="cat">$%d/mo brand</span>'
+            '<h3>%s</h3></div><span class="vstamp %s">%s</span></div>'
+            '<div class="bars"><div class="barrow"><span class="lbl">Brand</span><span class="track"><span class="fillb" style="width:100%%"></span></span><span class="v">$%.2f/day</span></div>'
+            '<div class="barrow"><span class="lbl">Match</span><span class="track"><span class="fillb match" style="width:%d%%"></span></span><span class="v">$%.2f/day</span></div></div>'
+            '<div class="foot"><span class="overlap">save <b>~$%s/yr</b></span><span class="seeit">See the breakdown →</span></div></a>'
+            %(_href(href),o,_esc(name),vc,vd,ov,w,mv,'{:,}'.format(round((o-bu)*12))))
+nav=''.join('<a href="#cat-%d">%s <span>%d</span></a>'%(i,_esc(b),len(cards[b])) for i,b in enumerate(present))
+lib=['<section id="library"><div class="wrap"><div class="shead" style="display:block"><p class="eyebrow">The comparison library</p>'
+     '<h2 style="margin-top:8px">%d products, broken down.</h2>'
+     '<p class="lead" style="margin-top:10px">Overlapping ingredients, real doses, dated prices. Pick a category — each page shows the lower-cost match, the math, and what differs.</p></div>'
+     '<div class="catnav">%s</div>'%(total,nav)]
 for i,b in enumerate(present):
     lst=sorted(cards[b],key=lambda x:-x[0])
-    sec.append('<h3 class="cathead" id="cat-%d" style="scroll-margin-top:90px;margin:34px 0 14px;font-size:15px;letter-spacing:.14em;text-transform:uppercase;color:var(--flame2)">%s <span style="color:var(--muted);font-weight:500;letter-spacing:0;text-transform:none">(%d)</span></h3>'%(i,esc(b),len(lst)))
-    sec.append('<div class="steps3">')
-    for yr,nm,href,o,bu in lst:
-        sec.append(card_html(nm,href,o,bu))
-    sec.append('</div>')
-sec.append('</section></div>')
-libhtml='\n'.join(sec)
+    lib.append('<h3 class="cathead" id="cat-%d">%s <span>(%d)</span></h3><div class="libgrid">%s</div>'
+               %(i,_esc(b),len(lst),''.join(lib_card(nm,href,o,bu) for _,nm,href,o,bu in lst)))
+lib.append('</div></section>')
 
-# ---------- splice into index.html ----------
-idx=open('index.html',encoding='utf-8').read()
-m=re.search(r'<div class="wrap"><section id="teardowns">.*?</section></div>', idx, re.S)
-if m:
-    idx=idx[:m.start()]+libhtml+idx[m.end():]
-    open('index.html','w',encoding='utf-8').write(idx)
-    print('rewrote homepage library: %d total cards across %d categories'%(total,len([b for b in ORDER if b in cards])))
-else:
-    print('WARN: could not find teardowns section to splice')
+home=(bb_render._head('BlendBusters — Pay for ingredients. Not hype.',
+        'BlendBusters breaks down expensive wellness products, compares ingredients, doses, and cost, and finds lower-cost options — with the savings, evidence, and tradeoffs before you buy.')
+  +'<body>\n'+bb_render._header(back=False)
+  +'<a id="top"></a>\n<main>\n'
+  # hero
+  +'<section class="hero"><div class="wrap hero-grid"><div>'
+   '<p class="eyebrow">Independent wellness comparisons</p>'
+   '<h1 style="margin-top:14px">Pay for ingredients.<br><em>Not hype.</em></h1>'
+   '<p class="lead">BlendBusters breaks down expensive wellness products, compares their ingredients and doses, and finds lower-cost options. See the savings, differences, evidence, and tradeoffs before you buy.</p>'
+   '<form class="search" id="searchform"><label for="q">Enter a product name or paste a product link.</label>'
+   '<div class="search-row"><input id="q" placeholder="e.g. Liquid I.V., or https://…" autocomplete="off" aria-label="Product name or link">'
+   '<button class="btn primary" type="submit">Break it down</button></div>'
+   '<p class="try">Popular: <a href="#library">Peachy Clean</a> · <a href="#library">AG1</a> · <a href="#library">LMNT</a> · <a href="#library">Seed</a></p>'
+   '<p class="msg" id="searchmsg" role="status" aria-live="polite"></p></form>'
+   '<p class="disc-inline">We compare ingredients, doses, and price — not medical outcomes. A lower-cost match shares overlapping ingredients and a similar intended use; it is not a guaranteed equivalent.</p></div>'
+   '<div class="cards" style="align-self:start">'+''.join(bar_card(*c) for c in trending)+'</div>'
+   '</div></section>\n'
+  # how it works
+  +'<section id="how"><div class="wrap"><div class="shead" style="display:block"><p class="eyebrow">How BlendBusters works</p>'
+   '<h2 style="margin-top:8px">Every comparison runs on the same eight questions.</h2>'
+   '<p class="lead" style="margin-top:10px">We weigh each product the same way and show our work — including where the data isn’t public.</p></div>'
+   '<div class="weigh">'
+   '<div class="wcell"><div class="k">Match</div><h4>Ingredient matching</h4><p>Which actives actually overlap.</p></div>'
+   '<div class="wcell"><div class="k">Dose</div><h4>Dose comparison</h4><p>How the amounts line up — where disclosed.</p></div>'
+   '<div class="wcell"><div class="k">Cost</div><h4>Cost per serving</h4><p>Price normalized to the dose that matters.</p></div>'
+   '<div class="wcell"><div class="k">Evidence</div><h4>Evidence quality</h4><p>Strength of human evidence, rated and sourced.</p></div>'
+   '<div class="wcell"><div class="k">Ease</div><h4>Convenience</h4><p>What you trade for the savings.</p></div>'
+   '<div class="wcell"><div class="k">Clarity</div><h4>Transparency</h4><p>Disclosed doses vs. a proprietary blend.</p></div>'
+   '<div class="wcell"><div class="k">Savings</div><h4>Estimated savings</h4><p>Monthly and annual, with the price date.</p></div>'
+   '<div class="wcell"><div class="k">Honesty</div><h4>Tradeoffs</h4><p>What you give up. We say so plainly.</p></div>'
+   '</div><p class="fine" style="margin-top:16px">These feed the <b>BlendBuster Score</b> (out of 100). Where a brand hides a dose, that field reads <span class="mono">Data unavailable</span>.</p></div></section>\n'
+  # library
+  +'\n'.join(lib)+'\n'
+  # request + email
+  +'<section id="request"><div class="wrap split"><div><p class="eyebrow">Request a comparison</p>'
+   '<h2 style="margin:8px 0 12px">Paying too much for something? Send it in.</h2>'
+   '<p class="lead">Drop a product name or link and we’ll run it through the model. Readers pick most of what we cover.</p>'
+   '<form class="panel" id="reqform" style="margin-top:18px">'
+   '<div class="f"><label for="rp">Product name</label><input id="rp" placeholder="e.g. Future Method Daily Fiber" required></div>'
+   '<div class="f"><label for="ru">Product link <span style="color:var(--ink-3);font-weight:400">(optional)</span></label><input id="ru" placeholder="https://…"></div>'
+   '<div class="f"><label for="re">Your email</label><input id="re" type="email" placeholder="you@email.com" required></div>'
+   '<button class="btn primary block" type="submit">Request this comparison</button>'
+   '<p class="msg" id="reqmsg" role="status" aria-live="polite"></p></form></div>'
+   '<div class="email-box"><p class="eyebrow">The weekly bust</p><h3 style="margin-top:8px">One overpriced blend, busted each week.</h3>'
+   '<form class="email-row" id="mailform"><input id="me" type="email" placeholder="you@email.com" aria-label="Email address" required>'
+   '<button class="btn primary" type="submit">Subscribe</button></form><p class="msg" id="mailmsg" role="status" aria-live="polite"></p>'
+   '<p class="fine">No spam, no selling your data. Just the breakdown.</p>'
+   '<p style="margin-top:16px"><a class="btn ghost" href="/savings-index.html">📄 Get the free Savings Index</a></p></div></div></section>\n'
+  # affiliate + about
+  +'<section id="about-legal"><div class="wrap"><div class="affbox"><span class="k">Affiliate disclosure</span>'
+   '<p>BlendBusters earns affiliate commissions when you buy through some merchant links. We don’t manufacture or sell products — purchases happen on third-party merchant sites. Comparisons and verdicts are written before any link is added, and a commission never changes a score. Prices are estimates from public sources with the date we checked.</p></div>'
+   '<p id="about" class="fine" style="margin-top:14px">BlendBusters is an independent consumer comparison platform operated by Hunt Web Consulting Services. We compare ingredients, doses, and price to help you decide before you buy. We are not a manufacturer, pharmacy, or medical provider.</p></div></section>\n'
+  +'</main>\n'+bb_render._footer()
+  +'<script>'+bb_render.COMPARE_JS.replace("ev('comparison_view',{comparison_id:document.body.dataset.slug||''});","")
+   +"(function(){function w(f,m,t){var e=document.getElementById(f);if(!e)return;e.addEventListener('submit',function(v){v.preventDefault();var x=document.getElementById(m);x.style.color='var(--accent-deep)';x.textContent=t;try{gtag('event',f==='mailform'||f==='reqform'?'email_signup':'site_search',{})}catch(_){}if(f!=='searchform')e.reset();});}"
+   "w('searchform','searchmsg','Demo — a live search would open that product’s breakdown.');w('reqform','reqmsg','✓ Request received (demo). We’ll email you when it’s live.');w('mailform','mailmsg','✓ You’re on the list (demo).');})();"
+   '</script>\n</body>\n</html>\n')
+open('index.html','w',encoding='utf-8').write(home)
+print('wrote editorial homepage: %d cards, %d categories'%(total,len(present)))
 
 # ---------- sitemap.xml + robots.txt (all pages, for indexing) ----------
 import glob as _glob
@@ -443,42 +508,36 @@ for b in present:
         allrows.append((b,nm,href,o,bu,yr))
 tot_year=sum(r[5] for r in allrows)
 tot_mo=sum((r[3]-r[4]) for r in allrows)
-dk=['<!doctype html>\n<html lang="en">\n<head>\n<meta charset="utf-8">\n'
-    '<title>The BlendBusters Dupe Kit</title>\n<meta name="viewport" content="width=device-width, initial-scale=1">\n'
-    '<meta name="description" content="Every overpriced supplement and its cheaper commodity swap, with the exact monthly and annual savings.">\n'
-    '%s\n<link rel="stylesheet" href="/bb.css">\n'
-    '<style>@media print{.top,.dk-cta,footer{display:none}body{background:#fff;color:#000}}'
-    '.dk-t{width:100%%;border-collapse:collapse;margin:10px 0 26px;font-size:14px}'
-    '.dk-t th{text-align:left;color:var(--flame2);border-bottom:1px solid rgba(255,138,61,.3);padding:8px 10px;font-size:12px;letter-spacing:.1em;text-transform:uppercase}'
-    '.dk-t td{padding:9px 10px;border-bottom:1px solid rgba(255,255,255,.06)}'
-    '.dk-t a{color:inherit;text-decoration:none;border-bottom:1px dotted rgba(255,138,61,.5)}'
-    '.dk-save{color:var(--volt2);font-weight:700;white-space:nowrap}.dk-old{color:var(--muted);text-decoration:line-through}'
-    '.dk-hero{text-align:center;padding:30px 0 6px}.dk-big{font-size:clamp(40px,8vw,72px);font-weight:800;color:var(--volt2);line-height:1}'
+dk=[bb_render._head('The BlendBusters Savings Index',
+      'Every product we’ve compared and its lower-cost ingredient match, with estimated monthly and annual savings. Prices dated; verify before buying.')
+    +'<style>@media print{.top,.dk-cta,footer{display:none}}'
+    '.dk-t{width:100%;border-collapse:collapse;margin:8px 0 26px;font-size:14px;font-family:var(--mono)}'
+    '.dk-t th{text-align:left;color:var(--accent-deep);border-bottom:1px solid var(--line-2);padding:8px 10px;font-size:11px;letter-spacing:.1em;text-transform:uppercase}'
+    '.dk-t td{padding:9px 10px;border-bottom:1px solid var(--line)}'
+    '.dk-t a{color:var(--accent-deep);text-decoration:none;border-bottom:1px dotted var(--line-2)}'
+    '.dk-save{color:var(--accent-deep);font-weight:700;white-space:nowrap}.dk-old{color:var(--ink-3);text-decoration:line-through}'
+    '.dk-hero{text-align:center;padding:26px 0 6px}.dk-big{font-family:var(--mono);font-size:clamp(40px,8vw,68px);font-weight:800;color:var(--accent-deep);line-height:1}'
     '</style>\n</head>\n<body>\n'
-    '<header class="top"><div class="wrap"><a class="brand" href="/">%s BlendBusters</a>'
-    '<nav class="main"><a class="lnk" href="/">← All teardowns</a></nav></div></header>\n'%(GA,LOGO),
-    '<div class="wrap">'
-    '<div class="dk-hero"><p class="kick">The Dupe Kit</p>'
-    '<h1 class="display">Every overpriced supplement, and the cheaper swap.</h1>'
-    '<p class="sub">One printable master list of %d products, the exact commodity swap, and what you keep by switching. Prices approximate; verify before buying.</p>'
+    +bb_render._header()
+    +'<div class="wrap"><div class="dk-hero"><p class="eyebrow">The Savings Index</p>'
+    '<h1 class="title" style="font-size:clamp(28px,5vw,44px);margin:10px 0">Every comparison, and the lower-cost match.</h1>'
+    '<p class="lead" style="margin:0 auto">A reference list of %d products, the lower-cost ingredient match, and the estimated savings. Prices are dated estimates — verify before buying. A match shares overlapping ingredients and a similar intended use, not a guaranteed equivalent.</p>'
     '<div style="margin:22px 0 6px"><div class="dk-big">$%s/yr</div>'
-    '<div style="color:var(--muted);font-size:14px">total you could stop overpaying — about $%s a month across the whole list</div></div>'
-    '</div>'%(len(allrows),'{:,}'.format(round(tot_year)),'{:,}'.format(round(tot_mo)))]
+    '<div style="color:var(--ink-3);font-size:14px">estimated total across the list — about $%s a month</div></div></div>'%(len(allrows),'{:,}'.format(round(tot_year)),'{:,}'.format(round(tot_mo)))]
+dk.append('<div class="wrap">')
 for b in present:
     rws=sorted(cards[b],key=lambda x:-x[0])
     sub_y=sum(x[0] for x in rws)
-    dk.append('<h3 class="cathead" style="margin:26px 0 6px;color:var(--flame2);font-size:14px;letter-spacing:.12em;text-transform:uppercase">%s <span style="color:var(--muted);text-transform:none;letter-spacing:0">— save ~$%s/yr</span></h3>'%(esc(b),'{:,}'.format(round(sub_y))))
-    dk.append('<table class="dk-t"><thead><tr><th>Brand</th><th>Brand cost</th><th>Your swap</th><th>You save</th><th></th></tr></thead><tbody>')
+    dk.append('<h3 class="cathead">%s <span>— est. save ~$%s/yr</span></h3>'%(esc(b),'{:,}'.format(round(sub_y))))
+    dk.append('<table class="dk-t"><thead><tr><th>Brand</th><th>Brand cost</th><th>Match</th><th>Est. save</th><th></th></tr></thead><tbody>')
     for yr,nm,href,o,bu in rws:
         h2=href if href.startswith('/') else '/'+href+'.html'
         bud=('%g'%bu) if bu<10 else str(int(round(bu)))
-        dk.append('<tr><td>%s</td><td class="dk-old">$%d/mo</td><td>$%s/mo</td><td class="dk-save">$%s/yr</td><td><a href="%s">see the swap →</a></td></tr>'%(nm,o,bud,'{:,}'.format(yr),h2))
+        dk.append('<tr><td>%s</td><td class="dk-old">$%d/mo</td><td>$%s/mo</td><td class="dk-save">$%s/yr</td><td><a href="%s">see it →</a></td></tr>'%(esc(nm),o,bud,'{:,}'.format(yr),h2))
     dk.append('</tbody></table>')
-dk.append('<div class="dk-cta" style="text-align:center;margin:10px 0 40px"><a class="btn flame" href="/#get">Get weekly teardowns free</a> '
-          '<a class="btn ghost" href="/" >Browse all teardowns</a></div></div>')
-dk.append('<footer><div class="wrap"><p class="disc">© 2026 Hunt Web Consulting Services. Informational only; not medical advice. '
-          'Prices are approximate and change; verify before purchasing. Statements not evaluated by the FDA; products are not intended to diagnose, treat, cure, or prevent any disease. '
-          'Affiliate links may earn commissions per FTC guidelines. Brand names used for comparison only.</p></div></footer>\n</body>\n</html>\n')
-open('dupe-kit.html','w',encoding='utf-8').write(''.join(dk))
-print('wrote dupe-kit.html (%d products, $%s/yr total)'%(len(allrows),'{:,}'.format(round(tot_year))))
+dk.append('<div class="dk-cta" style="text-align:center;margin:10px 0 40px"><a class="btn primary" href="/#request">Get the weekly comparison</a> '
+          '<a class="btn ghost" href="/">Browse all comparisons</a></div></div>')
+dk.append(bb_render._footer()+'</body>\n</html>\n')
+open('savings-index.html','w',encoding='utf-8').write(''.join(dk))
+print('wrote savings-index.html (%d products, $%s/yr total)'%(len(allrows),'{:,}'.format(round(tot_year))))
 print('done')
