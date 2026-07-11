@@ -392,13 +392,15 @@ for d,bucket,slug in pages:
 print('rendered %d pages with related links'%len(pages))
 
 total=sum(len(v) for v in cards.values())
+present=[b for b in ORDER if b in cards]
+nav=''.join('<a href="#cat-%d" style="display:inline-block;margin:0 8px 8px 0;padding:7px 13px;border:1px solid rgba(255,138,61,.35);border-radius:999px;color:var(--flame2);text-decoration:none;font-size:13px">%s <span style="color:var(--muted)">%d</span></a>'%(i,esc(b),len(cards[b])) for i,b in enumerate(present))
 sec=['<div class="wrap"><section id="teardowns"><div class="shead"><p class="kick">The teardown library</p>'
      '<h2>%d overpriced products, busted.</h2>'
-     '<p class="lead">Same ingredients, less markup. Pick a category — every page shows the cheaper swap and the math.</p></div>'%total]
-for b in ORDER:
-    if b not in cards: continue
+     '<p class="lead">Same ingredients, less markup. Pick a category — every page shows the cheaper swap and the math.</p></div>'%total,
+     '<div class="catnav" style="margin:0 0 8px">%s</div>'%nav]
+for i,b in enumerate(present):
     lst=sorted(cards[b],key=lambda x:-x[0])
-    sec.append('<h3 class="cathead" style="margin:34px 0 14px;font-size:15px;letter-spacing:.14em;text-transform:uppercase;color:var(--flame2)">%s <span style="color:var(--muted);font-weight:500;letter-spacing:0;text-transform:none">(%d)</span></h3>'%(b,len(lst)))
+    sec.append('<h3 class="cathead" id="cat-%d" style="scroll-margin-top:90px;margin:34px 0 14px;font-size:15px;letter-spacing:.14em;text-transform:uppercase;color:var(--flame2)">%s <span style="color:var(--muted);font-weight:500;letter-spacing:0;text-transform:none">(%d)</span></h3>'%(i,esc(b),len(lst)))
     sec.append('<div class="steps3">')
     for yr,nm,href,o,bu in lst:
         sec.append(card_html(nm,href,o,bu))
