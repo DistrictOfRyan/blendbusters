@@ -389,6 +389,12 @@ BESPOKE=[  # bucket, name, slug/href, orig, budget
  ('Daily multivitamins & greens','Organifi Green Juice','/organifi-green-juice-alternative.html',70,26),
  ('Hydration & electrolytes','Cure Hydration Electrolyte Mix','/cure-hydration-alternative.html',44,12),
  ('Beauty, hair, joint & immune','Viviscal Women’s Hair Supplement','/viviscal-alternative.html',40,22),
+ ('Daily multivitamins & greens','AG1 by Athletic Greens','/ag1-alternative.html',79,42),
+ ('Daily multivitamins & greens','Ritual Essential for Women 18+','/ritual-multivitamin-alternative.html',30,15),
+ ('Beauty, hair, joint & immune','Vital Proteins Collagen Peptides','/vital-proteins-alternative.html',43,19),
+ ('Gut, probiotic, omega & fiber','Seed DS-01 Daily Synbiotic','/seed-ds01-alternative.html',50,18),
+ ('Gut, probiotic, omega & fiber','OLLY Probiotic + Prebiotic Gummy','/olly-probiotic-alternative.html',13,12),
+ ('Hydration & electrolytes','LMNT Recharge Electrolyte Mix','/lmnt-alternative.html',39,7),
 ]
 for b,nm,slug,o,bu in BESPOKE:
     href=slug if slug.startswith('/') else '/'+slug+'.html'
