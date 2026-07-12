@@ -24,7 +24,7 @@ FORMS = {
 
 def infer_form(name, cat):
     n = name.lower(); c = cat.lower(); t = n + ' ' + c
-    if 'gumm' in t: return 'gummies'
+    if 'gumm' in t or any(w in n for w in ['sugarbear', 'goli', 'vitafusion', 'yumi ', 'smartypants']): return 'gummies'
     if any(w in n for w in ['liquid', ' drops', 'tincture', 'sublingual']): return 'liquid'
     if any(w in t for w in ['omega', 'fish oil', 'krill', 'cod liver', 'super epa', 'fish-oil']): return 'softgels'
     if any(w in n for w in ['greens', 'ag1', 'athletic green', 'super green', 'green juice', 'superfood']): return 'greens'
