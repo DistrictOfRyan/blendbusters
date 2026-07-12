@@ -134,8 +134,8 @@ def render_compare(d):
     consult=''.join('<li>%s</li>'%esc(x) for x in d.get('consult',[]))
     # buy buttons
     cart=cart_url(d.get('cart_asins',[]))
-    cart_btn=('<a class="btn primary wide" href="%s" target="_blank" rel="sponsored nofollow noopener" data-ev="cart">\U0001f9fe Add the match to your cart <span style="font-weight:500;opacity:.85">— %d item%s</span></a>'
-              %(cart,len([a for a in d.get('cart_asins',[]) if a]),'s' if len([a for a in d.get('cart_asins',[]) if a])!=1 else '')) if cart else ''
+    cart_btn=('<a class="btn primary wide" href="%s" target="_blank" rel="sponsored nofollow noopener" data-ev="cart">\U0001f9fe Add the match to your cart <span style="font-weight:500;opacity:.85">— save ~$%s/yr</span></a>'
+              %(cart,'{:,}'.format(int(year)))) if cart else ''
     prim=d.get('primary_buy')
     prim_btn=('<a class="btn ghost wide" href="%s" target="_blank" rel="sponsored nofollow noopener" data-ev="primary">Shop %s</a>'%(amz(prim),esc(d.get('primary_brand') or 'the swap'))) if prim else ''
     # sources
@@ -178,6 +178,11 @@ def render_compare(d):
            '<div class="vg"><div class="k">Est. savings</div><div class="val save">~$%s<small>/yr</small></div></div></div></div>'
            %(esc(verdict).replace(' ','<br>',1),esc(d.get('verdict_note','')),d['brand_price'],esc(per_day),swap/30,'{:,}'.format(year)))
     body+='<p class="disc-inline">Prices are estimates from public sources, checked %s, and change often — verify on the merchant’s site. A “lower-cost ingredient match” shares overlapping ingredients and a similar intended use; it is not a medically equivalent product or a guaranteed result.</p></div>\n'%esc(d.get('reviewed','Jul 2026'))
+    _topbtn=(('<a class="btn primary wide" href="%s" target="_blank" rel="sponsored nofollow noopener" data-ev="cart_top">\U0001f9fe Add the match to your Amazon cart — save ~$%s/yr</a>'%(cart,'{:,}'.format(int(year)))) if cart
+             else ('<a class="btn primary wide" href="%s" target="_blank" rel="sponsored nofollow noopener" data-ev="buy_top">Shop the lower-cost match — save ~$%s/yr</a>'%(amz(prim),'{:,}'.format(int(year)))) if prim else '')
+    if _topbtn:
+        body+=('<div class="wrap" style="margin-top:-4px;margin-bottom:6px">%s'
+               '<p class="fine" style="text-align:center;margin-top:8px">Every item is a real, buyable product · affiliate link, no extra cost to you · <a href="#buy">see all buying options ↓</a></p></div>\n'%_topbtn)
     # inside + swap
     body+=('<section><div class="wrap"><div class="shead"><h2>What’s inside — and the swap</h2><span class="ctag brand">Brand label</span></div>'
            '<p class="lead" style="margin-bottom:18px">%s %s</p>'
@@ -214,7 +219,7 @@ def render_compare(d):
            '<div class="affbox"><span class="k">Affiliate disclosure</span>'
            '<p>Some links below are affiliate links — BlendBusters may earn a commission if you buy, at no extra cost to you. We wrote this comparison before adding any link, and commissions never change our verdict or score. Purchases happen on third-party merchant sites.</p></div>'
            '<div class="buys">%s%s</div>'
-           '<p class="buynote">Merchant links and prices are estimates dated %s and must be confirmed at checkout. Amazon commissions activate once our Associates account is approved.</p></div></section>\n'
+           '<p class="buynote">Merchant links and prices are estimates dated %s and must be confirmed at checkout. As an Amazon Associate, BlendBusters may earn from qualifying purchases at no extra cost to you.</p></div></section>\n'
            %(cart_btn,prim_btn,esc(d.get('reviewed','Jul 2026'))))
     # sources
     body+=('<section><div class="wrap"><div class="shead"><h2>Sources &amp; citations</h2><span class="flag">Editorial review pending</span></div>'
