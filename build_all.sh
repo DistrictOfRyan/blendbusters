@@ -12,5 +12,7 @@ python3 add_visuals.py            # <-- applies images/logo/cost-visual to every
 python3 add_seo.py                 # <-- OG/twitter cards, canonical, favicon
 python3 markup_report.py           # <-- flagship Markup Report data page
 python3 add_faq.py                 # <-- FAQ content + schema
+python3 add_engage.py              # <-- internal-link mesh, sticky CTA, email lead-magnet
+python3 build_hubs.py              # <-- category hub pages + sitemap/homepage integration
 echo "== compliance QA (should list ONLY index/methodology/savings-index) =="
 grep -rilE "exactly the same|works just as well|guaranteed equivalent|clinically proven|doctor approved|cure your|treats? your" --include=*.html . | grep -vE 'index\.html|methodology\.html|savings-index\.html|mockup|standalone' && echo "!! COMPLIANCE FAIL" || echo "compliance OK"
