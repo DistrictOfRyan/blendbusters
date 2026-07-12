@@ -175,7 +175,7 @@ def render_compare(d):
            '<div class="vg"><div class="k">Brand cost / day</div><div class="val">%s<small>/day</small></div></div>'
            '<div class="vg"><div class="k">Match cost / day</div><div class="val">$%.2f<small>/day</small></div></div>'
            '<div class="vg"><div class="k">Est. savings</div><div class="val save">~$%s<small>/yr</small></div></div></div></div>'
-           %(esc(verdict.replace(' ','<br>',1)),esc(d.get('verdict_note','')),d['brand_price'],esc(per_day),swap/30,'{:,}'.format(year)))
+           %(esc(verdict).replace(' ','<br>',1),esc(d.get('verdict_note','')),d['brand_price'],esc(per_day),swap/30,'{:,}'.format(year)))
     body+='<p class="disc-inline">Prices are estimates from public sources, checked %s, and change often — verify on the merchant’s site. A “lower-cost ingredient match” shares overlapping ingredients and a similar intended use; it is not a medically equivalent product or a guaranteed result.</p></div>\n'%esc(d.get('reviewed','Jul 2026'))
     # inside + swap
     body+=('<section><div class="wrap"><div class="shead"><h2>What’s inside — and the swap</h2><span class="ctag brand">Brand label</span></div>'
