@@ -16,11 +16,11 @@ MARK='<span class="mark">B/</span>'
 def esc(s):
     return (str(s).replace('&','&amp;').replace('<','&lt;').replace('>','&gt;')) if s not in (None,'') else ''
 
-def amz(url):
-    if not url: return '#'
-    if 'amazon.com' in url and AFFILIATE_TAG and 'tag=' not in url and 'AssociateTag=' not in url:
-        url=url+('&' if '?' in url else '?')+'tag='+AFFILIATE_TAG
-    return url
+# Buy-link routing is centralized in affiliates.py (the merchant router). Today only
+# Amazon is live, so amz() tags amazon.com links and passes everything else through —
+# byte-identical to the old local amz(). When a network approves, fill its IDs and flip
+# it live in affiliates.PROGRAMS and every link to that merchant routes through it.
+from affiliates import affiliate_link as amz
 
 def cart_url(asins):
     asins=[a for a in asins if a]
