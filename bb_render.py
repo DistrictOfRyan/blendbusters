@@ -18,7 +18,7 @@ def esc(s):
 
 def amz(url):
     if not url: return '#'
-    if AFFILIATE_TAG and 'tag=' not in url:
+    if 'amazon.com' in url and AFFILIATE_TAG and 'tag=' not in url and 'AssociateTag=' not in url:
         url=url+('&' if '?' in url else '?')+'tag='+AFFILIATE_TAG
     return url
 
@@ -141,7 +141,8 @@ def render_compare(d):
     # sources
     srchtml=''
     for i,(lab,url,ok) in enumerate(d.get('sources',[]),1):
-        srchtml+='<li><span class="n">%d.</span><span><a href="%s">%s</a>%s</span></li>'%(i,esc(url or '#'),esc(lab),'' if ok else ' <span class="na">(to be verified)</span>')
+        u=amz(url); aff=(' target="_blank" rel="sponsored nofollow noopener"' if url and 'amazon.com' in url else '')
+        srchtml+='<li><span class="n">%d.</span><span><a href="%s"%s>%s</a>%s</span></li>'%(i,esc(u or '#'),aff,esc(lab),'' if ok else ' <span class="na">(to be verified)</span>')
     # related
     relhtml=''
     for nm,href,vd,yr in d.get('related',[]):

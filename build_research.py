@@ -42,7 +42,7 @@ RESEARCH=[
     [{'name':'Psyllium (soluble fiber)','cls':'strong','note':'Well-studied bulk-forming fiber for regularity.'},{'name':'Added fruit powders','cls':'weak','note':'Amounts undisclosed; no product-specific outcome data.'}],
     FIBER_SAFETY,FIBER_CONSULT,
     [('Bellway product & label — brand and Walmart listing (price checked Jul 2026)','https://getbellway.com/products/super-fiber-fruit-collection',True),
-     ('Generic organic psyllium — NOW Foods (iHerb), price Jul 2026','https://www.iherb.com/pr/now-foods-certified-organic-psyllium-husk-powder-12-oz-340-g/21116',True),
+     ('Generic organic psyllium — NOW Foods, 12 oz (Amazon)','https://www.amazon.com/s?k=NOW+Foods+Certified+Organic+Psyllium+Husk+Powder+12+oz',True),
      ('Psyllium fiber & regularity — Harvard Health','https://www.health.harvard.edu/heart-health/psyllium-fiber-regularity-and-healthier-lipid-levels',True)],
     'organic psyllium husk powder','Gut, probiotic, omega & fiber'),
 
@@ -116,7 +116,7 @@ RESEARCH=[
     [{'name':'Psyllium (soluble fiber)','cls':'strong','note':'Well-studied for regularity; also supports LDL as part of a diet.'}],
     FIBER_SAFETY,FIBER_CONSULT,
     [('Metamucil Premium Blend — brand page (price checked Jul 2026)','https://www.metamucil.com/en-us/products/fiber-powders/metamucil-premium-blend',True),
-     ('Generic psyllium — NOW Foods 24 oz (iHerb, $21.31 Jul 2026)','https://www.iherb.com/pr/now-foods-psyllium-husk-powder-24-oz-680-g/21133',True),
+     ('Generic psyllium — NOW Foods 24 oz (Amazon)','https://www.amazon.com/s?k=NOW+Foods+Psyllium+Husk+Powder+24+oz',True),
      ('Psyllium fiber & regularity — Harvard Health','https://www.health.harvard.edu/heart-health/psyllium-fiber-regularity-and-healthier-lipid-levels',True)],
     'psyllium husk powder','Gut, probiotic, omega & fiber'),
 
