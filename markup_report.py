@@ -109,7 +109,7 @@ page = f'''<!doctype html>
 {header}
 <div class="wrap"><nav class="crumb" aria-label="Breadcrumb"><a href="/">Home</a> / <b>The Supplement Markup Report</b></nav>
 <div class="title"><span class="cat">Independent data</span><h1>The Supplement Markup Report</h1><div class="meta"><span>Updated <b>Jul 2026</b></span><span>·</span><span><b>{n}</b> products priced</span></div></div>
-<p class="lead" style="max-width:60ch">We took {n} popular brand-name supplements and priced each one against a specific, lower-cost product with overlapping ingredients. This is what the gap looks like in aggregate. Every figure below is estimated from public retail prices; a "lower-cost ingredient match" shares overlapping ingredients and a similar intended use, not a guaranteed equivalent.</p>
+<p class="lead" style="max-width:60ch">We took {n} popular brand-name supplements and priced each one against a specific, lower-cost product with overlapping ingredients. This is what the gap looks like in aggregate. Every figure below is estimated from public retail prices; a "lower-cost ingredient match" shares overlapping ingredients and a similar intended use, not a medically equivalent product.</p>
 <div class="verdict"><div class="vgrid">
 <div class="vg"><div class="k">Products priced</div><div class="val">{n}</div></div>
 <div class="vg"><div class="k">Total est. overspend</div><div class="val save">~{money(total_save)}<small>/yr</small></div></div>
