@@ -149,8 +149,8 @@ def render_compare(d):
         relhtml+='<a class="rc" href="%s"><span class="cat mono">%s</span><h4>%s</h4><span class="s">%s · save ~$%s/yr</span></a>'%(esc(href),esc(d.get('category','')),esc(nm),esc(vd),'{:,}'.format(int(yr)))
     match_line=('<b class="mono" style="font-size:20px;color:var(--ink)">~%d%%</b> &nbsp;estimated ingredient overlap by intended use — our estimate, not a lab measurement.'%match_pct) if match_pct else 'See what matches and what differs below.'
 
-    body=_head('%s — lower-cost comparison · BlendBusters'%d['name'],
-               '%s: ingredient, dose, cost, and evidence comparison with a lower-cost ingredient match. Estimated savings, what matches, and what differs.'%d['name'])
+    body=_head('%s Alternative: Save ~$%s/yr · BlendBusters'%(d['name'],'{:,}'.format(int(year))),
+               'Looking for a cheaper %s alternative? See a lower-cost ingredient match with overlapping ingredients and a similar intended use — an estimated ~$%s/yr in savings. Side-by-side breakdown.'%(d['name'],'{:,}'.format(int(year))))
     # structured data: Article + BreadcrumbList (no fake ratings — compliant)
     url='%s/%s.html'%(SITE,d['slug'])
     ld=[{"@context":"https://schema.org","@type":"Article",
