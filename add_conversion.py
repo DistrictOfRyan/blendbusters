@@ -33,6 +33,8 @@ for f in glob.glob('*.html'):
     s = btn_copy_re.sub(lambda m: f'{m.group(1)}— save ~${sv}/yr{m.group(2)}', s, count=1)
     # 3) stale disclosure line
     s = s.replace(stale, disclosure)
+    # 3b) sticky CTA carries the savings hook (idempotent: old text gone after replace)
+    s = s.replace('>See the cheaper swap &darr;</a>', f'>See the swap — save ~${sv}/yr &darr;</a>')
     # 2) above-the-fold CTA after the verdict (idempotent). Prefer the cart link;
     #    fall back to the primary 'Shop the swap' link for single-match pages.
     already = ('data-ev="cart_top"' in s) or ('data-ev="buy_top"' in s)
