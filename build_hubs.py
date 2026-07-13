@@ -77,9 +77,10 @@ for clu, files in sorted(by_clu.items()):
     items = sorted((data[f] | {'f': f} for f in files), key=lambda d: -d['save'])
     n = len(items)
     total = sum(d['save'] for d in items)
-    title = f"{h1} · BlendBusters"
-    desc = (f"Compare {n} popular {kw} supplements against specific lower-cost ingredient matches. "
-            f"Overlapping ingredients, similar intended use, and an estimated ~${total:,}/yr in total savings across the category.")
+    kw_clean = kw[:-11] if kw.endswith(' supplement') else kw  # avoid "supplement supplements"
+    title = f"{h1} · BlendBusters" if len(h1) + 15 <= 60 else h1  # keep <=60 (Google title truncation)
+    desc = (f"{n} {kw_clean} supplements vs lower-cost matches: ~${total:,}/yr "
+            f"estimated total savings, doses and ingredients side by side.")
     url = f"{SITE}/{slug}.html"
     cards = ''.join(
       f'<a class="rc" href="/{d["f"]}"><span class="cat mono">{html.escape(clu)}</span>'

@@ -147,14 +147,16 @@ def render_compare(d):
     relhtml=''
     for nm,href,vd,yr in d.get('related',[]):
         relhtml+='<a class="rc" href="%s"><span class="cat mono">%s</span><h4>%s</h4><span class="s">%s · save ~$%s/yr</span></a>'%(esc(href),esc(d.get('category','')),esc(nm),esc(vd),'{:,}'.format(int(yr)))
-    match_line=('<b class="mono" style="font-size:20px;color:var(--ink)">~%d%%</b> &nbsp;estimated ingredient overlap by intended use — our estimate, not a lab measurement.'%match_pct) if match_pct else 'See what matches and what differs below.'
+    match_line=('<b class="mono" style="font-size:20px;color:var(--ink)">~%d%%</b> &nbsp;estimated ingredient overlap by intended use (our estimate, not a lab measurement).'%match_pct) if match_pct else 'See what matches and what differs below.'
 
-    body=_head('%s Alternative: Save ~$%s/yr · BlendBusters'%(d['name'],'{:,}'.format(int(year))),
-               'Looking for a cheaper %s alternative? See a lower-cost ingredient match with overlapping ingredients and a similar intended use — an estimated ~$%s/yr in savings. Side-by-side breakdown.'%(d['name'],'{:,}'.format(int(year))))
+    _core='%s Alternative: Save ~$%s/yr'%(d['name'],'{:,}'.format(int(year)))
+    _title=_core+' · BlendBusters' if len(_core)+15<=60 else _core  # keep <=60 (Google title truncation)
+    body=_head(_title,
+               '%s alternative: a lower-cost ingredient match, overlapping ingredients, ~$%s/yr estimated savings. See the breakdown.'%(d['name'],'{:,}'.format(int(year))))
     # structured data: Article + BreadcrumbList (no fake ratings — compliant)
     url='%s/%s.html'%(SITE,d['slug'])
     ld=[{"@context":"https://schema.org","@type":"Article",
-         "headline":"%s — lower-cost ingredient comparison"%d['name'],
+         "headline":"%s: lower-cost ingredient comparison"%d['name'],
          "description":"Ingredient, dose, cost, and evidence comparison of %s with a lower-cost ingredient match."%d['name'],
          "datePublished":"2026-07-08","dateModified":"2026-07-11",
          "author":{"@type":"Organization","name":"BlendBusters"},

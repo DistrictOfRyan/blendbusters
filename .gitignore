@@ -1,3 +1,4 @@
 .indexnow_key
 AFFILIATE-*.md
 *-fieldsheet.md
+__pycache__/
