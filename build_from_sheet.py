@@ -2,7 +2,7 @@
 # Generates BlendBusters teardown pages directly from the ChatGPT 100-product
 # spreadsheet, wiring in the Ingredient Catalog's cheap swaps + Amazon links.
 # Skips the products already built bespoke by build_teardowns.py.
-import re, warnings
+import os, re, warnings
 warnings.filterwarnings('ignore')
 import openpyxl
 import bb_render
@@ -17,7 +17,21 @@ def evnote(name,cls):
     return {'strong':'Solid human evidence for this ingredient.','mod':'Reasonable evidence; benefit varies.',
             'weak':'Limited or mixed human evidence.'}.get(cls,'')
 
-XLSX='/root/.claude/uploads/89659117-1595-510e-9d89-38cba852da22/b6dbc339-high_price_supplement_cost_comparison_100_products.xlsx'
+def _find_xlsx():
+    name = 'high_price_supplement_cost_comparison_100_products.xlsx'
+    home = os.path.expanduser('~')
+    cands = [
+        os.path.join(os.path.dirname(os.path.abspath(__file__)), 'data', name),  # repo-local (preferred)
+        os.path.join(home, 'Desktop', name),
+        os.path.join(home, 'OneDrive', 'Desktop', name),
+        '/root/.claude/uploads/89659117-1595-510e-9d89-38cba852da22/b6dbc339-' + name,  # original upload
+    ]
+    for c in cands:
+        if os.path.exists(c):
+            return c
+    return cands[0]  # default; errors clearly on open() if the sheet is truly missing
+
+XLSX = _find_xlsx()
 
 # ---- Affiliate config ----
 # Set this to the real Amazon Associates tracking ID once approved; every link
