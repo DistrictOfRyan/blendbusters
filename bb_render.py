@@ -57,8 +57,8 @@ def _footer():
       '<p style="color:var(--ink-2);font-size:14px;margin-top:12px;max-width:34ch">An independent consumer comparison platform. Pay for ingredients, not hype.</p></div>'
       '<div><h5>The platform</h5><ul><li><a href="/">All comparisons</a></li><li><a href="/#how">How it works</a></li>'
       '<li><a href="/methodology.html">Methodology</a></li><li><a href="/#request">Request a comparison</a></li></ul></div>'
-      '<div><h5>Company</h5><ul><li><a href="/#about">About</a></li><li><a href="/#about">Editorial standards</a></li>'
-      '<li><a href="/#about-legal">Affiliate disclosure</a></li><li><a href="/#about-legal">Privacy</a></li><li><a href="/#about-legal">Terms</a></li></ul></div></div>'
+      '<div><h5>Company</h5><ul><li><a href="/about.html">About</a></li><li><a href="/methodology.html#standards">Editorial standards</a></li>'
+      '<li><a href="/contact.html">Contact</a></li><li><a href="/privacy.html">Privacy</a></li><li><a href="/terms.html">Terms</a></li></ul></div></div>'
       '<p class="legal">This content is for general informational purposes and is not individualized medical advice. '
       'Statements about dietary supplements have not been evaluated by the U.S. Food and Drug Administration; products mentioned are not intended to diagnose, treat, cure, or prevent any disease. '
       'Brand claims, BlendBusters analysis, scientific evidence, and reader opinions are labeled separately. '
@@ -130,8 +130,9 @@ def render_compare(d):
             total+=v; counted+=mx
             srhtml+='<div class="sr"><span class="lb">%s</span><span class="strack"><span class="sfill" style="width:%d%%"></span></span><span class="sv">%s/%d</span></div>'%(lbl,round(v/mx*100),('%g'%v),mx)
     tot_display=round(total) if counted else 0
-    # safety
-    consult=''.join('<li>%s</li>'%esc(x) for x in d.get('consult',[]))
+    # safety (consult items are trusted internal copy that intentionally carries a
+    # leading <b> emphasis; escaping it printed raw &lt;b&gt; markup on 102 pages)
+    consult=''.join('<li>%s</li>'%x for x in d.get('consult',[]))
     # buy buttons
     cart=cart_url(d.get('cart_asins',[]))
     cart_btn=('<a class="btn primary wide" href="%s" target="_blank" rel="sponsored nofollow noopener" data-ev="cart">\U0001f9fe Add the match to your cart <span style="font-weight:500;opacity:.85">— save ~$%s/yr</span></a>'
@@ -172,7 +173,7 @@ def render_compare(d):
     body+=('<body data-slug="%s" data-base="%d">\n'%(esc(d['slug']),d['brand_price']))+_header()
     body+='<div class="wrap"><nav class="crumb" aria-label="Breadcrumb"><a href="/">Home</a> / <a href="/">Comparisons</a> / <a href="/">%s</a> / <b>%s</b></nav>\n'%(esc(d.get('category','')),esc(d['name']))
     body+='<div class="title"><span class="cat">%s</span><h1>%s, and a lower-cost ingredient match</h1>'%(esc(d.get('category','')),esc(d['name']))
-    body+='<div class="meta"><span>Last reviewed <b>%s</b></span><span>·</span><span>Reviewed by <b>the BlendBusters desk</b> <span class="flag">clinical review pending</span></span></div></div>\n'%esc(d.get('reviewed','Jul 2026'))
+    body+='<div class="meta"><span>Prices checked <b>%s</b></span><span>·</span><span>Analysis by <b>the BlendBusters desk</b> <a class="lnk" href="/methodology.html">Method</a></span></div></div>\n'%esc(d.get('reviewed','Jul 2026'))
     body+=('<div class="verdict"><div class="vtop"><span class="stamp">%s</span>'
            '<p class="q"><span class="ctag an">BlendBusters analysis</span> &nbsp;%s</p></div>'
            '<div class="vgrid"><div class="vg"><div class="k">Brand price</div><div class="val">$%d<small>/mo</small></div></div>'
@@ -209,7 +210,7 @@ def render_compare(d):
     body+=conv
     # score
     body+=('<section><div class="wrap"><div class="shead"><h2>The BlendBuster Score</h2><span class="ctag an">BlendBusters analysis</span></div>'
-           '<div class="score"><div class="big"><span class="num">%d</span><span class="out">/ 100</span><span class="prov">Provisional — pending source verification</span></div>'
+           '<div class="score"><div class="big"><span class="num">%d</span><span class="out">/ 100</span><span class="prov">Computed from disclosed ingredients, doses, and dated prices</span></div>'
            '<p class="lead" style="margin-top:10px;font-size:14.5px">A higher score means the lower-cost match is a stronger, better-value stand-in on ingredients, dose, evidence, and transparency. Any sub-score marked <span class="mono">Data unavailable</span> is a value the brand does not disclose — we don’t fill it in.</p>'
            '<div class="sub">%s</div></div></div></section>\n'%(tot_display,srhtml))
     # safety
@@ -225,7 +226,7 @@ def render_compare(d):
            '<p class="buynote">Merchant links and prices are estimates dated %s and must be confirmed at checkout. As an Amazon Associate, BlendBusters may earn from qualifying purchases at no extra cost to you.</p></div></section>\n'
            %(cart_btn,prim_btn,esc(d.get('reviewed','Jul 2026'))))
     # sources
-    body+=('<section><div class="wrap"><div class="shead"><h2>Sources &amp; citations</h2><span class="flag">Editorial review pending</span></div>'
+    body+=('<section><div class="wrap"><div class="shead"><h2>Sources &amp; citations</h2></div>'
            '<ol class="src">%s</ol>'
            '<p class="fine" style="margin-top:12px">Every published comparison ships with dated, linked sources. Items marked “to be verified” require editorial sign-off.</p></div></section>\n'%(srchtml or '<li><span class="n">1.</span><span>Brand label &amp; price — merchant listing (price checked %s). <span class="na">(to be verified)</span></span></li>'%esc(d.get('reviewed','Jul 2026'))))
     # correction

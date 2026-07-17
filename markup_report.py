@@ -2,24 +2,12 @@
 """Generate markup-report.html — the flagship data/link asset. Aggregates the
 real brand-vs-match pricing across all comparison pages into a Supplement Markup
 Report. All numbers derive from existing page data (no fabrication)."""
-import re, glob, html
+import re, glob, html, json
+from datetime import date
+from taxonomy import cluster  # shared, word-boundary-correct classifier
 
 SITE = "https://blendbusters.com"
 SKIP = {'index.html', 'methodology.html', 'savings-index.html', 'markup-report.html'}
-
-def cluster(cat):
-    c = cat.lower()
-    if any(w in c for w in ['hydration', 'electrolyte']): return 'Hydration & electrolytes'
-    if 'energy' in c: return 'Energy'
-    if any(w in c for w in ['sleep', 'calm', 'stress']): return 'Sleep & calm'
-    if any(w in c for w in ['brain', 'nootropic', 'focus', 'cognit', 'coffee']): return 'Brain & nootropics'
-    if any(w in c for w in ['gut', 'probiotic', 'prebiotic', 'digest', 'fiber', 'omega', 'magnesium', 'synbiotic', 'enzyme']): return 'Gut, probiotic & omega'
-    if any(w in c for w in ['men', 'testosterone', 'prostate']): return "Men's & testosterone"
-    if any(w in c for w in ['fitness', 'protein', 'performance', 'creatine', 'workout', 'muscle', 'meal replacement', 'keto']): return 'Fitness & performance'
-    if any(w in c for w in ['collagen', 'beauty', 'hair', 'skin', 'nail', 'joint', 'immune', 'circulation', 'coq10', 'turmeric']): return 'Beauty, joint & immune'
-    if any(w in c for w in ['longevity', 'nad', 'nmn', 'heart']): return 'Longevity & heart'
-    if any(w in c for w in ['multi', 'greens', 'vitamin', 'daily']): return 'Daily multivitamins & greens'
-    return 'Other'
 
 rows = []
 for f in glob.glob('*.html'):
@@ -81,6 +69,49 @@ desc = (f"We priced {n} popular supplements against specific ingredient-matched,
         f"The gap adds up to ~{money(total_save)}/yr, an average of {avg_mult:.1f}x markup.")
 url = f"{SITE}/markup-report.html"
 
+# --- extra citable stats (all derived from the same rows; no fabrication) ---
+pct2 = round(100 * sum(1 for r in rows if r['mult'] >= 2) / n)
+n5 = sum(1 for r in rows if r['mult'] >= 5)
+big_mult = max(rows, key=lambda r: r['mult'])
+big_save = max(rows, key=lambda r: r['save'])
+avg_match = sum(r['match'] for r in rows) / n
+brand_yr = sum(r['brand'] for r in rows) * 12
+match_yr = sum(r['match'] for r in rows) * 12
+_findings = [
+    f"Across {n} popular supplements, the typical (median) brand product is priced {median_mult:.1f}x its lower-cost, ingredient-matched alternative; the average markup is {avg_mult:.1f}x.",
+    f"{pct2}% of the supplements analyzed are priced at least 2x the ingredient-matched alternative, and {n5} are priced 5x or more.",
+    f"The largest single gap is {html.escape(big_save['name'])}: about ${big_save['brand']:.0f}/month versus a roughly ${big_save['match']:.0f}/month ingredient-matched alternative, an estimated {money(big_save['save'])}/year in savings.",
+    f"The steepest multiple is {html.escape(big_mult['name'])}, priced about {big_mult['mult']:.0f}x its lower-cost ingredient match.",
+    f"On average a tracked brand product costs ${avg_brand:.0f}/month versus about ${avg_match:.0f}/month for its ingredient-matched alternative.",
+    f"In aggregate the {n} brand products would cost about {money(brand_yr)}/year; the ingredient-matched alternatives total about {money(match_yr)}/year.",
+]
+findings_html = ''.join('<li>%s</li>' % f for f in _findings)
+cite_date = date.today().strftime('%B %Y')
+# JSON-LD: Dataset + Article graph, tied to the site Organization/WebSite entity (#org/#website)
+_ld = {"@context": "https://schema.org", "@graph": [
+  {"@type": "Dataset", "@id": url + "#dataset", "name": "The Supplement Markup Report Dataset",
+   "description": (f"Brand monthly price, a lower-cost ingredient-matched monthly price, the markup "
+                   f"multiple, and estimated annual savings for {n} popular consumer supplements. A "
+                   f"lower-cost ingredient match shares overlapping ingredients and a similar intended "
+                   f"use; it is not a medically equivalent product."),
+   "url": url, "creator": {"@id": SITE + "/#org"}, "publisher": {"@id": SITE + "/#org"},
+   "license": "https://creativecommons.org/licenses/by/4.0/", "isAccessibleForFree": True,
+   "datePublished": "2026-07-11", "dateModified": date.today().isoformat(), "temporalCoverage": "2026-07",
+   "measurementTechnique": ("For each brand product a specific lower-cost alternative with overlapping "
+                            "ingredients is assembled from public retail prices and normalized to a monthly "
+                            "cost. Markup = brand monthly price / matched monthly price."),
+   "variableMeasured": ["product", "category", "brand_price_monthly_usd", "match_price_monthly_usd",
+                        "markup_multiple", "est_annual_savings_usd"],
+   "distribution": [{"@type": "DataDownload", "encodingFormat": "text/csv",
+                     "contentUrl": SITE + "/supplement-markup-dataset.csv"}]},
+  {"@type": "Article", "@id": url + "#article", "isPartOf": {"@id": SITE + "/#website"},
+   "headline": "The Supplement Markup Report", "description": desc,
+   "image": SITE + "/img/form/powder.jpg", "datePublished": "2026-07-11",
+   "dateModified": date.today().isoformat(), "author": {"@id": SITE + "/#org"},
+   "publisher": {"@id": SITE + "/#org"}, "mainEntityOfPage": url,
+   "isBasedOn": {"@id": url + "#dataset"}}]}
+ld_json = json.dumps(_ld)
+
 page = f'''<!doctype html>
 <html lang="en">
 <head>
@@ -103,7 +134,7 @@ page = f'''<!doctype html>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-529DGYE1QB"></script>
 <script>window.dataLayer=window.dataLayer||[];function gtag(){{dataLayer.push(arguments)}}gtag('js',new Date());gtag('config','G-529DGYE1QB');</script>
 <link rel="stylesheet" href="/bb.css">
-<script type="application/ld+json">{{"@context":"https://schema.org","@type":"Report","headline":"The Supplement Markup Report","datePublished":"2026-07-11","author":{{"@type":"Organization","name":"BlendBusters"}},"publisher":{{"@type":"Organization","name":"BlendBusters"}},"about":"Consumer supplement pricing and lower-cost ingredient matches","url":"{url}"}}</script>
+<script type="application/ld+json">{ld_json}</script>
 </head>
 <body>
 {header}
@@ -116,6 +147,13 @@ page = f'''<!doctype html>
 <div class="vg"><div class="k">Average markup</div><div class="val">{avg_mult:.1f}<small>&times;</small></div></div>
 <div class="vg"><div class="k">Median markup</div><div class="val">{median_mult:.1f}<small>&times;</small></div></div>
 </div></div></div>
+<div class="wrap" style="margin-top:-2px;margin-bottom:10px">
+<a class="btn primary" href="/supplement-markup-dataset.csv" download style="width:auto">⬇ Download the full dataset (CSV, {n} products)</a>
+<p class="fine" style="margin-top:10px">Free to cite with attribution (CC BY 4.0). Suggested citation: “BlendBusters Supplement Markup Report, blendbusters.com, {cite_date}.” Also available as <a href="/supplement-markup-dataset.json">JSON</a> · see the <a href="/methodology.html">methodology</a>.</p>
+</div>
+<section><div class="wrap"><div class="shead"><h2>Key findings</h2><span class="ctag an">BlendBusters analysis</span></div>
+<ul class="findings" style="line-height:1.75;max-width:66ch;font-size:15px">{findings_html}</ul>
+<p class="fine" style="margin-top:12px">Every figure is estimated from public retail prices and derives from the {n} live comparisons on this site. A “lower-cost ingredient match” shares overlapping ingredients and a similar intended use; it is not a medically equivalent product. This is a price comparison, not medical advice.</p></div></section>
 <section><div class="wrap"><div class="shead"><h2>The 20 biggest markups</h2><span class="ctag an">BlendBusters analysis</span></div>
 <p class="lead" style="margin-bottom:14px">Ranked by estimated annual overspend versus the ingredient-matched alternative.</p>
 <div style="overflow-x:auto"><table class="report" style="width:100%;border-collapse:collapse;font-size:14.5px">

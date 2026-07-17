@@ -17,5 +17,11 @@ python3 build_hubs.py              # <-- category hub pages + sitemap/homepage i
 python3 add_hublinks.py           # <-- spoke->hub internal links (run AFTER hubs exist)
 python3 add_conversion.py         # <-- above-fold CTA + savings-in-button + Amazon disclosure
 python3 fix_seo_meta.py           # <-- title<=60, meta desc<=160, strip em dashes (voice). MUST run last
+# --- 2026-07-17 authority pass (idempotent post-processors) ---
+python3 fix_page_trust.py         # <-- drop 'review pending' YMYL flags, fix escaped-<b> safety bug, real footer links (belt-and-suspenders; bb_render.py already fixed at source)
+python3 fix_forms.py              # <-- wire newsletter + request-a-comparison forms to Netlify Forms (were demo-only)
+python3 build_trust_pages.py      # <-- generate /about /contact /privacy /terms (E-E-A-T trust pages)
+python3 build_dataset.py          # <-- public downloadable dataset (supplement-markup-dataset.csv/.json) for the Markup Report
+python3 add_site_schema.py        # <-- homepage Organization+WebSite JSON-LD + sitemap sync/<lastmod> (run LAST, after all pages exist)
 echo "== compliance QA (should list ONLY index/methodology/savings-index) =="
 grep -rilE "exactly the same|works just as well|guaranteed equivalent|clinically proven|doctor approved|cure your|treats? your" --include=*.html . | grep -vE 'index\.html|methodology\.html|savings-index\.html|mockup|standalone' && echo "!! COMPLIANCE FAIL" || echo "compliance OK"

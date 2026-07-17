@@ -1,0 +1,1791 @@
+{
+  "title": "BlendBusters Supplement Markup Dataset",
+  "description": "Every BlendBusters comparison: brand monthly price vs a specific lower-cost ingredient-matched alternative, the markup multiple, and estimated annual savings. Figures are estimates from public retail prices and change often; a lower-cost ingredient match shares overlapping ingredients and a similar intended use, not a medically equivalent product.",
+  "publisher": "BlendBusters (Hunt Web Consulting Services)",
+  "source": "https://blendbusters.com/markup-report.html",
+  "license": "Free to cite with attribution to BlendBusters (blendbusters.com).",
+  "generated": "2026-07-17",
+  "row_count": 177,
+  "columns": [
+    "product",
+    "category",
+    "brand_price_monthly_usd",
+    "match_price_monthly_usd",
+    "markup_multiple",
+    "est_annual_savings_usd",
+    "verdict",
+    "comparison_url"
+  ],
+  "rows": [
+    {
+      "product": "Isagenix IsaLean Shake",
+      "category": "Daily multivitamins & greens",
+      "brand_price_monthly_usd": 296.0,
+      "match_price_monthly_usd": 70.0,
+      "markup_multiple": 4.2,
+      "est_annual_savings_usd": 2712,
+      "verdict": "Lower-cost ingredient match",
+      "comparison_url": "https://blendbusters.com/isalean-alternative.html"
+    },
+    {
+      "product": "Onnit Total Human",
+      "category": "Daily multivitamins & greens",
+      "brand_price_monthly_usd": 140.0,
+      "match_price_monthly_usd": 9.36,
+      "markup_multiple": 15.0,
+      "est_annual_savings_usd": 1568,
+      "verdict": "Lower-cost ingredient match",
+      "comparison_url": "https://blendbusters.com/onnit-total-human.html"
+    },
+    {
+      "product": "Qualia Mind",
+      "category": "Brain & nootropics",
+      "brand_price_monthly_usd": 139.0,
+      "match_price_monthly_usd": 26.0,
+      "markup_multiple": 5.3,
+      "est_annual_savings_usd": 1356,
+      "verdict": "Lower-cost ingredient match",
+      "comparison_url": "https://blendbusters.com/qualia-mind-alternative.html"
+    },
+    {
+      "product": "Huel",
+      "category": "Daily multivitamins & greens",
+      "brand_price_monthly_usd": 212.0,
+      "match_price_monthly_usd": 102.0,
+      "markup_multiple": 2.1,
+      "est_annual_savings_usd": 1320,
+      "verdict": "Lower-cost ingredient match",
+      "comparison_url": "https://blendbusters.com/huel.html"
+    },
+    {
+      "product": "Hiyo",
+      "category": "Sleep & calm",
+      "brand_price_monthly_usd": 114.0,
+      "match_price_monthly_usd": 8.49,
+      "markup_multiple": 13.4,
+      "est_annual_savings_usd": 1266,
+      "verdict": "Lower-cost ingredient match",
+      "comparison_url": "https://blendbusters.com/hiyo.html"
+    },
+    {
+      "product": "ARMRA Colostrum",
+      "category": "Gut, probiotic & omega",
+      "brand_price_monthly_usd": 110.0,
+      "match_price_monthly_usd": 10.0,
+      "markup_multiple": 11.0,
+      "est_annual_savings_usd": 1200,
+      "verdict": "Lower-cost ingredient match",
+      "comparison_url": "https://blendbusters.com/armra.html"
+    },
+    {
+      "product": "Rootine Precision Daily Multivitamin",
+      "category": "Daily multivitamins & greens",
+      "brand_price_monthly_usd": 95.0,
+      "match_price_monthly_usd": 2.7,
+      "markup_multiple": 35.2,
+      "est_annual_savings_usd": 1108,
+      "verdict": "Lower-cost ingredient match",
+      "comparison_url": "https://blendbusters.com/rootine-precision-daily-multivitamin.html"
+    },
+    {
+      "product": "CLEAN Cause Yerba Mate",
+      "category": "Energy",
+      "brand_price_monthly_usd": 94.0,
+      "match_price_monthly_usd": 6.75,
+      "markup_multiple": 13.9,
+      "est_annual_savings_usd": 1047,
+      "verdict": "Lower-cost ingredient match",
+      "comparison_url": "https://blendbusters.com/clean-cause-yerba-mate.html"
+    },
+    {
+      "product": "Jocko GO Energy Drink",
+      "category": "Energy",
+      "brand_price_monthly_usd": 92.0,
+      "match_price_monthly_usd": 10.0,
+      "markup_multiple": 9.2,
+      "est_annual_savings_usd": 984,
+      "verdict": "Lower-cost ingredient match",
+      "comparison_url": "https://blendbusters.com/jocko-go-alternative.html"
+    },
+    {
+      "product": "Amway Nutrilite Double X",
+      "category": "Daily multivitamins & greens",
+      "brand_price_monthly_usd": 83.0,
+      "match_price_monthly_usd": 2.0,
+      "markup_multiple": 41.5,
+      "est_annual_savings_usd": 972,
+      "verdict": "Lower-cost ingredient match",
+      "comparison_url": "https://blendbusters.com/nutrilite-double-x-alternative.html"
+    },
+    {
+      "product": "IM8 Daily Ultimate Essentials",
+      "category": "Daily multivitamins & greens",
+      "brand_price_monthly_usd": 90.0,
+      "match_price_monthly_usd": 10.2,
+      "markup_multiple": 8.8,
+      "est_annual_savings_usd": 958,
+      "verdict": "Lower-cost ingredient match",
+      "comparison_url": "https://blendbusters.com/im8-daily-ultimate-essentials.html"
+    },
+    {
+      "product": "Guayaki Yerba Mate",
+      "category": "Energy",
+      "brand_price_monthly_usd": 86.0,
+      "match_price_monthly_usd": 6.75,
+      "markup_multiple": 12.7,
+      "est_annual_savings_usd": 951,
+      "verdict": "Lower-cost ingredient match",
+      "comparison_url": "https://blendbusters.com/guayaki-yerba-mate.html"
+    },
+    {
+      "product": "Shakeology",
+      "category": "Daily multivitamins & greens",
+      "brand_price_monthly_usd": 130.0,
+      "match_price_monthly_usd": 53.0,
+      "markup_multiple": 2.5,
+      "est_annual_savings_usd": 924,
+      "verdict": "Lower-cost ingredient match",
+      "comparison_url": "https://blendbusters.com/shakeology-alternative.html"
+    },
+    {
+      "product": "Runa Clean Energy",
+      "category": "Energy",
+      "brand_price_monthly_usd": 76.0,
+      "match_price_monthly_usd": 6.75,
+      "markup_multiple": 11.3,
+      "est_annual_savings_usd": 831,
+      "verdict": "Lower-cost ingredient match",
+      "comparison_url": "https://blendbusters.com/runa-clean-energy.html"
+    },
+    {
+      "product": "Recess Mood",
+      "category": "Sleep & calm",
+      "brand_price_monthly_usd": 101.0,
+      "match_price_monthly_usd": 33.74,
+      "markup_multiple": 3.0,
+      "est_annual_savings_usd": 807,
+      "verdict": "Lower-cost ingredient match",
+      "comparison_url": "https://blendbusters.com/recess-mood.html"
+    },
+    {
+      "product": "Alani Nu Energy",
+      "category": "Energy",
+      "brand_price_monthly_usd": 76.0,
+      "match_price_monthly_usd": 8.99,
+      "markup_multiple": 8.5,
+      "est_annual_savings_usd": 804,
+      "verdict": "Lower-cost ingredient match",
+      "comparison_url": "https://blendbusters.com/alani-nu-energy.html"
+    },
+    {
+      "product": "Neuro Sonic",
+      "category": "Energy",
+      "brand_price_monthly_usd": 73.0,
+      "match_price_monthly_usd": 6.37,
+      "markup_multiple": 11.5,
+      "est_annual_savings_usd": 800,
+      "verdict": "Lower-cost ingredient match",
+      "comparison_url": "https://blendbusters.com/neuro-sonic.html"
+    },
+    {
+      "product": "Ghost Energy",
+      "category": "Energy",
+      "brand_price_monthly_usd": 75.0,
+      "match_price_monthly_usd": 8.99,
+      "markup_multiple": 8.3,
+      "est_annual_savings_usd": 792,
+      "verdict": "Lower-cost ingredient match",
+      "comparison_url": "https://blendbusters.com/ghost-energy.html"
+    },
+    {
+      "product": "Ka\u2019chava",
+      "category": "Daily multivitamins & greens",
+      "brand_price_monthly_usd": 140.0,
+      "match_price_monthly_usd": 75.0,
+      "markup_multiple": 1.9,
+      "est_annual_savings_usd": 780,
+      "verdict": "Lower-cost ingredient match",
+      "comparison_url": "https://blendbusters.com/kachava.html"
+    },
+    {
+      "product": "Wonderfeel Youngr NMN",
+      "category": "Longevity & heart",
+      "brand_price_monthly_usd": 88.0,
+      "match_price_monthly_usd": 23.0,
+      "markup_multiple": 3.8,
+      "est_annual_savings_usd": 780,
+      "verdict": "Lower-cost ingredient match",
+      "comparison_url": "https://blendbusters.com/wonderfeel-nmn-alternative.html"
+    },
+    {
+      "product": "C4 Energy",
+      "category": "Energy",
+      "brand_price_monthly_usd": 71.0,
+      "match_price_monthly_usd": 8.99,
+      "markup_multiple": 7.9,
+      "est_annual_savings_usd": 744,
+      "verdict": "Lower-cost ingredient match",
+      "comparison_url": "https://blendbusters.com/c4-energy.html"
+    },
+    {
+      "product": "Modere Liquid BioCell",
+      "category": "Beauty, joint & immune",
+      "brand_price_monthly_usd": 77.0,
+      "match_price_monthly_usd": 15.0,
+      "markup_multiple": 5.1,
+      "est_annual_savings_usd": 744,
+      "verdict": "Lower-cost ingredient match",
+      "comparison_url": "https://blendbusters.com/modere-biocell-alternative.html"
+    },
+    {
+      "product": "Prime Energy",
+      "category": "Energy",
+      "brand_price_monthly_usd": 71.0,
+      "match_price_monthly_usd": 8.99,
+      "markup_multiple": 7.9,
+      "est_annual_savings_usd": 744,
+      "verdict": "Lower-cost ingredient match",
+      "comparison_url": "https://blendbusters.com/prime-energy.html"
+    },
+    {
+      "product": "Beam Dream",
+      "category": "Sleep & calm",
+      "brand_price_monthly_usd": 66.0,
+      "match_price_monthly_usd": 5.0,
+      "markup_multiple": 13.2,
+      "est_annual_savings_usd": 732,
+      "verdict": "Lower-cost ingredient match",
+      "comparison_url": "https://blendbusters.com/beam-dream.html"
+    },
+    {
+      "product": "USANA CellSentials",
+      "category": "Daily multivitamins & greens",
+      "brand_price_monthly_usd": 68.0,
+      "match_price_monthly_usd": 7.0,
+      "markup_multiple": 9.7,
+      "est_annual_savings_usd": 732,
+      "verdict": "Lower-cost ingredient match",
+      "comparison_url": "https://blendbusters.com/usana-cellsentials-alternative.html"
+    },
+    {
+      "product": "Cymbiotika Vitamin C",
+      "category": "Daily multivitamins & greens",
+      "brand_price_monthly_usd": 62.0,
+      "match_price_monthly_usd": 1.5,
+      "markup_multiple": 41.3,
+      "est_annual_savings_usd": 726,
+      "verdict": "Lower-cost ingredient match",
+      "comparison_url": "https://blendbusters.com/cymbiotika.html"
+    },
+    {
+      "product": "Field of Greens (Brickhouse)",
+      "category": "Daily multivitamins & greens",
+      "brand_price_monthly_usd": 81.0,
+      "match_price_monthly_usd": 23.0,
+      "markup_multiple": 3.5,
+      "est_annual_savings_usd": 696,
+      "verdict": "Lower-cost ingredient match",
+      "comparison_url": "https://blendbusters.com/field-of-greens-alternative.html"
+    },
+    {
+      "product": "Herbalife Formula 1 Shake",
+      "category": "Fitness & performance",
+      "brand_price_monthly_usd": 73.0,
+      "match_price_monthly_usd": 15.0,
+      "markup_multiple": 4.9,
+      "est_annual_savings_usd": 696,
+      "verdict": "Lower-cost ingredient match",
+      "comparison_url": "https://blendbusters.com/herbalife-formula-1-alternative.html"
+    },
+    {
+      "product": "GURU Organic Energy",
+      "category": "Energy",
+      "brand_price_monthly_usd": 63.0,
+      "match_price_monthly_usd": 5.62,
+      "markup_multiple": 11.2,
+      "est_annual_savings_usd": 689,
+      "verdict": "Lower-cost ingredient match",
+      "comparison_url": "https://blendbusters.com/guru-organic-energy.html"
+    },
+    {
+      "product": "Perfect Keto Base Ketones (BHB)",
+      "category": "Fitness & performance",
+      "brand_price_monthly_usd": 85.0,
+      "match_price_monthly_usd": 28.0,
+      "markup_multiple": 3.0,
+      "est_annual_savings_usd": 684,
+      "verdict": "Lower-cost ingredient match",
+      "comparison_url": "https://blendbusters.com/perfect-keto-alternative.html"
+    },
+    {
+      "product": "Truvani Plant-Based Protein",
+      "category": "Fitness & performance",
+      "brand_price_monthly_usd": 75.0,
+      "match_price_monthly_usd": 18.0,
+      "markup_multiple": 4.2,
+      "est_annual_savings_usd": 684,
+      "verdict": "Lower-cost ingredient match",
+      "comparison_url": "https://blendbusters.com/truvani-protein-alternative.html"
+    },
+    {
+      "product": "Bloom Sparkling Energy",
+      "category": "Energy",
+      "brand_price_monthly_usd": 63.0,
+      "match_price_monthly_usd": 6.75,
+      "markup_multiple": 9.3,
+      "est_annual_savings_usd": 675,
+      "verdict": "Lower-cost ingredient match",
+      "comparison_url": "https://blendbusters.com/bloom-sparkling-energy.html"
+    },
+    {
+      "product": "Balance of Nature",
+      "category": "Daily multivitamins & greens",
+      "brand_price_monthly_usd": 70.0,
+      "match_price_monthly_usd": 15.0,
+      "markup_multiple": 4.7,
+      "est_annual_savings_usd": 660,
+      "verdict": "Lower-cost ingredient match",
+      "comparison_url": "https://blendbusters.com/balance-of-nature.html"
+    },
+    {
+      "product": "Juice Plus+ Premium Capsules",
+      "category": "Daily multivitamins & greens",
+      "brand_price_monthly_usd": 80.0,
+      "match_price_monthly_usd": 25.0,
+      "markup_multiple": 3.2,
+      "est_annual_savings_usd": 660,
+      "verdict": "Lower-cost ingredient match",
+      "comparison_url": "https://blendbusters.com/juice-plus-alternative.html"
+    },
+    {
+      "product": "Celsius Original",
+      "category": "Energy",
+      "brand_price_monthly_usd": 63.0,
+      "match_price_monthly_usd": 8.99,
+      "markup_multiple": 7.0,
+      "est_annual_savings_usd": 648,
+      "verdict": "Lower-cost ingredient match",
+      "comparison_url": "https://blendbusters.com/celsius-original.html"
+    },
+    {
+      "product": "Kaged Pre-Kaged Pre-Workout",
+      "category": "Fitness & performance",
+      "brand_price_monthly_usd": 68.0,
+      "match_price_monthly_usd": 14.0,
+      "markup_multiple": 4.9,
+      "est_annual_savings_usd": 648,
+      "verdict": "Lower-cost ingredient match",
+      "comparison_url": "https://blendbusters.com/kaged-prekaged-alternative.html"
+    },
+    {
+      "product": "Peachy Plump Creatine Bites",
+      "category": "Fitness & performance",
+      "brand_price_monthly_usd": 60.0,
+      "match_price_monthly_usd": 6.0,
+      "markup_multiple": 10.0,
+      "est_annual_savings_usd": 648,
+      "verdict": "Lower-cost ingredient match",
+      "comparison_url": "https://blendbusters.com/peachy-plump-alternative.html"
+    },
+    {
+      "product": "WeNatal for Him",
+      "category": "Daily multivitamins & greens",
+      "brand_price_monthly_usd": 61.0,
+      "match_price_monthly_usd": 7.7,
+      "markup_multiple": 7.9,
+      "est_annual_savings_usd": 640,
+      "verdict": "Lower-cost ingredient match",
+      "comparison_url": "https://blendbusters.com/wenatal-for-him.html"
+    },
+    {
+      "product": "Creatine Gummies",
+      "category": "Fitness & performance",
+      "brand_price_monthly_usd": 56.0,
+      "match_price_monthly_usd": 3.3,
+      "markup_multiple": 17.0,
+      "est_annual_savings_usd": 632,
+      "verdict": "Lower-cost ingredient match",
+      "comparison_url": "https://blendbusters.com/creatine-gummies.html"
+    },
+    {
+      "product": "Goli ACV",
+      "category": "Other",
+      "brand_price_monthly_usd": 57.0,
+      "match_price_monthly_usd": 5.0,
+      "markup_multiple": 11.4,
+      "est_annual_savings_usd": 624,
+      "verdict": "Lower-cost ingredient match",
+      "comparison_url": "https://blendbusters.com/goli.html"
+    },
+    {
+      "product": "Nugenix Total-T",
+      "category": "Men's & testosterone",
+      "brand_price_monthly_usd": 70.0,
+      "match_price_monthly_usd": 18.0,
+      "markup_multiple": 3.9,
+      "est_annual_savings_usd": 624,
+      "verdict": "Lower-cost ingredient match",
+      "comparison_url": "https://blendbusters.com/nugenix.html"
+    },
+    {
+      "product": "Bang Energy",
+      "category": "Energy",
+      "brand_price_monthly_usd": 63.0,
+      "match_price_monthly_usd": 11.24,
+      "markup_multiple": 5.6,
+      "est_annual_savings_usd": 621,
+      "verdict": "Lower-cost ingredient match",
+      "comparison_url": "https://blendbusters.com/bang-energy.html"
+    },
+    {
+      "product": "1st Phorm Micro Factor",
+      "category": "Daily multivitamins & greens",
+      "brand_price_monthly_usd": 71.0,
+      "match_price_monthly_usd": 19.36,
+      "markup_multiple": 3.7,
+      "est_annual_savings_usd": 620,
+      "verdict": "Lower-cost ingredient match",
+      "comparison_url": "https://blendbusters.com/1st-phorm-micro-factor.html"
+    },
+    {
+      "product": "Monster Zero Ultra",
+      "category": "Energy",
+      "brand_price_monthly_usd": 58.0,
+      "match_price_monthly_usd": 6.75,
+      "markup_multiple": 8.6,
+      "est_annual_savings_usd": 615,
+      "verdict": "Lower-cost ingredient match",
+      "comparison_url": "https://blendbusters.com/monster-zero-ultra.html"
+    },
+    {
+      "product": "4Life Transfer Factor Tri-Factor",
+      "category": "Beauty, joint & immune",
+      "brand_price_monthly_usd": 66.0,
+      "match_price_monthly_usd": 15.0,
+      "markup_multiple": 4.4,
+      "est_annual_savings_usd": 612,
+      "verdict": "Lower-cost ingredient match",
+      "comparison_url": "https://blendbusters.com/4life-transfer-factor-alternative.html"
+    },
+    {
+      "product": "Prime Hydration Sticks",
+      "category": "Hydration & electrolytes",
+      "brand_price_monthly_usd": 71.0,
+      "match_price_monthly_usd": 19.99,
+      "markup_multiple": 3.6,
+      "est_annual_savings_usd": 612,
+      "verdict": "Lower-cost ingredient match",
+      "comparison_url": "https://blendbusters.com/prime-hydration-sticks.html"
+    },
+    {
+      "product": "Olipop Prebiotic Soda",
+      "category": "Gut, probiotic & omega",
+      "brand_price_monthly_usd": 75.0,
+      "match_price_monthly_usd": 25.0,
+      "markup_multiple": 3.0,
+      "est_annual_savings_usd": 600,
+      "verdict": "Lower-cost ingredient match",
+      "comparison_url": "https://blendbusters.com/olipop-alternative.html"
+    },
+    {
+      "product": "Huel Daily Greens",
+      "category": "Daily multivitamins & greens",
+      "brand_price_monthly_usd": 57.0,
+      "match_price_monthly_usd": 7.7,
+      "markup_multiple": 7.4,
+      "est_annual_savings_usd": 592,
+      "verdict": "Lower-cost ingredient match",
+      "comparison_url": "https://blendbusters.com/huel-daily-greens.html"
+    },
+    {
+      "product": "5-hour Energy Extra Strength",
+      "category": "Energy",
+      "brand_price_monthly_usd": 58.0,
+      "match_price_monthly_usd": 8.99,
+      "markup_multiple": 6.5,
+      "est_annual_savings_usd": 588,
+      "verdict": "Lower-cost ingredient match",
+      "comparison_url": "https://blendbusters.com/5-hour-energy-extra-strength.html"
+    },
+    {
+      "product": "Garden of Life Sport Grass-Fed Whey",
+      "category": "Fitness & performance",
+      "brand_price_monthly_usd": 72.0,
+      "match_price_monthly_usd": 23.0,
+      "markup_multiple": 3.1,
+      "est_annual_savings_usd": 588,
+      "verdict": "Lower-cost ingredient match",
+      "comparison_url": "https://blendbusters.com/garden-of-life-whey-alternative.html"
+    },
+    {
+      "product": "Performance Lab NutriGenesis Multi for Men",
+      "category": "Daily multivitamins & greens",
+      "brand_price_monthly_usd": 50.0,
+      "match_price_monthly_usd": 2.7,
+      "markup_multiple": 18.5,
+      "est_annual_savings_usd": 568,
+      "verdict": "Lower-cost ingredient match",
+      "comparison_url": "https://blendbusters.com/performance-lab-nutrigenesis-multi-for-men.html"
+    },
+    {
+      "product": "Performance Lab NutriGenesis Multi for Women",
+      "category": "Daily multivitamins & greens",
+      "brand_price_monthly_usd": 50.0,
+      "match_price_monthly_usd": 2.7,
+      "markup_multiple": 18.5,
+      "est_annual_savings_usd": 568,
+      "verdict": "Lower-cost ingredient match",
+      "comparison_url": "https://blendbusters.com/performance-lab-nutrigenesis-multi-for-women.html"
+    },
+    {
+      "product": "AG1",
+      "category": "Daily multivitamins & greens",
+      "brand_price_monthly_usd": 79.0,
+      "match_price_monthly_usd": 32.0,
+      "markup_multiple": 2.5,
+      "est_annual_savings_usd": 564,
+      "verdict": "Lower-cost ingredient match",
+      "comparison_url": "https://blendbusters.com/ag1.html"
+    },
+    {
+      "product": "Kion Aminos (Essential Amino Acids)",
+      "category": "Fitness & performance",
+      "brand_price_monthly_usd": 54.0,
+      "match_price_monthly_usd": 8.0,
+      "markup_multiple": 6.8,
+      "est_annual_savings_usd": 552,
+      "verdict": "Lower-cost ingredient match",
+      "comparison_url": "https://blendbusters.com/kion-aminos-alternative.html"
+    },
+    {
+      "product": "OmegaXL Green-Lipped Mussel",
+      "category": "Gut, probiotic & omega",
+      "brand_price_monthly_usd": 55.0,
+      "match_price_monthly_usd": 9.0,
+      "markup_multiple": 6.1,
+      "est_annual_savings_usd": 552,
+      "verdict": "Lower-cost ingredient match",
+      "comparison_url": "https://blendbusters.com/omegaxl-alternative.html"
+    },
+    {
+      "product": "TestoFuel",
+      "category": "Men's & testosterone",
+      "brand_price_monthly_usd": 65.0,
+      "match_price_monthly_usd": 19.75,
+      "markup_multiple": 3.3,
+      "est_annual_savings_usd": 543,
+      "verdict": "Lower-cost ingredient match",
+      "comparison_url": "https://blendbusters.com/testofuel.html"
+    },
+    {
+      "product": "Ritual Synbiotic+",
+      "category": "Gut, probiotic & omega",
+      "brand_price_monthly_usd": 55.0,
+      "match_price_monthly_usd": 9.99,
+      "markup_multiple": 5.5,
+      "est_annual_savings_usd": 540,
+      "verdict": "Lower-cost ingredient match",
+      "comparison_url": "https://blendbusters.com/ritual-synbiotic.html"
+    },
+    {
+      "product": "Red Bull Original",
+      "category": "Energy",
+      "brand_price_monthly_usd": 49.0,
+      "match_price_monthly_usd": 4.5,
+      "markup_multiple": 10.9,
+      "est_annual_savings_usd": 534,
+      "verdict": "Lower-cost ingredient match",
+      "comparison_url": "https://blendbusters.com/red-bull-original.html"
+    },
+    {
+      "product": "fatty15",
+      "category": "Longevity & heart",
+      "brand_price_monthly_usd": 50.0,
+      "match_price_monthly_usd": 6.0,
+      "markup_multiple": 8.3,
+      "est_annual_savings_usd": 528,
+      "verdict": "Lower-cost ingredient match",
+      "comparison_url": "https://blendbusters.com/fatty15.html"
+    },
+    {
+      "product": "Organifi Green Juice",
+      "category": "Daily multivitamins & greens",
+      "brand_price_monthly_usd": 70.0,
+      "match_price_monthly_usd": 26.0,
+      "markup_multiple": 2.7,
+      "est_annual_savings_usd": 528,
+      "verdict": "Lower-cost ingredient match",
+      "comparison_url": "https://blendbusters.com/organifi-green-juice-alternative.html"
+    },
+    {
+      "product": "LMNT",
+      "category": "Hydration & electrolytes",
+      "brand_price_monthly_usd": 45.0,
+      "match_price_monthly_usd": 1.5,
+      "markup_multiple": 30.0,
+      "est_annual_savings_usd": 522,
+      "verdict": "Lower-cost ingredient match",
+      "comparison_url": "https://blendbusters.com/lmnt.html"
+    },
+    {
+      "product": "Prime Male",
+      "category": "Men's & testosterone",
+      "brand_price_monthly_usd": 75.0,
+      "match_price_monthly_usd": 32.0,
+      "markup_multiple": 2.3,
+      "est_annual_savings_usd": 516,
+      "verdict": "Lower-cost ingredient match",
+      "comparison_url": "https://blendbusters.com/prime-male.html"
+    },
+    {
+      "product": "Tru Niagen",
+      "category": "Longevity & heart",
+      "brand_price_monthly_usd": 45.0,
+      "match_price_monthly_usd": 2.0,
+      "markup_multiple": 22.5,
+      "est_annual_savings_usd": 516,
+      "verdict": "Lower-cost ingredient match",
+      "comparison_url": "https://blendbusters.com/tru-niagen.html"
+    },
+    {
+      "product": "ColonBroom Premium",
+      "category": "Gut, probiotic & omega",
+      "brand_price_monthly_usd": 46.0,
+      "match_price_monthly_usd": 3.41,
+      "markup_multiple": 13.5,
+      "est_annual_savings_usd": 511,
+      "verdict": "Lower-cost ingredient match",
+      "comparison_url": "https://blendbusters.com/colonbroom-premium.html"
+    },
+    {
+      "product": "Perelel Women's Daily Vitamin Trio",
+      "category": "Daily multivitamins & greens",
+      "brand_price_monthly_usd": 51.0,
+      "match_price_monthly_usd": 9.36,
+      "markup_multiple": 5.4,
+      "est_annual_savings_usd": 500,
+      "verdict": "Lower-cost ingredient match",
+      "comparison_url": "https://blendbusters.com/perelel-women-s-daily-vitamin-trio.html"
+    },
+    {
+      "product": "Nutrafol",
+      "category": "Beauty, joint & immune",
+      "brand_price_monthly_usd": 79.0,
+      "match_price_monthly_usd": 38.0,
+      "markup_multiple": 2.1,
+      "est_annual_savings_usd": 492,
+      "verdict": "Lower-cost ingredient match",
+      "comparison_url": "https://blendbusters.com/nutrafol.html"
+    },
+    {
+      "product": "WeNatal for Her",
+      "category": "Daily multivitamins & greens",
+      "brand_price_monthly_usd": 61.0,
+      "match_price_monthly_usd": 19.99,
+      "markup_multiple": 3.1,
+      "est_annual_savings_usd": 492,
+      "verdict": "Lower-cost ingredient match",
+      "comparison_url": "https://blendbusters.com/wenatal-for-her.html"
+    },
+    {
+      "product": "Cymbiotika Magnesium L-Threonate",
+      "category": "Gut, probiotic & omega",
+      "brand_price_monthly_usd": 69.0,
+      "match_price_monthly_usd": 29.99,
+      "markup_multiple": 2.3,
+      "est_annual_savings_usd": 468,
+      "verdict": "Lower-cost ingredient match",
+      "comparison_url": "https://blendbusters.com/cymbiotika-magnesium-l-threonate.html"
+    },
+    {
+      "product": "Gundry MD Vital Reds",
+      "category": "Other",
+      "brand_price_monthly_usd": 70.0,
+      "match_price_monthly_usd": 31.0,
+      "markup_multiple": 2.3,
+      "est_annual_savings_usd": 468,
+      "verdict": "Lower-cost ingredient match",
+      "comparison_url": "https://blendbusters.com/gundry-vital-reds-alternative.html"
+    },
+    {
+      "product": "Legion Pulse Pre-Workout",
+      "category": "Fitness & performance",
+      "brand_price_monthly_usd": 53.0,
+      "match_price_monthly_usd": 14.0,
+      "markup_multiple": 3.8,
+      "est_annual_savings_usd": 468,
+      "verdict": "Lower-cost ingredient match",
+      "comparison_url": "https://blendbusters.com/legion-pulse-alternative.html"
+    },
+    {
+      "product": "Mind Lab Pro Universal Nootropic",
+      "category": "Brain & nootropics",
+      "brand_price_monthly_usd": 69.0,
+      "match_price_monthly_usd": 30.0,
+      "markup_multiple": 2.3,
+      "est_annual_savings_usd": 468,
+      "verdict": "Lower-cost ingredient match",
+      "comparison_url": "https://blendbusters.com/mind-lab-pro-alternative.html"
+    },
+    {
+      "product": "Optimum Nutrition Amino Energy RTD",
+      "category": "Energy",
+      "brand_price_monthly_usd": 63.0,
+      "match_price_monthly_usd": 24.49,
+      "markup_multiple": 2.6,
+      "est_annual_savings_usd": 462,
+      "verdict": "Lower-cost ingredient match",
+      "comparison_url": "https://blendbusters.com/optimum-nutrition-amino-energy-rtd.html"
+    },
+    {
+      "product": "Soylent Complete Meal",
+      "category": "Daily multivitamins & greens",
+      "brand_price_monthly_usd": 84.0,
+      "match_price_monthly_usd": 46.0,
+      "markup_multiple": 1.8,
+      "est_annual_savings_usd": 456,
+      "verdict": "Lower-cost ingredient match",
+      "comparison_url": "https://blendbusters.com/soylent-alternative.html"
+    },
+    {
+      "product": "Gundry MD Bio Complete 3",
+      "category": "Gut, probiotic & omega",
+      "brand_price_monthly_usd": 63.0,
+      "match_price_monthly_usd": 26.0,
+      "markup_multiple": 2.4,
+      "est_annual_savings_usd": 444,
+      "verdict": "Lower-cost ingredient match",
+      "comparison_url": "https://blendbusters.com/gundry-bio-complete-3-alternative.html"
+    },
+    {
+      "product": "Perelel Men's Multi Support Pack",
+      "category": "Daily multivitamins & greens",
+      "brand_price_monthly_usd": 51.0,
+      "match_price_monthly_usd": 14.36,
+      "markup_multiple": 3.6,
+      "est_annual_savings_usd": 440,
+      "verdict": "Lower-cost ingredient match",
+      "comparison_url": "https://blendbusters.com/perelel-men-s-multi-support-pack.html"
+    },
+    {
+      "product": "Moon Juice Magnesi-Om",
+      "category": "Sleep & calm",
+      "brand_price_monthly_usd": 45.0,
+      "match_price_monthly_usd": 8.75,
+      "markup_multiple": 5.1,
+      "est_annual_savings_usd": 435,
+      "verdict": "Lower-cost ingredient match",
+      "comparison_url": "https://blendbusters.com/moon-juice-magnesi-om.html"
+    },
+    {
+      "product": "ZOA Zero Sugar",
+      "category": "Energy",
+      "brand_price_monthly_usd": 63.0,
+      "match_price_monthly_usd": 26.74,
+      "markup_multiple": 2.4,
+      "est_annual_savings_usd": 435,
+      "verdict": "Lower-cost ingredient match",
+      "comparison_url": "https://blendbusters.com/zoa-zero-sugar.html"
+    },
+    {
+      "product": "Moon Juice SuperHair",
+      "category": "Brain & nootropics",
+      "brand_price_monthly_usd": 61.0,
+      "match_price_monthly_usd": 24.99,
+      "markup_multiple": 2.4,
+      "est_annual_savings_usd": 432,
+      "verdict": "Lower-cost ingredient match",
+      "comparison_url": "https://blendbusters.com/moon-juice-superhair.html"
+    },
+    {
+      "product": "SuperBeets",
+      "category": "Beauty, joint & immune",
+      "brand_price_monthly_usd": 40.0,
+      "match_price_monthly_usd": 4.5,
+      "markup_multiple": 8.9,
+      "est_annual_savings_usd": 426,
+      "verdict": "Lower-cost ingredient match",
+      "comparison_url": "https://blendbusters.com/superbeets.html"
+    },
+    {
+      "product": "Waterboy Weekend Recovery",
+      "category": "Hydration & electrolytes",
+      "brand_price_monthly_usd": 65.0,
+      "match_price_monthly_usd": 29.99,
+      "markup_multiple": 2.2,
+      "est_annual_savings_usd": 420,
+      "verdict": "Lower-cost ingredient match",
+      "comparison_url": "https://blendbusters.com/waterboy-weekend-recovery.html"
+    },
+    {
+      "product": "Legion Pulse",
+      "category": "Fitness & performance",
+      "brand_price_monthly_usd": 45.0,
+      "match_price_monthly_usd": 10.2,
+      "markup_multiple": 4.4,
+      "est_annual_savings_usd": 418,
+      "verdict": "Lower-cost ingredient match",
+      "comparison_url": "https://blendbusters.com/pre-workout.html"
+    },
+    {
+      "product": "Magnesium Breakthrough",
+      "category": "Gut, probiotic & omega",
+      "brand_price_monthly_usd": 40.0,
+      "match_price_monthly_usd": 6.0,
+      "markup_multiple": 6.7,
+      "est_annual_savings_usd": 408,
+      "verdict": "Lower-cost ingredient match",
+      "comparison_url": "https://blendbusters.com/magnesium-breakthrough.html"
+    },
+    {
+      "product": "Pedialyte AdvancedCare Plus",
+      "category": "Hydration & electrolytes",
+      "brand_price_monthly_usd": 45.0,
+      "match_price_monthly_usd": 11.0,
+      "markup_multiple": 4.1,
+      "est_annual_savings_usd": 408,
+      "verdict": "Lower-cost ingredient match",
+      "comparison_url": "https://blendbusters.com/pedialyte-alternative.html"
+    },
+    {
+      "product": "Pedialyte Sport Powder",
+      "category": "Hydration & electrolytes",
+      "brand_price_monthly_usd": 61.0,
+      "match_price_monthly_usd": 26.98,
+      "markup_multiple": 2.3,
+      "est_annual_savings_usd": 408,
+      "verdict": "Lower-cost ingredient match",
+      "comparison_url": "https://blendbusters.com/pedialyte-sport-powder.html"
+    },
+    {
+      "product": "Ritual HyaCera",
+      "category": "Brain & nootropics",
+      "brand_price_monthly_usd": 61.0,
+      "match_price_monthly_usd": 27.49,
+      "markup_multiple": 2.2,
+      "est_annual_savings_usd": 402,
+      "verdict": "Lower-cost ingredient match",
+      "comparison_url": "https://blendbusters.com/ritual-hyacera.html"
+    },
+    {
+      "product": "Zipfizz",
+      "category": "Energy",
+      "brand_price_monthly_usd": 58.0,
+      "match_price_monthly_usd": 24.49,
+      "markup_multiple": 2.4,
+      "est_annual_savings_usd": 402,
+      "verdict": "Lower-cost ingredient match",
+      "comparison_url": "https://blendbusters.com/zipfizz.html"
+    },
+    {
+      "product": "Thorne Basic Nutrients 2/Day",
+      "category": "Daily multivitamins & greens",
+      "brand_price_monthly_usd": 36.0,
+      "match_price_monthly_usd": 2.7,
+      "markup_multiple": 13.3,
+      "est_annual_savings_usd": 400,
+      "verdict": "Lower-cost ingredient match",
+      "comparison_url": "https://blendbusters.com/thorne-basic-nutrients-2-day.html"
+    },
+    {
+      "product": "Dose & Co Collagen Peptides",
+      "category": "Beauty, joint & immune",
+      "brand_price_monthly_usd": 60.0,
+      "match_price_monthly_usd": 27.0,
+      "markup_multiple": 2.2,
+      "est_annual_savings_usd": 396,
+      "verdict": "Lower-cost ingredient match",
+      "comparison_url": "https://blendbusters.com/dose-and-co-alternative.html"
+    },
+    {
+      "product": "MaryRuth\u2019s Liquid Morning Multivitamin",
+      "category": "Daily multivitamins & greens",
+      "brand_price_monthly_usd": 36.0,
+      "match_price_monthly_usd": 3.0,
+      "markup_multiple": 12.0,
+      "est_annual_savings_usd": 396,
+      "verdict": "Lower-cost ingredient match",
+      "comparison_url": "https://blendbusters.com/maryruths-multivitamin-alternative.html"
+    },
+    {
+      "product": "SkinnyFit Super Youth Collagen",
+      "category": "Beauty, joint & immune",
+      "brand_price_monthly_usd": 67.0,
+      "match_price_monthly_usd": 34.0,
+      "markup_multiple": 2.0,
+      "est_annual_savings_usd": 396,
+      "verdict": "Lower-cost ingredient match",
+      "comparison_url": "https://blendbusters.com/skinnyfit-collagen-alternative.html"
+    },
+    {
+      "product": "NativePath Collagen Peptides",
+      "category": "Beauty, joint & immune",
+      "brand_price_monthly_usd": 50.0,
+      "match_price_monthly_usd": 19.0,
+      "markup_multiple": 2.6,
+      "est_annual_savings_usd": 372,
+      "verdict": "Lower-cost ingredient match",
+      "comparison_url": "https://blendbusters.com/native-path-alternative.html"
+    },
+    {
+      "product": "Seed DS-01",
+      "category": "Gut, probiotic & omega",
+      "brand_price_monthly_usd": 50.0,
+      "match_price_monthly_usd": 19.0,
+      "markup_multiple": 2.6,
+      "est_annual_savings_usd": 372,
+      "verdict": "Lower-cost ingredient match",
+      "comparison_url": "https://blendbusters.com/seed.html"
+    },
+    {
+      "product": "Transparent Labs Grass-Fed Whey Isolate",
+      "category": "Fitness & performance",
+      "brand_price_monthly_usd": 60.0,
+      "match_price_monthly_usd": 29.0,
+      "markup_multiple": 2.1,
+      "est_annual_savings_usd": 372,
+      "verdict": "Lower-cost ingredient match",
+      "comparison_url": "https://blendbusters.com/transparent-labs-whey-alternative.html"
+    },
+    {
+      "product": "Peachy Clean",
+      "category": "Gut, probiotic & omega",
+      "brand_price_monthly_usd": 40.0,
+      "match_price_monthly_usd": 10.0,
+      "markup_multiple": 4.0,
+      "est_annual_savings_usd": 360,
+      "verdict": "Lower-cost ingredient match",
+      "comparison_url": "https://blendbusters.com/peachy.html"
+    },
+    {
+      "product": "Poppi Prebiotic Soda",
+      "category": "Gut, probiotic & omega",
+      "brand_price_monthly_usd": 44.0,
+      "match_price_monthly_usd": 14.0,
+      "markup_multiple": 3.1,
+      "est_annual_savings_usd": 360,
+      "verdict": "Lower-cost ingredient match",
+      "comparison_url": "https://blendbusters.com/poppi-alternative.html"
+    },
+    {
+      "product": "Pure for Men Stay Ready Fiber",
+      "category": "Gut, probiotic & omega",
+      "brand_price_monthly_usd": 36.0,
+      "match_price_monthly_usd": 6.0,
+      "markup_multiple": 6.0,
+      "est_annual_savings_usd": 360,
+      "verdict": "Lower-cost ingredient match",
+      "comparison_url": "https://blendbusters.com/pure-for-men-alternative.html"
+    },
+    {
+      "product": "Just Thrive Probiotic & Antioxidant",
+      "category": "Gut, probiotic & omega",
+      "brand_price_monthly_usd": 50.0,
+      "match_price_monthly_usd": 21.0,
+      "markup_multiple": 2.4,
+      "est_annual_savings_usd": 348,
+      "verdict": "Lower-cost ingredient match",
+      "comparison_url": "https://blendbusters.com/just-thrive-alternative.html"
+    },
+    {
+      "product": "Vital Proteins",
+      "category": "Beauty, joint & immune",
+      "brand_price_monthly_usd": 48.0,
+      "match_price_monthly_usd": 19.0,
+      "markup_multiple": 2.5,
+      "est_annual_savings_usd": 348,
+      "verdict": "Lower-cost ingredient match",
+      "comparison_url": "https://blendbusters.com/vital-proteins.html"
+    },
+    {
+      "product": "Nordic Naturals Ultimate Omega",
+      "category": "Gut, probiotic & omega",
+      "brand_price_monthly_usd": 41.0,
+      "match_price_monthly_usd": 12.49,
+      "markup_multiple": 3.3,
+      "est_annual_savings_usd": 342,
+      "verdict": "Lower-cost ingredient match",
+      "comparison_url": "https://blendbusters.com/nordic-naturals-ultimate-omega.html"
+    },
+    {
+      "product": "Cure Hydration",
+      "category": "Hydration & electrolytes",
+      "brand_price_monthly_usd": 54.0,
+      "match_price_monthly_usd": 26.98,
+      "markup_multiple": 2.0,
+      "est_annual_savings_usd": 324,
+      "verdict": "Lower-cost ingredient match",
+      "comparison_url": "https://blendbusters.com/cure-hydration.html"
+    },
+    {
+      "product": "O Positiv FLO",
+      "category": "Other",
+      "brand_price_monthly_usd": 32.0,
+      "match_price_monthly_usd": 5.0,
+      "markup_multiple": 6.4,
+      "est_annual_savings_usd": 324,
+      "verdict": "Lower-cost ingredient match",
+      "comparison_url": "https://blendbusters.com/flo-pms.html"
+    },
+    {
+      "product": "It Works! Greens",
+      "category": "Daily multivitamins & greens",
+      "brand_price_monthly_usd": 55.0,
+      "match_price_monthly_usd": 28.0,
+      "markup_multiple": 2.0,
+      "est_annual_savings_usd": 324,
+      "verdict": "Lower-cost ingredient match",
+      "comparison_url": "https://blendbusters.com/it-works-greens-alternative.html"
+    },
+    {
+      "product": "Alpha Brain",
+      "category": "Brain & nootropics",
+      "brand_price_monthly_usd": 53.0,
+      "match_price_monthly_usd": 27.0,
+      "markup_multiple": 2.0,
+      "est_annual_savings_usd": 312,
+      "verdict": "Lower-cost ingredient match",
+      "comparison_url": "https://blendbusters.com/alpha-brain.html"
+    },
+    {
+      "product": "Liquid I.V. Sugar-Free",
+      "category": "Hydration & electrolytes",
+      "brand_price_monthly_usd": 39.0,
+      "match_price_monthly_usd": 13.0,
+      "markup_multiple": 3.0,
+      "est_annual_savings_usd": 312,
+      "verdict": "Lower-cost ingredient match",
+      "comparison_url": "https://blendbusters.com/liquid-iv-sugar-free-alternative.html"
+    },
+    {
+      "product": "Salud Hydration + Immunity",
+      "category": "Hydration & electrolytes",
+      "brand_price_monthly_usd": 52.0,
+      "match_price_monthly_usd": 26.49,
+      "markup_multiple": 2.0,
+      "est_annual_savings_usd": 306,
+      "verdict": "Lower-cost ingredient match",
+      "comparison_url": "https://blendbusters.com/salud-hydration-immunity.html"
+    },
+    {
+      "product": "Nello Supercalm",
+      "category": "Sleep & calm",
+      "brand_price_monthly_usd": 43.0,
+      "match_price_monthly_usd": 18.0,
+      "markup_multiple": 2.4,
+      "est_annual_savings_usd": 300,
+      "verdict": "Lower-cost ingredient match",
+      "comparison_url": "https://blendbusters.com/nello-supercalm-alternative.html"
+    },
+    {
+      "product": "1st Phorm Opti-Greens 50",
+      "category": "Daily multivitamins & greens",
+      "brand_price_monthly_usd": 60.0,
+      "match_price_monthly_usd": 35.0,
+      "markup_multiple": 1.7,
+      "est_annual_savings_usd": 300,
+      "verdict": "Lower-cost ingredient match",
+      "comparison_url": "https://blendbusters.com/opti-greens-50-alternative.html"
+    },
+    {
+      "product": "BUBS Naturals Collagen Peptides",
+      "category": "Beauty, joint & immune",
+      "brand_price_monthly_usd": 43.0,
+      "match_price_monthly_usd": 19.0,
+      "markup_multiple": 2.3,
+      "est_annual_savings_usd": 288,
+      "verdict": "Lower-cost ingredient match",
+      "comparison_url": "https://blendbusters.com/bubs-collagen-alternative.html"
+    },
+    {
+      "product": "Needed Prenatal Multi Essentials",
+      "category": "Daily multivitamins & greens",
+      "brand_price_monthly_usd": 44.0,
+      "match_price_monthly_usd": 19.99,
+      "markup_multiple": 2.2,
+      "est_annual_savings_usd": 288,
+      "verdict": "Lower-cost ingredient match",
+      "comparison_url": "https://blendbusters.com/needed-prenatal-multi-essentials.html"
+    },
+    {
+      "product": "Premier Protein Shake",
+      "category": "Fitness & performance",
+      "brand_price_monthly_usd": 60.0,
+      "match_price_monthly_usd": 36.0,
+      "markup_multiple": 1.7,
+      "est_annual_savings_usd": 288,
+      "verdict": "Lower-cost ingredient match",
+      "comparison_url": "https://blendbusters.com/premier-protein-alternative.html"
+    },
+    {
+      "product": "Sunwarrior Warrior Blend Protein",
+      "category": "Fitness & performance",
+      "brand_price_monthly_usd": 44.0,
+      "match_price_monthly_usd": 21.0,
+      "markup_multiple": 2.1,
+      "est_annual_savings_usd": 276,
+      "verdict": "Lower-cost ingredient match",
+      "comparison_url": "https://blendbusters.com/sunwarrior-alternative.html"
+    },
+    {
+      "product": "Liquid I.V.",
+      "category": "Hydration & electrolytes",
+      "brand_price_monthly_usd": 25.0,
+      "match_price_monthly_usd": 2.4,
+      "markup_multiple": 10.4,
+      "est_annual_savings_usd": 271,
+      "verdict": "Lower-cost ingredient match",
+      "comparison_url": "https://blendbusters.com/liquid-iv.html"
+    },
+    {
+      "product": "Bloom Greens",
+      "category": "Daily multivitamins & greens",
+      "brand_price_monthly_usd": 35.0,
+      "match_price_monthly_usd": 13.0,
+      "markup_multiple": 2.7,
+      "est_annual_savings_usd": 264,
+      "verdict": "Lower-cost ingredient match",
+      "comparison_url": "https://blendbusters.com/bloom.html"
+    },
+    {
+      "product": "Neuro Energy & Focus Gum",
+      "category": "Energy",
+      "brand_price_monthly_usd": 24.0,
+      "match_price_monthly_usd": 2.0,
+      "markup_multiple": 12.0,
+      "est_annual_savings_usd": 264,
+      "verdict": "Lower-cost ingredient match",
+      "comparison_url": "https://blendbusters.com/neuro-gum-alternative.html"
+    },
+    {
+      "product": "G Fuel Energy Formula",
+      "category": "Energy",
+      "brand_price_monthly_usd": 27.0,
+      "match_price_monthly_usd": 5.62,
+      "markup_multiple": 4.8,
+      "est_annual_savings_usd": 257,
+      "verdict": "Lower-cost ingredient match",
+      "comparison_url": "https://blendbusters.com/g-fuel-energy-formula.html"
+    },
+    {
+      "product": "Neuriva",
+      "category": "Brain & nootropics",
+      "brand_price_monthly_usd": 32.0,
+      "match_price_monthly_usd": 11.0,
+      "markup_multiple": 2.9,
+      "est_annual_savings_usd": 252,
+      "verdict": "Lower-cost ingredient match",
+      "comparison_url": "https://blendbusters.com/neuriva.html"
+    },
+    {
+      "product": "Gr\u00fcns Daily Greens",
+      "category": "Daily multivitamins & greens",
+      "brand_price_monthly_usd": 56.0,
+      "match_price_monthly_usd": 36.0,
+      "markup_multiple": 1.6,
+      "est_annual_savings_usd": 240,
+      "verdict": "Partial match",
+      "comparison_url": "https://blendbusters.com/gruns-alternative.html"
+    },
+    {
+      "product": "Host Defense MyCommunity",
+      "category": "Beauty, joint & immune",
+      "brand_price_monthly_usd": 30.0,
+      "match_price_monthly_usd": 10.0,
+      "markup_multiple": 3.0,
+      "est_annual_savings_usd": 240,
+      "verdict": "Lower-cost ingredient match",
+      "comparison_url": "https://blendbusters.com/host-defense-mycommunity-alternative.html"
+    },
+    {
+      "product": "Nuun Instant",
+      "category": "Hydration & electrolytes",
+      "brand_price_monthly_usd": 26.0,
+      "match_price_monthly_usd": 6.0,
+      "markup_multiple": 4.3,
+      "est_annual_savings_usd": 240,
+      "verdict": "Lower-cost ingredient match",
+      "comparison_url": "https://blendbusters.com/nuun-instant-alternative.html"
+    },
+    {
+      "product": "Align 24/7 Digestive Support",
+      "category": "Gut, probiotic & omega",
+      "brand_price_monthly_usd": 29.0,
+      "match_price_monthly_usd": 9.99,
+      "markup_multiple": 2.9,
+      "est_annual_savings_usd": 228,
+      "verdict": "Lower-cost ingredient match",
+      "comparison_url": "https://blendbusters.com/align-24-7-digestive-support.html"
+    },
+    {
+      "product": "Everyday Dose Mushroom Coffee",
+      "category": "Brain & nootropics",
+      "brand_price_monthly_usd": 45.0,
+      "match_price_monthly_usd": 27.0,
+      "markup_multiple": 1.7,
+      "est_annual_savings_usd": 216,
+      "verdict": "Lower-cost ingredient match",
+      "comparison_url": "https://blendbusters.com/everyday-dose-alternative.html"
+    },
+    {
+      "product": "HUM Red Carpet",
+      "category": "Brain & nootropics",
+      "brand_price_monthly_usd": 27.0,
+      "match_price_monthly_usd": 8.99,
+      "markup_multiple": 3.0,
+      "est_annual_savings_usd": 216,
+      "verdict": "Lower-cost ingredient match",
+      "comparison_url": "https://blendbusters.com/hum-red-carpet.html"
+    },
+    {
+      "product": "V8 +Energy",
+      "category": "Energy",
+      "brand_price_monthly_usd": 22.0,
+      "match_price_monthly_usd": 4.5,
+      "markup_multiple": 4.9,
+      "est_annual_savings_usd": 210,
+      "verdict": "Lower-cost ingredient match",
+      "comparison_url": "https://blendbusters.com/v8-energy.html"
+    },
+    {
+      "product": "Ritual Essential",
+      "category": "Daily multivitamins & greens",
+      "brand_price_monthly_usd": 39.0,
+      "match_price_monthly_usd": 21.6,
+      "markup_multiple": 1.8,
+      "est_annual_savings_usd": 209,
+      "verdict": "Lower-cost ingredient match",
+      "comparison_url": "https://blendbusters.com/ritual.html"
+    },
+    {
+      "product": "Primal Harvest Primal Collagen",
+      "category": "Beauty, joint & immune",
+      "brand_price_monthly_usd": 30.0,
+      "match_price_monthly_usd": 13.0,
+      "markup_multiple": 2.3,
+      "est_annual_savings_usd": 204,
+      "verdict": "Lower-cost ingredient match",
+      "comparison_url": "https://blendbusters.com/primal-collagen-alternative.html"
+    },
+    {
+      "product": "RYZE Mushroom Coffee",
+      "category": "Brain & nootropics",
+      "brand_price_monthly_usd": 36.0,
+      "match_price_monthly_usd": 19.0,
+      "markup_multiple": 1.9,
+      "est_annual_savings_usd": 204,
+      "verdict": "Lower-cost ingredient match",
+      "comparison_url": "https://blendbusters.com/ryze-mushroom-coffee-alternative.html"
+    },
+    {
+      "product": "Gatorlyte Powder",
+      "category": "Hydration & electrolytes",
+      "brand_price_monthly_usd": 43.0,
+      "match_price_monthly_usd": 26.98,
+      "markup_multiple": 1.6,
+      "est_annual_savings_usd": 192,
+      "verdict": "Partial match",
+      "comparison_url": "https://blendbusters.com/gatorlyte-powder.html"
+    },
+    {
+      "product": "Vega Sport Premium Protein",
+      "category": "Fitness & performance",
+      "brand_price_monthly_usd": 47.0,
+      "match_price_monthly_usd": 31.0,
+      "markup_multiple": 1.5,
+      "est_annual_savings_usd": 192,
+      "verdict": "Partial match",
+      "comparison_url": "https://blendbusters.com/vega-sport-alternative.html"
+    },
+    {
+      "product": "ZzzQuil Pure Zzzs",
+      "category": "Sleep & calm",
+      "brand_price_monthly_usd": 17.0,
+      "match_price_monthly_usd": 1.5,
+      "markup_multiple": 11.3,
+      "est_annual_savings_usd": 186,
+      "verdict": "Lower-cost ingredient match",
+      "comparison_url": "https://blendbusters.com/zzzquil-pure-zzzs.html"
+    },
+    {
+      "product": "1MD Complete Probiotics Platinum",
+      "category": "Gut, probiotic & omega",
+      "brand_price_monthly_usd": 41.0,
+      "match_price_monthly_usd": 26.0,
+      "markup_multiple": 1.6,
+      "est_annual_savings_usd": 180,
+      "verdict": "Partial match",
+      "comparison_url": "https://blendbusters.com/1md-probiotics-alternative.html"
+    },
+    {
+      "product": "Ancient Nutrition Multi Collagen Protein",
+      "category": "Beauty, joint & immune",
+      "brand_price_monthly_usd": 30.0,
+      "match_price_monthly_usd": 15.0,
+      "markup_multiple": 2.0,
+      "est_annual_savings_usd": 180,
+      "verdict": "Lower-cost ingredient match",
+      "comparison_url": "https://blendbusters.com/ancient-nutrition-alternative.html"
+    },
+    {
+      "product": "Ghost Hydration",
+      "category": "Hydration & electrolytes",
+      "brand_price_monthly_usd": 38.0,
+      "match_price_monthly_usd": 22.99,
+      "markup_multiple": 1.7,
+      "est_annual_savings_usd": 180,
+      "verdict": "Lower-cost ingredient match",
+      "comparison_url": "https://blendbusters.com/ghost-hydration.html"
+    },
+    {
+      "product": "Naked Whey Grass-Fed Protein",
+      "category": "Fitness & performance",
+      "brand_price_monthly_usd": 38.0,
+      "match_price_monthly_usd": 23.0,
+      "markup_multiple": 1.7,
+      "est_annual_savings_usd": 180,
+      "verdict": "Partial match",
+      "comparison_url": "https://blendbusters.com/naked-whey-alternative.html"
+    },
+    {
+      "product": "New Chapter Every Woman\u2019s One Daily",
+      "category": "Daily multivitamins & greens",
+      "brand_price_monthly_usd": 20.0,
+      "match_price_monthly_usd": 5.0,
+      "markup_multiple": 4.0,
+      "est_annual_savings_usd": 180,
+      "verdict": "Lower-cost ingredient match",
+      "comparison_url": "https://blendbusters.com/new-chapter-multivitamin-alternative.html"
+    },
+    {
+      "product": "Orgain Organic Plant Protein",
+      "category": "Fitness & performance",
+      "brand_price_monthly_usd": 42.0,
+      "match_price_monthly_usd": 27.0,
+      "markup_multiple": 1.6,
+      "est_annual_savings_usd": 180,
+      "verdict": "Partial match",
+      "comparison_url": "https://blendbusters.com/orgain-protein-alternative.html"
+    },
+    {
+      "product": "SmartyPants Adult Complete Gummies",
+      "category": "Daily multivitamins & greens",
+      "brand_price_monthly_usd": 24.0,
+      "match_price_monthly_usd": 9.0,
+      "markup_multiple": 2.7,
+      "est_annual_savings_usd": 180,
+      "verdict": "Lower-cost ingredient match",
+      "comparison_url": "https://blendbusters.com/smartypants-alternative.html"
+    },
+    {
+      "product": "Natrol Sleep+ Calm",
+      "category": "Sleep & calm",
+      "brand_price_monthly_usd": 16.0,
+      "match_price_monthly_usd": 1.5,
+      "markup_multiple": 10.7,
+      "est_annual_savings_usd": 174,
+      "verdict": "Lower-cost ingredient match",
+      "comparison_url": "https://blendbusters.com/natrol-sleep-calm.html"
+    },
+    {
+      "product": "Nature\u2019s Way Alive! Once Daily",
+      "category": "Daily multivitamins & greens",
+      "brand_price_monthly_usd": 15.0,
+      "match_price_monthly_usd": 1.0,
+      "markup_multiple": 15.0,
+      "est_annual_savings_usd": 168,
+      "verdict": "Lower-cost ingredient match",
+      "comparison_url": "https://blendbusters.com/alive-multivitamin-alternative.html"
+    },
+    {
+      "product": "Ancestral Supplements Grass Fed Beef Liver",
+      "category": "Other",
+      "brand_price_monthly_usd": 38.0,
+      "match_price_monthly_usd": 25.0,
+      "markup_multiple": 1.5,
+      "est_annual_savings_usd": 156,
+      "verdict": "Partial match",
+      "comparison_url": "https://blendbusters.com/ancestral-liver-alternative.html"
+    },
+    {
+      "product": "Emergen-C",
+      "category": "Brain & nootropics",
+      "brand_price_monthly_usd": 16.0,
+      "match_price_monthly_usd": 3.0,
+      "markup_multiple": 5.3,
+      "est_annual_savings_usd": 156,
+      "verdict": "Lower-cost ingredient match",
+      "comparison_url": "https://blendbusters.com/emergen-c.html"
+    },
+    {
+      "product": "Provitalize Probiotic",
+      "category": "Gut, probiotic & omega",
+      "brand_price_monthly_usd": 42.0,
+      "match_price_monthly_usd": 29.0,
+      "markup_multiple": 1.4,
+      "est_annual_savings_usd": 156,
+      "verdict": "Partial match",
+      "comparison_url": "https://blendbusters.com/provitalize-alternative.html"
+    },
+    {
+      "product": "Pure Encapsulations O.N.E. Multivitamin",
+      "category": "Daily multivitamins & greens",
+      "brand_price_monthly_usd": 20.0,
+      "match_price_monthly_usd": 7.7,
+      "markup_multiple": 2.6,
+      "est_annual_savings_usd": 148,
+      "verdict": "Lower-cost ingredient match",
+      "comparison_url": "https://blendbusters.com/pure-encapsulations-o-n-e-multivitamin.html"
+    },
+    {
+      "product": "Bellway Super Fiber + Fruit",
+      "category": "Gut, probiotic & omega",
+      "brand_price_monthly_usd": 18.0,
+      "match_price_monthly_usd": 6.0,
+      "markup_multiple": 3.0,
+      "est_annual_savings_usd": 144,
+      "verdict": "Lower-cost ingredient match",
+      "comparison_url": "https://blendbusters.com/bellway-alternative.html"
+    },
+    {
+      "product": "Florastor Daily Probiotic",
+      "category": "Gut, probiotic & omega",
+      "brand_price_monthly_usd": 24.0,
+      "match_price_monthly_usd": 12.0,
+      "markup_multiple": 2.0,
+      "est_annual_savings_usd": 144,
+      "verdict": "Lower-cost ingredient match",
+      "comparison_url": "https://blendbusters.com/florastor-alternative.html"
+    },
+    {
+      "product": "Propel Powder",
+      "category": "Hydration & electrolytes",
+      "brand_price_monthly_usd": 27.0,
+      "match_price_monthly_usd": 14.99,
+      "markup_multiple": 1.8,
+      "est_annual_savings_usd": 144,
+      "verdict": "Lower-cost ingredient match",
+      "comparison_url": "https://blendbusters.com/propel-powder.html"
+    },
+    {
+      "product": "Thorne Super EPA",
+      "category": "Gut, probiotic & omega",
+      "brand_price_monthly_usd": 15.0,
+      "match_price_monthly_usd": 3.33,
+      "markup_multiple": 4.5,
+      "est_annual_savings_usd": 140,
+      "verdict": "Lower-cost ingredient match",
+      "comparison_url": "https://blendbusters.com/thorne-super-epa.html"
+    },
+    {
+      "product": "OLLY Sleep",
+      "category": "Sleep & calm",
+      "brand_price_monthly_usd": 17.0,
+      "match_price_monthly_usd": 5.5,
+      "markup_multiple": 3.1,
+      "est_annual_savings_usd": 138,
+      "verdict": "Lower-cost ingredient match",
+      "comparison_url": "https://blendbusters.com/olly-sleep.html"
+    },
+    {
+      "product": "Bulletproof Brain Octane C8 MCT Oil",
+      "category": "Energy",
+      "brand_price_monthly_usd": 24.0,
+      "match_price_monthly_usd": 13.0,
+      "markup_multiple": 1.8,
+      "est_annual_savings_usd": 132,
+      "verdict": "Lower-cost ingredient match",
+      "comparison_url": "https://blendbusters.com/bulletproof-mct-alternative.html"
+    },
+    {
+      "product": "Skratch Labs Sport Hydration",
+      "category": "Hydration & electrolytes",
+      "brand_price_monthly_usd": 38.0,
+      "match_price_monthly_usd": 26.98,
+      "markup_multiple": 1.4,
+      "est_annual_savings_usd": 132,
+      "verdict": "Partial match",
+      "comparison_url": "https://blendbusters.com/skratch-labs-sport-hydration.html"
+    },
+    {
+      "product": "Culturelle Daily Probiotic",
+      "category": "Gut, probiotic & omega",
+      "brand_price_monthly_usd": 20.0,
+      "match_price_monthly_usd": 10.0,
+      "markup_multiple": 2.0,
+      "est_annual_savings_usd": 120,
+      "verdict": "Lower-cost ingredient match",
+      "comparison_url": "https://blendbusters.com/culturelle-alternative.html"
+    },
+    {
+      "product": "Goli Ashwagandha Gummies",
+      "category": "Sleep & calm",
+      "brand_price_monthly_usd": 19.0,
+      "match_price_monthly_usd": 9.0,
+      "markup_multiple": 2.1,
+      "est_annual_savings_usd": 120,
+      "verdict": "Lower-cost ingredient match",
+      "comparison_url": "https://blendbusters.com/goli-ashwagandha-alternative.html"
+    },
+    {
+      "product": "Hydrant",
+      "category": "Hydration & electrolytes",
+      "brand_price_monthly_usd": 30.0,
+      "match_price_monthly_usd": 19.99,
+      "markup_multiple": 1.5,
+      "est_annual_savings_usd": 120,
+      "verdict": "Partial match",
+      "comparison_url": "https://blendbusters.com/hydrant.html"
+    },
+    {
+      "product": "MUD\\WTR",
+      "category": "Brain & nootropics",
+      "brand_price_monthly_usd": 40.0,
+      "match_price_monthly_usd": 30.0,
+      "markup_multiple": 1.3,
+      "est_annual_savings_usd": 120,
+      "verdict": "Partial match",
+      "comparison_url": "https://blendbusters.com/mud-wtr.html"
+    },
+    {
+      "product": "Obvi Super Collagen Protein",
+      "category": "Beauty, joint & immune",
+      "brand_price_monthly_usd": 40.0,
+      "match_price_monthly_usd": 30.0,
+      "markup_multiple": 1.3,
+      "est_annual_savings_usd": 120,
+      "verdict": "Partial match",
+      "comparison_url": "https://blendbusters.com/obvi-collagen-alternative.html"
+    },
+    {
+      "product": "BodyArmor Flash I.V.",
+      "category": "Hydration & electrolytes",
+      "brand_price_monthly_usd": 36.0,
+      "match_price_monthly_usd": 26.98,
+      "markup_multiple": 1.3,
+      "est_annual_savings_usd": 108,
+      "verdict": "Partial match",
+      "comparison_url": "https://blendbusters.com/bodyarmor-flash-i-v.html"
+    },
+    {
+      "product": "Hairtamin Advanced Formula",
+      "category": "Brain & nootropics",
+      "brand_price_monthly_usd": 34.0,
+      "match_price_monthly_usd": 24.99,
+      "markup_multiple": 1.4,
+      "est_annual_savings_usd": 108,
+      "verdict": "Partial match",
+      "comparison_url": "https://blendbusters.com/hairtamin-advanced-formula.html"
+    },
+    {
+      "product": "Optimum Nutrition Gold Standard Whey",
+      "category": "Fitness & performance",
+      "brand_price_monthly_usd": 32.0,
+      "match_price_monthly_usd": 23.0,
+      "markup_multiple": 1.4,
+      "est_annual_savings_usd": 108,
+      "verdict": "Partial match",
+      "comparison_url": "https://blendbusters.com/optimum-gold-standard-alternative.html"
+    },
+    {
+      "product": "HUM Beauty zzZz",
+      "category": "Sleep & calm",
+      "brand_price_monthly_usd": 10.0,
+      "match_price_monthly_usd": 1.5,
+      "markup_multiple": 6.7,
+      "est_annual_savings_usd": 102,
+      "verdict": "Lower-cost ingredient match",
+      "comparison_url": "https://blendbusters.com/hum-beauty-zzzz.html"
+    },
+    {
+      "product": "Nuun Sport",
+      "category": "Hydration & electrolytes",
+      "brand_price_monthly_usd": 23.0,
+      "match_price_monthly_usd": 14.99,
+      "markup_multiple": 1.5,
+      "est_annual_savings_usd": 96,
+      "verdict": "Partial match",
+      "comparison_url": "https://blendbusters.com/nuun-sport.html"
+    },
+    {
+      "product": "Ora Organic Easy Being Green",
+      "category": "Daily multivitamins & greens",
+      "brand_price_monthly_usd": 22.0,
+      "match_price_monthly_usd": 14.0,
+      "markup_multiple": 1.6,
+      "est_annual_savings_usd": 96,
+      "verdict": "Partial match",
+      "comparison_url": "https://blendbusters.com/ora-greens-alternative.html"
+    },
+    {
+      "product": "Osteo Bi-Flex Triple Strength",
+      "category": "Brain & nootropics",
+      "brand_price_monthly_usd": 25.0,
+      "match_price_monthly_usd": 17.49,
+      "markup_multiple": 1.4,
+      "est_annual_savings_usd": 90,
+      "verdict": "Partial match",
+      "comparison_url": "https://blendbusters.com/osteo-bi-flex-triple-strength.html"
+    },
+    {
+      "product": "DripDrop ORS",
+      "category": "Hydration & electrolytes",
+      "brand_price_monthly_usd": 34.0,
+      "match_price_monthly_usd": 26.98,
+      "markup_multiple": 1.3,
+      "est_annual_savings_usd": 84,
+      "verdict": "Partial match",
+      "comparison_url": "https://blendbusters.com/dripdrop-ors.html"
+    },
+    {
+      "product": "Momentous Creatine Monohydrate",
+      "category": "Fitness & performance",
+      "brand_price_monthly_usd": 14.0,
+      "match_price_monthly_usd": 7.0,
+      "markup_multiple": 2.0,
+      "est_annual_savings_usd": 84,
+      "verdict": "Lower-cost ingredient match",
+      "comparison_url": "https://blendbusters.com/momentous-creatine-alternative.html"
+    },
+    {
+      "product": "Animal Pak",
+      "category": "Daily multivitamins & greens",
+      "brand_price_monthly_usd": 29.0,
+      "match_price_monthly_usd": 22.69,
+      "markup_multiple": 1.3,
+      "est_annual_savings_usd": 76,
+      "verdict": "Partial match",
+      "comparison_url": "https://blendbusters.com/animal-pak.html"
+    },
+    {
+      "product": "Life Extension Two-Per-Day Multivitamin",
+      "category": "Daily multivitamins & greens",
+      "brand_price_monthly_usd": 13.0,
+      "match_price_monthly_usd": 7.0,
+      "markup_multiple": 1.9,
+      "est_annual_savings_usd": 72,
+      "verdict": "Lower-cost ingredient match",
+      "comparison_url": "https://blendbusters.com/life-extension-multivitamin-alternative.html"
+    },
+    {
+      "product": "Nectar Hydration",
+      "category": "Hydration & electrolytes",
+      "brand_price_monthly_usd": 26.0,
+      "match_price_monthly_usd": 19.99,
+      "markup_multiple": 1.3,
+      "est_annual_savings_usd": 72,
+      "verdict": "Partial match",
+      "comparison_url": "https://blendbusters.com/nectar-hydration.html"
+    },
+    {
+      "product": "Qunol Turmeric Curcumin",
+      "category": "Beauty, joint & immune",
+      "brand_price_monthly_usd": 15.0,
+      "match_price_monthly_usd": 9.0,
+      "markup_multiple": 1.7,
+      "est_annual_savings_usd": 72,
+      "verdict": "Lower-cost ingredient match",
+      "comparison_url": "https://blendbusters.com/qunol-turmeric-alternative.html"
+    },
+    {
+      "product": "Zenwise Digestive Enzymes",
+      "category": "Gut, probiotic & omega",
+      "brand_price_monthly_usd": 11.0,
+      "match_price_monthly_usd": 5.0,
+      "markup_multiple": 2.2,
+      "est_annual_savings_usd": 72,
+      "verdict": "Lower-cost ingredient match",
+      "comparison_url": "https://blendbusters.com/zenwise-alternative.html"
+    },
+    {
+      "product": "PreserVision AREDS 2",
+      "category": "Brain & nootropics",
+      "brand_price_monthly_usd": 15.0,
+      "match_price_monthly_usd": 9.99,
+      "markup_multiple": 1.5,
+      "est_annual_savings_usd": 60,
+      "verdict": "Partial match",
+      "comparison_url": "https://blendbusters.com/preservision-areds-2.html"
+    },
+    {
+      "product": "SugarBearHair",
+      "category": "Brain & nootropics",
+      "brand_price_monthly_usd": 30.0,
+      "match_price_monthly_usd": 24.99,
+      "markup_multiple": 1.2,
+      "est_annual_savings_usd": 60,
+      "verdict": "Partial match",
+      "comparison_url": "https://blendbusters.com/sugarbearhair.html"
+    },
+    {
+      "product": "Viviscal Women's Hair Growth Supplements",
+      "category": "Brain & nootropics",
+      "brand_price_monthly_usd": 30.0,
+      "match_price_monthly_usd": 24.99,
+      "markup_multiple": 1.2,
+      "est_annual_savings_usd": 60,
+      "verdict": "Partial match",
+      "comparison_url": "https://blendbusters.com/viviscal-women-s-hair-growth-supplements.html"
+    },
+    {
+      "product": "Natural Vitality CALM",
+      "category": "Sleep & calm",
+      "brand_price_monthly_usd": 9.0,
+      "match_price_monthly_usd": 4.5,
+      "markup_multiple": 2.0,
+      "est_annual_savings_usd": 54,
+      "verdict": "Lower-cost ingredient match",
+      "comparison_url": "https://blendbusters.com/natural-vitality-calm.html"
+    },
+    {
+      "product": "Benefiber Prebiotic Fiber",
+      "category": "Gut, probiotic & omega",
+      "brand_price_monthly_usd": 6.0,
+      "match_price_monthly_usd": 2.0,
+      "markup_multiple": 3.0,
+      "est_annual_savings_usd": 48,
+      "verdict": "Lower-cost ingredient match",
+      "comparison_url": "https://blendbusters.com/benefiber-alternative.html"
+    },
+    {
+      "product": "Metamucil Premium Blend",
+      "category": "Gut, probiotic & omega",
+      "brand_price_monthly_usd": 7.0,
+      "match_price_monthly_usd": 3.0,
+      "markup_multiple": 2.3,
+      "est_annual_savings_usd": 48,
+      "verdict": "Lower-cost ingredient match",
+      "comparison_url": "https://blendbusters.com/metamucil-alternative.html"
+    },
+    {
+      "product": "Qunol Ultra CoQ10 100 mg",
+      "category": "Beauty, joint & immune",
+      "brand_price_monthly_usd": 7.0,
+      "match_price_monthly_usd": 3.0,
+      "markup_multiple": 2.3,
+      "est_annual_savings_usd": 48,
+      "verdict": "Lower-cost ingredient match",
+      "comparison_url": "https://blendbusters.com/qunol-coq10-alternative.html"
+    },
+    {
+      "product": "Airborne Original Gummies",
+      "category": "Brain & nootropics",
+      "brand_price_monthly_usd": 9.0,
+      "match_price_monthly_usd": 6.5,
+      "markup_multiple": 1.4,
+      "est_annual_savings_usd": 30,
+      "verdict": "Partial match",
+      "comparison_url": "https://blendbusters.com/airborne-original-gummies.html"
+    },
+    {
+      "product": "OLLY Probiotic + Prebiotic Gummy",
+      "category": "Gut, probiotic & omega",
+      "brand_price_monthly_usd": 13.0,
+      "match_price_monthly_usd": 12.0,
+      "markup_multiple": 1.1,
+      "est_annual_savings_usd": 12,
+      "verdict": "Important differences",
+      "comparison_url": "https://blendbusters.com/olly-probiotic-alternative.html"
+    }
+  ]
+}

@@ -40,6 +40,7 @@ SITE_SCHEMA = {
             "@id": ORG_ID,
             "name": "BlendBusters",
             "url": SITE + "/",
+            "foundingDate": "2026",
             "logo": {
                 "@type": "ImageObject",
                 "url": SITE + "/blendbusters-logo.png",
@@ -69,16 +70,16 @@ MARKER = "BlendBusters-site-entity"  # idempotency marker in a comment
 
 def inject_homepage_schema():
     html = INDEX.read_text(encoding="utf-8")
-    if MARKER in html:
-        return "index.html: site schema already present (skipped)"
     block = ('<!-- %s -->\n<script type="application/ld+json">%s</script>\n'
              % (MARKER, json.dumps(SITE_SCHEMA, ensure_ascii=False)))
-    # insert just before </head>
+    # remove any prior injected block so a re-run reflects the current schema
+    html = re.sub(r'<!-- %s -->\s*<script type="application/ld\+json">.*?</script>\n?'
+                  % re.escape(MARKER), '', html, flags=re.S)
     new = html.replace("</head>", block + "</head>", 1)
     if new == html:
         return "index.html: NO </head> found (ERROR — nothing changed)"
     INDEX.write_text(new, encoding="utf-8")
-    return "index.html: injected Organization + WebSite JSON-LD"
+    return "index.html: injected/updated Organization + WebSite JSON-LD"
 
 
 # ---- 2) sitemap <lastmod> ---------------------------------------------------
@@ -97,19 +98,49 @@ def _lastmod_for(loc):
     return datetime.date.fromtimestamp(ts).isoformat()
 
 
-def add_sitemap_lastmod():
-    xml = SITEMAP.read_text(encoding="utf-8")
-    if "<lastmod>" in xml:
-        return "sitemap.xml: <lastmod> already present (skipped)"
-    def repl(m):
-        loc = m.group(1)
-        return "<loc>%s</loc><lastmod>%s</lastmod>" % (loc, _lastmod_for(loc))
-    new = re.sub(r"<loc>([^<]+)</loc>", repl, xml)
-    SITEMAP.write_text(new, encoding="utf-8")
-    n = new.count("<lastmod>")
-    return "sitemap.xml: added <lastmod> to %d urls" % n
+def sync_sitemap():
+    """Ensure every indexable *.html is in the sitemap with a fresh <lastmod>.
+    Preserves existing changefreq/priority, adds sensible defaults for new pages
+    (so trust pages etc. are never silently missed). Idempotent (deterministic)."""
+    import glob as _glob
+    base = SITE + "/"
+    existing = {}
+    if SITEMAP.exists():
+        xml = SITEMAP.read_text(encoding="utf-8")
+        for m in re.finditer(r"<loc>([^<]+)</loc>(?:<lastmod>[^<]*</lastmod>)?"
+                             r"(?:<changefreq>([^<]*)</changefreq>)?(?:<priority>([^<]*)</priority>)?", xml):
+            existing[m.group(1)] = (m.group(2) or "weekly", m.group(3) or "0.7")
+    urls = {}
+    for path in sorted(_glob.glob("*.html")):
+        if "mockup" in path or "standalone" in path:
+            continue
+        loc = base if path == "index.html" else base + path
+        if loc in existing:
+            cf, pri = existing[loc]
+        elif path == "index.html":
+            cf, pri = "weekly", "1.0"
+        elif path == "markup-report.html":
+            cf, pri = "monthly", "0.9"
+        elif path.startswith("cheaper-") and path.endswith("-alternatives.html"):
+            cf, pri = "weekly", "0.8"
+        elif path in ("about.html", "contact.html", "privacy.html", "terms.html",
+                      "methodology.html", "savings-index.html"):
+            cf, pri = "monthly", "0.5"
+        else:
+            cf, pri = "weekly", "0.7"
+        urls[loc] = (cf, pri)
+    ordered = sorted(urls, key=lambda u: (u != base, u))
+    lines = ['<?xml version="1.0" encoding="UTF-8"?>',
+             '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">']
+    for loc in ordered:
+        cf, pri = urls[loc]
+        lines.append('  <url><loc>%s</loc><lastmod>%s</lastmod><changefreq>%s</changefreq>'
+                     '<priority>%s</priority></url>' % (loc, _lastmod_for(loc), cf, pri))
+    lines.append('</urlset>')
+    SITEMAP.write_text("\n".join(lines) + "\n", encoding="utf-8")
+    return "sitemap.xml: %d urls, all with <lastmod>" % len(ordered)
 
 
 if __name__ == "__main__":
     print(inject_homepage_schema())
-    print(add_sitemap_lastmod())
+    print(sync_sitemap())
