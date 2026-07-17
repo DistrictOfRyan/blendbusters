@@ -2,3 +2,5 @@
 AFFILIATE-*.md
 *-fieldsheet.md
 __pycache__/
+_render_ads.py
+ads/

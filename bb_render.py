@@ -159,8 +159,9 @@ def render_compare(d):
          "headline":"%s: lower-cost ingredient comparison"%d['name'],
          "description":"Ingredient, dose, cost, and evidence comparison of %s with a lower-cost ingredient match."%d['name'],
          "datePublished":"2026-07-08","dateModified":"2026-07-11",
-         "author":{"@type":"Organization","name":"BlendBusters"},
-         "publisher":{"@type":"Organization","name":"BlendBusters"},
+         "author":{"@type":"Organization","@id":SITE+"/#org","name":"BlendBusters"},
+         "publisher":{"@type":"Organization","@id":SITE+"/#org","name":"BlendBusters",
+                      "logo":{"@type":"ImageObject","url":SITE+"/blendbusters-logo.png"}},
          "mainEntityOfPage":url,"about":d.get('category','')},
         {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[
          {"@type":"ListItem","position":1,"name":"Home","item":SITE+"/"},
