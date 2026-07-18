@@ -256,3 +256,8 @@ footer a:hover{color:var(--ink)}
 .reveal{opacity:0;transform:translateY(12px);transition:opacity .5s ease,transform .5s ease}
 .reveal.in{opacity:1;transform:none}
 @media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}.btn,.card{transition:none}}
+
+/* unified brand mark (matches homepage) */
+.brand .caps{display:inline-block;width:26px;height:26px;border-radius:13px;background:linear-gradient(135deg,var(--accent) 50%,#f07f2e 50%);margin-right:9px;vertical-align:-5px}
+.brand em{font-style:normal;color:var(--accent)}
+.brand{font-family:var(--disp);font-weight:800;letter-spacing:-.03em;gap:0}
