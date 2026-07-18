@@ -1,0 +1,20 @@
+{
+  "manifest_version": 3,
+  "name": "BlendBusters — Pay for ingredients, not hype",
+  "version": "1.0.0",
+  "description": "On a supplement product page, flags when BlendBusters found a lower-cost, ingredient-matched alternative and the estimated savings.",
+  "icons": { "48": "icon48.png", "128": "icon128.png" },
+  "host_permissions": [
+    "https://blendbusters.com/*"
+  ],
+  "content_scripts": [
+    {
+      "matches": [
+        "https://www.amazon.com/*",
+        "https://smile.amazon.com/*"
+      ],
+      "js": ["content.js"],
+      "run_at": "document_idle"
+    }
+  ]
+}
