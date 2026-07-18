@@ -68,7 +68,8 @@ def make_d(p):
         'verdict': verdict,
         'match_pct': 72 if verdict.startswith('Lower') else 55 if verdict.startswith('Partial') else 45,
         'verdict_note': ('A pairing of lower-cost generics covers several overlapping ingredients and a '
-                         'similar intended use, for about %d%% less. Some ingredients and exact doses don’t carry over.' % pct),
+                         'similar intended use, for about %d%% less. Some ingredients and exact doses don’t carry over.' % pct
+                         + (' ' + p['note'] if p.get('note') else '')),
         'swap_rows': swap_rows,
         'matches': ['Several overlapping ingredients — %s — available as lower-cost generics.'
                     % (', '.join(r['name'] for r in swap_rows[:3])),
@@ -290,6 +291,22 @@ PAGES = [
          {'name': 'CoQ10 200mg', 'dose': '200mg/day', 'cost_mo': 20, 'evidence': 'strong', 'search': 'coq10 200mg'},
          {'name': 'NAC (N-acetyl cysteine) 500mg', 'dose': '500mg/day', 'cost_mo': 4, 'evidence': 'strong', 'search': 'nac 500mg n-acetyl cysteine'},
          {'name': 'DHA (omega-3) 300mg+', 'dose': '300mg+ DHA/day', 'cost_mo': 6, 'evidence': 'strong', 'search': 'dha softgels omega-3'}]},
+    # --- Previously held; now built with honest custom framing ---
+    {'slug': 'mixhers-hertime-pms', 'name': 'Mixhers Hertime PMS',
+     'category': "Women's wellness", 'brand_price_mo': 72, 'proprietary': True,
+     'note': '*Brand price is based on the verified 15-day box ($36 for 15 packets), which works out to about $72 for a 30-day month at one packet daily; the 30-day bundle may be lower, so check current pricing. Hertime lists its herbs inside a 789mg proprietary blend, so the generics below match the ingredients, not the exact doses.',
+     'match_note': 'Mixhers Hertime lists chasteberry, eleuthero and minerals inside a proprietary blend; the same herbs are available as standalone generics, an ingredient-presence comparison only, not a dose-for-dose match.',
+     'swap_rows': [
+         {'name': 'Chasteberry (vitex)', 'dose': '1-2/day', 'cost_mo': 5, 'evidence': 'mod', 'search': 'vitex chasteberry capsules'},
+         {'name': 'Eleuthero (Siberian ginseng)', 'dose': '1/day', 'cost_mo': 15, 'evidence': 'weak', 'search': 'eleuthero siberian ginseng'},
+         {'name': 'Magnesium glycinate', 'dose': '120mg/day', 'cost_mo': 8, 'evidence': 'weak', 'search': 'magnesium glycinate'}]},
+    {'slug': 'qualia-senolytic', 'name': 'Qualia Senolytic',
+     'category': 'Longevity & cellular aging', 'brand_price_mo': 79, 'proprietary': False,
+     'note': '*Qualia Senolytic is taken just 2 days a month, so this compares one $79 monthly cycle. The generic fisetin + quercetin below is a one-time purchase of about $65 that lasts roughly 2 years (about $3/month amortized). It covers 2 of Qualia’s 7 actives, and Qualia uses an absorption-enhanced quercetin (Quercefit) form the generic does not.',
+     'match_note': 'Covers Qualia Senolytic’s two headline senolytic actives (fisetin and quercetin); Qualia adds an enhanced-absorption quercetin plus curcumin, olive leaf, luteolin and milk thistle not reproduced here.',
+     'swap_rows': [
+         {'name': 'Fisetin 500mg', 'dose': '1,400mg/mo cycle', 'cost_mo': 2, 'evidence': 'weak', 'search': 'fisetin 500mg'},
+         {'name': 'Quercetin 500mg', 'dose': '750mg/mo cycle', 'cost_mo': 1, 'evidence': 'weak', 'search': 'quercetin 500mg'}]},
 ]
 
 
