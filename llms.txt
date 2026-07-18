@@ -1,0 +1,24 @@
+# BlendBusters
+
+> Independent wellness-product comparisons. We break down expensive supplements, compare ingredients, doses, and price against lower-cost ingredient-matched options, and publish the data. We compare ingredients and price, not medical outcomes; a match is not a guaranteed equivalent. Affiliate-supported, editorially independent.
+
+## Key resources
+- [The Supplement Markup Report](https://blendbusters.com/markup-report.html): 177 products priced, ~5.5x average markup, downloadable dataset (CC BY 4.0)
+- [Methodology](https://blendbusters.com/methodology.html): the eight questions every comparison answers
+- [Savings Index](https://blendbusters.com/savings-index.html)
+- [About](https://blendbusters.com/about.html)
+
+## Categories
+- [Collagen Joint](https://blendbusters.com/cheaper-collagen-joint-alternatives.html)
+- [Electrolyte](https://blendbusters.com/cheaper-electrolyte-alternatives.html)
+- [Energy Supplement](https://blendbusters.com/cheaper-energy-supplement-alternatives.html)
+- [Greens Multivitamin](https://blendbusters.com/cheaper-greens-multivitamin-alternatives.html)
+- [Longevity Heart](https://blendbusters.com/cheaper-longevity-heart-alternatives.html)
+- [Mens Supplement](https://blendbusters.com/cheaper-mens-supplement-alternatives.html)
+- [Nootropic](https://blendbusters.com/cheaper-nootropic-alternatives.html)
+- [Probiotic Gut](https://blendbusters.com/cheaper-probiotic-gut-alternatives.html)
+- [Protein Fitness](https://blendbusters.com/cheaper-protein-fitness-alternatives.html)
+- [Sleep Calm](https://blendbusters.com/cheaper-sleep-calm-alternatives.html)
+
+## Citation
+Cite as: BlendBusters Supplement Markup Report, blendbusters.com, 2026.

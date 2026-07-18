@@ -171,6 +171,12 @@ footer .fine{font-size:13px;max-width:44ch}
         <button type="submit" class="go" style="border:none;cursor:pointer">Break it down</button>
       </form>
       <script>
+        document.addEventListener('DOMContentLoaded',function(){
+          var rq=document.querySelector('form[name="request-comparison"]');
+          rq&&rq.addEventListener('submit',function(){try{gtag('event','request_breakdown_submit',{})}catch(_){}});
+          var nl=document.querySelector('form[name="newsletter"]');
+          nl&&nl.addEventListener('submit',function(){try{gtag('event','email_signup',{form:'newsletter'})}catch(_){}});
+        });
         function goSearch(e){
           e.preventDefault();
           var q=document.getElementById('bbq').value.trim();
@@ -403,7 +409,7 @@ footer .fine{font-size:13px;max-width:44ch}
   <div class="wrap">
     <h2>Don't see your product? Request a breakdown.</h2>
     <p class="sub">Tell us what you're paying for and we'll run it through the same eight questions.</p>
-    <form name="request-comparison" method="POST" data-netlify="true" netlify-honeypot="bot-field" style="max-width:620px;margin:0 auto;background:#fff;border:2px solid var(--ink);border-radius:16px;box-shadow:0 10px 30px rgba(14,107,79,.14);padding:22px;text-align:left;display:grid;gap:12px">
+    <form name="request-comparison" method="POST" action="/thank-you" data-netlify="true" netlify-honeypot="bot-field" style="max-width:620px;margin:0 auto;background:#fff;border:2px solid var(--ink);border-radius:16px;box-shadow:0 10px 30px rgba(14,107,79,.14);padding:22px;text-align:left;display:grid;gap:12px">
       <input type="hidden" name="form-name" value="request-comparison">
       <p hidden><label>Do not fill this out: <input name="bot-field"></label></p>
       <label style="font-size:13px;font-weight:700;color:var(--ink-2)">Product name<input id="req-product" type="text" name="product" required placeholder="e.g. Liquid I.V." style="display:block;width:100%;margin-top:6px;padding:12px 14px;border:1.5px solid var(--line);border-radius:10px;font:inherit"></label>
@@ -628,7 +634,7 @@ footer .fine{font-size:13px;max-width:44ch}
 <section class="compare" style="padding:50px 0 20px">
   <div class="wrap" style="max-width:640px">
     <h2 style="font-size:1.4rem">One email a week: the newest teardowns and the biggest markups we found.</h2>
-    <form name="newsletter" method="POST" data-netlify="true" netlify-honeypot="bot-field" style="display:flex;gap:10px;max-width:460px;margin:20px auto 0;flex-wrap:wrap;justify-content:center">
+    <form name="newsletter" method="POST" action="/thank-you" data-netlify="true" netlify-honeypot="bot-field" style="display:flex;gap:10px;max-width:460px;margin:20px auto 0;flex-wrap:wrap;justify-content:center">
       <input type="hidden" name="form-name" value="newsletter">
       <p hidden><label>Do not fill this out: <input name="bot-field"></label></p>
       <input type="email" name="email" required placeholder="you@example.com" style="flex:1;min-width:220px;padding:13px 16px;border:2px solid var(--ink);border-radius:12px;font:inherit">
