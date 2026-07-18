@@ -114,6 +114,11 @@ def sync_sitemap():
     for path in sorted(_glob.glob("*.html")):
         if "mockup" in path or "standalone" in path:
             continue
+        try:  # never list a noindex page (e.g. thank-you) in the sitemap
+            if "noindex" in open(path, encoding="utf-8", errors="ignore").read():
+                continue
+        except OSError:
+            pass
         loc = base if path == "index.html" else base + path
         if loc in existing:
             cf, pri = existing[loc]
