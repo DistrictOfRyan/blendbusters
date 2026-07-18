@@ -6,9 +6,7 @@
   --sans:'Nunito Sans',system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;--disp:'Sora','Nunito Sans',system-ui,sans-serif;
   --mono:'IBM Plex Mono',ui-monospace,"SF Mono",Menlo,Consolas,monospace;--wrap:1080px;
 }
-@media(prefers-color-scheme:dark){:root{--paper:#111815;--paper-2:#18201c;--card:#1a2320;--ink:#eef4ef;--ink-2:#a8b5ad;--ink-3:#78857d;--line:#2a352f;--line-2:#37443c;--accent:#2fbf8f;--accent-deep:#7cd7b3;--accent-soft:#0d2a20;--on-accent:#06231a}}
 :root[data-theme="light"]{--paper:#fdfdf9;--paper-2:#f0f6f1;--card:#FFFFFF;--ink:#1a2420;--ink-2:#55645d;--ink-3:#7e8a83;--line:#e2e6de;--line-2:#cfd8d0;--accent:#0e6b4f;--accent-deep:#0a523c;--accent-soft:#d9f0e4;--on-accent:#FFFFFF}
-:root[data-theme="dark"]{--paper:#111815;--paper-2:#18201c;--card:#1a2320;--ink:#eef4ef;--ink-2:#a8b5ad;--ink-3:#78857d;--line:#2a352f;--line-2:#37443c;--accent:#2fbf8f;--accent-deep:#7cd7b3;--accent-soft:#0d2a20;--on-accent:#06231a}
 *{box-sizing:border-box}
 html{-webkit-text-size-adjust:100%}
 body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased}
@@ -261,3 +259,9 @@ footer a:hover{color:var(--ink)}
 .brand .caps{display:inline-block;width:26px;height:26px;border-radius:13px;background:linear-gradient(135deg,var(--accent) 50%,#f07f2e 50%);margin-right:9px;vertical-align:-5px}
 .brand em{font-style:normal;color:var(--accent)}
 .brand{font-family:var(--disp);font-weight:800;letter-spacing:-.03em;gap:0}
+
+/* ── cohesion with the master page (2026-07-18): one light experience, mint wash, brand illustration ── */
+.tbtn{display:none}
+body{background:#fdfdf9 linear-gradient(180deg,#eaf7f0 0%,rgba(234,247,240,0) 480px) no-repeat top/100% 480px;position:relative}
+body::after{content:"";position:absolute;top:212px;right:2.5vw;width:132px;height:176px;background:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 160 210'><g transform='translate(20,10) rotate(-24)'><rect width='72' height='36' rx='18' fill='%230e6b4f'/></g><g transform='translate(92,44) rotate(-24)'><rect width='56' height='36' rx='18' fill='%23ffffff' stroke='%23d8e5dd'/></g><circle cx='84' cy='92' r='7' fill='%23f07f2e'/><circle cx='70' cy='114' r='6' fill='%23e8b53a'/><circle cx='87' cy='134' r='6.5' fill='%234a90d9'/><circle cx='72' cy='155' r='5.5' fill='%23d64545'/><circle cx='84' cy='175' r='6' fill='%230e6b4f'/></svg>") no-repeat center/contain;pointer-events:none;z-index:0;opacity:.95}
+@media(max-width:1180px){body::after{display:none}}
