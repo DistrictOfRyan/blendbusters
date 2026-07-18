@@ -14,7 +14,7 @@ for f in glob.glob('*.html'):
     if f in SKIP or 'mockup' in f or 'standalone' in f:
         continue
     s = open(f, encoding='utf-8').read()
-    m_name = re.search(r'<h1>(.*?),\s*and', s)
+    m_name = re.search(r'<h1>(.*?)(?:,\s*and a lower-cost|\s+ingredients vs a lower-cost)', s)
     m_brand = re.search(r'Brand price</div><div class="val">\$([\d,]+)', s)
     m_mtot = re.search(r'id="mtot">\$([\d,.]+)', s)
     m_save = re.search(r'Est\. savings</div><div class="val save">~\$([\d,]+)', s)

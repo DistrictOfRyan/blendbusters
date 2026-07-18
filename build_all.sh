@@ -26,6 +26,7 @@ python3 fix_forms.py              # <-- wire newsletter + request-a-comparison f
 python3 build_trust_pages.py      # <-- generate /about /contact /privacy /terms (E-E-A-T trust pages)
 python3 fix_titles.py             # <-- trim any <title> >60 displayed chars (after fix_seo_meta)
 python3 build_dataset.py          # <-- public downloadable dataset (supplement-markup-dataset.csv/.json) for the Markup Report
+python3 build_llms.py             # <-- auto llms.txt (AEO map for AI answer engines) from the dataset
 python3 add_site_schema.py        # <-- homepage Organization+WebSite JSON-LD + sitemap sync/<lastmod> (run after all pages exist)
 python3 retarget_keywords.py      # <-- title/meta/H1/H2 target "[brand] ingredients" (real Ahrefs data: 4k-20k vol vs weak "alternative"). MUST run after add_seo/fix_titles
 echo "== compliance QA (should list ONLY index/methodology/savings-index) =="

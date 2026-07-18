@@ -1,24 +1,245 @@
 # BlendBusters
 
-> Independent wellness-product comparisons. We break down expensive supplements, compare ingredients, doses, and price against lower-cost ingredient-matched options, and publish the data. We compare ingredients and price, not medical outcomes; a match is not a guaranteed equivalent. Affiliate-supported, editorially independent.
+> Independent wellness-product price comparisons. We break down expensive supplements, compare their ingredients and doses against a specific lower-cost ingredient-matched alternative, and publish the data across 206 products. We compare ingredients and price, not medical outcomes; a lower-cost ingredient match shares overlapping ingredients and a similar intended use, not a guaranteed equivalent. Affiliate-supported, editorially independent.
+
+## Key facts
+- 206 products priced against lower-cost ingredient-matched alternatives
+- ~$91,985/year in total estimated overspend across the catalog; 5.3x average markup
+- Every figure is estimated from public retail prices; compliant, no efficacy claims
 
 ## Key resources
-- [The Supplement Markup Report](https://blendbusters.com/markup-report.html): 177 products priced, ~5.5x average markup, downloadable dataset (CC BY 4.0)
-- [Methodology](https://blendbusters.com/methodology.html): the eight questions every comparison answers
-- [Savings Index](https://blendbusters.com/savings-index.html)
-- [About](https://blendbusters.com/about.html)
+- [The Supplement Markup Report](https://blendbusters.com/markup-report.html): the flagship data study, with a downloadable dataset (CC BY 4.0)
+- [Downloadable dataset (CSV)](https://blendbusters.com/supplement-markup-dataset.csv)
+- [Methodology](https://blendbusters.com/methodology.html): how every comparison is scored
+- [About](https://blendbusters.com/about.html) · [Contact](https://blendbusters.com/contact.html)
 
-## Categories
-- [Collagen Joint](https://blendbusters.com/cheaper-collagen-joint-alternatives.html)
-- [Electrolyte](https://blendbusters.com/cheaper-electrolyte-alternatives.html)
-- [Energy Supplement](https://blendbusters.com/cheaper-energy-supplement-alternatives.html)
-- [Greens Multivitamin](https://blendbusters.com/cheaper-greens-multivitamin-alternatives.html)
-- [Longevity Heart](https://blendbusters.com/cheaper-longevity-heart-alternatives.html)
-- [Mens Supplement](https://blendbusters.com/cheaper-mens-supplement-alternatives.html)
-- [Nootropic](https://blendbusters.com/cheaper-nootropic-alternatives.html)
-- [Probiotic Gut](https://blendbusters.com/cheaper-probiotic-gut-alternatives.html)
-- [Protein Fitness](https://blendbusters.com/cheaper-protein-fitness-alternatives.html)
-- [Sleep Calm](https://blendbusters.com/cheaper-sleep-calm-alternatives.html)
+## Beauty, joint & immune
+- [Vegamour GRO+ Advanced Hair Supplements](https://blendbusters.com/vegamour-gro-advanced.html): est. ~$768/yr saved vs a lower-cost ingredient match
+- [Wellbel Women Hair, Skin & Nails Supplement](https://blendbusters.com/wellbel-women.html): est. ~$768/yr saved vs a lower-cost ingredient match
+- [Modere Liquid BioCell](https://blendbusters.com/modere-biocell-alternative.html): est. ~$744/yr saved vs a lower-cost ingredient match
+- [4Life Transfer Factor Tri-Factor](https://blendbusters.com/4life-transfer-factor-alternative.html): est. ~$612/yr saved vs a lower-cost ingredient match
+- [The Nue Co. Skin Filter](https://blendbusters.com/the-nue-co-skin-filter.html): est. ~$564/yr saved vs a lower-cost ingredient match
+- [Nutrafol](https://blendbusters.com/nutrafol.html): est. ~$492/yr saved vs a lower-cost ingredient match
+- [SuperBeets](https://blendbusters.com/superbeets.html): est. ~$426/yr saved vs a lower-cost ingredient match
+- [Dose & Co Collagen Peptides](https://blendbusters.com/dose-and-co-alternative.html): est. ~$396/yr saved vs a lower-cost ingredient match
+- [SkinnyFit Super Youth Collagen](https://blendbusters.com/skinnyfit-collagen-alternative.html): est. ~$396/yr saved vs a lower-cost ingredient match
+- [NativePath Collagen Peptides](https://blendbusters.com/native-path-alternative.html): est. ~$372/yr saved vs a lower-cost ingredient match
+- [Vital Proteins](https://blendbusters.com/vital-proteins.html): est. ~$348/yr saved vs a lower-cost ingredient match
+- [BUBS Naturals Collagen Peptides](https://blendbusters.com/bubs-collagen-alternative.html): est. ~$288/yr saved vs a lower-cost ingredient match
+- [Host Defense MyCommunity](https://blendbusters.com/host-defense-mycommunity-alternative.html): est. ~$240/yr saved vs a lower-cost ingredient match
+- [JSHealth Hair + Energy Formula](https://blendbusters.com/jshealth-hair-energy.html): est. ~$228/yr saved vs a lower-cost ingredient match
+- [Primal Harvest Primal Collagen](https://blendbusters.com/primal-collagen-alternative.html): est. ~$204/yr saved vs a lower-cost ingredient match
+- [Ancient Nutrition Multi Collagen Protein](https://blendbusters.com/ancient-nutrition-alternative.html): est. ~$180/yr saved vs a lower-cost ingredient match
+- [Obvi Super Collagen Protein](https://blendbusters.com/obvi-collagen-alternative.html): est. ~$120/yr saved vs a lower-cost ingredient match
+- [Qunol Turmeric Curcumin](https://blendbusters.com/qunol-turmeric-alternative.html): est. ~$72/yr saved vs a lower-cost ingredient match
+- [Qunol Ultra CoQ10 100 mg](https://blendbusters.com/qunol-coq10-alternative.html): est. ~$48/yr saved vs a lower-cost ingredient match
+
+## Brain & nootropics
+- [Qualia Mind](https://blendbusters.com/qualia-mind-alternative.html): est. ~$1,356/yr saved vs a lower-cost ingredient match
+- [Thesis Personalized Nootropics](https://blendbusters.com/thesis.html): est. ~$540/yr saved vs a lower-cost ingredient match
+- [Magic Mind Original Mental Performance Shot](https://blendbusters.com/magic-mind.html): est. ~$492/yr saved vs a lower-cost ingredient match
+- [Mind Lab Pro Universal Nootropic](https://blendbusters.com/mind-lab-pro-alternative.html): est. ~$468/yr saved vs a lower-cost ingredient match
+- [Moon Juice SuperHair](https://blendbusters.com/moon-juice-superhair.html): est. ~$432/yr saved vs a lower-cost ingredient match
+- [Ritual HyaCera](https://blendbusters.com/ritual-hyacera.html): est. ~$402/yr saved vs a lower-cost ingredient match
+- [Alpha Brain](https://blendbusters.com/alpha-brain.html): est. ~$312/yr saved vs a lower-cost ingredient match
+- [Neuriva](https://blendbusters.com/neuriva.html): est. ~$252/yr saved vs a lower-cost ingredient match
+- [Everyday Dose Mushroom Coffee](https://blendbusters.com/everyday-dose-alternative.html): est. ~$216/yr saved vs a lower-cost ingredient match
+- [HUM Red Carpet](https://blendbusters.com/hum-red-carpet.html): est. ~$216/yr saved vs a lower-cost ingredient match
+- [RYZE Mushroom Coffee](https://blendbusters.com/ryze-mushroom-coffee-alternative.html): est. ~$204/yr saved vs a lower-cost ingredient match
+- [Emergen-C](https://blendbusters.com/emergen-c.html): est. ~$156/yr saved vs a lower-cost ingredient match
+- [MUD\WTR](https://blendbusters.com/mud-wtr.html): est. ~$120/yr saved vs a lower-cost ingredient match
+- [Hairtamin Advanced Formula](https://blendbusters.com/hairtamin-advanced-formula.html): est. ~$108/yr saved vs a lower-cost ingredient match
+- [Osteo Bi-Flex Triple Strength](https://blendbusters.com/osteo-bi-flex-triple-strength.html): est. ~$90/yr saved vs a lower-cost ingredient match
+- [PreserVision AREDS 2](https://blendbusters.com/preservision-areds-2.html): est. ~$60/yr saved vs a lower-cost ingredient match
+- [SugarBearHair](https://blendbusters.com/sugarbearhair.html): est. ~$60/yr saved vs a lower-cost ingredient match
+- [Viviscal Women's Hair Growth Supplements](https://blendbusters.com/viviscal-women-s-hair-growth-supplements.html): est. ~$60/yr saved vs a lower-cost ingredient match
+- [Airborne Original Gummies](https://blendbusters.com/airborne-original-gummies.html): est. ~$30/yr saved vs a lower-cost ingredient match
+
+## Daily multivitamins & greens
+- [Isagenix IsaLean Shake](https://blendbusters.com/isalean-alternative.html): est. ~$2,712/yr saved vs a lower-cost ingredient match
+- [Onnit Total Human](https://blendbusters.com/onnit-total-human.html): est. ~$1,568/yr saved vs a lower-cost ingredient match
+- [Huel](https://blendbusters.com/huel.html): est. ~$1,320/yr saved vs a lower-cost ingredient match
+- [Rootine Precision Daily Multivitamin](https://blendbusters.com/rootine-precision-daily-multivitamin.html): est. ~$1,108/yr saved vs a lower-cost ingredient match
+- [Amway Nutrilite Double X](https://blendbusters.com/nutrilite-double-x-alternative.html): est. ~$972/yr saved vs a lower-cost ingredient match
+- [IM8 Daily Ultimate Essentials](https://blendbusters.com/im8-daily-ultimate-essentials.html): est. ~$958/yr saved vs a lower-cost ingredient match
+- [Shakeology](https://blendbusters.com/shakeology-alternative.html): est. ~$924/yr saved vs a lower-cost ingredient match
+- [Ka’chava](https://blendbusters.com/kachava.html): est. ~$780/yr saved vs a lower-cost ingredient match
+- [USANA CellSentials](https://blendbusters.com/usana-cellsentials-alternative.html): est. ~$732/yr saved vs a lower-cost ingredient match
+- [Cymbiotika Vitamin C](https://blendbusters.com/cymbiotika.html): est. ~$726/yr saved vs a lower-cost ingredient match
+- [Field of Greens (Brickhouse)](https://blendbusters.com/field-of-greens-alternative.html): est. ~$696/yr saved vs a lower-cost ingredient match
+- [Balance of Nature](https://blendbusters.com/balance-of-nature.html): est. ~$660/yr saved vs a lower-cost ingredient match
+- [Juice Plus+ Premium Capsules](https://blendbusters.com/juice-plus-alternative.html): est. ~$660/yr saved vs a lower-cost ingredient match
+- [WeNatal for Him](https://blendbusters.com/wenatal-for-him.html): est. ~$640/yr saved vs a lower-cost ingredient match
+- [1st Phorm Micro Factor](https://blendbusters.com/1st-phorm-micro-factor.html): est. ~$620/yr saved vs a lower-cost ingredient match
+- [Huel Daily Greens](https://blendbusters.com/huel-daily-greens.html): est. ~$592/yr saved vs a lower-cost ingredient match
+- [Performance Lab NutriGenesis Multi for Men](https://blendbusters.com/performance-lab-nutrigenesis-multi-for-men.html): est. ~$568/yr saved vs a lower-cost ingredient match
+- [Performance Lab NutriGenesis Multi for Women](https://blendbusters.com/performance-lab-nutrigenesis-multi-for-women.html): est. ~$568/yr saved vs a lower-cost ingredient match
+- [AG1](https://blendbusters.com/ag1.html): est. ~$564/yr saved vs a lower-cost ingredient match
+- [Organifi Green Juice](https://blendbusters.com/organifi-green-juice-alternative.html): est. ~$528/yr saved vs a lower-cost ingredient match
+- [Perelel Women's Daily Vitamin Trio](https://blendbusters.com/perelel-women-s-daily-vitamin-trio.html): est. ~$500/yr saved vs a lower-cost ingredient match
+- [WeNatal for Her](https://blendbusters.com/wenatal-for-her.html): est. ~$492/yr saved vs a lower-cost ingredient match
+- [Soylent Complete Meal](https://blendbusters.com/soylent-alternative.html): est. ~$456/yr saved vs a lower-cost ingredient match
+- [Perelel Men's Multi Support Pack](https://blendbusters.com/perelel-men-s-multi-support-pack.html): est. ~$440/yr saved vs a lower-cost ingredient match
+- [Thorne Basic Nutrients 2/Day](https://blendbusters.com/thorne-basic-nutrients-2-day.html): est. ~$400/yr saved vs a lower-cost ingredient match
+- [MaryRuth’s Liquid Morning Multivitamin](https://blendbusters.com/maryruths-multivitamin-alternative.html): est. ~$396/yr saved vs a lower-cost ingredient match
+- [It Works! Greens](https://blendbusters.com/it-works-greens-alternative.html): est. ~$324/yr saved vs a lower-cost ingredient match
+- [1st Phorm Opti-Greens 50](https://blendbusters.com/opti-greens-50-alternative.html): est. ~$300/yr saved vs a lower-cost ingredient match
+- [Needed Prenatal Multi Essentials](https://blendbusters.com/needed-prenatal-multi-essentials.html): est. ~$288/yr saved vs a lower-cost ingredient match
+- [Bloom Greens](https://blendbusters.com/bloom.html): est. ~$264/yr saved vs a lower-cost ingredient match
+- [Grüns Daily Greens](https://blendbusters.com/gruns-alternative.html): est. ~$240/yr saved vs a lower-cost ingredient match
+- [Ritual Essential](https://blendbusters.com/ritual.html): est. ~$209/yr saved vs a lower-cost ingredient match
+- [New Chapter Every Woman’s One Daily](https://blendbusters.com/new-chapter-multivitamin-alternative.html): est. ~$180/yr saved vs a lower-cost ingredient match
+- [SmartyPants Adult Complete Gummies](https://blendbusters.com/smartypants-alternative.html): est. ~$180/yr saved vs a lower-cost ingredient match
+- [Nature’s Way Alive! Once Daily](https://blendbusters.com/alive-multivitamin-alternative.html): est. ~$168/yr saved vs a lower-cost ingredient match
+- [Pure Encapsulations O.N.E. Multivitamin](https://blendbusters.com/pure-encapsulations-o-n-e-multivitamin.html): est. ~$148/yr saved vs a lower-cost ingredient match
+- [Ora Organic Easy Being Green](https://blendbusters.com/ora-greens-alternative.html): est. ~$96/yr saved vs a lower-cost ingredient match
+- [Animal Pak](https://blendbusters.com/animal-pak.html): est. ~$76/yr saved vs a lower-cost ingredient match
+- [Life Extension Two-Per-Day Multivitamin](https://blendbusters.com/life-extension-multivitamin-alternative.html): est. ~$72/yr saved vs a lower-cost ingredient match
+
+## Energy
+- [CLEAN Cause Yerba Mate](https://blendbusters.com/clean-cause-yerba-mate.html): est. ~$1,047/yr saved vs a lower-cost ingredient match
+- [Jocko GO Energy Drink](https://blendbusters.com/jocko-go-alternative.html): est. ~$984/yr saved vs a lower-cost ingredient match
+- [Guayaki Yerba Mate](https://blendbusters.com/guayaki-yerba-mate.html): est. ~$951/yr saved vs a lower-cost ingredient match
+- [Runa Clean Energy](https://blendbusters.com/runa-clean-energy.html): est. ~$831/yr saved vs a lower-cost ingredient match
+- [Alani Nu Energy](https://blendbusters.com/alani-nu-energy.html): est. ~$804/yr saved vs a lower-cost ingredient match
+- [Neuro Sonic](https://blendbusters.com/neuro-sonic.html): est. ~$800/yr saved vs a lower-cost ingredient match
+- [Ghost Energy](https://blendbusters.com/ghost-energy.html): est. ~$792/yr saved vs a lower-cost ingredient match
+- [C4 Energy](https://blendbusters.com/c4-energy.html): est. ~$744/yr saved vs a lower-cost ingredient match
+- [Prime Energy](https://blendbusters.com/prime-energy.html): est. ~$744/yr saved vs a lower-cost ingredient match
+- [GURU Organic Energy](https://blendbusters.com/guru-organic-energy.html): est. ~$689/yr saved vs a lower-cost ingredient match
+- [Bloom Sparkling Energy](https://blendbusters.com/bloom-sparkling-energy.html): est. ~$675/yr saved vs a lower-cost ingredient match
+- [Celsius Original](https://blendbusters.com/celsius-original.html): est. ~$648/yr saved vs a lower-cost ingredient match
+- [Bang Energy](https://blendbusters.com/bang-energy.html): est. ~$621/yr saved vs a lower-cost ingredient match
+- [Monster Zero Ultra](https://blendbusters.com/monster-zero-ultra.html): est. ~$615/yr saved vs a lower-cost ingredient match
+- [5-hour Energy Extra Strength](https://blendbusters.com/5-hour-energy-extra-strength.html): est. ~$588/yr saved vs a lower-cost ingredient match
+- [Red Bull Original](https://blendbusters.com/red-bull-original.html): est. ~$534/yr saved vs a lower-cost ingredient match
+- [Optimum Nutrition Amino Energy RTD](https://blendbusters.com/optimum-nutrition-amino-energy-rtd.html): est. ~$462/yr saved vs a lower-cost ingredient match
+- [ZOA Zero Sugar](https://blendbusters.com/zoa-zero-sugar.html): est. ~$435/yr saved vs a lower-cost ingredient match
+- [Zipfizz](https://blendbusters.com/zipfizz.html): est. ~$402/yr saved vs a lower-cost ingredient match
+- [Neuro Energy & Focus Gum](https://blendbusters.com/neuro-gum-alternative.html): est. ~$264/yr saved vs a lower-cost ingredient match
+- [G Fuel Energy Formula](https://blendbusters.com/g-fuel-energy-formula.html): est. ~$257/yr saved vs a lower-cost ingredient match
+- [V8 +Energy](https://blendbusters.com/v8-energy.html): est. ~$210/yr saved vs a lower-cost ingredient match
+- [Bulletproof Brain Octane C8 MCT Oil](https://blendbusters.com/bulletproof-mct-alternative.html): est. ~$132/yr saved vs a lower-cost ingredient match
+
+## Fitness & performance
+- [Ketone-IQ Exogenous Ketone Shot](https://blendbusters.com/ketone-iq.html): est. ~$1,020/yr saved vs a lower-cost ingredient match
+- [Herbalife Formula 1 Shake](https://blendbusters.com/herbalife-formula-1-alternative.html): est. ~$696/yr saved vs a lower-cost ingredient match
+- [Perfect Keto Base Ketones (BHB)](https://blendbusters.com/perfect-keto-alternative.html): est. ~$684/yr saved vs a lower-cost ingredient match
+- [Truvani Plant-Based Protein](https://blendbusters.com/truvani-protein-alternative.html): est. ~$684/yr saved vs a lower-cost ingredient match
+- [Kaged Pre-Kaged Pre-Workout](https://blendbusters.com/kaged-prekaged-alternative.html): est. ~$648/yr saved vs a lower-cost ingredient match
+- [Peachy Plump Creatine Bites](https://blendbusters.com/peachy-plump-alternative.html): est. ~$648/yr saved vs a lower-cost ingredient match
+- [Creatine Gummies](https://blendbusters.com/creatine-gummies.html): est. ~$632/yr saved vs a lower-cost ingredient match
+- [Garden of Life Sport Grass-Fed Whey](https://blendbusters.com/garden-of-life-whey-alternative.html): est. ~$588/yr saved vs a lower-cost ingredient match
+- [Kion Aminos (Essential Amino Acids)](https://blendbusters.com/kion-aminos-alternative.html): est. ~$552/yr saved vs a lower-cost ingredient match
+- [Legion Pulse Pre-Workout](https://blendbusters.com/legion-pulse-alternative.html): est. ~$468/yr saved vs a lower-cost ingredient match
+- [Legion Pulse](https://blendbusters.com/pre-workout.html): est. ~$418/yr saved vs a lower-cost ingredient match
+- [Transparent Labs Grass-Fed Whey Isolate](https://blendbusters.com/transparent-labs-whey-alternative.html): est. ~$372/yr saved vs a lower-cost ingredient match
+- [Premier Protein Shake](https://blendbusters.com/premier-protein-alternative.html): est. ~$288/yr saved vs a lower-cost ingredient match
+- [Sunwarrior Warrior Blend Protein](https://blendbusters.com/sunwarrior-alternative.html): est. ~$276/yr saved vs a lower-cost ingredient match
+- [Vega Sport Premium Protein](https://blendbusters.com/vega-sport-alternative.html): est. ~$192/yr saved vs a lower-cost ingredient match
+- [Naked Whey Grass-Fed Protein](https://blendbusters.com/naked-whey-alternative.html): est. ~$180/yr saved vs a lower-cost ingredient match
+- [Orgain Organic Plant Protein](https://blendbusters.com/orgain-protein-alternative.html): est. ~$180/yr saved vs a lower-cost ingredient match
+- [Optimum Nutrition Gold Standard Whey](https://blendbusters.com/optimum-gold-standard-alternative.html): est. ~$108/yr saved vs a lower-cost ingredient match
+- [Momentous Creatine Monohydrate](https://blendbusters.com/momentous-creatine-alternative.html): est. ~$84/yr saved vs a lower-cost ingredient match
+
+## Gut, probiotic & omega
+- [ARMRA Colostrum](https://blendbusters.com/armra.html): est. ~$1,200/yr saved vs a lower-cost ingredient match
+- [Olipop Prebiotic Soda](https://blendbusters.com/olipop-alternative.html): est. ~$600/yr saved vs a lower-cost ingredient match
+- [OmegaXL Green-Lipped Mussel](https://blendbusters.com/omegaxl-alternative.html): est. ~$552/yr saved vs a lower-cost ingredient match
+- [Ritual Synbiotic+](https://blendbusters.com/ritual-synbiotic.html): est. ~$540/yr saved vs a lower-cost ingredient match
+- [ColonBroom Premium](https://blendbusters.com/colonbroom-premium.html): est. ~$511/yr saved vs a lower-cost ingredient match
+- [Cymbiotika Magnesium L-Threonate](https://blendbusters.com/cymbiotika-magnesium-l-threonate.html): est. ~$468/yr saved vs a lower-cost ingredient match
+- [Gundry MD Bio Complete 3](https://blendbusters.com/gundry-bio-complete-3-alternative.html): est. ~$444/yr saved vs a lower-cost ingredient match
+- [Magnesium Breakthrough](https://blendbusters.com/magnesium-breakthrough.html): est. ~$408/yr saved vs a lower-cost ingredient match
+- [Seed DS-01](https://blendbusters.com/seed.html): est. ~$372/yr saved vs a lower-cost ingredient match
+- [Peachy Clean](https://blendbusters.com/peachy.html): est. ~$360/yr saved vs a lower-cost ingredient match
+- [Poppi Prebiotic Soda](https://blendbusters.com/poppi-alternative.html): est. ~$360/yr saved vs a lower-cost ingredient match
+- [Pure for Men Stay Ready Fiber](https://blendbusters.com/pure-for-men-alternative.html): est. ~$360/yr saved vs a lower-cost ingredient match
+- [Just Thrive Probiotic & Antioxidant](https://blendbusters.com/just-thrive-alternative.html): est. ~$348/yr saved vs a lower-cost ingredient match
+- [Nordic Naturals Ultimate Omega](https://blendbusters.com/nordic-naturals-ultimate-omega.html): est. ~$342/yr saved vs a lower-cost ingredient match
+- [Align 24/7 Digestive Support](https://blendbusters.com/align-24-7-digestive-support.html): est. ~$228/yr saved vs a lower-cost ingredient match
+- [1MD Complete Probiotics Platinum](https://blendbusters.com/1md-probiotics-alternative.html): est. ~$180/yr saved vs a lower-cost ingredient match
+- [Provitalize Probiotic](https://blendbusters.com/provitalize-alternative.html): est. ~$156/yr saved vs a lower-cost ingredient match
+- [Bellway Super Fiber + Fruit](https://blendbusters.com/bellway-alternative.html): est. ~$144/yr saved vs a lower-cost ingredient match
+- [Florastor Daily Probiotic](https://blendbusters.com/florastor-alternative.html): est. ~$144/yr saved vs a lower-cost ingredient match
+- [Thorne Super EPA](https://blendbusters.com/thorne-super-epa.html): est. ~$140/yr saved vs a lower-cost ingredient match
+- [Culturelle Daily Probiotic](https://blendbusters.com/culturelle-alternative.html): est. ~$120/yr saved vs a lower-cost ingredient match
+- [Zenwise Digestive Enzymes](https://blendbusters.com/zenwise-alternative.html): est. ~$72/yr saved vs a lower-cost ingredient match
+- [Benefiber Prebiotic Fiber](https://blendbusters.com/benefiber-alternative.html): est. ~$48/yr saved vs a lower-cost ingredient match
+- [Metamucil Premium Blend](https://blendbusters.com/metamucil-alternative.html): est. ~$48/yr saved vs a lower-cost ingredient match
+- [OLLY Probiotic + Prebiotic Gummy](https://blendbusters.com/olly-probiotic-alternative.html): est. ~$12/yr saved vs a lower-cost ingredient match
+
+## Hydration & electrolytes
+- [Prime Hydration Sticks](https://blendbusters.com/prime-hydration-sticks.html): est. ~$612/yr saved vs a lower-cost ingredient match
+- [LMNT](https://blendbusters.com/lmnt.html): est. ~$522/yr saved vs a lower-cost ingredient match
+- [Waterboy Weekend Recovery](https://blendbusters.com/waterboy-weekend-recovery.html): est. ~$420/yr saved vs a lower-cost ingredient match
+- [Pedialyte AdvancedCare Plus](https://blendbusters.com/pedialyte-alternative.html): est. ~$408/yr saved vs a lower-cost ingredient match
+- [Pedialyte Sport Powder](https://blendbusters.com/pedialyte-sport-powder.html): est. ~$408/yr saved vs a lower-cost ingredient match
+- [Cure Hydration](https://blendbusters.com/cure-hydration.html): est. ~$324/yr saved vs a lower-cost ingredient match
+- [Liquid I.V. Sugar-Free](https://blendbusters.com/liquid-iv-sugar-free-alternative.html): est. ~$312/yr saved vs a lower-cost ingredient match
+- [Salud Hydration + Immunity](https://blendbusters.com/salud-hydration-immunity.html): est. ~$306/yr saved vs a lower-cost ingredient match
+- [Liquid I.V.](https://blendbusters.com/liquid-iv.html): est. ~$271/yr saved vs a lower-cost ingredient match
+- [Nuun Instant](https://blendbusters.com/nuun-instant-alternative.html): est. ~$240/yr saved vs a lower-cost ingredient match
+- [Gatorlyte Powder](https://blendbusters.com/gatorlyte-powder.html): est. ~$192/yr saved vs a lower-cost ingredient match
+- [Ghost Hydration](https://blendbusters.com/ghost-hydration.html): est. ~$180/yr saved vs a lower-cost ingredient match
+- [Propel Powder](https://blendbusters.com/propel-powder.html): est. ~$144/yr saved vs a lower-cost ingredient match
+- [Skratch Labs Sport Hydration](https://blendbusters.com/skratch-labs-sport-hydration.html): est. ~$132/yr saved vs a lower-cost ingredient match
+- [Hydrant](https://blendbusters.com/hydrant.html): est. ~$120/yr saved vs a lower-cost ingredient match
+- [BodyArmor Flash I.V.](https://blendbusters.com/bodyarmor-flash-i-v.html): est. ~$108/yr saved vs a lower-cost ingredient match
+- [Nuun Sport](https://blendbusters.com/nuun-sport.html): est. ~$96/yr saved vs a lower-cost ingredient match
+- [DripDrop ORS](https://blendbusters.com/dripdrop-ors.html): est. ~$84/yr saved vs a lower-cost ingredient match
+- [Nectar Hydration](https://blendbusters.com/nectar-hydration.html): est. ~$72/yr saved vs a lower-cost ingredient match
+
+## Longevity & heart
+- [Qualia Senolytic](https://blendbusters.com/qualia-senolytic.html): est. ~$912/yr saved vs a lower-cost ingredient match
+- [NOVOS Core](https://blendbusters.com/novos-core.html): est. ~$780/yr saved vs a lower-cost ingredient match
+- [Wonderfeel Youngr NMN](https://blendbusters.com/wonderfeel-nmn-alternative.html): est. ~$780/yr saved vs a lower-cost ingredient match
+- [Timeline Mitopure (Urolithin A Softgels)](https://blendbusters.com/timeline-mitopure.html): est. ~$672/yr saved vs a lower-cost ingredient match
+- [fatty15](https://blendbusters.com/fatty15.html): est. ~$528/yr saved vs a lower-cost ingredient match
+- [Tru Niagen](https://blendbusters.com/tru-niagen.html): est. ~$516/yr saved vs a lower-cost ingredient match
+- [Oxford Healthspan Primeadine Original](https://blendbusters.com/oxford-healthspan-primeadine.html): est. ~$480/yr saved vs a lower-cost ingredient match
+- [Tally Health Vitality](https://blendbusters.com/tally-health.html): est. ~$468/yr saved vs a lower-cost ingredient match
+- [Blueprint Longevity Mix (Bryan Johnson)](https://blendbusters.com/blueprint-longevity-mix.html): est. ~$288/yr saved vs a lower-cost ingredient match
+
+## Men's & testosterone
+- [Hunter Test](https://blendbusters.com/hunter-test.html): est. ~$684/yr saved vs a lower-cost ingredient match
+- [Nugenix Total-T](https://blendbusters.com/nugenix.html): est. ~$624/yr saved vs a lower-cost ingredient match
+- [Testogen (Testogen Ultimate)](https://blendbusters.com/testogen.html): est. ~$552/yr saved vs a lower-cost ingredient match
+- [TestoFuel](https://blendbusters.com/testofuel.html): est. ~$543/yr saved vs a lower-cost ingredient match
+- [TestoPrime](https://blendbusters.com/testoprime.html): est. ~$528/yr saved vs a lower-cost ingredient match
+- [Prime Male](https://blendbusters.com/prime-male.html): est. ~$516/yr saved vs a lower-cost ingredient match
+- [Prostate 911 (PhytAge Labs)](https://blendbusters.com/prostate-911.html): est. ~$492/yr saved vs a lower-cost ingredient match
+- [Ageless Male Max (New Vitality)](https://blendbusters.com/ageless-male-max.html): est. ~$444/yr saved vs a lower-cost ingredient match
+- [ProstaGenix Multiphase Prostate Supplement](https://blendbusters.com/prostagenix.html): est. ~$288/yr saved vs a lower-cost ingredient match
+- [Super Beta Prostate (New Vitality)](https://blendbusters.com/super-beta-prostate.html): est. ~$228/yr saved vs a lower-cost ingredient match
+
+## Other
+- [Goli ACV](https://blendbusters.com/goli.html): est. ~$624/yr saved vs a lower-cost ingredient match
+- [Hormone Harmony (Happy Mammoth)](https://blendbusters.com/hormone-harmony.html): est. ~$624/yr saved vs a lower-cost ingredient match
+- [Mixhers Hertime PMS](https://blendbusters.com/mixhers-hertime-pms.html): est. ~$528/yr saved vs a lower-cost ingredient match
+- [Arrae MB-1 (Metabolic Burn)](https://blendbusters.com/arrae-mb1.html): est. ~$504/yr saved vs a lower-cost ingredient match
+- [Pendulum GLP-1 Probiotic](https://blendbusters.com/pendulum-glp1.html): est. ~$504/yr saved vs a lower-cost ingredient match
+- [Gundry MD Vital Reds](https://blendbusters.com/gundry-vital-reds-alternative.html): est. ~$468/yr saved vs a lower-cost ingredient match
+- [FullWell Women's Prenatal Multivitamin](https://blendbusters.com/fullwell-prenatal.html): est. ~$456/yr saved vs a lower-cost ingredient match
+- [Lemme GLP-1 Daily](https://blendbusters.com/lemme-glp1.html): est. ~$420/yr saved vs a lower-cost ingredient match
+- [Bird&Be The Power Prenatal for Females](https://blendbusters.com/birdandbe-power-prenatal.html): est. ~$336/yr saved vs a lower-cost ingredient match
+- [O Positiv FLO](https://blendbusters.com/flo-pms.html): est. ~$324/yr saved vs a lower-cost ingredient match
+- [Supergut GLP-1 Daily Support](https://blendbusters.com/supergut-glp1.html): est. ~$324/yr saved vs a lower-cost ingredient match
+- [Ancestral Supplements Grass Fed Beef Liver](https://blendbusters.com/ancestral-liver-alternative.html): est. ~$156/yr saved vs a lower-cost ingredient match
+- [Ovasitol Inositol Powder (Theralogix)](https://blendbusters.com/ovasitol.html): est. ~$60/yr saved vs a lower-cost ingredient match
+
+## Sleep & calm
+- [Hiyo](https://blendbusters.com/hiyo.html): est. ~$1,266/yr saved vs a lower-cost ingredient match
+- [Recess Mood](https://blendbusters.com/recess-mood.html): est. ~$807/yr saved vs a lower-cost ingredient match
+- [Beam Dream](https://blendbusters.com/beam-dream.html): est. ~$732/yr saved vs a lower-cost ingredient match
+- [Moon Juice Magnesi-Om](https://blendbusters.com/moon-juice-magnesi-om.html): est. ~$435/yr saved vs a lower-cost ingredient match
+- [Nello Supercalm](https://blendbusters.com/nello-supercalm-alternative.html): est. ~$300/yr saved vs a lower-cost ingredient match
+- [ZzzQuil Pure Zzzs](https://blendbusters.com/zzzquil-pure-zzzs.html): est. ~$186/yr saved vs a lower-cost ingredient match
+- [Natrol Sleep+ Calm](https://blendbusters.com/natrol-sleep-calm.html): est. ~$174/yr saved vs a lower-cost ingredient match
+- [OLLY Sleep](https://blendbusters.com/olly-sleep.html): est. ~$138/yr saved vs a lower-cost ingredient match
+- [Goli Ashwagandha Gummies](https://blendbusters.com/goli-ashwagandha-alternative.html): est. ~$120/yr saved vs a lower-cost ingredient match
+- [HUM Beauty zzZz](https://blendbusters.com/hum-beauty-zzzz.html): est. ~$102/yr saved vs a lower-cost ingredient match
+- [Natural Vitality CALM](https://blendbusters.com/natural-vitality-calm.html): est. ~$54/yr saved vs a lower-cost ingredient match
 
 ## Citation
-Cite as: BlendBusters Supplement Markup Report, blendbusters.com, 2026.
+Cite as: BlendBusters Supplement Markup Report, blendbusters.com, 2026. Free to cite with attribution (CC BY 4.0).
