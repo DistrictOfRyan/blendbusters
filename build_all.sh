@@ -9,6 +9,7 @@ python3 build_research.py
 # build_from_sheet.py needs the product xlsx (see XLSX= path in that file). Skip if absent.
 python3 -c "import build_from_sheet" 2>/dev/null && python3 build_from_sheet.py || echo "SKIP build_from_sheet.py (xlsx not available)"
 python3 add_visuals.py            # <-- applies images/logo/cost-visual to every page
+python3 build_webp.py            # <-- convert form images to WebP + point <img> to them (~50% smaller)
 python3 add_seo.py                 # <-- OG/twitter cards, canonical, favicon
 python3 markup_report.py           # <-- flagship Markup Report data page
 python3 add_faq.py                 # <-- FAQ content + schema

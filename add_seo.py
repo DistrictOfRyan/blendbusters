@@ -36,7 +36,7 @@ for f in glob.glob('*.html'):
         continue
     title = html.unescape(m_title.group(1)).strip()
     desc = html.unescape(m_desc.group(1)).strip() if m_desc else title
-    url = f"{SITE}/{f}"
+    url = f"{SITE}/" if f == "index.html" else f"{SITE}/{f}"
     m_img = re.search(r'/img/form/(\w+)\.jpg', s)
     image = f"{SITE}/img/form/{m_img.group(1)}.jpg" if m_img else DEFAULT_IMG
     og_type = 'website' if f == 'index.html' else 'article'

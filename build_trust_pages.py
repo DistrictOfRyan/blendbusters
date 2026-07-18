@@ -14,11 +14,21 @@ SITE = 'https://blendbusters.com'
 def page(slug, title, desc, crumb, body_inner):
     head = bb_render._head(title, desc)
     # canonical + og:url for this page (bb_render._head omits canonical; add it)
+    et = bb_render.esc(title)
+    ed = bb_render.esc(desc)
+    img = SITE + '/img/form/greens.jpg'
     canon = ('<link rel="canonical" href="%s/%s.html">\n'
              '<meta property="og:type" content="website">\n'
              '<meta property="og:site_name" content="BlendBusters">\n'
              '<meta property="og:title" content="%s">\n'
-             '<meta property="og:url" content="%s/%s.html">\n' % (SITE, slug, bb_render.esc(title), SITE, slug))
+             '<meta property="og:description" content="%s">\n'
+             '<meta property="og:url" content="%s/%s.html">\n'
+             '<meta property="og:image" content="%s">\n'
+             '<meta name="twitter:card" content="summary_large_image">\n'
+             '<meta name="twitter:title" content="%s">\n'
+             '<meta name="twitter:description" content="%s">\n'
+             '<meta name="twitter:image" content="%s">\n'
+             % (SITE, slug, et, ed, SITE, slug, img, et, ed, img))
     head = head.replace('</head>', canon + '</head>', 1)
     crumbnav = ('<div class="wrap"><nav class="crumb" aria-label="Breadcrumb"><a href="/">Home</a> / <b>%s</b></nav>'
                 '<div class="title"><span class="cat">%s</span><h1>%s</h1></div></div>\n' % (crumb, crumb, bb_render.esc(title.split(' · ')[0].split(' — ')[0])))
