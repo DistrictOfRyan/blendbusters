@@ -330,7 +330,7 @@ for r in P:
     consult=['<b style="color:var(--ink)">Talk to a qualified healthcare professional</b> before changing supplements if you are pregnant or nursing, immunocompromised, managing a health condition, or taking medications.',
              'See a professional for persistent or unusual symptoms — a supplement is not a substitute for evaluation.']
     b_url,b_brand=buy_link(alts[0][0])
-    d={'slug':slug,'name':_esc(name),'category':_esc(cat),'reviewed':'Jul 2026',
+    d={'slug':slug,'name':_esc(name),'category':cat,'reviewed':'Jul 2026',  # raw: bb_render esc()s it (double-escape bug fix 2026-07-19)
        'brand_price':int(round(orig)),'brand_per_day':'$%.2f'%(orig/30),
        'label_summary':_esc(summ),'proprietary':proprietary,
        'verdict':verdict,'verdict_note':verdict_note,'match_pct':match_pct,

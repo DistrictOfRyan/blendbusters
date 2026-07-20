@@ -30,5 +30,6 @@ python3 build_dataset.py          # <-- public downloadable dataset (supplement-
 python3 build_llms.py             # <-- auto llms.txt (AEO map for AI answer engines) from the dataset
 python3 add_site_schema.py        # <-- homepage Organization+WebSite JSON-LD + sitemap sync/<lastmod> (run after all pages exist)
 python3 retarget_keywords.py      # <-- title/meta/H1/H2 target "[brand] ingredients" (real Ahrefs data: 4k-20k vol vs weak "alternative"). MUST run after add_seo/fix_titles
+python3 fix_double_escape.py      # <-- collapse any double-escaped entities (&amp;amp; -> &amp;). MUST run last, after all content post-processors
 echo "== compliance QA (should list ONLY index/methodology/savings-index) =="
 grep -rilE "exactly the same|works just as well|guaranteed equivalent|clinically proven|doctor approved|cure your|treats? your" --include=*.html . | grep -vE 'index\.html|methodology\.html|savings-index\.html|mockup|standalone' && echo "!! COMPLIANCE FAIL" || echo "compliance OK"
