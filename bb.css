@@ -283,3 +283,6 @@ body::after{content:"";position:absolute;top:212px;right:2.5vw;width:132px;heigh
   .buyitem .bi-info{flex:1 1 60%}
   .buyitem .bi-go{width:100%;margin-top:2px;text-align:center}
 }
+.buytotal{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;padding:14px 16px;border-top:2px solid var(--line-2);background:var(--paper-2)}
+.buytotal .bt-l{font-weight:800;color:var(--ink);font-size:14.5px}
+.buytotal .bt-v{font-family:var(--mono);font-weight:700;color:var(--accent-deep);font-size:14px}

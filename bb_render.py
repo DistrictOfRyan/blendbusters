@@ -142,8 +142,8 @@ def render_compare(d):
     prim=d.get('primary_buy')
     blitems=[{'name':r.get('name',''),'qty':r.get('desc',''),
               'price':('$%.0f/mo'%r['cost']) if r.get('cost') is not None else '',
-              'asin':r.get('asin')} for r in d['swap_rows']]
-    buylist=buylist_html(blitems)
+              'cost':r.get('cost'),'asin':r.get('asin')} for r in d['swap_rows']]
+    buylist=buylist_html(blitems,brand=d.get('name'),brand_price=d.get('brand_price'))
     # sources
     srchtml=''
     for i,(lab,url,ok) in enumerate(d.get('sources',[]),1):
