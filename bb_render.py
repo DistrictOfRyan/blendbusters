@@ -78,7 +78,7 @@ COMPARE_JS=("(function(){var r=document.documentElement,t=document.getElementByI
   "var mt=document.getElementById('mtot');if(mt)mt.textContent='$'+x.toFixed(2)+'/mo';"
   "var sv=document.getElementById('save');if(sv)sv.textContent='SAVE ~$'+Math.max(0,Math.round((BASE-x)*12)).toLocaleString()+'/yr'}"
   "lines.forEach(function(l){l.querySelector('input').addEventListener('change',rc)});rc();"
-  "document.querySelectorAll('[data-ev]').forEach(function(a){a.addEventListener('click',function(){ev('merchant_outbound_click',{merchant:a.dataset.ev,comparison_id:document.body.dataset.slug||'',outbound_destination:a.href});try{gtag('event','conversion',{send_to:'AW-18323982524/46dXCN7PidMcELyRx6FE'})}catch(e){}})});"
+  "document.querySelectorAll('[data-ev]').forEach(function(a){a.addEventListener('click',function(){var h=a.hostname||'';if(h.indexOf('amazon')<0&&h.indexOf('amzn')<0){return}ev('merchant_outbound_click',{merchant:a.dataset.ev,comparison_id:document.body.dataset.slug||'',outbound_destination:a.href});try{gtag('event','conversion',{send_to:'AW-18323982524/46dXCN7PidMcELyRx6FE'})}catch(e){}})});"
   "var f=document.getElementById('corr');f&&f.addEventListener('submit',function(e){e.preventDefault();var m=document.getElementById('corrmsg');m.style.color='var(--accent-deep)';m.textContent='\\u2713 Correction sent (demo). Thank you \\u2014 we log every edit.';ev('correction_submit',{});f.reset()});"
   "var seen={};[50,90].forEach(function(p){});window.addEventListener('scroll',function(){var h=document.body.scrollHeight-innerHeight;if(h<=0)return;var pct=scrollY/h*100;[50,90].forEach(function(p){if(pct>=p&&!seen[p]){seen[p]=1;ev('comparison_scroll_'+p,{comparison_id:document.body.dataset.slug||''})}})},{passive:true});"
   "})();")
