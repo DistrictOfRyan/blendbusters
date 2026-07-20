@@ -80,6 +80,37 @@ CATALOG = {
     'ginseng':       ('B005P0KF32', 'NOW Panax Ginseng 500 mg'),
     'msm':           ('B0013OUPXE', 'NOW MSM 1000 mg'),
     'boswellia':     ('B0C4QD8YLQ', 'Nutricost Boswellia Extract'),
+    # batch 2026-07-19 (verified via Amazon result URL + title)
+    'whey':          ('B01HOPJ8V0', 'Nutricost Whey Protein Isolate (Unflavored)'),
+    'greens':        ('B0D4XLBMLK', 'Nutricost Organic Super Greens'),
+    'mct':           ('B076QZPZDX', 'Sports Research Organic MCT Oil (C8/C10)'),
+    'fisetin':       ('B082WLT5V2', 'Double Wood Fisetin'),
+    'pterostilbene': ('B076M84NHY', 'Double Wood Pterostilbene'),
+    'resveratrol':   ('B0G6GN58PX', 'Nutricost Trans-Resveratrol'),
+    'nmn':           ('B07SVG5N45', 'Double Wood NMN'),
+    'urolithina':    ('B0CVLBW9JB', 'Double Wood Urolithin A 500 mg'),
+    'caakg':         ('B09CLLQ7XJ', 'ProHealth Calcium AKG 1000 mg'),
+    'spermidine':    ('B09NP4MPQB', 'Double Wood Spermidine'),
+    'greentea':      ('B0019LRYK8', 'NOW EGCg Green Tea Extract 400 mg'),
+    'pygeum':        ('B000OSQR9G', 'NOW Pygeum & Saw Palmetto'),
+    'nettle':        ('B0014UECK4', 'NOW Stinging Nettle Root 250 mg'),
+    'hyaluronic':    ('B07X7J7GVK', 'Nutricost Hyaluronic Acid 100 mg'),
+    'mushroomcomplex':('B0BP9YV9WC', 'Double Wood 10 Mushroom Complex'),
+    'glucosamine':   ('B003V2JBEK', 'Kirkland Glucosamine & Chondroitin'),
+    'kelp':          ('B000OSQP3E', 'NOW Kelp 150 mcg Iodine'),
+    'inositol':      ('B07HX2DMY8', 'Wholesome Story Myo-Inositol & D-Chiro 40:1'),
+    'saffron':       ('B09DTN7P4W', 'Nutricost Saffron Extract 88.5 mg'),
+    'turmeric':      ('B018GPDCV4', 'Nutricost Turmeric Curcumin + BioPerine'),
+    'betacarotene':  ('B000PIDD0Q', 'NOW Natural Beta Carotene 25,000 IU'),
+    'greenlippedmussel':('B00M22FQDK', 'Swanson Green Lipped Mussel 500 mg'),
+    'eaa':           ('B07VJK13WD', 'BulkSupplements EAA (Essential Amino Acids)'),
+    'bhb':           ('B01MU5HNRZ', 'Nutricost Keto BHB Exogenous Ketones'),
+    'digestiveenzymes':('B074P9J29V', 'Nutricost Digestive Enzymes'),
+    'areds2':        ('B00DJUK8HS', 'PreserVision AREDS 2'),
+    'desiccatedliver':('B01MSBZYQW', 'Ancestral Supplements Grass-Fed Beef Liver'),
+    'dextrose':      ('B008GQ2JPO', 'NOW Dextrose (glucose) Powder'),
+    'africanmango':  ('B01LTDKE6G', 'BulkSupplements African Mango Extract'),
+    'mealreplacement':('B00RWWOKL4', 'Orgain Organic Vegan Meal Replacement'),
 }
 
 # Exact branded product name (normalized, lowercased) -> ASIN. Used when the
@@ -140,8 +171,42 @@ RULES = [
     (r'\bmaca\b', 'maca'),
     (r'rhodiola', 'rhodiola'),
     (r'panax|ginseng', 'ginseng'),
+    (r'glucosamine|chondroitin', 'glucosamine'),
     (r'\bmsm\b|methylsulfonyl', 'msm'),
     (r'boswellia', 'boswellia'),
+    (r'green tea|egcg', 'greentea'),
+    (r'green[\s-]?lipped mussel', 'greenlippedmussel'),
+    (r'\bgreens\b|super greens|greens blend|reds superfood', 'greens'),
+    (r'\bmct\b|c8[\s/]|caprylic', 'mct'),
+    (r'fisetin', 'fisetin'),
+    (r'pterostilbene', 'pterostilbene'),
+    (r'resveratrol', 'resveratrol'),
+    (r'\bnmn\b|nicotinamide mononucleotide', 'nmn'),
+    (r'urolithin', 'urolithina'),
+    (r'ca[\s-]?akg|calcium (alpha[\s-]?)?ketoglutarate|alpha[\s-]?ketoglutarate', 'caakg'),
+    (r'spermidine', 'spermidine'),
+    (r'pygeum', 'pygeum'),
+    (r'stinging nettle|nettle root', 'nettle'),
+    (r'hyaluronic', 'hyaluronic'),
+    (r'mushroom|reishi|cordyceps|chaga|lion.?s mane (complex|blend)', 'mushroomcomplex'),
+    (r'\bkelp\b|iodine', 'kelp'),
+    (r'inositol', 'inositol'),
+    (r'saffron', 'saffron'),
+    (r'turmeric|curcumin', 'turmeric'),
+    (r'beta[\s-]?carotene', 'betacarotene'),
+    (r'green lipped', 'greenlippedmussel'),
+    (r'\beaa\b|essential amino|amino[\s-]?acid|\bbcaa\b', 'eaa'),
+    (r'\bbhb\b|ketone salt|exogenous ketone', 'bhb'),
+    (r'digestive enzyme|enzyme complex|proteolytic enzyme', 'digestiveenzymes'),
+    (r'areds', 'areds2'),
+    (r'desiccated liver|beef liver|\bliver\b', 'desiccatedliver'),
+    (r'\bdextrose\b|\bglucose\b', 'dextrose'),
+    (r'african mango|irvingia', 'africanmango'),
+    (r'meal replacement|complete[\s-]?meal|meal powder|shake mix|all[\s-]?in[\s-]?one nutrition', 'mealreplacement'),
+    (r'whey', 'whey'),
+    (r'pea protein|plant protein|plant[\s-]?based protein', 'peaprotein'),
+    (r'rhamnosus|boulardii|bacillus coagulans|lactobacillus|bifidobacterium|acidophilus', 'probiotic'),
+    (r'african mango', 'africanmango'),
     (r'\bzinc\b', 'zinc'),
     (r'saw palmetto', 'sawpalmetto'),
     (r'\bboron\b', 'boron'),
@@ -202,12 +267,15 @@ def _norm(name):
 
 def catalog_asin(name):
     """Return a verified ASIN for an ingredient name, or None.
-    Branded names first try the exact BRANDED_MAP (so they still land on a real
-    /dp/ product); otherwise generic names match by keyword rule."""
+    Try the exact BRANDED_MAP first; then keyword rules. William approved
+    linking a *similar* verified product where we don't stock the exact brand,
+    so branded names resolve through the same rules (e.g. a branded whey -> our
+    verified whey) rather than falling back to a search."""
     if not name:
         return None
-    if is_branded(name):
-        return BRANDED_MAP.get(_norm(name))  # exact product, or None -> search
+    a = BRANDED_MAP.get(_norm(name))
+    if a:
+        return a
     for rx, key in _RULES:
         if rx.search(name):
             return CATALOG[key][0]
