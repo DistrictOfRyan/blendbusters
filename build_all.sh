@@ -21,6 +21,7 @@ python3 fix_seo_meta.py           # <-- title<=60, meta desc<=160, strip em dash
 # --- 2026-07-17 authority pass (idempotent post-processors) ---
 python3 fix_page_trust.py         # <-- drop 'review pending' YMYL flags, fix escaped-<b> safety bug, real footer links (belt-and-suspenders; bb_render.py already fixed at source)
 python3 fix_buy_links.py          # <-- replace Amazon cart-add (login wall) with reliable DIRECT /dp/ product links (money-critical for paid traffic)
+python3 add_ingredient_links.py   # <-- per-ingredient "shopping list": every ingredient gets its OWN labeled Amazon link + quantity (money-critical; must run AFTER fix_buy_links/add_conversion)
 python3 generate_intros.py        # <-- unique per-product intro + honest match line (kills the fake uniform '~72% overlap'; content uniqueness for indexing)
 python3 fix_forms.py              # <-- wire newsletter + request-a-comparison forms to Netlify Forms (were demo-only)
 python3 build_trust_pages.py      # <-- generate /about /contact /privacy /terms (E-E-A-T trust pages)
