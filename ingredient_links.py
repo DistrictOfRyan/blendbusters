@@ -79,6 +79,15 @@ def search_query(name, hint=''):
 
 
 def ingredient_url(name, hint='', asin=None):
+    # 1. explicit ASIN from the source pipeline (guaranteed row-aligned)
+    # 2. verified catalog ASIN for a generic ingredient name
+    # 3. sharpened search (branded names land on their exact product this way)
+    if not asin:
+        try:
+            from ingredient_catalog import catalog_asin
+            asin = catalog_asin(name)
+        except Exception:
+            asin = None
     if asin:
         return 'https://www.amazon.com/dp/%s?tag=%s' % (asin, TAG)
     return 'https://www.amazon.com/s?k=%s&tag=%s' % (quote_plus(search_query(name, hint)), TAG)
