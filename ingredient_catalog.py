@@ -61,6 +61,53 @@ CATALOG = {
     'fenugreek':     ('B00772D3C6', 'Fenugreek'),
     'tongkat':       ('B07TTDFXFV', 'Tongkat Ali (Longjack)'),
     'oatflour':      ('B08GD24F85', 'Oat Flour'),
+    # batch 2026-07-19: verified via Amazon (WebSearch result URLs + titles)
+    'coq10':         ('B091M586SM', 'Nutricost CoQ10 200 mg'),
+    'electrolyte':   ('B0CZ4CTQ8F', 'Key Nutrients Electrolytes, no sugar (unflavored)'),
+    'quercetin':     ('B09HL2RWK3', 'Nutricost Quercetin 1000 mg'),
+    'magthreonate':  ('B01M4GM9R1', 'Double Wood Magnesium L-Threonate (Magtein)'),
+    'citicoline':    ('B01F261FGY', 'Nootropics Depot Cognizin Citicoline'),
+    'betasitosterol':('B008BMSO52', 'NOW Beta-Sitosterol Plant Sterols'),
+    'nac':           ('B0013OW0NC', 'NOW NAC (N-Acetyl Cysteine) 600 mg'),
+    'taurine':       ('B01N3Y4GCH', 'BulkSupplements Taurine Powder'),
+    'glycine':       ('B00EOXU0L8', 'BulkSupplements Glycine Powder'),
+    'chromium':      ('B09NQJSZXR', 'Nutricost Chromium 1000 mcg'),
+    'b6':            ('B018EAQ6YG', 'Nature Made Vitamin B6 100 mg'),
+    'methylfolate':  ('B07T8C9N97', 'Nutricost Methylfolate 1000 mcg'),
+    'choline':       ('B094XMC514', 'Nutricost Choline Bitartrate 650 mg'),
+    'maca':          ('B016398GQG', 'Nutricost Maca Root 750 mg'),
+    'rhodiola':      ('B079C2J9FP', 'Nutricost Rhodiola Rosea 500 mg'),
+    'ginseng':       ('B005P0KF32', 'NOW Panax Ginseng 500 mg'),
+    'msm':           ('B0013OUPXE', 'NOW MSM 1000 mg'),
+    'boswellia':     ('B0C4QD8YLQ', 'Nutricost Boswellia Extract'),
+}
+
+# Exact branded product name (normalized, lowercased) -> ASIN. Used when the
+# ingredient name already names a specific product; maps to that ingredient's
+# verified product (same active) so it still lands on a real /dp/ page.
+BRANDED_MAP = {
+    'kirkland daily multi': 'B006VRNEFO',
+    'nature made multivitamin': 'B006VRNEFO',
+    'nature made multi for her': 'B006VRNEFO',
+    'nature made multivitamin + omega-3 gummies': 'B006VRNEFO',
+    'nutricost ksm-66 ashwagandha 600 mg (capsules)': 'B079K32QB6',
+    'bulksupplements beta-alanine': 'B07BTGCJTW',
+    'nutricost caffeine pills': 'B01MY5CW7S',
+    'nutricost caffeine + l-theanine (100 mg each)': 'B01MY5CW7S',
+    'bulksupplements l-citrulline': 'B00EYDJTRE',
+    'bulksupplements l-citrulline malate': 'B00EYDJTRE',
+    'nutricost creatine monohydrate': 'B00E9M4XEE',
+    'nutricost creapure creatine monohydrate': 'B00E9M4XEE',
+    'now foods colostrum 500 mg': 'B09WJPFVVP',
+    "nutricost lion's mane": 'B07PM8X5CG',
+    "nutricost lion's mane capsules": 'B07PM8X5CG',
+    "now lion's mane capsules": 'B07PM8X5CG',
+    'nutricost organic inulin': 'B01JGYA7O4',
+    'nutricost pea protein': 'B00NBIUGA2',
+    'now sports pea protein (informed sport)': 'B00NBIUGA2',
+    'nutricost l-theanine + bacopa': 'B00GQV9YX6',
+    'double wood citicoline (cdp-choline)': 'B01F261FGY',
+    'nootropics depot cognizin citicoline 250 mg': 'B01F261FGY',
 }
 
 # Ordered keyword rules: FIRST match wins, so specific patterns precede generic.
@@ -76,7 +123,25 @@ RULES = [
     (r'l[\s-]?theanine|theanine', 'theanine'),
     (r'melatonin', 'melatonin'),
     (r'creatine', 'creatine'),
+    (r'magnesium l[\s-]?threonate|l[\s-]?threonate|magtein', 'magthreonate'),
     (r'magnesium(?!.*(malate|threonate|citrate|oxide))', 'maggly'),
+    (r'coq10|co-?q10|coenzyme q10|ubiquinone|ubiquinol', 'coq10'),
+    (r'electrolyte|oral rehydration|\bors\b|rehydration', 'electrolyte'),
+    (r'quercetin', 'quercetin'),
+    (r'citicoline|cognizin|cdp[\s-]?choline', 'citicoline'),
+    (r'choline bitartrate|\bcholine\b', 'choline'),
+    (r'beta[\s-]?sitosterol|plant sterol|phytosterol', 'betasitosterol'),
+    (r'\bnac\b|n[\s-]?acetyl[\s-]?cysteine', 'nac'),
+    (r'\btaurine\b', 'taurine'),
+    (r'\bglycine\b', 'glycine'),
+    (r'chromium', 'chromium'),
+    (r'vitamin b[\s-]?6|pyridoxine|\bb6\b', 'b6'),
+    (r'methylfolate|methyl folate|5-?mthf|l-?methylfolate|methylated folate|\bfolate\b', 'methylfolate'),
+    (r'\bmaca\b', 'maca'),
+    (r'rhodiola', 'rhodiola'),
+    (r'panax|ginseng', 'ginseng'),
+    (r'\bmsm\b|methylsulfonyl', 'msm'),
+    (r'boswellia', 'boswellia'),
     (r'\bzinc\b', 'zinc'),
     (r'saw palmetto', 'sawpalmetto'),
     (r'\bboron\b', 'boron'),
@@ -130,11 +195,19 @@ def is_branded(name):
     return bool(_BRAND_RE.search(name or ''))
 
 
+def _norm(name):
+    import re as _re
+    return _re.sub(r'\s+', ' ', (name or '').replace('’', "'")).strip().lower()
+
+
 def catalog_asin(name):
-    """Return a verified ASIN for a GENERIC ingredient name, or None.
-    Branded names return None on purpose (search lands on that exact product)."""
-    if not name or is_branded(name):
+    """Return a verified ASIN for an ingredient name, or None.
+    Branded names first try the exact BRANDED_MAP (so they still land on a real
+    /dp/ product); otherwise generic names match by keyword rule."""
+    if not name:
         return None
+    if is_branded(name):
+        return BRANDED_MAP.get(_norm(name))  # exact product, or None -> search
     for rx, key in _RULES:
         if rx.search(name):
             return CATALOG[key][0]
