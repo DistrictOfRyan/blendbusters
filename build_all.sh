@@ -33,3 +33,4 @@ python3 retarget_keywords.py      # <-- title/meta/H1/H2 target "[brand] ingredi
 python3 fix_double_escape.py      # <-- collapse any double-escaped entities (&amp;amp; -> &amp;). MUST run last, after all content post-processors
 echo "== compliance QA (should list ONLY index/methodology/savings-index) =="
 grep -rilE "exactly the same|works just as well|guaranteed equivalent|clinically proven|doctor approved|cure your|treats? your" --include=*.html . | grep -vE 'index\.html|methodology\.html|savings-index\.html|mockup|standalone' && echo "!! COMPLIANCE FAIL" || echo "compliance OK"
+python3 normalize_urls.py         # <-- LAST: canonical/sitemap/links -> clean URLs + _redirects
