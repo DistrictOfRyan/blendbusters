@@ -1,10 +1,10 @@
 # BlendBusters
 
-> Independent wellness-product price comparisons. We break down expensive supplements, compare their ingredients and doses against a specific lower-cost ingredient-matched alternative, and publish the data across 206 products. We compare ingredients and price, not medical outcomes; a lower-cost ingredient match shares overlapping ingredients and a similar intended use, not a guaranteed equivalent. Affiliate-supported, editorially independent.
+> Independent wellness-product price comparisons. We break down expensive supplements, compare their ingredients and doses against a specific lower-cost ingredient-matched alternative, and publish the data across 209 products. We compare ingredients and price, not medical outcomes; a lower-cost ingredient match shares overlapping ingredients and a similar intended use, not a guaranteed equivalent. Affiliate-supported, editorially independent.
 
 ## Key facts
-- 206 products priced against lower-cost ingredient-matched alternatives
-- ~$91,985/year in total estimated overspend across the catalog; 5.3x average markup
+- 209 products priced against lower-cost ingredient-matched alternatives
+- ~$93,017/year in total estimated overspend across the catalog; 5.2x average markup
 - Every figure is estimated from public retail prices; compliant, no efficacy claims
 
 ## Key resources
@@ -199,6 +199,7 @@
 - [Tru Niagen](https://blendbusters.com/tru-niagen.html): est. ~$516/yr saved vs a lower-cost ingredient match
 - [Oxford Healthspan Primeadine Original](https://blendbusters.com/oxford-healthspan-primeadine.html): est. ~$480/yr saved vs a lower-cost ingredient match
 - [Tally Health Vitality](https://blendbusters.com/tally-health.html): est. ~$468/yr saved vs a lower-cost ingredient match
+- [Elysium Basis](https://blendbusters.com/elysium-basis.html): est. ~$348/yr saved vs a lower-cost ingredient match
 - [Blueprint Longevity Mix (Bryan Johnson)](https://blendbusters.com/blueprint-longevity-mix.html): est. ~$288/yr saved vs a lower-cost ingredient match
 
 ## Men's & testosterone
@@ -212,6 +213,7 @@
 - [Ageless Male Max (New Vitality)](https://blendbusters.com/ageless-male-max.html): est. ~$444/yr saved vs a lower-cost ingredient match
 - [ProstaGenix Multiphase Prostate Supplement](https://blendbusters.com/prostagenix.html): est. ~$288/yr saved vs a lower-cost ingredient match
 - [Super Beta Prostate (New Vitality)](https://blendbusters.com/super-beta-prostate.html): est. ~$228/yr saved vs a lower-cost ingredient match
+- [Force Factor Test X180 Boost](https://blendbusters.com/test-x180-boost.html): est. ~$168/yr saved vs a lower-cost ingredient match
 
 ## Other
 - [Goli ACV](https://blendbusters.com/goli.html): est. ~$624/yr saved vs a lower-cost ingredient match
@@ -232,6 +234,7 @@
 - [Hiyo](https://blendbusters.com/hiyo.html): est. ~$1,266/yr saved vs a lower-cost ingredient match
 - [Recess Mood](https://blendbusters.com/recess-mood.html): est. ~$807/yr saved vs a lower-cost ingredient match
 - [Beam Dream](https://blendbusters.com/beam-dream.html): est. ~$732/yr saved vs a lower-cost ingredient match
+- [Onnit New Mood](https://blendbusters.com/onnit-new-mood.html): est. ~$516/yr saved vs a lower-cost ingredient match
 - [Moon Juice Magnesi-Om](https://blendbusters.com/moon-juice-magnesi-om.html): est. ~$435/yr saved vs a lower-cost ingredient match
 - [Nello Supercalm](https://blendbusters.com/nello-supercalm-alternative.html): est. ~$300/yr saved vs a lower-cost ingredient match
 - [ZzzQuil Pure Zzzs](https://blendbusters.com/zzzquil-pure-zzzs.html): est. ~$186/yr saved vs a lower-cost ingredient match

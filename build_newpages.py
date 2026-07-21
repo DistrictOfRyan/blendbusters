@@ -61,6 +61,11 @@ def make_d(p):
     if p['proprietary']:
         differs.append('The brand uses a proprietary blend, so exact doses cannot be matched or verified.')
     differs.append('Some botanicals or extras in the brand are not reproduced.')
+    consult = ['<b style="color:var(--ink)">Talk to a qualified healthcare professional</b> before '
+               'changing supplements if you are pregnant or nursing, immunocompromised, managing a '
+               'health condition, or taking medications.']
+    if p.get('extra_consult'):
+        consult.append(p['extra_consult'])
     return {
         'slug': p['slug'], 'name': p['name'], 'category': p['category'], 'reviewed': 'Jul 2026',
         'brand_price': int(round(orig)), 'brand_per_day': '$%.2f' % (orig / 30.0),
@@ -77,10 +82,8 @@ def make_d(p):
                     'Doses you can read on a plain generic label.'],
         'differs': differs, 'evidence': evidence,
         'score': compute_score(pct, p['proprietary'], ev_avg),
-        'safety': 'Introduce any new supplement gradually, and review it against your current medications and conditions.',
-        'consult': ['<b style="color:var(--ink)">Talk to a qualified healthcare professional</b> before '
-                    'changing supplements if you are pregnant or nursing, immunocompromised, managing a '
-                    'health condition, or taking medications.'],
+        'safety': p.get('safety', 'Introduce any new supplement gradually, and review it against your current medications and conditions.'),
+        'consult': consult,
         'sources': [('Brand label & price — merchant listing (price checked Jul 2026)', '#', False),
                     ('Lower-cost generic pricing — retail listings (checked Jul 2026)', '#', False)],
         'cart_asins': cart_asins,
@@ -307,6 +310,30 @@ PAGES = [
      'swap_rows': [
          {'name': 'Fisetin 500mg', 'dose': '1,400mg/mo cycle', 'cost_mo': 2, 'evidence': 'weak', 'search': 'fisetin 500mg'},
          {'name': 'Quercetin 500mg', 'dose': '750mg/mo cycle', 'cost_mo': 1, 'evidence': 'weak', 'search': 'quercetin 500mg'}]},
+    # ===== BATCH 3 (2026-07-21, bb-content-cycle) =====
+    {'slug': 'test-x180-boost', 'name': 'Force Factor Test X180 Boost',
+     'category': "Men's wellness", 'brand_price_mo': 25, 'proprietary': True,
+     'match_note': 'Test X180 Boost discloses exact per-serving amounts for D-aspartic acid, zinc, vitamin D3, and magnesium; its Male Vitality T49 blend (fenugreek, tribulus terrestris, horny goat weed, black maca, DIM, boron) and Unreal Energy caffeine matrix list only a combined blend weight, so those components cannot be price-matched.',
+     'swap_rows': [
+         {'name': 'D-aspartic acid', 'dose': '3,120mg/day', 'cost_mo': 6, 'evidence': 'weak', 'search': 'd-aspartic acid powder'},
+         {'name': 'Zinc (as zinc aspartate)', 'dose': '11mg/day', 'cost_mo': 2, 'evidence': 'mod', 'search': 'zinc 15mg tablets'},
+         {'name': 'Vitamin D3', 'dose': '3,360 IU/day', 'cost_mo': 2, 'evidence': 'mod', 'search': 'vitamin d3 3000 iu'},
+         {'name': 'Magnesium (as magnesium aspartate)', 'dose': '10mg/day', 'cost_mo': 1, 'evidence': 'weak', 'search': 'magnesium tablets'}]},
+    {'slug': 'elysium-basis', 'name': 'Elysium Basis',
+     'category': 'Longevity & cellular aging', 'brand_price_mo': 65, 'proprietary': False,
+     'match_note': 'Basis discloses both of its actives at exact doses, 250mg nicotinamide riboside and 50mg pterostilbene per serving, so each is matched milligram-for-milligram with standalone generics.',
+     'swap_rows': [
+         {'name': 'Nicotinamide riboside 250mg', 'dose': '250mg/day', 'cost_mo': 28, 'evidence': 'mod', 'search': 'nicotinamide riboside 250mg'},
+         {'name': 'Pterostilbene 50mg', 'dose': '50mg/day', 'cost_mo': 8, 'evidence': 'weak', 'search': 'pterostilbene 50mg'}]},
+    {'slug': 'onnit-new-mood', 'name': 'Onnit New Mood',
+     'category': 'Sleep & calm', 'brand_price_mo': 60, 'proprietary': True,
+     'match_note': "New Mood's label names L-tryptophan, 5-HTP, and a Tranquility Blend (chamomile, lemon balm, valerian root, jujube seed) plus vitamin B6, but does not disclose the milligram amount of each; the same named actives are each available as inexpensive standalone generics at typical commercial doses.",
+     'safety': 'Introduce any new supplement gradually, and review it against your current medications and conditions, especially anything affecting serotonin.',
+     'extra_consult': "<b style=\"color:var(--ink)\">5-HTP and L-tryptophan raise serotonin</b> and should not be combined with SSRIs, SNRIs, MAOIs, or other serotonergic medications without a doctor's guidance, due to the risk of serotonin syndrome.",
+     'swap_rows': [
+         {'name': 'L-tryptophan', 'dose': '500-1,000mg/day', 'cost_mo': 8, 'evidence': 'mod', 'search': 'l-tryptophan 500mg'},
+         {'name': '5-HTP', 'dose': '100mg/day', 'cost_mo': 5, 'evidence': 'mod', 'search': '5-htp 100mg'},
+         {'name': 'Valerian root extract', 'dose': '500mg/day', 'cost_mo': 4, 'evidence': 'weak', 'search': 'valerian root 500mg'}]},
 ]
 
 

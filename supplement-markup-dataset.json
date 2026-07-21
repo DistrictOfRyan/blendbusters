@@ -4,8 +4,8 @@
   "publisher": "BlendBusters (Hunt Web Consulting Services)",
   "source": "https://blendbusters.com/markup-report.html",
   "license": "Free to cite with attribution to BlendBusters (blendbusters.com).",
-  "generated": "2026-07-17",
-  "row_count": 206,
+  "generated": "2026-07-21",
+  "row_count": 209,
   "columns": [
     "product",
     "category",
@@ -758,6 +758,16 @@
       "comparison_url": "https://blendbusters.com/lmnt.html"
     },
     {
+      "product": "Onnit New Mood",
+      "category": "Sleep & calm",
+      "brand_price_monthly_usd": 60.0,
+      "match_price_monthly_usd": 17.0,
+      "markup_multiple": 3.5,
+      "est_annual_savings_usd": 516,
+      "verdict": "Lower-cost ingredient match",
+      "comparison_url": "https://blendbusters.com/onnit-new-mood.html"
+    },
+    {
       "product": "Prime Male",
       "category": "Men's & testosterone",
       "brand_price_monthly_usd": 75.0,
@@ -1196,6 +1206,16 @@
       "est_annual_savings_usd": 360,
       "verdict": "Lower-cost ingredient match",
       "comparison_url": "https://blendbusters.com/pure-for-men-alternative.html"
+    },
+    {
+      "product": "Elysium Basis",
+      "category": "Longevity & heart",
+      "brand_price_monthly_usd": 65.0,
+      "match_price_monthly_usd": 36.0,
+      "markup_multiple": 1.8,
+      "est_annual_savings_usd": 348,
+      "verdict": "Lower-cost ingredient match",
+      "comparison_url": "https://blendbusters.com/elysium-basis.html"
     },
     {
       "product": "Just Thrive Probiotic & Antioxidant",
@@ -1676,6 +1696,16 @@
       "est_annual_savings_usd": 168,
       "verdict": "Lower-cost ingredient match",
       "comparison_url": "https://blendbusters.com/alive-multivitamin-alternative.html"
+    },
+    {
+      "product": "Force Factor Test X180 Boost",
+      "category": "Men's & testosterone",
+      "brand_price_monthly_usd": 25.0,
+      "match_price_monthly_usd": 11.0,
+      "markup_multiple": 2.3,
+      "est_annual_savings_usd": 168,
+      "verdict": "Lower-cost ingredient match",
+      "comparison_url": "https://blendbusters.com/test-x180-boost.html"
     },
     {
       "product": "Ancestral Supplements Grass Fed Beef Liver",
