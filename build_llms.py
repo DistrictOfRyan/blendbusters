@@ -32,18 +32,43 @@ out = ['# BlendBusters', '',
        f'- ~${tot:,.0f}/year in total estimated overspend across the catalog; {avg:.1f}x average markup',
        '- Every figure is estimated from public retail prices; compliant, no efficacy claims', '',
        '## Key resources',
-       f'- [The Supplement Markup Report]({SITE}/markup-report.html): the flagship data study, '
+       f'- [The Supplement Markup Report]({SITE}/markup-report): the flagship data study, '
        'with a downloadable dataset (CC BY 4.0)',
        f'- [Downloadable dataset (CSV)]({SITE}/supplement-markup-dataset.csv)',
-       f'- [Methodology]({SITE}/methodology.html): how every comparison is scored',
-       f'- [About]({SITE}/about.html) · [Contact]({SITE}/contact.html)', '']
+       f'- [Methodology]({SITE}/methodology): how every comparison is scored',
+       f'- [About]({SITE}/about) · [Contact]({SITE}/contact)', '']
+
+# clean-URL helper: the live site 301-redirects /page.html -> /page, so llms.txt
+# links point straight at the clean URL (no redirect hop for engines)
+def clean(u):
+    return u[:-5] if u.endswith('.html') else u
+
+# brand-alternatives roundup guides (built by build_roundups.py), if present
+import glob as _glob
+guides = sorted(f for f in _glob.glob('*-alternatives.html')
+                if not f.startswith('cheaper-') and f != 'more-supplement-alternatives.html'
+                and '-alternatives.html' in f and f.count('-alternatives') == 1
+                and f not in ('more-supplement-alternatives.html',)
+                and not f.startswith('cheaper'))
+guides = [f for f in guides if f in ('ag1-alternatives.html', 'kachava-alternatives.html',
+                                     'bloom-greens-alternatives.html', 'celsius-alternatives.html',
+                                     'liquid-iv-alternatives.html')]
+if guides:
+    out.append('## Guides: cheaper brand alternatives, priced with data')
+    import re as _re
+    for f in guides:
+        s = open(f, encoding='utf-8').read()
+        t = _re.search(r'<h1>(.*?)</h1>', s)
+        name = t.group(1) if t else f
+        out.append('- [%s](%s/%s)' % (name, SITE, f[:-5]))
+    out.append('')
 
 # every comparison page, grouped by category, so an answer engine can map the whole catalog
 for cat in sorted(by_cat):
     out.append('## %s' % cat)
     for r in sorted(by_cat[cat], key=lambda x: -x['est_annual_savings_usd']):
         out.append('- [%s](%s): est. ~$%s/yr saved vs a lower-cost ingredient match'
-                   % (r['product'], r['comparison_url'], f"{r['est_annual_savings_usd']:,}"))
+                   % (r['product'], clean(r['comparison_url']), f"{r['est_annual_savings_usd']:,}"))
     out.append('')
 
 out += ['## Citation',
