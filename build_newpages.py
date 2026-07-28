@@ -334,6 +334,26 @@ PAGES = [
          {'name': 'L-tryptophan', 'dose': '500-1,000mg/day', 'cost_mo': 8, 'evidence': 'mod', 'search': 'l-tryptophan 500mg'},
          {'name': '5-HTP', 'dose': '100mg/day', 'cost_mo': 5, 'evidence': 'mod', 'search': '5-htp 100mg'},
          {'name': 'Valerian root extract', 'dose': '500mg/day', 'cost_mo': 4, 'evidence': 'weak', 'search': 'valerian root 500mg'}]},
+    # ===== BATCH 4 (2026-07-28, bb-content-cycle) =====
+    {'slug': 'ultima-replenisher', 'name': 'Ultima Replenisher Electrolyte Powder',
+     'category': 'Hydration', 'brand_price_mo': 32, 'proprietary': False,
+     'match_note': 'Ultima Replenisher discloses exact per-serving amounts for magnesium (100mg), potassium (250mg), zinc (1mg), and vitamin C (100mg); each is available as an inexpensive standalone generic at a comparable dose. Its minor sodium, chloride, calcium, and manganese content is not separately price-matched.',
+     'swap_rows': [
+         {'name': 'Magnesium (as citrate)', 'dose': '100mg/day', 'cost_mo': 8, 'evidence': 'mod', 'search': 'magnesium citrate 100mg'},
+         {'name': 'Potassium (as gluconate)', 'dose': '250mg/day', 'cost_mo': 3, 'evidence': 'mod', 'search': 'potassium gluconate 99mg'},
+         {'name': 'Vitamin C', 'dose': '100mg/day', 'cost_mo': 2, 'evidence': 'strong', 'search': 'vitamin c 100mg'},
+         {'name': 'Zinc', 'dose': '1mg/day', 'cost_mo': 2, 'evidence': 'mod', 'search': 'zinc 1mg'}]},
+    {'slug': 'reign-total-body-fuel', 'name': 'Reign Total Body Fuel',
+     'category': 'Energy', 'brand_price_mo': 74, 'proprietary': True,
+     'match_note': "Reign discloses exact natural caffeine (300mg) and total BCAA content (1,000mg of leucine/isoleucine/valine) per 16oz can; its Coenzyme Q-10 and B-vitamin (niacinamide, B6, B12) amounts are not disclosed on the label, so those are excluded from the match.",
+     'swap_rows': [
+         {'name': 'Natural caffeine', 'dose': '300mg/day', 'cost_mo': 4, 'evidence': 'strong', 'search': 'caffeine pills 200mg'},
+         {'name': 'BCAA powder (2:1:1 leucine/isoleucine/valine)', 'dose': '1,000mg/day', 'cost_mo': 3, 'evidence': 'mod', 'search': 'bcaa powder 2:1:1'}]},
+    {'slug': 'move-free-advanced-plus-msm', 'name': 'Move Free Advanced Plus MSM',
+     'category': 'Joint · glucosamine chondroitin MSM', 'brand_price_mo': 23, 'proprietary': False,
+     'match_note': 'Move Free Advanced discloses exact per-serving amounts for glucosamine sulfate (1,500mg), chondroitin sulfate (200mg), and MSM (1,500mg); a combination tablet with these same actives is sold generically at a comparable dose. Its trace hyaluronic acid (3mg) and boron (5mg) are too small to buy as a standalone generic at a meaningful price and are not price-matched.',
+     'swap_rows': [
+         {'name': 'Glucosamine sulfate 1,500mg / chondroitin sulfate 200mg / MSM 1,500mg combination', 'dose': '1/day (3 tablets)', 'cost_mo': 13, 'evidence': 'mod', 'search': 'glucosamine chondroitin msm 1500mg'}]},
 ]
 
 

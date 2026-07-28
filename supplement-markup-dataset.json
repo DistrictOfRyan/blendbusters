@@ -4,8 +4,8 @@
   "publisher": "BlendBusters (Hunt Web Consulting Services)",
   "source": "https://blendbusters.com/markup-report.html",
   "license": "Free to cite with attribution to BlendBusters (blendbusters.com).",
-  "generated": "2026-07-21",
-  "row_count": 209,
+  "generated": "2026-07-28",
+  "row_count": 212,
   "columns": [
     "product",
     "category",
@@ -196,6 +196,16 @@
       "est_annual_savings_usd": 804,
       "verdict": "Lower-cost ingredient match",
       "comparison_url": "https://blendbusters.com/alani-nu-energy.html"
+    },
+    {
+      "product": "Reign Total Body Fuel",
+      "category": "Energy",
+      "brand_price_monthly_usd": 74.0,
+      "match_price_monthly_usd": 7.0,
+      "markup_multiple": 10.6,
+      "est_annual_savings_usd": 804,
+      "verdict": "Lower-cost ingredient match",
+      "comparison_url": "https://blendbusters.com/reign-total-body-fuel.html"
     },
     {
       "product": "Neuro Sonic",
@@ -1578,6 +1588,16 @@
       "comparison_url": "https://blendbusters.com/ryze-mushroom-coffee-alternative.html"
     },
     {
+      "product": "Ultima Replenisher Electrolyte Powder",
+      "category": "Hydration & electrolytes",
+      "brand_price_monthly_usd": 32.0,
+      "match_price_monthly_usd": 15.0,
+      "markup_multiple": 2.1,
+      "est_annual_savings_usd": 204,
+      "verdict": "Lower-cost ingredient match",
+      "comparison_url": "https://blendbusters.com/ultima-replenisher.html"
+    },
+    {
       "product": "Gatorlyte Powder",
       "category": "Hydration & electrolytes",
       "brand_price_monthly_usd": 43.0,
@@ -1846,6 +1866,16 @@
       "est_annual_savings_usd": 120,
       "verdict": "Partial match",
       "comparison_url": "https://blendbusters.com/hydrant.html"
+    },
+    {
+      "product": "Move Free Advanced Plus MSM",
+      "category": "Beauty, joint & immune",
+      "brand_price_monthly_usd": 23.0,
+      "match_price_monthly_usd": 13.0,
+      "markup_multiple": 1.8,
+      "est_annual_savings_usd": 120,
+      "verdict": "Lower-cost ingredient match",
+      "comparison_url": "https://blendbusters.com/move-free-advanced-plus-msm.html"
     },
     {
       "product": "MUD\\WTR",

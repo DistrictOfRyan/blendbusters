@@ -1,10 +1,10 @@
 # BlendBusters
 
-> Independent wellness-product price comparisons. We break down expensive supplements, compare their ingredients and doses against a specific lower-cost ingredient-matched alternative, and publish the data across 209 products. We compare ingredients and price, not medical outcomes; a lower-cost ingredient match shares overlapping ingredients and a similar intended use, not a guaranteed equivalent. Affiliate-supported, editorially independent.
+> Independent wellness-product price comparisons. We break down expensive supplements, compare their ingredients and doses against a specific lower-cost ingredient-matched alternative, and publish the data across 212 products. We compare ingredients and price, not medical outcomes; a lower-cost ingredient match shares overlapping ingredients and a similar intended use, not a guaranteed equivalent. Affiliate-supported, editorially independent.
 
 ## Key facts
-- 209 products priced against lower-cost ingredient-matched alternatives
-- ~$93,017/year in total estimated overspend across the catalog; 5.2x average markup
+- 212 products priced against lower-cost ingredient-matched alternatives
+- ~$94,145/year in total estimated overspend across the catalog; 5.2x average markup
 - Every figure is estimated from public retail prices; compliant, no efficacy claims
 
 ## Key resources
@@ -30,6 +30,7 @@
 - [JSHealth Hair + Energy Formula](https://blendbusters.com/jshealth-hair-energy.html): est. ~$228/yr saved vs a lower-cost ingredient match
 - [Primal Harvest Primal Collagen](https://blendbusters.com/primal-collagen-alternative.html): est. ~$204/yr saved vs a lower-cost ingredient match
 - [Ancient Nutrition Multi Collagen Protein](https://blendbusters.com/ancient-nutrition-alternative.html): est. ~$180/yr saved vs a lower-cost ingredient match
+- [Move Free Advanced Plus MSM](https://blendbusters.com/move-free-advanced-plus-msm.html): est. ~$120/yr saved vs a lower-cost ingredient match
 - [Obvi Super Collagen Protein](https://blendbusters.com/obvi-collagen-alternative.html): est. ~$120/yr saved vs a lower-cost ingredient match
 - [Qunol Turmeric Curcumin](https://blendbusters.com/qunol-turmeric-alternative.html): est. ~$72/yr saved vs a lower-cost ingredient match
 - [Qunol Ultra CoQ10 100 mg](https://blendbusters.com/qunol-coq10-alternative.html): est. ~$48/yr saved vs a lower-cost ingredient match
@@ -102,6 +103,7 @@
 - [Guayaki Yerba Mate](https://blendbusters.com/guayaki-yerba-mate.html): est. ~$951/yr saved vs a lower-cost ingredient match
 - [Runa Clean Energy](https://blendbusters.com/runa-clean-energy.html): est. ~$831/yr saved vs a lower-cost ingredient match
 - [Alani Nu Energy](https://blendbusters.com/alani-nu-energy.html): est. ~$804/yr saved vs a lower-cost ingredient match
+- [Reign Total Body Fuel](https://blendbusters.com/reign-total-body-fuel.html): est. ~$804/yr saved vs a lower-cost ingredient match
 - [Neuro Sonic](https://blendbusters.com/neuro-sonic.html): est. ~$800/yr saved vs a lower-cost ingredient match
 - [Ghost Energy](https://blendbusters.com/ghost-energy.html): est. ~$792/yr saved vs a lower-cost ingredient match
 - [C4 Energy](https://blendbusters.com/c4-energy.html): est. ~$744/yr saved vs a lower-cost ingredient match
@@ -180,6 +182,7 @@
 - [Salud Hydration + Immunity](https://blendbusters.com/salud-hydration-immunity.html): est. ~$306/yr saved vs a lower-cost ingredient match
 - [Liquid I.V.](https://blendbusters.com/liquid-iv.html): est. ~$271/yr saved vs a lower-cost ingredient match
 - [Nuun Instant](https://blendbusters.com/nuun-instant-alternative.html): est. ~$240/yr saved vs a lower-cost ingredient match
+- [Ultima Replenisher Electrolyte Powder](https://blendbusters.com/ultima-replenisher.html): est. ~$204/yr saved vs a lower-cost ingredient match
 - [Gatorlyte Powder](https://blendbusters.com/gatorlyte-powder.html): est. ~$192/yr saved vs a lower-cost ingredient match
 - [Ghost Hydration](https://blendbusters.com/ghost-hydration.html): est. ~$180/yr saved vs a lower-cost ingredient match
 - [Propel Powder](https://blendbusters.com/propel-powder.html): est. ~$144/yr saved vs a lower-cost ingredient match
