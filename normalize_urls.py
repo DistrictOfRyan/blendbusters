@@ -103,10 +103,15 @@ def write_redirects():
     # The repo root is the Netlify publish directory, so build/analysis scripts
     # are otherwise served publicly (blendbusters.com/bb_render.py -> 200). They
     # hold no credentials but expose CPC/margin math and generation logic.
+    # NOTE: Netlify's splat is a PATH-segment wildcard - "/*.py" does NOT match
+    # by extension, so each script needs an explicit rule.
     # Dataset .csv/.json stay public on purpose (publisher/license metadata,
     # meant to be citable by AI search).
-    lines += ["", "# Block internal build/analysis scripts",
-              "/*.py   /404.html   404!"]
+    import glob as _glob
+    py = sorted(_glob.glob("*.py"))
+    if py:
+        lines += ["", "# Block internal build/analysis scripts (explicit: no extension globs)"]
+        lines += [f"/{p}   /404.html   404!" for p in py]
     open("_redirects", "w", encoding="utf-8").write("\n".join(lines) + "\n")
     return f"_redirects: {len(lines)-5} .html->clean 301 rules + .py block"
 

@@ -6,6 +6,7 @@
 /5-hour-energy-extra-strength.html   /5-hour-energy-extra-strength   301!
 /about.html   /about   301!
 /ag1.html   /ag1   301!
+/ag1-alternatives.html   /ag1-alternatives   301!
 /ageless-male-max.html   /ageless-male-max   301!
 /airborne-original-gummies.html   /airborne-original-gummies   301!
 /alani-nu-energy.html   /alani-nu-energy   301!
@@ -24,12 +25,14 @@
 /benefiber-alternative.html   /benefiber-alternative   301!
 /birdandbe-power-prenatal.html   /birdandbe-power-prenatal   301!
 /bloom.html   /bloom   301!
+/bloom-greens-alternatives.html   /bloom-greens-alternatives   301!
 /bloom-sparkling-energy.html   /bloom-sparkling-energy   301!
 /blueprint-longevity-mix.html   /blueprint-longevity-mix   301!
 /bodyarmor-flash-i-v.html   /bodyarmor-flash-i-v   301!
 /bubs-collagen-alternative.html   /bubs-collagen-alternative   301!
 /bulletproof-mct-alternative.html   /bulletproof-mct-alternative   301!
 /c4-energy.html   /c4-energy   301!
+/celsius-alternatives.html   /celsius-alternatives   301!
 /celsius-original.html   /celsius-original   301!
 /cheaper-collagen-joint-alternatives.html   /cheaper-collagen-joint-alternatives   301!
 /cheaper-electrolyte-alternatives.html   /cheaper-electrolyte-alternatives   301!
@@ -90,6 +93,7 @@
 /juice-plus-alternative.html   /juice-plus-alternative   301!
 /just-thrive-alternative.html   /just-thrive-alternative   301!
 /kachava.html   /kachava   301!
+/kachava-alternatives.html   /kachava-alternatives   301!
 /kaged-prekaged-alternative.html   /kaged-prekaged-alternative   301!
 /ketone-iq.html   /ketone-iq   301!
 /kion-aminos-alternative.html   /kion-aminos-alternative   301!
@@ -97,6 +101,7 @@
 /lemme-glp1.html   /lemme-glp1   301!
 /life-extension-multivitamin-alternative.html   /life-extension-multivitamin-alternative   301!
 /liquid-iv.html   /liquid-iv   301!
+/liquid-iv-alternatives.html   /liquid-iv-alternatives   301!
 /liquid-iv-sugar-free-alternative.html   /liquid-iv-sugar-free-alternative   301!
 /lmnt.html   /lmnt   301!
 /magic-mind.html   /magic-mind   301!
@@ -232,5 +237,46 @@
 /zoa-zero-sugar.html   /zoa-zero-sugar   301!
 /zzzquil-pure-zzzs.html   /zzzquil-pure-zzzs   301!
 
-# Block internal build/analysis scripts (repo root is the publish dir)
-/*.py   /404.html   404!
+# Block internal build/analysis scripts (explicit: no extension globs)
+/_render_ads.py   /404.html   404!
+/ad_viability.py   /404.html   404!
+/add_answer.py   /404.html   404!
+/add_conversion.py   /404.html   404!
+/add_engage.py   /404.html   404!
+/add_faq.py   /404.html   404!
+/add_high_value_module.py   /404.html   404!
+/add_hublinks.py   /404.html   404!
+/add_ingredient_links.py   /404.html   404!
+/add_midpage_capture.py   /404.html   404!
+/add_seo.py   /404.html   404!
+/add_site_schema.py   /404.html   404!
+/add_top_cart_cta.py   /404.html   404!
+/add_visuals.py   /404.html   404!
+/affiliates.py   /404.html   404!
+/audit_site.py   /404.html   404!
+/bb_render.py   /404.html   404!
+/build_ads_relaunch.py   /404.html   404!
+/build_dataset.py   /404.html   404!
+/build_from_sheet.py   /404.html   404!
+/build_hubs.py   /404.html   404!
+/build_llms.py   /404.html   404!
+/build_newpages.py   /404.html   404!
+/build_research.py   /404.html   404!
+/build_roundups.py   /404.html   404!
+/build_teardowns.py   /404.html   404!
+/build_trust_pages.py   /404.html   404!
+/build_webp.py   /404.html   404!
+/fix_buy_links.py   /404.html   404!
+/fix_double_escape.py   /404.html   404!
+/fix_forms.py   /404.html   404!
+/fix_page_trust.py   /404.html   404!
+/fix_seo_meta.py   /404.html   404!
+/fix_titles.py   /404.html   404!
+/generate_intros.py   /404.html   404!
+/ingredient_catalog.py   /404.html   404!
+/ingredient_links.py   /404.html   404!
+/markup_report.py   /404.html   404!
+/normalize_urls.py   /404.html   404!
+/retarget_keywords.py   /404.html   404!
+/revenue_model.py   /404.html   404!
+/taxonomy.py   /404.html   404!
