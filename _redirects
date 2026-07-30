@@ -231,3 +231,6 @@
 /zipfizz.html   /zipfizz   301!
 /zoa-zero-sugar.html   /zoa-zero-sugar   301!
 /zzzquil-pure-zzzs.html   /zzzquil-pure-zzzs   301!
+
+# Block internal build/analysis scripts (repo root is the publish dir)
+/*.py   /404.html   404!
