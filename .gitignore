@@ -4,3 +4,6 @@ AFFILIATE-*.md
 __pycache__/
 _render_ads.py
 ads/
+
+# Netlify CLI local state (machine-specific publish paths)
+.netlify/
