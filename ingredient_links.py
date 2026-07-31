@@ -136,11 +136,11 @@ def buylist_html(items, brand=None, brand_price=None):
 
     if n == 1:
         lead = ('This match is a single ingredient. Click below to grab it on '
-                'Amazon — the quantity shown is about a one-month supply.')
+                'Amazon. The quantity shown is about a one-month supply.')
     else:
         who = ('recreate <b>%s</b>' % _esc(brand)) if brand else 'build the full match'
         lead = ('To %s you need <b>all %d</b> ingredients below. Click each one '
-                'to open it on Amazon in a new tab and add it to your cart — the '
+                'to open it on Amazon in a new tab and add it to your cart. The '
                 'quantity shown is about a one-month supply, so buy the closest '
                 'size.' % (who, n))
 
@@ -155,7 +155,7 @@ def buylist_html(items, brand=None, brand_price=None):
                 year = 0
             bp = _money(brand_price)
             if bp:
-                extra = ' — versus %s/mo for %s' % (bp, _esc(brand) if brand else 'the brand')
+                extra = ' versus %s/mo for %s' % (bp, _esc(brand) if brand else 'the brand')
             if year > 0:
                 extra += ', so you keep about <b>$%s/yr</b>' % '{:,}'.format(year)
         total_row = ('<div class="buytotal"><span class="bt-l">All %d ingredients together</span>'

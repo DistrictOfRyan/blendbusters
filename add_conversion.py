@@ -43,10 +43,10 @@ for f in glob.glob('*.html'):
         mp = prim_href_re.search(s)
         if mc:
             btn = (f'<a class="btn primary wide" href="{mc.group(1)}" target="_blank" rel="sponsored nofollow noopener" data-ev="cart_top">'
-                   f'{CART} Add the match to your Amazon cart — save ~${sv}/yr</a>')
+                   f'{CART} Add the match to your Amazon cart (save ~${sv}/yr)</a>')
         elif mp:
             btn = (f'<a class="btn primary wide" href="{mp.group(1)}" target="_blank" rel="sponsored nofollow noopener" data-ev="buy_top">'
-                   f'Shop the lower-cost match — save ~${sv}/yr</a>')
+                   f'Shop the lower-cost match (save ~${sv}/yr)</a>')
         else:
             btn = None
         if btn:

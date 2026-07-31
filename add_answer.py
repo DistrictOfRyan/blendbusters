@@ -39,7 +39,7 @@ for f in glob.glob('*.html'):
     tldr = (f'<p class="disc-inline" data-tldr style="font-size:15px;color:var(--ink);border-left:3px solid var(--accent,#f07f2e);'
             f'padding:10px 14px;margin:12px 0 10px;max-width:70ch;background:var(--paper-2,transparent)">'
             f'<b>Quick answer:</b> the lower-cost ingredient match for {name} costs {costs}, '
-            f'an estimated <b>~${save:,}/yr saved</b>. Match quality: <b>{stamp.lower()}</b> — overlapping '
+            f'an estimated <b>~${save:,}/yr saved</b>. Match quality: <b>{stamp.lower()}</b>, with overlapping '
             f'ingredients and a similar intended use, not an equivalent product. Details and important differences below.</p>')
     s = s.replace('<div class="verdict">', tldr + '<div class="verdict">', 1)
     open(f, 'w', encoding='utf-8').write(s)

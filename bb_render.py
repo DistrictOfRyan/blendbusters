@@ -5,6 +5,7 @@ Copy uses approved phrasing only ('lower-cost ingredient match', 'overlapping
 ingredients', 'similar intended use', 'important differences', 'Data unavailable')."""
 
 import json
+from voice import dedash  # no em dashes reach a reader (see voice.py)
 AFFILIATE_TAG='blendbusters-20'  # confirmed Amazon Associates tag (approved 2026-07-11)
 SITE='https://blendbusters.com'
 GA=('<!-- Google tag (gtag.js) -->\n'
@@ -247,7 +248,7 @@ def render_compare(d):
         body+='<section><div class="wrap"><div class="shead"><h2>Related comparisons</h2></div><div class="rel">%s</div></div></section>\n'%relhtml
     body+=_footer()
     body+='<script>%s</script>\n<!-- bb-ingredient-links -->\n</body>\n</html>\n'%COMPARE_JS
-    return body
+    return dedash(body)
 
 def compute_score(pct, proprietary, ev_avg, tier=None):
     """Transparent provisional sub-scores from available signals. Dose match = Data
