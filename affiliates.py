@@ -66,12 +66,20 @@ def _wrap_awin(url, cfg):
 
 
 # --- program registry ------------------------------------------------------
-# status 'live'    = approved + tracking filled  -> used to wrap links.
-# status 'pending' = applied, NOT approved       -> NEVER used; link passes through.
+# status 'live'     = approved + tracking filled  -> used to wrap links.
+# status 'pending'  = applied, NOT approved       -> NEVER used; link passes through.
+# status 'declined' = rejected, will never go live -> stop chasing it.
+#
+# REALITY CHECK 2026-07-31: 1 of 8 programs is live. Every buy link on the site
+# therefore routes to Amazon at ~1-4%, which is the single reason paid traffic
+# cannot pay for itself here (ad_viability.py: 0 of 206 products clear break-even
+# at Amazon's rate). This registry is the bottleneck, not the traffic.
 PROGRAMS = {
     'amazon.com':          {'network': 'amazon',     'status': 'live',    'wrap': _wrap_amazon,     'tracking': None},
-    'target.com':          {'network': 'impact',     'status': 'pending', 'wrap': _wrap_impact,     'tracking': None},
-    'walmart.com':         {'network': 'impact',     'status': 'pending', 'wrap': _wrap_impact,     'tracking': None},
+    # Impact DECLINED the BlendBusters account (publisher 7474635) on 2026-07-20.
+    # These are dead, not pending - do not re-apply or wait on them.
+    'target.com':          {'network': 'impact',     'status': 'declined', 'wrap': _wrap_impact,    'tracking': None},
+    'walmart.com':         {'network': 'impact',     'status': 'declined', 'wrap': _wrap_impact,    'tracking': None},
     'bulksupplements.com': {'network': 'refersion',  'status': 'pending', 'wrap': _wrap_refersion,  'tracking': None},
     'sportsresearch.com':  {'network': 'rakuten',    'status': 'pending', 'wrap': _wrap_rakuten,    'tracking': None},
     'legionathletics.com': {'network': 'brandchamp', 'status': 'pending', 'wrap': _wrap_brandchamp, 'tracking': None},
