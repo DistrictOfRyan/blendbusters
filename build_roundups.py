@@ -37,6 +37,22 @@ PAGES = [
   'energy drink', 'img/form/drink.jpg'),
  ('liquid-iv-alternatives.html', 'Liquid I.V.', 'Liquid I.V. alternatives', 'Cheaper Liquid I.V. Alternatives, Priced With Data',
   'hydration multiplier', 'img/form/powder.jpg'),
+ # --- round 2, added 2026-07-31 -------------------------------------------
+ # The work order named LMNT, Olipop, Poppi, Ritual and Athletic Greens. Only LMNT
+ # survived contact with the data: Olipop and Poppi sit in 'Gut, probiotic & omega'
+ # which has NO hub page on disk (would KeyError), and "Athletic Greens" IS AG1, which
+ # already has a page. Substituted four high-intent anchors that are in hubbed
+ # categories and carry real savings from the live dataset.
+ ('lmnt-alternatives.html', 'LMNT', 'LMNT alternatives', 'Cheaper LMNT Alternatives, Priced With Data',
+  'electrolyte mix', 'img/form/powder.jpg'),
+ ('huel-alternatives.html', 'Huel', 'Huel alternatives', 'Cheaper Huel Alternatives, Priced With Data',
+  'meal-replacement powder', 'img/form/greens.jpg'),
+ ('shakeology-alternatives.html', 'Shakeology', 'Shakeology alternatives', 'Cheaper Shakeology Alternatives, Priced With Data',
+  'meal-replacement shake', 'img/form/greens.jpg'),
+ ('isagenix-alternatives.html', 'Isagenix IsaLean Shake', 'Isagenix alternatives', 'Cheaper Isagenix Alternatives, Priced With Data',
+  'meal-replacement shake', 'img/form/greens.jpg'),
+ ('onnit-total-human-alternatives.html', 'Onnit Total Human', 'Onnit Total Human alternatives', 'Cheaper Onnit Total Human Alternatives, Priced With Data',
+  'daily supplement pack', 'img/form/greens.jpg'),
 ]
 
 # chrome from ag1.html (same trick as build_hubs.py)
