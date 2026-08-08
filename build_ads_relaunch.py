@@ -32,11 +32,21 @@ BRAND = {
     "ritual-hyacera.html": "Ritual HyaCera", "magic-mind.html": "Magic Mind",
     "ketone-iq.html": "Ketone-IQ", "perfect-keto-alternative.html": "Perfect Keto",
     "hormone-harmony.html": "Hormone Harmony", "jshealth-hair-energy.html": "JSHealth Hair",
+    # --- meal-replacement category, added 2026-08-08 (repoint pass) ---
+    # The 2026-07-30 economics read: median order is $14.99, only 5 of 206 products clear
+    # $50, and NO product at median AOV can ever pay back a $3.38-per-click cost. Meal
+    # replacements are the one category where AOV is 3-7x the median, so they are the only
+    # ad groups genuinely worth bidding on if/when spend resumes. Isagenix alone carries the
+    # single highest est_annual_savings_usd figure in the whole 209-product set ($2,712/yr).
+    "isalean-alternative.html": "Isagenix", "shakeology-alternative.html": "Shakeology",
+    "kachava.html": "Kachava",
 }
 # brands where "review"/"alternative"/"ingredients" reads oddly -> tailored extra term
 EXTRA_KW = {
     "lmnt.html": "lmnt electrolytes", "ag1.html": "athletic greens ingredients",
     "prostagenix.html": "prostagenix vs generic", "ovasitol.html": "inositol 40 to 1",
+    "kachava.html": "ka'chava ingredients",  # real branding uses the apostrophe in search
+    "isalean-alternative.html": "isagenix isalean shake",
 }
 
 def clip(s, n):
