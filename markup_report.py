@@ -106,7 +106,7 @@ _ld = {"@context": "https://schema.org", "@graph": [
                      "contentUrl": SITE + "/supplement-markup-dataset.csv"}]},
   {"@type": "Article", "@id": url + "#article", "isPartOf": {"@id": SITE + "/#website"},
    "headline": "The Supplement Markup Report", "description": desc,
-   "image": SITE + "/img/form/powder.jpg", "datePublished": "2026-07-11",
+   "image": SITE + "/supplement-markup-chart.png", "datePublished": "2026-07-11",
    "dateModified": date.today().isoformat(), "author": {"@id": SITE + "/#org"},
    "publisher": {"@id": SITE + "/#org"}, "mainEntityOfPage": url,
    "isBasedOn": {"@id": url + "#dataset"}}]}
@@ -126,11 +126,11 @@ page = f'''<!doctype html>
 <meta property="og:title" content="{html.escape(title)}">
 <meta property="og:description" content="{html.escape(desc)}">
 <meta property="og:url" content="{url}">
-<meta property="og:image" content="{SITE}/img/form/powder.jpg">
+<meta property="og:image" content="{SITE}/supplement-markup-chart.png">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="{html.escape(title)}">
 <meta name="twitter:description" content="{html.escape(desc)}">
-<meta name="twitter:image" content="{SITE}/img/form/powder.jpg">
+<meta name="twitter:image" content="{SITE}/supplement-markup-chart.png">
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-529DGYE1QB"></script>
 <script>window.dataLayer=window.dataLayer||[];function gtag(){{dataLayer.push(arguments)}}gtag('js',new Date());gtag('config','G-529DGYE1QB');</script>
 <link rel="stylesheet" href="/bb.css">
@@ -154,6 +154,11 @@ page = f'''<!doctype html>
 <section><div class="wrap"><div class="shead"><h2>Key findings</h2><span class="ctag an">BlendBusters analysis</span></div>
 <ul class="findings" style="line-height:1.75;max-width:66ch;font-size:15px">{findings_html}</ul>
 <p class="fine" style="margin-top:12px">Every figure is estimated from public retail prices and derives from the {n} live comparisons on this site. A “lower-cost ingredient match” shares overlapping ingredients and a similar intended use; it is not a medically equivalent product. This is a price comparison, not medical advice.</p></div></section>
+<section><div class="wrap"><div class="shead"><h2>The biggest markups at a glance</h2><span class="ctag an">BlendBusters analysis</span></div>
+<figure style="margin:0">
+<img src="/supplement-markup-chart.png" alt="Bar chart of the 15 largest supplement markups out of {n} products priced, showing brand monthly price against a matched-ingredients equivalent" width="1600" height="1200" loading="lazy" style="width:100%;height:auto;border:1px solid var(--line);border-radius:10px">
+<figcaption class="fine" style="margin-top:8px">The 15 largest markups out of {n} supplements priced. Free to reuse with attribution (CC BY 4.0) &mdash; <a href="/supplement-markup-chart.png">download the chart</a>.</figcaption>
+</figure></div></section>
 <section><div class="wrap"><div class="shead"><h2>The 20 biggest markups</h2><span class="ctag an">BlendBusters analysis</span></div>
 <p class="lead" style="margin-bottom:14px">Ranked by estimated annual overspend versus the ingredient-matched alternative.</p>
 <div style="overflow-x:auto"><table class="report" style="width:100%;border-collapse:collapse;font-size:14.5px">

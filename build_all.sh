@@ -11,6 +11,7 @@ python3 -c "import build_from_sheet" 2>/dev/null && python3 build_from_sheet.py 
 python3 add_visuals.py            # <-- applies images/logo/cost-visual to every page
 python3 build_webp.py            # <-- convert form images to WebP + point <img> to them (~50% smaller)
 python3 add_seo.py                 # <-- OG/twitter cards, canonical, favicon
+python3 make_chart.py              # <-- rebuild the markup chart from the live dataset (report hero + og:image)
 python3 markup_report.py           # <-- flagship Markup Report data page
 python3 add_faq.py                 # <-- FAQ content + schema
 python3 add_engage.py              # <-- internal-link mesh, sticky CTA, email lead-magnet
