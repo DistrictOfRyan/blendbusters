@@ -354,6 +354,28 @@ PAGES = [
      'match_note': 'Move Free Advanced discloses exact per-serving amounts for glucosamine sulfate (1,500mg), chondroitin sulfate (200mg), and MSM (1,500mg); a combination tablet with these same actives is sold generically at a comparable dose. Its trace hyaluronic acid (3mg) and boron (5mg) are too small to buy as a standalone generic at a meaningful price and are not price-matched.',
      'swap_rows': [
          {'name': 'Glucosamine sulfate 1,500mg / chondroitin sulfate 200mg / MSM 1,500mg combination', 'dose': '1/day (3 tablets)', 'cost_mo': 13, 'evidence': 'mod', 'search': 'glucosamine chondroitin msm 1500mg'}]},
+    # ===== BATCH 5 (2026-08-11, bb-content-cycle) =====
+    {'slug': 'six-star-testosterone-booster', 'name': 'Six Star Testosterone Booster',
+     'category': "Men's wellness", 'brand_price_mo': 10, 'proprietary': False,
+     'match_note': 'Six Star Testosterone Booster discloses exact per-serving amounts for rhodiola extract (386mg, standardized for salidrosides) and boron citrate (100mg, supplying 5mg elemental boron); both are available as inexpensive standalone generics at a comparable dose. Its 2.8mg of ginkgo extract is too small a dose to buy as a standalone generic at a meaningful price and is not price-matched.',
+     'swap_rows': [
+         {'name': 'Rhodiola rosea extract 500mg', 'dose': '~386-500mg/day', 'cost_mo': 4, 'evidence': 'weak', 'search': 'rhodiola rosea extract 500mg'},
+         {'name': 'Boron (as boron citrate/glycinate)', 'dose': '3-6mg/day', 'cost_mo': 2, 'evidence': 'weak', 'search': 'boron supplement 3mg'}]},
+    {'slug': 'natures-bounty-hair-skin-nails', 'name': "Nature's Bounty Hair, Skin & Nails",
+     'category': 'Beauty · hair', 'brand_price_mo': 14.54, 'proprietary': False,
+     'note': '*Brand price is based on the verified 60-caplet bottle ($9.69, naturesbounty.com/Walmart Aug 2026) at the labeled dose of 3 caplets/day, a 20-day supply, which works out to about $14.54 for a 30-day month.',
+     'match_note': "Hair, Skin & Nails discloses exact per-serving amounts for biotin (3,000mcg), vitamin C (60mg), vitamin E (6.7mg), and zinc (7.5mg); each is available as an inexpensive standalone generic at a comparable dose. Its other B-vitamins and minerals (thiamin, riboflavin, niacin, B6, folate, B12, pantothenic acid, calcium, phosphorus, magnesium, manganese) and specialty additions (PABA, choline, inositol, citrus bioflavonoid complex, horsetail powder, collagen) are smaller, largely commodity amounts and are not separately price-matched.",
+     'swap_rows': [
+         {'name': 'Biotin 3,000mcg', 'dose': '3,000mcg/day', 'cost_mo': 3, 'evidence': 'weak', 'search': 'biotin 3000mcg'},
+         {'name': 'Vitamin C 60mg', 'dose': '60mg/day', 'cost_mo': 2, 'evidence': 'strong', 'search': 'vitamin c 60mg'},
+         {'name': 'Vitamin E 15 IU', 'dose': '~6.7mg (15 IU)/day', 'cost_mo': 2, 'evidence': 'mod', 'search': 'vitamin e 15 iu'},
+         {'name': 'Zinc 7.5mg', 'dose': '7.5mg/day', 'cost_mo': 2, 'evidence': 'weak', 'search': 'zinc 7.5mg'}]},
+    {'slug': 'renew-life-ultimate-flora-probiotic', 'name': 'Renew Life Ultimate Flora Extra Care Probiotic',
+     'category': 'Gut & probiotic', 'brand_price_mo': 32.5, 'proprietary': True,
+     'note': '*Brand price is based on the verified 60-capsule bottle ($64.99, renewlife.com Aug 2026) at the labeled dose of 1 capsule/day, a 60-day supply, which works out to about $32.50 for a 30-day month.',
+     'match_note': 'Ultimate Flora Extra Care discloses a total of 50 billion CFU across 31 probiotic strains per capsule (Lactobacillus, Bifidobacterium, Lactococcus, and Streptococcus species, anchored by Lactobacillus rhamnosus GG); a generic multi-strain probiotic delivering a comparable 50 billion CFU total covers the same overall CFU count and general strain diversity, though it does not reproduce Renew Life\'s exact 31-strain proprietary blend or its specific strain ratios.',
+     'swap_rows': [
+         {'name': 'Multi-strain probiotic, 50 billion CFU', 'dose': '1 cap/day', 'cost_mo': 18, 'evidence': 'mod', 'search': 'probiotic 50 billion cfu multi strain'}]},
 ]
 
 

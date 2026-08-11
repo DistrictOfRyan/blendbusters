@@ -80,12 +80,14 @@
 /hormone-harmony.html   /hormone-harmony   301!
 /host-defense-mycommunity-alternative.html   /host-defense-mycommunity-alternative   301!
 /huel.html   /huel   301!
+/huel-alternatives.html   /huel-alternatives   301!
 /huel-daily-greens.html   /huel-daily-greens   301!
 /hum-beauty-zzzz.html   /hum-beauty-zzzz   301!
 /hum-red-carpet.html   /hum-red-carpet   301!
 /hunter-test.html   /hunter-test   301!
 /hydrant.html   /hydrant   301!
 /im8-daily-ultimate-essentials.html   /im8-daily-ultimate-essentials   301!
+/isagenix-alternatives.html   /isagenix-alternatives   301!
 /isalean-alternative.html   /isalean-alternative   301!
 /it-works-greens-alternative.html   /it-works-greens-alternative   301!
 /jocko-go-alternative.html   /jocko-go-alternative   301!
@@ -104,6 +106,7 @@
 /liquid-iv-alternatives.html   /liquid-iv-alternatives   301!
 /liquid-iv-sugar-free-alternative.html   /liquid-iv-sugar-free-alternative   301!
 /lmnt.html   /lmnt   301!
+/lmnt-alternatives.html   /lmnt-alternatives   301!
 /magic-mind.html   /magic-mind   301!
 /magnesium-breakthrough.html   /magnesium-breakthrough   301!
 /markup-report.html   /markup-report   301!
@@ -124,6 +127,7 @@
 /native-path-alternative.html   /native-path-alternative   301!
 /natrol-sleep-calm.html   /natrol-sleep-calm   301!
 /natural-vitality-calm.html   /natural-vitality-calm   301!
+/natures-bounty-hair-skin-nails.html   /natures-bounty-hair-skin-nails   301!
 /nectar-hydration.html   /nectar-hydration   301!
 /needed-prenatal-multi-essentials.html   /needed-prenatal-multi-essentials   301!
 /nello-supercalm-alternative.html   /nello-supercalm-alternative   301!
@@ -145,6 +149,7 @@
 /omegaxl-alternative.html   /omegaxl-alternative   301!
 /onnit-new-mood.html   /onnit-new-mood   301!
 /onnit-total-human.html   /onnit-total-human   301!
+/onnit-total-human-alternatives.html   /onnit-total-human-alternatives   301!
 /opti-greens-50-alternative.html   /opti-greens-50-alternative   301!
 /optimum-gold-standard-alternative.html   /optimum-gold-standard-alternative   301!
 /optimum-nutrition-amino-energy-rtd.html   /optimum-nutrition-amino-energy-rtd   301!
@@ -186,6 +191,7 @@
 /recess-mood.html   /recess-mood   301!
 /red-bull-original.html   /red-bull-original   301!
 /reign-total-body-fuel.html   /reign-total-body-fuel   301!
+/renew-life-ultimate-flora-probiotic.html   /renew-life-ultimate-flora-probiotic   301!
 /ritual.html   /ritual   301!
 /ritual-hyacera.html   /ritual-hyacera   301!
 /ritual-synbiotic.html   /ritual-synbiotic   301!
@@ -196,6 +202,8 @@
 /savings-index.html   /savings-index   301!
 /seed.html   /seed   301!
 /shakeology-alternative.html   /shakeology-alternative   301!
+/shakeology-alternatives.html   /shakeology-alternatives   301!
+/six-star-testosterone-booster.html   /six-star-testosterone-booster   301!
 /skinnyfit-collagen-alternative.html   /skinnyfit-collagen-alternative   301!
 /skratch-labs-sport-hydration.html   /skratch-labs-sport-hydration   301!
 /smartypants-alternative.html   /smartypants-alternative   301!
@@ -238,7 +246,6 @@
 /zzzquil-pure-zzzs.html   /zzzquil-pure-zzzs   301!
 
 # Block internal build/analysis scripts (explicit: no extension globs)
-/_render_ads.py   /404.html   404!
 /ad_viability.py   /404.html   404!
 /add_answer.py   /404.html   404!
 /add_conversion.py   /404.html   404!
@@ -275,8 +282,11 @@
 /generate_intros.py   /404.html   404!
 /ingredient_catalog.py   /404.html   404!
 /ingredient_links.py   /404.html   404!
+/link_audit.py   /404.html   404!
+/make_chart.py   /404.html   404!
 /markup_report.py   /404.html   404!
 /normalize_urls.py   /404.html   404!
 /retarget_keywords.py   /404.html   404!
 /revenue_model.py   /404.html   404!
 /taxonomy.py   /404.html   404!
+/voice.py   /404.html   404!

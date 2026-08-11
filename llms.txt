@@ -1,10 +1,10 @@
 # BlendBusters
 
-> Independent wellness-product price comparisons. We break down expensive supplements, compare their ingredients and doses against a specific lower-cost ingredient-matched alternative, and publish the data across 212 products. We compare ingredients and price, not medical outcomes; a lower-cost ingredient match shares overlapping ingredients and a similar intended use, not a guaranteed equivalent. Affiliate-supported, editorially independent.
+> Independent wellness-product price comparisons. We break down expensive supplements, compare their ingredients and doses against a specific lower-cost ingredient-matched alternative, and publish the data across 215 products. We compare ingredients and price, not medical outcomes; a lower-cost ingredient match shares overlapping ingredients and a similar intended use, not a guaranteed equivalent. Affiliate-supported, editorially independent.
 
 ## Key facts
-- 212 products priced against lower-cost ingredient-matched alternatives
-- ~$94,145/year in total estimated overspend across the catalog; 5.2x average markup
+- 215 products priced against lower-cost ingredient-matched alternatives
+- ~$94,433/year in total estimated overspend across the catalog; 5.2x average markup
 - Every figure is estimated from public retail prices; compliant, no efficacy claims
 
 ## Key resources
@@ -32,6 +32,7 @@
 - [Ancient Nutrition Multi Collagen Protein](https://blendbusters.com/ancient-nutrition-alternative.html): est. ~$180/yr saved vs a lower-cost ingredient match
 - [Move Free Advanced Plus MSM](https://blendbusters.com/move-free-advanced-plus-msm.html): est. ~$120/yr saved vs a lower-cost ingredient match
 - [Obvi Super Collagen Protein](https://blendbusters.com/obvi-collagen-alternative.html): est. ~$120/yr saved vs a lower-cost ingredient match
+- [Nature's Bounty Hair, Skin & Nails](https://blendbusters.com/natures-bounty-hair-skin-nails.html): est. ~$72/yr saved vs a lower-cost ingredient match
 - [Qunol Turmeric Curcumin](https://blendbusters.com/qunol-turmeric-alternative.html): est. ~$72/yr saved vs a lower-cost ingredient match
 - [Qunol Ultra CoQ10 100 mg](https://blendbusters.com/qunol-coq10-alternative.html): est. ~$48/yr saved vs a lower-cost ingredient match
 
@@ -161,6 +162,7 @@
 - [Nordic Naturals Ultimate Omega](https://blendbusters.com/nordic-naturals-ultimate-omega.html): est. ~$342/yr saved vs a lower-cost ingredient match
 - [Align 24/7 Digestive Support](https://blendbusters.com/align-24-7-digestive-support.html): est. ~$228/yr saved vs a lower-cost ingredient match
 - [1MD Complete Probiotics Platinum](https://blendbusters.com/1md-probiotics-alternative.html): est. ~$180/yr saved vs a lower-cost ingredient match
+- [Renew Life Ultimate Flora Extra Care Probiotic](https://blendbusters.com/renew-life-ultimate-flora-probiotic.html): est. ~$168/yr saved vs a lower-cost ingredient match
 - [Provitalize Probiotic](https://blendbusters.com/provitalize-alternative.html): est. ~$156/yr saved vs a lower-cost ingredient match
 - [Bellway Super Fiber + Fruit](https://blendbusters.com/bellway-alternative.html): est. ~$144/yr saved vs a lower-cost ingredient match
 - [Florastor Daily Probiotic](https://blendbusters.com/florastor-alternative.html): est. ~$144/yr saved vs a lower-cost ingredient match
@@ -217,6 +219,7 @@
 - [ProstaGenix Multiphase Prostate Supplement](https://blendbusters.com/prostagenix.html): est. ~$288/yr saved vs a lower-cost ingredient match
 - [Super Beta Prostate (New Vitality)](https://blendbusters.com/super-beta-prostate.html): est. ~$228/yr saved vs a lower-cost ingredient match
 - [Force Factor Test X180 Boost](https://blendbusters.com/test-x180-boost.html): est. ~$168/yr saved vs a lower-cost ingredient match
+- [Six Star Testosterone Booster](https://blendbusters.com/six-star-testosterone-booster.html): est. ~$48/yr saved vs a lower-cost ingredient match
 
 ## Other
 - [Goli ACV](https://blendbusters.com/goli.html): est. ~$624/yr saved vs a lower-cost ingredient match

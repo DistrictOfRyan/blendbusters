@@ -4,8 +4,8 @@
   "publisher": "BlendBusters (Hunt Web Consulting Services)",
   "source": "https://blendbusters.com/markup-report.html",
   "license": "Free to cite with attribution to BlendBusters (blendbusters.com).",
-  "generated": "2026-07-28",
-  "row_count": 212,
+  "generated": "2026-08-11",
+  "row_count": 215,
   "columns": [
     "product",
     "category",
@@ -1718,6 +1718,16 @@
       "comparison_url": "https://blendbusters.com/alive-multivitamin-alternative.html"
     },
     {
+      "product": "Renew Life Ultimate Flora Extra Care Probiotic",
+      "category": "Gut, probiotic & omega",
+      "brand_price_monthly_usd": 32.0,
+      "match_price_monthly_usd": 18.0,
+      "markup_multiple": 1.8,
+      "est_annual_savings_usd": 168,
+      "verdict": "Lower-cost ingredient match",
+      "comparison_url": "https://blendbusters.com/renew-life-ultimate-flora-probiotic.html"
+    },
+    {
       "product": "Force Factor Test X180 Boost",
       "category": "Men's & testosterone",
       "brand_price_monthly_usd": 25.0,
@@ -2008,6 +2018,16 @@
       "comparison_url": "https://blendbusters.com/life-extension-multivitamin-alternative.html"
     },
     {
+      "product": "Nature's Bounty Hair, Skin & Nails",
+      "category": "Beauty, joint & immune",
+      "brand_price_monthly_usd": 15.0,
+      "match_price_monthly_usd": 9.0,
+      "markup_multiple": 1.7,
+      "est_annual_savings_usd": 72,
+      "verdict": "Partial match",
+      "comparison_url": "https://blendbusters.com/natures-bounty-hair-skin-nails.html"
+    },
+    {
       "product": "Nectar Hydration",
       "category": "Hydration & electrolytes",
       "brand_price_monthly_usd": 26.0,
@@ -2116,6 +2136,16 @@
       "est_annual_savings_usd": 48,
       "verdict": "Lower-cost ingredient match",
       "comparison_url": "https://blendbusters.com/qunol-coq10-alternative.html"
+    },
+    {
+      "product": "Six Star Testosterone Booster",
+      "category": "Men's & testosterone",
+      "brand_price_monthly_usd": 10.0,
+      "match_price_monthly_usd": 6.0,
+      "markup_multiple": 1.7,
+      "est_annual_savings_usd": 48,
+      "verdict": "Lower-cost ingredient match",
+      "comparison_url": "https://blendbusters.com/six-star-testosterone-booster.html"
     },
     {
       "product": "Airborne Original Gummies",
