@@ -72,6 +72,7 @@ def clean_url(u):
     return u  # keep site's existing .html link convention on-page
 
 built = []
+page_sibs = {}  # fname -> sibling rows, reused by the mesh-extension pass below
 for fname, anchor_name, query, h1, noun, ogimg in PAGES:
     a = by_product.get(anchor_name)
     if not a:
@@ -79,6 +80,7 @@ for fname, anchor_name, query, h1, noun, ogimg in PAGES:
     cat = a['category']
     sibs = sorted((r for r in rows if r['category'] == cat and r['product'] != anchor_name),
                   key=lambda r: -r['est_annual_savings_usd'])[:8]
+    page_sibs[fname] = sibs
     hub_file, hub_label = HUB[cat]
     an = H.escape(anchor_name)
     aurl = a['comparison_url'].replace(SITE, '')
@@ -231,4 +233,34 @@ for fname, anchor_name, query, h1, noun, ogimg in PAGES:
             open(hub_file, 'w', encoding='utf-8').write(hs)
             print('linked hub', hub_file, '->', fname)
 
-print('DONE:', built)
+# ---- extend the mesh: link SIBLING product pages too, not just the anchor ----
+# Orphan-page fix (Ahrefs finding: ~410 product pages reachable only via sitemap).
+# Each roundup already links its anchor product + hub; this pass adds a link from
+# every sibling product page listed IN the roundup's comparison table back to the
+# roundup, so those pages pick up an extra static-HTML inbound link too.
+sib_linked = 0
+for fname, anchor_name, query, h1, noun, ogimg in PAGES:
+    sibs = page_sibs.get(fname)
+    if not sibs:
+        continue
+    an = H.escape(anchor_name)
+    marker = f'data-siblingroundup="{fname}"'
+    link = (f'<p {marker} style="margin:14px 0 0"><a class="lnk" href="/{fname}">'
+            f'See how this compares to {an} and other {H.escape(noun)}s, priced with data →</a></p>')
+    for r in sibs:
+        sfile = r['comparison_url'].replace(SITE + '/', '')
+        try:
+            s = open(sfile, encoding='utf-8').read()
+        except OSError:
+            continue
+        if marker in s:
+            continue  # already linked to this roundup
+        m = re.search(r'<p class="disc-inline">.*?</p>', s, re.S)
+        if not m:
+            continue
+        s = s.replace(m.group(0), m.group(0) + link, 1)
+        open(sfile, 'w', encoding='utf-8').write(s)
+        sib_linked += 1
+        print('sibling-linked', sfile, '->', fname)
+
+print('DONE:', built, f'| {sib_linked} sibling links added')
