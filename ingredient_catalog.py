@@ -31,6 +31,7 @@ CATALOG = {
     'ksm':           ('B079K32QB6', 'Nutricost KSM-66 Ashwagandha'),
     'zinc':          ('B0D1VWSPFH', 'Nutricost Zinc + Copper'),
     'collagen':      ('B06XKM7P97', 'Nutricost Collagen Peptides'),
+    'ucii':          ('B06XW695RT', 'Healthy Origins UC-II Undenatured Type II Collagen 40 mg'),
     'sawpalmetto':   ('B0013OXII8', 'NOW Saw Palmetto 320 mg'),
     'boron':         ('B0BBY9TXSB', 'Nutricost Boron 10 mg'),
     'daa':           ('B00E7JO0EW', 'BulkSupplements D-Aspartic Acid'),
@@ -164,6 +165,7 @@ BRANDED_MAP = {
 # a negative lookahead keeps them out of the glycinate ASIN.)
 RULES = [
     (r'marine collagen', 'marinecollagen'),
+    (r'uc-?ii|undenatured (type )?ii collagen', 'ucii'),
     (r'multi[\s-]?collagen|collagen peptide|collagen', 'collagen'),
     (r'ksm[\s-]?66|ashwagandha', 'ksm'),
     (r'algae|algal|vegan\s+(dha|omega)', 'algaedha'),

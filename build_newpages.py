@@ -23,7 +23,7 @@ ASINS = {
     'vitamin d3': 'B0019LVGPC', 'vitamin d': 'B0019LVGPC', 'boron': 'B0BBY9TXSB',
     'saw palmetto': 'B0013OXII8', 'creatine': 'B00E9M4XEE', 'biotin': 'B01AMJCHB8',
     'magnesium': 'B000BD0RT0', 'l-theanine': 'B00GQV9YX6', 'theanine': 'B00GQV9YX6',
-    'vitamin c': 'B0001SR3EC', 'collagen': 'B06XKM7P97', 'fish oil': 'B0046XC528',
+    'vitamin c': 'B0001SR3EC', 'uc-ii': 'B06XW695RT', 'collagen': 'B06XKM7P97', 'fish oil': 'B0046XC528',
     'omega': 'B0046XC528', 'melatonin': 'B005FKTWCC', 'niacinamide': 'B000OSUDJQ',
     'nicotinamide riboside': 'B0C548YN1B', 'lion': 'B07PM8X5CG', 'citrulline': 'B00EYDJTRE',
     'tongkat': 'B07TTDFXFV', 'beetroot': 'B017KYQCFU', 'beet root': 'B017KYQCFU',
@@ -67,7 +67,7 @@ def make_d(p):
     if p.get('extra_consult'):
         consult.append(p['extra_consult'])
     return {
-        'slug': p['slug'], 'name': p['name'], 'category': p['category'], 'reviewed': 'Jul 2026',
+        'slug': p['slug'], 'name': p['name'], 'category': p['category'], 'reviewed': 'Aug 2026',
         'brand_price': int(round(orig)), 'brand_per_day': '$%.2f' % (orig / 30.0),
         'label_summary': p.get('match_note', ''), 'proprietary': p['proprietary'],
         'verdict': verdict,
@@ -84,8 +84,8 @@ def make_d(p):
         'score': compute_score(pct, p['proprietary'], ev_avg),
         'safety': p.get('safety', 'Introduce any new supplement gradually, and review it against your current medications and conditions.'),
         'consult': consult,
-        'sources': [('Brand label & price — merchant listing (price checked Jul 2026)', '#', False),
-                    ('Lower-cost generic pricing — retail listings (checked Jul 2026)', '#', False)],
+        'sources': [('Brand label & price — merchant listing (price checked Aug 2026)', '#', False),
+                    ('Lower-cost generic pricing — retail listings (checked Aug 2026)', '#', False)],
         'cart_asins': cart_asins,
         'primary_buy': 'https://www.amazon.com/s?k=' + quote(rows[0].get('search', p['name'])),
         'primary_brand': None, 'related': [],
@@ -376,6 +376,17 @@ PAGES = [
      'match_note': 'Ultimate Flora Extra Care discloses a total of 50 billion CFU across 31 probiotic strains per capsule (Lactobacillus, Bifidobacterium, Lactococcus, and Streptococcus species, anchored by Lactobacillus rhamnosus GG); a generic multi-strain probiotic delivering a comparable 50 billion CFU total covers the same overall CFU count and general strain diversity, though it does not reproduce Renew Life\'s exact 31-strain proprietary blend or its specific strain ratios.',
      'swap_rows': [
          {'name': 'Multi-strain probiotic, 50 billion CFU', 'dose': '1 cap/day', 'cost_mo': 18, 'evidence': 'mod', 'search': 'probiotic 50 billion cfu multi strain'}]},
+    # ===== BATCH 6 (2026-08-18, bb-content-cycle) =====
+    {'slug': 'life-extension-nad-cell-regenerator', 'name': 'Life Extension NAD+ Cell Regenerator',
+     'category': 'Longevity & cellular aging', 'brand_price_mo': 45.90, 'proprietary': False,
+     'match_note': "NAD+ Cell Regenerator's single active ingredient, 300mg of NIAGEN-brand nicotinamide riboside chloride, is disclosed at an exact per-capsule dose; a standalone 300mg nicotinamide riboside chloride capsule (the same active compound, from a non-Niagen source) is sold generically at a comparable dose.",
+     'swap_rows': [
+         {'name': 'Nicotinamide riboside chloride 300mg', 'dose': '300mg/day', 'cost_mo': 35, 'evidence': 'mod', 'search': 'nicotinamide riboside 300mg'}]},
+    {'slug': 'instaflex-advanced', 'name': 'Instaflex Advanced',
+     'category': 'Joint · glucosamine chondroitin MSM', 'brand_price_mo': 69.99, 'proprietary': True,
+     'match_note': 'Instaflex Advanced discloses an exact dose only for UC-II undenatured type II collagen (40mg); its BioPerine, Boswellia serrata extract, turmeric rhizome extract, hyaluronic acid, and resveratrol are listed without individual milligram amounts, so only the UC-II collagen can be price-matched. A standalone 40mg UC-II collagen capsule (the same patented ingredient, sold generically) covers that one disclosed active.',
+     'swap_rows': [
+         {'name': 'UC-II undenatured type II collagen 40mg', 'dose': '40mg/day', 'cost_mo': 10, 'evidence': 'mod', 'search': 'uc-ii undenatured type ii collagen 40mg'}]},
 ]
 
 

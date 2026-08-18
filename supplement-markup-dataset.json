@@ -4,8 +4,8 @@
   "publisher": "BlendBusters (Hunt Web Consulting Services)",
   "source": "https://blendbusters.com/markup-report.html",
   "license": "Free to cite with attribution to BlendBusters (blendbusters.com).",
-  "generated": "2026-08-11",
-  "row_count": 215,
+  "generated": "2026-08-18",
+  "row_count": 217,
   "columns": [
     "product",
     "category",
@@ -336,6 +336,16 @@
       "est_annual_savings_usd": 726,
       "verdict": "Lower-cost ingredient match",
       "comparison_url": "https://blendbusters.com/cymbiotika.html"
+    },
+    {
+      "product": "Instaflex Advanced",
+      "category": "Beauty, joint & immune",
+      "brand_price_monthly_usd": 70.0,
+      "match_price_monthly_usd": 10.0,
+      "markup_multiple": 7.0,
+      "est_annual_savings_usd": 720,
+      "verdict": "Lower-cost ingredient match",
+      "comparison_url": "https://blendbusters.com/instaflex-advanced.html"
     },
     {
       "product": "Field of Greens (Brickhouse)",
@@ -1836,6 +1846,16 @@
       "est_annual_savings_usd": 132,
       "verdict": "Lower-cost ingredient match",
       "comparison_url": "https://blendbusters.com/bulletproof-mct-alternative.html"
+    },
+    {
+      "product": "Life Extension NAD+ Cell Regenerator",
+      "category": "Longevity & heart",
+      "brand_price_monthly_usd": 46.0,
+      "match_price_monthly_usd": 35.0,
+      "markup_multiple": 1.3,
+      "est_annual_savings_usd": 132,
+      "verdict": "Partial match",
+      "comparison_url": "https://blendbusters.com/life-extension-nad-cell-regenerator.html"
     },
     {
       "product": "Skratch Labs Sport Hydration",

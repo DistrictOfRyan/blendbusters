@@ -1,10 +1,10 @@
 # BlendBusters
 
-> Independent wellness-product price comparisons. We break down expensive supplements, compare their ingredients and doses against a specific lower-cost ingredient-matched alternative, and publish the data across 215 products. We compare ingredients and price, not medical outcomes; a lower-cost ingredient match shares overlapping ingredients and a similar intended use, not a guaranteed equivalent. Affiliate-supported, editorially independent.
+> Independent wellness-product price comparisons. We break down expensive supplements, compare their ingredients and doses against a specific lower-cost ingredient-matched alternative, and publish the data across 217 products. We compare ingredients and price, not medical outcomes; a lower-cost ingredient match shares overlapping ingredients and a similar intended use, not a guaranteed equivalent. Affiliate-supported, editorially independent.
 
 ## Key facts
-- 215 products priced against lower-cost ingredient-matched alternatives
-- ~$94,433/year in total estimated overspend across the catalog; 5.2x average markup
+- 217 products priced against lower-cost ingredient-matched alternatives
+- ~$95,285/year in total estimated overspend across the catalog; 5.2x average markup
 - Every figure is estimated from public retail prices; compliant, no efficacy claims
 
 ## Key resources
@@ -17,6 +17,7 @@
 - [Vegamour GRO+ Advanced Hair Supplements](https://blendbusters.com/vegamour-gro-advanced.html): est. ~$768/yr saved vs a lower-cost ingredient match
 - [Wellbel Women Hair, Skin & Nails Supplement](https://blendbusters.com/wellbel-women.html): est. ~$768/yr saved vs a lower-cost ingredient match
 - [Modere Liquid BioCell](https://blendbusters.com/modere-biocell-alternative.html): est. ~$744/yr saved vs a lower-cost ingredient match
+- [Instaflex Advanced](https://blendbusters.com/instaflex-advanced.html): est. ~$720/yr saved vs a lower-cost ingredient match
 - [4Life Transfer Factor Tri-Factor](https://blendbusters.com/4life-transfer-factor-alternative.html): est. ~$612/yr saved vs a lower-cost ingredient match
 - [The Nue Co. Skin Filter](https://blendbusters.com/the-nue-co-skin-filter.html): est. ~$564/yr saved vs a lower-cost ingredient match
 - [Nutrafol](https://blendbusters.com/nutrafol.html): est. ~$492/yr saved vs a lower-cost ingredient match
@@ -206,6 +207,7 @@
 - [Tally Health Vitality](https://blendbusters.com/tally-health.html): est. ~$468/yr saved vs a lower-cost ingredient match
 - [Elysium Basis](https://blendbusters.com/elysium-basis.html): est. ~$348/yr saved vs a lower-cost ingredient match
 - [Blueprint Longevity Mix (Bryan Johnson)](https://blendbusters.com/blueprint-longevity-mix.html): est. ~$288/yr saved vs a lower-cost ingredient match
+- [Life Extension NAD+ Cell Regenerator](https://blendbusters.com/life-extension-nad-cell-regenerator.html): est. ~$132/yr saved vs a lower-cost ingredient match
 
 ## Men's & testosterone
 - [Hunter Test](https://blendbusters.com/hunter-test.html): est. ~$684/yr saved vs a lower-cost ingredient match
@@ -252,8 +254,3 @@
 
 ## Citation
 Cite as: BlendBusters Supplement Markup Report, blendbusters.com, 2026. Free to cite with attribution (CC BY 4.0).
-- https://blendbusters.com/huel-alternatives : roundup of cheaper ingredient-matched alternatives
-- https://blendbusters.com/isagenix-alternatives : roundup of cheaper ingredient-matched alternatives
-- https://blendbusters.com/lmnt-alternatives : roundup of cheaper ingredient-matched alternatives
-- https://blendbusters.com/onnit-total-human-alternatives : roundup of cheaper ingredient-matched alternatives
-- https://blendbusters.com/shakeology-alternatives : roundup of cheaper ingredient-matched alternatives
