@@ -14,6 +14,19 @@ MARKER = 'bb-kw-retargeted'
 SUFFIX = ' · BlendBusters'
 SKIP = {'index.html', 'methodology.html', 'markup-report.html', 'savings-index.html',
         'about.html', 'contact.html', 'privacy.html', 'terms.html'}
+# 2026-08-21 revenue push: these 30 pages were retitled to higher buyer-intent
+# query language ("[brand] alternative" / "is [brand] worth it") by
+# retitle_query_language.py, which runs AFTER this script in build_all.sh.
+# Never revert them to the "[brand] ingredients" pattern on a future rebuild.
+QUERY_RETITLED = {
+    'ag1', 'huel', 'huel-daily-greens', 'alpha-brain', 'superbeets', 'armra',
+    'ghost-hydration', 'mud-wtr', 'prime-hydration-sticks', 'lmnt', 'nutrafol',
+    'liquid-iv', 'bloom', 'kachava', 'zipfizz', 'tru-niagen', 'hiyo',
+    'celsius-original', 'red-bull-original', 'monster-zero-ultra', 'c4-energy',
+    'ritual', 'seed', 'vital-proteins', 'cymbiotika', 'prime-male', 'goli',
+    'ghost-energy', 'bang-energy', 'olly-sleep',
+}
+SKIP |= {stem + '.html' for stem in QUERY_RETITLED}
 
 
 def disp(s):
