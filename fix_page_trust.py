@@ -27,7 +27,7 @@ REPLACEMENTS = [
     ('<span>Last reviewed <b>',
      '<span>Prices checked <b>'),
     ('Reviewed by <b>the BlendBusters desk</b> <span class="flag">clinical review pending</span>',
-     'Analysis by <b>the BlendBusters desk</b> <a class="lnk" href="/methodology.html">Method</a>'),
+     'Analysis by <b><a class="lnk" href="/about#author">William Ryan Hunt</a></b> <a class="lnk" href="/methodology">Method</a>'),
     # 2. score provisional label -> honest descriptor
     ('<span class="prov">Provisional, pending source verification</span>',
      '<span class="prov">Computed from disclosed ingredients, doses, and dated prices</span>'),

@@ -5,114 +5,111 @@ Report. All numbers derive from existing page data (no fabrication)."""
 import re, glob, html, json
 from datetime import date
 from taxonomy import cluster  # shared, word-boundary-correct classifier
+from author import person_ld as _person_ld, AUTHOR_ID, NAME as AUTHOR_NAME, BYLINE_HTML
+import page_facts
+AUTHOR_PERSON = _person_ld(full=True)
 
 SITE = "https://blendbusters.com"
 SKIP = {'index.html', 'methodology.html', 'savings-index.html', 'markup-report.html'}
 
-rows = []
-for f in glob.glob('*.html'):
-    if f in SKIP or 'mockup' in f or 'standalone' in f:
-        continue
-    s = open(f, encoding='utf-8').read()
-    m_name = re.search(r'<h1>(.*?)(?:,\s*and a lower-cost|\s+ingredients vs a lower-cost)', s)
-    m_brand = re.search(r'Brand price</div><div class="val">\$([\d,]+)', s)
-    m_mtot = re.search(r'id="mtot">\$([\d,.]+)', s)
-    m_save = re.search(r'Est\. savings</div><div class="val save">~\$([\d,]+)', s)
-    m_cat = re.search(r'<span class="cat">(.*?)</span>', s)
-    if not (m_name and m_brand and m_mtot and m_save):
-        continue
-    name = html.unescape(m_name.group(1)).strip()
-    brand = float(m_brand.group(1).replace(',', ''))
-    match = float(m_mtot.group(1).replace(',', ''))
-    save = int(m_save.group(1).replace(',', ''))
-    clu = cluster(html.unescape(m_cat.group(1)) if m_cat else '')
-    mult = brand / match if match else 0
-    rows.append({'f': f, 'name': name, 'brand': brand, 'match': match, 'save': save, 'clu': clu, 'mult': mult})
 
-n = len(rows)
-total_save = sum(r['save'] for r in rows)
-avg_mult = sum(r['mult'] for r in rows) / n
-median_mult = sorted(r['mult'] for r in rows)[n // 2]
-avg_brand = sum(r['brand'] for r in rows) / n
+def main():
+    # 2026-09-08: rows come from page_facts.priced_rows(), the ONE reader of a built
+    # comparison page. This loop used to match the H1 against
+    #   <h1>(.*?)(?:, and a lower-cost|\s+ingredients vs a lower-cost)
+    # and retitle_query_language.py, which runs later in build_all.sh, rewrites 30 of
+    # those H1s. Those 30 pages then dropped out of the report: 217 - 30 = 187, and the
+    # report published 212 while llms.txt published 217 and the homepage published 177.
+    rows = []
+    for _r in page_facts.priced_rows():
+        _r['clu'] = cluster(_r['cat'])
+        rows.append(_r)
 
-# biggest annual overspend
-top = sorted(rows, key=lambda r: -r['save'])[:20]
-# by cluster
-clus = {}
-for r in rows:
-    c = clus.setdefault(r['clu'], {'n': 0, 'save': 0, 'mult': 0})
-    c['n'] += 1; c['save'] += r['save']; c['mult'] += r['mult']
-clu_rows = sorted(([k, v['n'], v['save'], v['mult'] / v['n']] for k, v in clus.items()), key=lambda x: -x[2])
+    n = len(rows)
+    total_save = sum(r['save'] for r in rows)
+    avg_mult = sum(r['mult'] for r in rows) / n
+    median_mult = sorted(r['mult'] for r in rows)[n // 2]
+    avg_brand = sum(r['brand'] for r in rows) / n
 
-# reuse the site's exact <head>-tags region up to </head>, header, and footer from ag1
-ag1 = open('ag1.html', encoding='utf-8').read()
-header = re.search(r'<header class="top">.*?</header>', ag1, re.S).group(0)
-footer = re.search(r'<footer>.*?</footer>', ag1, re.S).group(0)
-theme_js = re.search(r'<script>\(function\(\)\{var r=document\.documentElement.*?</script>', ag1, re.S)
-theme_js = theme_js.group(0) if theme_js else ''
+    # biggest annual overspend
+    top = sorted(rows, key=lambda r: -r['save'])[:20]
+    # by cluster
+    clus = {}
+    for r in rows:
+        c = clus.setdefault(r['clu'], {'n': 0, 'save': 0, 'mult': 0})
+        c['n'] += 1; c['save'] += r['save']; c['mult'] += r['mult']
+    clu_rows = sorted(([k, v['n'], v['save'], v['mult'] / v['n']] for k, v in clus.items()), key=lambda x: -x[2])
 
-def money(x): return '${:,}'.format(int(round(x)))
+    # reuse the site's exact <head>-tags region up to </head>, header, and footer from ag1
+    ag1 = open('ag1.html', encoding='utf-8').read()
+    header = re.search(r'<header class="top">.*?</header>', ag1, re.S).group(0)
+    footer = re.search(r'<footer>.*?</footer>', ag1, re.S).group(0)
+    theme_js = re.search(r'<script>\(function\(\)\{var r=document\.documentElement.*?</script>', ag1, re.S)
+    theme_js = theme_js.group(0) if theme_js else ''
 
-top_rows = ''.join(
-  f'<tr><td><a href="/{r["f"]}">{html.escape(r["name"])}</a></td><td class="mono">${r["brand"]:.0f}/mo</td>'
-  f'<td class="mono">${r["match"]:.0f}/mo</td><td class="mono">{r["mult"]:.1f}&times;</td>'
-  f'<td class="mono" style="color:var(--accent);font-weight:700">~{money(r["save"])}/yr</td></tr>'
-  for r in top)
+    def money(x): return '${:,}'.format(int(round(x)))
 
-clu_html = ''.join(
-  f'<tr><td>{html.escape(name)}</td><td class="mono">{cn}</td><td class="mono">{mult:.1f}&times;</td>'
-  f'<td class="mono" style="color:var(--accent);font-weight:700">~{money(sv)}/yr</td></tr>'
-  for name, cn, sv, mult in clu_rows)
+    top_rows = ''.join(
+      f'<tr><td><a href="/{r["f"]}">{html.escape(r["name"])}</a></td><td class="mono">${r["brand"]:.0f}/mo</td>'
+      f'<td class="mono">${r["match"]:.0f}/mo</td><td class="mono">{r["mult"]:.1f}&times;</td>'
+      f'<td class="mono" style="color:var(--accent);font-weight:700">~{money(r["save"])}/yr</td></tr>'
+      for r in top)
 
-title = "The Supplement Markup Report — BlendBusters"
-desc = (f"We priced {n} popular supplements against specific ingredient-matched, lower-cost alternatives. "
-        f"The gap adds up to ~{money(total_save)}/yr, an average of {avg_mult:.1f}x markup.")
-url = f"{SITE}/markup-report.html"
+    clu_html = ''.join(
+      f'<tr><td>{html.escape(name)}</td><td class="mono">{cn}</td><td class="mono">{mult:.1f}&times;</td>'
+      f'<td class="mono" style="color:var(--accent);font-weight:700">~{money(sv)}/yr</td></tr>'
+      for name, cn, sv, mult in clu_rows)
 
-# --- extra citable stats (all derived from the same rows; no fabrication) ---
-pct2 = round(100 * sum(1 for r in rows if r['mult'] >= 2) / n)
-n5 = sum(1 for r in rows if r['mult'] >= 5)
-big_mult = max(rows, key=lambda r: r['mult'])
-big_save = max(rows, key=lambda r: r['save'])
-avg_match = sum(r['match'] for r in rows) / n
-brand_yr = sum(r['brand'] for r in rows) * 12
-match_yr = sum(r['match'] for r in rows) * 12
-_findings = [
-    f"Across {n} popular supplements, the typical (median) brand product is priced {median_mult:.1f}x its lower-cost, ingredient-matched alternative; the average markup is {avg_mult:.1f}x.",
-    f"{pct2}% of the supplements analyzed are priced at least 2x the ingredient-matched alternative, and {n5} are priced 5x or more.",
-    f"The largest single gap is {html.escape(big_save['name'])}: about ${big_save['brand']:.0f}/month versus a roughly ${big_save['match']:.0f}/month ingredient-matched alternative, an estimated {money(big_save['save'])}/year in savings.",
-    f"The steepest multiple is {html.escape(big_mult['name'])}, priced about {big_mult['mult']:.0f}x its lower-cost ingredient match.",
-    f"On average a tracked brand product costs ${avg_brand:.0f}/month versus about ${avg_match:.0f}/month for its ingredient-matched alternative.",
-    f"In aggregate the {n} brand products would cost about {money(brand_yr)}/year; the ingredient-matched alternatives total about {money(match_yr)}/year.",
-]
-findings_html = ''.join('<li>%s</li>' % f for f in _findings)
-cite_date = date.today().strftime('%B %Y')
-# JSON-LD: Dataset + Article graph, tied to the site Organization/WebSite entity (#org/#website)
-_ld = {"@context": "https://schema.org", "@graph": [
-  {"@type": "Dataset", "@id": url + "#dataset", "name": "The Supplement Markup Report Dataset",
-   "description": (f"Brand monthly price, a lower-cost ingredient-matched monthly price, the markup "
-                   f"multiple, and estimated annual savings for {n} popular consumer supplements. A "
-                   f"lower-cost ingredient match shares overlapping ingredients and a similar intended "
-                   f"use; it is not a medically equivalent product."),
-   "url": url, "creator": {"@id": SITE + "/#org"}, "publisher": {"@id": SITE + "/#org"},
-   "license": "https://creativecommons.org/licenses/by/4.0/", "isAccessibleForFree": True,
-   "datePublished": "2026-07-11", "dateModified": date.today().isoformat(), "temporalCoverage": "2026-07",
-   "measurementTechnique": ("For each brand product a specific lower-cost alternative with overlapping "
-                            "ingredients is assembled from public retail prices and normalized to a monthly "
-                            "cost. Markup = brand monthly price / matched monthly price."),
-   "variableMeasured": ["product", "category", "brand_price_monthly_usd", "match_price_monthly_usd",
-                        "markup_multiple", "est_annual_savings_usd"],
-   "distribution": [{"@type": "DataDownload", "encodingFormat": "text/csv",
-                     "contentUrl": SITE + "/supplement-markup-dataset.csv"}]},
-  {"@type": "Article", "@id": url + "#article", "isPartOf": {"@id": SITE + "/#website"},
-   "headline": "The Supplement Markup Report", "description": desc,
-   "image": SITE + "/supplement-markup-chart.png", "datePublished": "2026-07-11",
-   "dateModified": date.today().isoformat(), "author": {"@id": SITE + "/#org"},
-   "publisher": {"@id": SITE + "/#org"}, "mainEntityOfPage": url,
-   "isBasedOn": {"@id": url + "#dataset"}}]}
-ld_json = json.dumps(_ld)
+    title = "The Supplement Markup Report — BlendBusters"
+    desc = (f"We priced {n} popular supplements against specific ingredient-matched, lower-cost alternatives. "
+            f"The gap adds up to ~{money(total_save)}/yr, an average of {avg_mult:.1f}x markup.")
+    url = f"{SITE}/markup-report.html"
 
-page = f'''<!doctype html>
+    # --- extra citable stats (all derived from the same rows; no fabrication) ---
+    pct2 = round(100 * sum(1 for r in rows if r['mult'] >= 2) / n)
+    n5 = sum(1 for r in rows if r['mult'] >= 5)
+    big_mult = max(rows, key=lambda r: r['mult'])
+    big_save = max(rows, key=lambda r: r['save'])
+    avg_match = sum(r['match'] for r in rows) / n
+    brand_yr = sum(r['brand'] for r in rows) * 12
+    match_yr = sum(r['match'] for r in rows) * 12
+    _findings = [
+        f"Across {n} popular supplements, the typical (median) brand product is priced {median_mult:.1f}x its lower-cost, ingredient-matched alternative; the average markup is {avg_mult:.1f}x.",
+        f"{pct2}% of the supplements analyzed are priced at least 2x the ingredient-matched alternative, and {n5} are priced 5x or more.",
+        f"The largest single gap is {html.escape(big_save['name'])}: about ${big_save['brand']:.0f}/month versus a roughly ${big_save['match']:.0f}/month ingredient-matched alternative, an estimated {money(big_save['save'])}/year in savings.",
+        f"The steepest multiple is {html.escape(big_mult['name'])}, priced about {big_mult['mult']:.0f}x its lower-cost ingredient match.",
+        f"On average a tracked brand product costs ${avg_brand:.0f}/month versus about ${avg_match:.0f}/month for its ingredient-matched alternative.",
+        f"In aggregate the {n} brand products would cost about {money(brand_yr)}/year; the ingredient-matched alternatives total about {money(match_yr)}/year.",
+    ]
+    findings_html = ''.join('<li>%s</li>' % f for f in _findings)
+    cite_date = date.today().strftime('%B %Y')
+    # JSON-LD: Dataset + Article graph, tied to the site Organization/WebSite entity (#org/#website)
+    _ld = {"@context": "https://schema.org", "@graph": [
+      {"@type": "Dataset", "@id": url + "#dataset", "name": "The Supplement Markup Report Dataset",
+       "description": (f"Brand monthly price, a lower-cost ingredient-matched monthly price, the markup "
+                       f"multiple, and estimated annual savings for {n} popular consumer supplements. A "
+                       f"lower-cost ingredient match shares overlapping ingredients and a similar intended "
+                       f"use; it is not a medically equivalent product."),
+       # 2026-09-08: a named Person creates the dataset; the Organization publishes it.
+       "url": url, "creator": AUTHOR_PERSON, "publisher": {"@id": SITE + "/#org"},
+       "license": "https://creativecommons.org/licenses/by/4.0/", "isAccessibleForFree": True,
+       "datePublished": "2026-07-11", "dateModified": date.today().isoformat(), "temporalCoverage": "2026-07",
+       "measurementTechnique": ("For each brand product a specific lower-cost alternative with overlapping "
+                                "ingredients is assembled from public retail prices and normalized to a monthly "
+                                "cost. Markup = brand monthly price / matched monthly price."),
+       "variableMeasured": ["product", "category", "brand_price_monthly_usd", "match_price_monthly_usd",
+                            "markup_multiple", "est_annual_savings_usd"],
+       "distribution": [{"@type": "DataDownload", "encodingFormat": "text/csv",
+                         "contentUrl": SITE + "/supplement-markup-dataset.csv"}]},
+      {"@type": "Article", "@id": url + "#article", "isPartOf": {"@id": SITE + "/#website"},
+       "headline": "The Supplement Markup Report", "description": desc,
+       "image": SITE + "/supplement-markup-chart.png", "datePublished": "2026-07-11",
+       "dateModified": date.today().isoformat(), "author": {"@id": AUTHOR_ID},
+       "publisher": {"@id": SITE + "/#org"}, "mainEntityOfPage": url,
+       "isBasedOn": {"@id": url + "#dataset"}}]}
+    ld_json = json.dumps(_ld)
+
+    page = f'''<!doctype html>
 <html lang="en">
 <head>
 <meta charset="utf-8">
@@ -139,7 +136,7 @@ page = f'''<!doctype html>
 <body>
 {header}
 <div class="wrap"><nav class="crumb" aria-label="Breadcrumb"><a href="/">Home</a> / <b>The Supplement Markup Report</b></nav>
-<div class="title"><span class="cat">Independent data</span><h1>The Supplement Markup Report</h1><div class="meta"><span>Updated <b>Jul 2026</b></span><span>·</span><span><b>{n}</b> products priced</span></div></div>
+<div class="title"><span class="cat">Independent data</span><h1>The Supplement Markup Report</h1><div class="meta"><span>Prices checked <b>Jul 2026</b></span><span>&middot;</span><span>Report updated <b>{cite_date}</b></span><span>·</span><span><b>{n}</b> products priced</span><span>&middot;</span><span>{BYLINE_HTML}</span></div></div>
 <p class="lead" style="max-width:60ch">We took {n} popular brand-name supplements and priced each one against a specific, lower-cost product with overlapping ingredients. This is what the gap looks like in aggregate. Every figure below is estimated from public retail prices; a "lower-cost ingredient match" shares overlapping ingredients and a similar intended use, not a medically equivalent product.</p>
 <div class="verdict"><div class="vgrid">
 <div class="vg"><div class="k">Products priced</div><div class="val">{n}</div></div>
@@ -181,5 +178,11 @@ page = f'''<!doctype html>
 </body>
 </html>
 '''
-open('markup-report.html', 'w', encoding='utf-8').write(page)
-print(f'markup-report.html written | {n} products | total ~{money(total_save)}/yr | avg {avg_mult:.1f}x')
+    open('markup-report.html', 'w', encoding='utf-8').write(page)
+    print(f'markup-report.html written | {n} products | total ~{money(total_save)}/yr | avg {avg_mult:.1f}x')
+
+
+# 2026-09-08: guarded. This module used to write markup-report.html at import
+# time, so importing it for its figures silently republished the report.
+if __name__ == '__main__':
+    main()

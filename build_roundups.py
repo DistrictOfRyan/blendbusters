@@ -170,7 +170,7 @@ for fname, anchor_name, query, h1, noun, ogimg in PAGES:
 <section><div class="wrap">
 <nav class="crumb" aria-label="Breadcrumb" style="margin-top:18px"><a href="/">Home</a> / <a href="/{hub_file}">{H.escape(hub_label.title())}</a> / <b>{an} alternatives</b></nav>
 <div class="title" style="margin-top:10px"><h1>{H.escape(h1)}</h1>
-<div class="meta"><span>Prices checked <b>Jul 2026</b></span><span>·</span><span>Analysis by <b>the BlendBusters desk</b> <a class="lnk" href="/methodology.html">Method</a></span></div></div>
+<div class="meta"><span>Prices checked <b>Jul 2026</b></span><span>·</span><span>Analysis by <b><a class="lnk" href="/about#author">William Ryan Hunt</a></b> <a class="lnk" href="/methodology">Method</a></span></div></div>
 {answer}
 <p class="disc-inline">Prices are estimates from public sources and change often, verify on the merchant’s site. A “lower-cost ingredient match” shares overlapping ingredients and a similar intended use; it is not a medically equivalent product or a guaranteed result. BlendBusters is independent and affiliate-supported, and is not affiliated with, endorsed by, or sponsored by the brands it compares.</p>
 </div></section>

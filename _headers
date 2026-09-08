@@ -1,5 +1,25 @@
+# Security headers for every response. ChairSesh's netlify.toml already sets
+# these three; BlendBusters had none (added 2026-09-08).
+/*
+  X-Frame-Options: DENY
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+
+# The chart and the dataset are DELIBERATELY cross-origin readable so an answer
+# engine or another site can embed the chart and fetch the data with attribution
+# (CC BY 4.0). Keep these. Note: a later block for the same path replaces the
+# earlier one in Netlify's _headers, so the security headers above are repeated.
 /supplement-markup-chart.png
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
   Access-Control-Allow-Origin: *
 
 /supplement-markup-dataset.json
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+  Access-Control-Allow-Origin: *
+
+/supplement-markup-dataset.csv
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
   Access-Control-Allow-Origin: *

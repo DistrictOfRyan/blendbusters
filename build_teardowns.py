@@ -42,7 +42,8 @@ def to_new(d):
       'differs':differs,'evidence':evidence,'score':compute_score(pct,proprietary,ev_avg),
       'safety':'Introduce any new supplement gradually, and review it against your current medications and conditions.',
       'consult':['<b style="color:var(--ink)">Talk to a qualified healthcare professional</b> before changing supplements if you are pregnant or nursing, immunocompromised, managing a health condition, or taking medications.'],
-      'sources':[('Brand label & price — merchant listing (price checked Jul 2026)','#',False)],
+      # 2026-09-08: '' not '#' — see the note in build_from_sheet.py.
+      'sources':[('Brand label & price, merchant listing (price checked Jul 2026)','',False)],
       'cart_asins':asins,'primary_buy':('https://www.amazon.com/s?k='+quote(strip_tags(rws[0][0]))) if rws else None,'primary_brand':None,'related':[]}
 
 GA = ('<!-- Google tag (gtag.js) -->\n'

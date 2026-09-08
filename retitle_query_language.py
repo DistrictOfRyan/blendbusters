@@ -13,7 +13,7 @@ exclude this list -- see that file).
 
 Run with --dry to preview before writing.
 """
-import re, html, sys
+import re, html, sys, json
 
 MARKER = 'bb-query-retitled'
 SUFFIX = ' | BlendBusters'
@@ -118,8 +118,15 @@ def process(fname, t, dry_rows=None):
     t = re.sub(r'(<meta property="og:description" content=").*?(">)', lambda m: m.group(1) + meta + m.group(2), t, count=1)
     t = re.sub(r'(<meta name="twitter:description" content=").*?(">)', lambda m: m.group(1) + meta + m.group(2), t, count=1)
     t = t.replace(m_h1.group(0), '<h1>%s</h1>' % h1, 1)
-    # JSON-LD headline (Article schema): "<brand> — lower-cost ingredient comparison"
-    t = re.sub(r'("headline"\s*:\s*")[^"]*(")', lambda m: m.group(1) + html.escape(h1, quote=False) + m.group(2), t, count=1)
+    # JSON-LD headline (Article schema). 2026-09-08: the replacement must be
+    # JSON-escaped, not html-escaped. A brand with a backslash in its name
+    # (MUD\WTR) produced "MUD\WTR" inside a JSON string, which is an invalid
+    # escape, and the whole Article + BreadcrumbList block on mud-wtr.html failed
+    # to parse. json.dumps() then strip the surrounding quotes gives the correct
+    # in-string form for any character.
+    _hl = json.dumps(h1)[1:-1]
+    t = re.sub(r'("headline"\s*:\s*")(?:[^"\]|\.)*(")',
+               lambda m: m.group(1) + _hl + m.group(2), t, count=1)
     if MARKER not in t:
         t = t.replace('</body>', '<!-- %s -->\n</body>' % MARKER, 1)
     return t, (t != orig), 'OK'

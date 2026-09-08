@@ -112,8 +112,23 @@ def write_redirects():
     if py:
         lines += ["", "# Block internal build/analysis scripts (explicit: no extension globs)"]
         lines += [f"/{p}   /404.html   404!" for p in py]
+    # 2026-09-08: the .py list above was stale (44 rules for 54 scripts, so every
+    # script added since the last run was served), and three classes of internal
+    # file in the publish root were never blocked at all: __pycache__/ (compiled
+    # bytecode of every generator), build_all.sh (the whole build recipe with its
+    # comments), and working CSV/xlsx data. A PATH-SEGMENT splat like
+    # /__pycache__/* DOES work in Netlify, unlike an extension glob such as /*.py,
+    # so the directory takes one rule while each loose file needs its own.
+    extra = ["/__pycache__/*   /404.html   404!"]
+    for pat in ("*.sh", "*.pyc", "*.xlsx", "ads-relaunch-*.csv", "*-fieldsheet.md"):
+        extra += [f"/{p}   /404.html   404!" for p in sorted(_glob.glob(pat))]
+    lines += ["",
+              "# Block other internals in the publish root (bytecode, build recipe, working data).",
+              "# The public dataset (supplement-markup-dataset.csv/.json) stays open on purpose."]
+    lines += extra
     open("_redirects", "w", encoding="utf-8").write("\n".join(lines) + "\n")
-    return f"_redirects: {len(lines)-5} .html->clean 301 rules + .py block"
+    return (f"_redirects: {len(lines)-8} rules | {len(py)} .py blocked, "
+            f"{len(extra)} other internals blocked")
 
 if __name__ == "__main__":
     print(f"pages normalized: {process_pages()}")

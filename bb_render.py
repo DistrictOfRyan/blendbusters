@@ -22,6 +22,9 @@ def esc(s):
 # byte-identical to the old local amz(). When a network approves, fill its IDs and flip
 # it live in affiliates.PROGRAMS and every link to that merchant routes through it.
 from affiliates import affiliate_link as amz
+# 2026-09-08: one definition of the named author, shared by every generator.
+from author import person_ld as _person_ld, BYLINE_HTML, RATED_BY_HTML
+AUTHOR_PERSON = _person_ld(full=True)
 from ingredient_links import buylist_html
 
 def cart_url(asins):
@@ -147,10 +150,20 @@ def render_compare(d):
               'cost':r.get('cost'),'asin':r.get('asin')} for r in d['swap_rows']]
     buylist=buylist_html(blitems,brand=d.get('name'),brand_price=d.get('brand_price'))
     # sources
+    # 2026-09-08: never render a fake citation. A source with no real URL used to
+    # ship as <a href="#">label</a> plus "(to be verified)" — a link to nowhere,
+    # labelled as a draft, on 217 pages. A citation with no URL is now plain text
+    # (no anchor at all) carrying the site's established honest marker,
+    # "Data unavailable", the same words methodology.html and 218 score modules
+    # already use. One vocabulary, and nothing on the page pretends to be a link.
     srchtml=''
     for i,(lab,url,ok) in enumerate(d.get('sources',[]),1):
-        u=amz(url); aff=(' target="_blank" rel="sponsored nofollow noopener"' if url and 'amazon.com' in url else '')
-        srchtml+='<li><span class="n">%d.</span><span><a href="%s"%s>%s</a>%s</span></li>'%(i,esc(u or '#'),aff,esc(lab),'' if ok else ' <span class="na">(to be verified)</span>')
+        u=amz(url) if (url and url!='#') else ''
+        if u:
+            aff=(' target="_blank" rel="sponsored nofollow noopener"' if 'amazon.com' in url else '')
+            srchtml+='<li><span class="n">%d.</span><span><a href="%s"%s>%s</a></span></li>'%(i,esc(u),aff,esc(lab))
+        else:
+            srchtml+='<li><span class="n">%d.</span><span>%s <span class="na">Linkable source: Data unavailable</span></span></li>'%(i,esc(lab))
     # related
     relhtml=''
     for nm,href,vd,yr in d.get('related',[]):
@@ -167,7 +180,9 @@ def render_compare(d):
          "headline":"%s: lower-cost ingredient comparison"%d['name'],
          "description":"Ingredient, dose, cost, and evidence comparison of %s with a lower-cost ingredient match."%d['name'],
          "datePublished":"2026-07-08","dateModified":"2026-07-11",
-         "author":{"@type":"Organization","@id":SITE+"/#org","name":"BlendBusters"},
+         # 2026-09-08: a named Person, not the Organization. author.py carries the
+         # honesty boundary (methodology/analytics expertise only, no health claim).
+         "author":AUTHOR_PERSON,
          "publisher":{"@type":"Organization","@id":SITE+"/#org","name":"BlendBusters",
                       "logo":{"@type":"ImageObject","url":SITE+"/blendbusters-logo.png"}},
          "mainEntityOfPage":url,"about":d.get('category','')},
@@ -180,7 +195,7 @@ def render_compare(d):
     body+=('<body data-slug="%s" data-base="%d">\n'%(esc(d['slug']),d['brand_price']))+_header()
     body+='<div class="wrap"><nav class="crumb" aria-label="Breadcrumb"><a href="/">Home</a> / <a href="/">Comparisons</a> / <a href="/">%s</a> / <b>%s</b></nav>\n'%(esc(d.get('category','')),esc(d['name']))
     body+='<div class="title"><span class="cat">%s</span><h1>%s, and a lower-cost ingredient match</h1>'%(esc(d.get('category','')),esc(d['name']))
-    body+='<div class="meta"><span>Prices checked <b>%s</b></span><span>·</span><span>Analysis by <b>the BlendBusters desk</b> <a class="lnk" href="/methodology.html">Method</a></span></div></div>\n'%esc(d.get('reviewed','Jul 2026'))
+    body+='<div class="meta"><span>Prices checked <b>%s</b></span><span>·</span><span>%s</span></div></div>\n'%(esc(d.get('reviewed','Jul 2026')),BYLINE_HTML)
     body+=('<div class="verdict"><div class="vtop"><span class="stamp">%s</span>'
            '<p class="q"><span class="ctag an">BlendBusters analysis</span> &nbsp;%s</p></div>'
            '<div class="vgrid"><div class="vg"><div class="k">Brand price</div><div class="val">$%d<small>/mo</small></div></div>'
@@ -212,7 +227,7 @@ def render_compare(d):
     if evrows:
         body+=('<section><div class="wrap"><div class="shead"><h2>Evidence quality, by ingredient</h2><span class="ctag ev">Scientific evidence</span></div>'
                '<p class="lead" style="margin-bottom:16px">Rated on strength of human evidence for the ingredient at a comparable dose — shown as a bar and a word, so it reads without relying on color. This rates the ingredient, not a promise about you.</p>'
-               '<div class="facts"><div class="fh"><div class="t">Evidence · per active</div><h4>Rated by the BlendBusters desk</h4></div>%s</div></div></section>\n'%evrows)
+               '<div class="facts"><div class="fh"><div class="t">Evidence · per active</div><h4>'+RATED_BY_HTML+'</h4></div>%s</div></div></section>\n'%evrows)
     body+=conv
     # score
     body+=('<section><div class="wrap"><div class="shead"><h2>The BlendBuster Score</h2><span class="ctag an">BlendBusters analysis</span></div>'
@@ -234,7 +249,7 @@ def render_compare(d):
     # sources
     body+=('<section><div class="wrap"><div class="shead"><h2>Sources &amp; citations</h2></div>'
            '<ol class="src">%s</ol>'
-           '<p class="fine" style="margin-top:12px">Every published comparison ships with dated, linked sources. Items marked “to be verified” require editorial sign-off.</p></div></section>\n'%(srchtml or '<li><span class="n">1.</span><span>Brand label &amp; price — merchant listing (price checked %s). <span class="na">(to be verified)</span></span></li>'%esc(d.get('reviewed','Jul 2026'))))
+           '<p class="fine" style="margin-top:12px">Every source we can link, we link. Where a source is a printed label or an in-store price we read but cannot link to a stable public page, we say so and mark it Data unavailable rather than point you at a page that does not exist.</p></div></section>\n'%(srchtml or '<li><span class="n">1.</span><span>Brand label &amp; price, merchant listing (price checked %s) <span class="na">Linkable source: Data unavailable</span></span></li>'%esc(d.get('reviewed','Jul 2026'))))
     # correction
     body+=('<section><div class="wrap"><div class="shead"><h2>Spot something off? Tell us.</h2></div>'
            '<p class="lead" style="margin-bottom:16px">Prices move and labels change. If a number looks stale or wrong, send a correction — we date and log every edit.</p>'

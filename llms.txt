@@ -13,6 +13,9 @@
 - [Methodology](https://blendbusters.com/methodology.html): how every comparison is scored
 - [About](https://blendbusters.com/about.html) · [Contact](https://blendbusters.com/contact.html)
 
+## Who writes this
+- William Ryan Hunt (https://blendbusters.com/about#author) built the BlendBusters price-comparison method and the data pipeline that produces every comparison here. BS Computer Science, University of Kentucky; MBA, Johns Hopkins Carey Business School; 15+ years in software and web analytics. He is not a clinician, a dietitian or a nutritionist, and BlendBusters makes no medical claims.
+
 ## Beauty, joint & immune
 - [Vegamour GRO+ Advanced Hair Supplements](https://blendbusters.com/vegamour-gro-advanced.html): est. ~$768/yr saved vs a lower-cost ingredient match
 - [Wellbel Women Hair, Skin & Nails Supplement](https://blendbusters.com/wellbel-women.html): est. ~$768/yr saved vs a lower-cost ingredient match

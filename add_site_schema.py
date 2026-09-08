@@ -114,8 +114,14 @@ def sync_sitemap():
     for path in sorted(_glob.glob("*.html")):
         if "mockup" in path or "standalone" in path:
             continue
-        try:  # never list a noindex page (e.g. thank-you) in the sitemap
-            if "noindex" in open(path, encoding="utf-8", errors="ignore").read():
+        # 2026-09-08: test the ROBOTS META TAG, not the whole file. The old
+        # substring check dropped any page that merely contained the word
+        # "noindex" anywhere in its markup, which is how the HOMEPAGE went
+        # missing from the sitemap entirely while thank-you.html (genuinely
+        # noindexed) stayed listed.
+        try:
+            _src = open(path, encoding="utf-8", errors="ignore").read()
+            if re.search(r'<meta\s+name="robots"\s+content="[^"]*noindex', _src, re.I):
                 continue
         except OSError:
             pass

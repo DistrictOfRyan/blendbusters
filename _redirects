@@ -248,6 +248,7 @@
 /zzzquil-pure-zzzs.html   /zzzquil-pure-zzzs   301!
 
 # Block internal build/analysis scripts (explicit: no extension globs)
+/_render_ads.py   /404.html   404!
 /ad_viability.py   /404.html   404!
 /add_answer.py   /404.html   404!
 /add_conversion.py   /404.html   404!
@@ -258,11 +259,13 @@
 /add_ingredient_links.py   /404.html   404!
 /add_midpage_capture.py   /404.html   404!
 /add_seo.py   /404.html   404!
+/add_similar_blends.py   /404.html   404!
 /add_site_schema.py   /404.html   404!
 /add_top_cart_cta.py   /404.html   404!
 /add_visuals.py   /404.html   404!
 /affiliates.py   /404.html   404!
 /audit_site.py   /404.html   404!
+/author.py   /404.html   404!
 /bb_render.py   /404.html   404!
 /build_ads_relaunch.py   /404.html   404!
 /build_dataset.py   /404.html   404!
@@ -275,11 +278,14 @@
 /build_teardowns.py   /404.html   404!
 /build_trust_pages.py   /404.html   404!
 /build_webp.py   /404.html   404!
+/fix_authorship.py   /404.html   404!
 /fix_buy_links.py   /404.html   404!
 /fix_double_escape.py   /404.html   404!
 /fix_forms.py   /404.html   404!
 /fix_page_trust.py   /404.html   404!
+/fix_product_form.py   /404.html   404!
 /fix_seo_meta.py   /404.html   404!
+/fix_source_citations.py   /404.html   404!
 /fix_titles.py   /404.html   404!
 /generate_intros.py   /404.html   404!
 /ingredient_catalog.py   /404.html   404!
@@ -287,8 +293,17 @@
 /link_audit.py   /404.html   404!
 /make_chart.py   /404.html   404!
 /markup_report.py   /404.html   404!
+/noindex_thin_pages.py   /404.html   404!
 /normalize_urls.py   /404.html   404!
+/page_facts.py   /404.html   404!
 /retarget_keywords.py   /404.html   404!
+/retitle_query_language.py   /404.html   404!
 /revenue_model.py   /404.html   404!
+/sync_report_figures.py   /404.html   404!
 /taxonomy.py   /404.html   404!
 /voice.py   /404.html   404!
+
+# Block other internals in the publish root (bytecode, build recipe, working data).
+# The public dataset (supplement-markup-dataset.csv/.json) stays open on purpose.
+/__pycache__/*   /404.html   404!
+/build_all.sh   /404.html   404!

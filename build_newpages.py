@@ -84,8 +84,10 @@ def make_d(p):
         'score': compute_score(pct, p['proprietary'], ev_avg),
         'safety': p.get('safety', 'Introduce any new supplement gradually, and review it against your current medications and conditions.'),
         'consult': consult,
-        'sources': [('Brand label & price — merchant listing (price checked Aug 2026)', '#', False),
-                    ('Lower-cost generic pricing — retail listings (checked Aug 2026)', '#', False)],
+        # 2026-09-08: '' not '#' — see the note in build_from_sheet.py. A source with
+        # no stable public URL renders as plain text marked "Data unavailable".
+        'sources': [('Brand label & price, merchant listing (price checked Aug 2026)', '', False),
+                    ('Lower-cost generic pricing, retail listings (checked Aug 2026)', '', False)],
         'cart_asins': cart_asins,
         'primary_buy': 'https://www.amazon.com/s?k=' + quote(rows[0].get('search', p['name'])),
         'primary_brand': None, 'related': [],

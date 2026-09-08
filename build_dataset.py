@@ -11,36 +11,31 @@ Run:  python build_dataset.py
 import re, glob, html, csv, json
 from datetime import date
 from taxonomy import cluster  # shared, word-boundary-correct classifier
-
-SKIP = {'index.html', 'methodology.html', 'savings-index.html', 'markup-report.html'}
+import page_facts  # 2026-09-08: the ONE reader of a built comparison page
 
 
 def collect():
+    # 2026-09-08: rows come from page_facts.priced_rows(). This function used to
+    # identify a comparison page by matching its H1 against
+    #   <h1>(.*?)(?:, and a lower-cost|\s+ingredients vs a lower-cost)
+    # which retitle_query_language.py rewrites on 30 pages later in build_all.sh.
+    # Whichever surface was generated after that retitle silently lost those 30
+    # rows, which is how the site came to publish 177, 212 and 217 for the same
+    # study. Every figure on the site now derives from this one row set.
     rows = []
-    for f in sorted(glob.glob('*.html')):
-        if f in SKIP or 'mockup' in f or 'standalone' in f:
-            continue
-        s = open(f, encoding='utf-8').read()
-        m_name = re.search(r'<h1>(.*?)(?:,\s*and a lower-cost|\s+ingredients vs a lower-cost)', s)
-        m_brand = re.search(r'Brand price</div><div class="val">\$([\d,]+)', s)
-        m_mtot = re.search(r'id="mtot">\$([\d,.]+)', s)
-        m_save = re.search(r'Est\. savings</div><div class="val save">~\$([\d,]+)', s)
-        m_cat = re.search(r'<span class="cat">(.*?)</span>', s)
+    for r in page_facts.priced_rows():
+        s = open(r['f'], encoding='utf-8').read()
         m_verdict = re.search(r'<span class="stamp">(.*?)</span>', s)
-        if not (m_name and m_brand and m_mtot and m_save):
-            continue
-        brand = float(m_brand.group(1).replace(',', ''))
-        match = float(m_mtot.group(1).replace(',', ''))
         verdict = re.sub(r'<[^>]+>', ' ', m_verdict.group(1)).strip() if m_verdict else ''
         rows.append({
-            'product': html.unescape(m_name.group(1)).strip(),
-            'category': cluster(html.unescape(m_cat.group(1)) if m_cat else ''),
-            'brand_price_monthly_usd': round(brand, 2),
-            'match_price_monthly_usd': round(match, 2),
-            'markup_multiple': round(brand / match, 1) if match else '',
-            'est_annual_savings_usd': int(m_save.group(1).replace(',', '')),
+            'product': r['name'],
+            'category': cluster(r['cat']),
+            'brand_price_monthly_usd': round(r['brand'], 2),
+            'match_price_monthly_usd': round(r['match'], 2),
+            'markup_multiple': round(r['brand'] / r['match'], 1) if r['match'] else '',
+            'est_annual_savings_usd': r['save'],
             'verdict': verdict,
-            'comparison_url': 'https://blendbusters.com/' + f,
+            'comparison_url': 'https://blendbusters.com/' + r['f'],
         })
     rows.sort(key=lambda r: -(r['est_annual_savings_usd']))
     return rows

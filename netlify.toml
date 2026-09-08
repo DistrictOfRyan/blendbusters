@@ -5,10 +5,29 @@
 # served publicly (blendbusters.com/ad_viability.py returned 200). They contain
 # no credentials, but they do expose CPC, margin assumptions, profitability
 # math and page-generation logic. Block them.
-# The dataset (.csv/.json) is deliberately left public — it carries publisher/
+# The dataset (.csv/.json) is deliberately left public. It carries publisher and
 # license metadata and is meant to be citable by AI search engines.
 [[redirects]]
   from = "/*.py"
+  to = "/404.html"
+  status = 404
+  force = true
+
+# 2026-09-08: __pycache__/ holds compiled bytecode of every generator and
+# build_all.sh is the whole build recipe. Both sat in the publish root with no
+# rule. normalize_urls.py writes the same rules into _redirects (which Netlify
+# evaluates first); these are the backstop for a deploy where _redirects is
+# regenerated wrong or missing. A path-segment splat works here; an extension
+# glob like /*.py does not, which is why each script gets its own line in
+# _redirects rather than relying on the /*.py rule above.
+[[redirects]]
+  from = "/__pycache__/*"
+  to = "/404.html"
+  status = 404
+  force = true
+
+[[redirects]]
+  from = "/build_all.sh"
   to = "/404.html"
   status = 404
   force = true

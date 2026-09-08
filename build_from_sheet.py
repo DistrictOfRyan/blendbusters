@@ -338,8 +338,12 @@ for r in P:
        'score':compute_score(pct,proprietary,ev_avg),
        'safety':_esc(safety) or 'Introduce any new supplement gradually, and review it against your current medications and conditions.',
        'consult':consult,
-       'sources':[('Brand label & price — merchant listing (price checked Jul 2026)','#',False),
-                  ('Lower-cost generic pricing — retail listings (checked Jul 2026)','#',False)],
+       # 2026-09-08: '' not '#'. These two provenance lines are real (we read the
+       # label and the retail listing) but we have no stable public URL for them, so
+       # bb_render renders them as plain text marked "Data unavailable" instead of a
+       # dead <a href="#">. Never put '#' here to make a citation look clickable.
+       'sources':[('Brand label & price, merchant listing (price checked Jul 2026)','',False),
+                  ('Lower-cost generic pricing, retail listings (checked Jul 2026)','',False)],
        'cart_asins':[ASIN_MAP.get(g) for g,_ in alts],'primary_buy':b_url,'primary_brand':b_brand,
        'related':[]}
     bucket=BUCKET_BY_CAT.get(cat,'More teardowns')
@@ -653,7 +657,7 @@ mp=(bb_render._head('Methodology & editorial standards · BlendBusters',
   +'<section><div class="wrap"><div class="shead"><h2>How we handle undisclosed doses</h2></div>'
    '<p class="lead">Many premium products list a proprietary blend, so the amount of each ingredient is not published. When that happens we cannot verify a dose match, and we say so: the <span class="mono">Dose match</span> field reads <span class="mono">Data unavailable</span> and does not contribute to the score. A large price gap alone does not make two products equivalent.</p></div></section>\n'
   +'<section><div class="wrap"><div class="shead"><h2>Prices &amp; sourcing</h2></div>'
-   '<p class="lead">Prices are estimates from public sources with the date we checked, and they change often — always verify on the merchant’s site. Every comparison ships with dated, linked sources. Numbers marked “to be verified” are placeholders pending editorial sign-off. We do not copy merchant descriptions; the analysis and calculations are our own.</p></div></section>\n'
+   '<p class="lead">Prices are estimates from public sources with the date we checked, and they change often, so always verify on the merchant’s site. Every source we can link, we link. Where a source is a printed label or an in-store price we read but cannot link to a stable public page, we say so and mark it <span class="mono">Data unavailable</span> rather than point you at a page that does not exist. We do not copy merchant descriptions; the analysis and calculations are our own.</p></div></section>\n'
   +'<section id="standards"><div class="wrap"><div class="shead"><h2>Editorial standards</h2></div>'
    '<div class="safe"><ul><li>We label <b style="color:var(--ink)">brand claims</b>, <b style="color:var(--ink)">BlendBusters analysis</b>, and <b style="color:var(--ink)">scientific evidence</b> separately, so you always know who is saying what.</li>'
    '<li>We use language like “lower-cost ingredient match,” “overlapping ingredients,” and “similar intended use” — never “exactly the same,” “works just as well,” or “guaranteed equivalent.”</li>'

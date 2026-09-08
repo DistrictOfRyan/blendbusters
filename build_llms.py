@@ -7,6 +7,7 @@ Format follows the llms.txt proposal: H1 + blockquote summary, then sectioned li
 """
 import json
 from collections import defaultdict
+from author import NAME as AUTHOR_NAME  # 2026-09-08: named author for AI citation
 
 SITE = 'https://blendbusters.com'
 d = json.load(open('supplement-markup-dataset.json', encoding='utf-8'))
@@ -36,7 +37,13 @@ out = ['# BlendBusters', '',
        'with a downloadable dataset (CC BY 4.0)',
        f'- [Downloadable dataset (CSV)]({SITE}/supplement-markup-dataset.csv)',
        f'- [Methodology]({SITE}/methodology.html): how every comparison is scored',
-       f'- [About]({SITE}/about.html) · [Contact]({SITE}/contact.html)', '']
+       f'- [About]({SITE}/about.html) · [Contact]({SITE}/contact.html)', '',
+       '## Who writes this',
+       f'- {AUTHOR_NAME} ({SITE}/about#author) built the BlendBusters price-comparison method '
+       'and the data pipeline that produces every comparison here. BS Computer Science, '
+       'University of Kentucky; MBA, Johns Hopkins Carey Business School; 15+ years in '
+       'software and web analytics. He is not a clinician, a dietitian or a nutritionist, '
+       'and BlendBusters makes no medical claims.', '']
 
 # every comparison page, grouped by category, so an answer engine can map the whole catalog
 for cat in sorted(by_cat):

@@ -31,8 +31,15 @@ def infer_form(name, cat):
     if 'soda' in t or any(w in c for w in ['hydration', 'electrolyte', 'energy']) or any(w in n for w in ['hydration', 'electrolyte']): return 'drink'
     if 'multi' in c or 'multivitamin' in n: return 'capsules'   # multivitamins are capsules/tablets
     if any(w in n for w in ['ketone', 'bhb']): return 'powder'
-    if any(w in n for w in ['protein', 'collagen', 'creatine', 'pre-workout', 'preworkout', 'greens powder', 'meal replacement', 'shake']) \
-       or any(w in c for w in ['fitness', 'performance', 'protein', 'collagen']): return 'powder'
+    # 2026-09-08 FIX: this list was tested against the NAME only (`n`), so a product
+    # whose form lives in its CATEGORY fell through to the capsules default and the
+    # page contradicted itself. huel.html shipped `Meal replacement` and
+    # `Form: Capsules` side by side with a capsules photo; kachava, soylent and
+    # Legion Pulse (a pre-workout powder) did the same. Test name-and-category (`t`),
+    # and add the meal-replacement category to the category list.
+    if any(w in t for w in ['protein', 'collagen', 'creatine', 'pre-workout', 'preworkout',
+                            'greens powder', 'meal replacement', 'shake']) \
+       or any(w in c for w in ['fitness', 'performance', 'protein', 'collagen', 'meal']): return 'powder'
     return 'capsules'
 
 def banner(name, cat, form):
@@ -70,8 +77,15 @@ def cost_viz(brand, match, savings):
       f'<div style="font-size:11px;color:var(--accent-deep);font-weight:700;text-transform:uppercase;letter-spacing:.05em">cheaper</div></div></div></div></div>\n')
 
 def parse(s):
-    m_name = re.search(r'<h1>(.*?),\s*and a lower', s) or re.search(r'<h1>(.*?)</h1>', s)
-    name = html.unescape(m_name.group(1)).strip() if m_name else None
+    # 2026-09-08: name comes from page_facts.product_name(), which knows every H1
+    # shape retarget_keywords.py / retitle_query_language.py can emit. The old
+    # `<h1>(.*?), and a lower` + bare-<h1> fallback handed infer_form() a whole
+    # retitled headline ("Is Huel worth it? ...") as the product name.
+    from page_facts import product_name as _pf_name
+    name = _pf_name(s)
+    if name is None:
+        m_name = re.search(r'<h1>(.*?)</h1>', s)
+        name = html.unescape(m_name.group(1)).strip() if m_name else None
     m_cat = re.search(r'<span class="cat">(.*?)</span>', s)
     cat = html.unescape(m_cat.group(1)).strip() if m_cat else ''
     m_brand = re.search(r'Brand price</div><div class="val">\$([\d,]+)', s)
@@ -82,36 +96,51 @@ def parse(s):
     match = float(m_mtot.group(1).replace(',','')) if m_mtot else None
     return name, cat, brand, match, save
 
-SKIP = {'index.html','methodology.html','savings-index.html'}
-files = [f for f in glob.glob('*.html') if f not in SKIP and not f.endswith('-mockup.html') and 'standalone' not in f]
+# 2026-09-08: the trust pages are NOT products and must never get a product-form
+# banner. build_all.sh happens to run build_trust_pages.py AFTER this script, so
+# they were invisible here by ordering luck alone. Run out of order (or imported)
+# and this script stamped "About BlendBusters, and the lower-cost swap" plus
+# "Form: Capsules" and a capsules photo onto about/contact/privacy/terms. Skipping
+# them by name makes the ordering irrelevant.
+SKIP = {'index.html','methodology.html','savings-index.html','markup-report.html',
+        'about.html','contact.html','privacy.html','terms.html','thank-you.html'}
 
-done=0; skipped=[]; forms_count={}
-for f in files:
-    s=open(f,encoding='utf-8').read()
-    if 'Form: ' in s and 'What you pay, side by side' in s:  # already processed
-        continue
-    name,cat,brand,match,save=parse(s)
-    if not name or '<span class="mark">B/</span>' not in s:
-        skipped.append((f,'no name/mark')); continue
-    form=infer_form(name,cat)
-    forms_count[form]=forms_count.get(form,0)+1
+
+def main():
+    files = [f for f in glob.glob('*.html') if f not in SKIP and not f.endswith('-mockup.html') and 'standalone' not in f]
+    done=0; skipped=[]; forms_count={}
+    for f in files:
+        s=open(f,encoding='utf-8').read()
+        if 'Form: ' in s and 'What you pay, side by side' in s:  # already processed
+            continue
+        name,cat,brand,match,save=parse(s)
+        if not name or '<span class="mark">B/</span>' not in s:
+            skipped.append((f,'no name/mark')); continue
+        form=infer_form(name,cat)
+        forms_count[form]=forms_count.get(form,0)+1
+        if DRY:
+            print(f'{f:42} | {cat[:22]:22} | {form:9} | brand={brand} match={match} save={save} | {name[:30]}')
+            continue
+        # 1) logo
+        s=s.replace('<span class="mark">B/</span>', LOGO)
+        # 2) banner after first </header>
+        s=s.replace('</header>\n', '</header>\n'+banner(html.escape(name),html.escape(cat),form), 1)
+        # 3) cost visual before the first "What's inside" section, if prices parsed
+        if brand and match is not None and save is not None:
+            anchor=re.search(r'<section><div class="wrap"><div class="shead"><h2>What.s inside', s)
+            if anchor:
+                s=s[:anchor.start()]+cost_viz(brand,match,save)+s[anchor.start():]
+        open(f,'w',encoding='utf-8').write(s)
+        done+=1
+
     if DRY:
-        print(f'{f:42} | {cat[:22]:22} | {form:9} | brand={brand} match={match} save={save} | {name[:30]}')
-        continue
-    # 1) logo
-    s=s.replace('<span class="mark">B/</span>', LOGO)
-    # 2) banner after first </header>
-    s=s.replace('</header>\n', '</header>\n'+banner(html.escape(name),html.escape(cat),form), 1)
-    # 3) cost visual before the first "What's inside" section, if prices parsed
-    if brand and match is not None and save is not None:
-        anchor=re.search(r'<section><div class="wrap"><div class="shead"><h2>What.s inside', s)
-        if anchor:
-            s=s[:anchor.start()]+cost_viz(brand,match,save)+s[anchor.start():]
-    open(f,'w',encoding='utf-8').write(s)
-    done+=1
+        print('\nFORM DISTRIBUTION:', forms_count)
+        print('SKIPPED:', skipped[:10], '...' if len(skipped)>10 else '')
+    else:
+        print(f'processed {done} pages; skipped {len(skipped)}: {skipped}')
 
-if DRY:
-    print('\nFORM DISTRIBUTION:', forms_count)
-    print('SKIPPED:', skipped[:10], '...' if len(skipped)>10 else '')
-else:
-    print(f'processed {done} pages; skipped {len(skipped)}: {skipped}')
+
+# 2026-09-08: guarded. This body used to run on import, so any other script that
+# wanted to reuse infer_form()/FORMS silently rewrote the whole site as a side effect.
+if __name__ == '__main__':
+    main()

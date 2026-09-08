@@ -34,6 +34,27 @@ python3 retarget_keywords.py      # <-- title/meta/H1/H2 target "[brand] ingredi
 python3 retitle_query_language.py  # <-- 2026-08-21 revenue push: override the 30-page priority shortlist to "[brand] alternative" / "is [brand] worth it" query language (higher buyer-intent than "ingredients"). MUST run after retarget_keywords.py
 python3 add_similar_blends.py      # <-- 2026-08-21 revenue push: "Compare similar blends" block (3-5 links) on the 30-page shortlist + homepage links to all 30
 python3 noindex_thin_pages.py      # <-- 2026-08-21 revenue push: noindex,follow on thin/undiscovered pages NOT in the 30-page shortlist, to concentrate crawl budget
+python3 fix_authorship.py         # <-- 2026-09-08: a real name on the work. Replaces "the BlendBusters desk"
+                                  #     / "editorial team" / Organization-as-author with William Ryan Hunt and a
+                                  #     JSON-LD Person. Generators already fixed at source. Exits 1 if any page
+                                  #     is still anonymous. author.py holds the honesty boundary (NO health claim).
+python3 sync_report_figures.py    # <-- 2026-09-08: ONE study, ONE set of numbers. Writes the homepage
+                                  #     report figures from page_facts and FAILS the build if index.html,
+                                  #     markup-report.html and llms.txt disagree (they published 177 /
+                                  #     212 / 217 for the same study). MUST run after build_dataset.py,
+                                  #     build_llms.py and markup_report.py.
+python3 fix_product_form.py       # <-- 2026-09-08: re-derive the Form: badge / banner photo / alt text with the
+                                  #     fixed infer_form() rule and correct any page that disagrees (huel, kachava,
+                                  #     soylent, pre-workout said "Form: Capsules"; goli said Capsules for a gummy).
+                                  #     add_visuals.py short-circuits on pages it already touched, so it cannot self-heal.
+python3 fix_source_citations.py   # <-- 2026-09-08: no fake citations. Kills every <a href="#"> 'to be verified'
+                                  #     placeholder (was 217 pages / 255 dead links) and rewrites it as plain
+                                  #     text marked "Data unavailable". bb_render.py is already fixed at source;
+                                  #     this is the belt-and-suspenders pass. Exits 1 if any placeholder survives.
+python3 check_jsonld.py           # <-- 2026-09-08: every JSON-LD block must PARSE. Invalid JSON-LD is
+                                  #     silently discarded by crawlers, so a page loses its Article, author
+                                  #     and breadcrumbs with no visible symptom (mud-wtr.html shipped that
+                                  #     for weeks: one un-escaped backslash in "MUD\WTR"). Exits 1 on failure.
 python3 fix_double_escape.py      # <-- collapse any double-escaped entities (&amp;amp; -> &amp;). MUST run last, after all content post-processors
 echo "== compliance QA (should list ONLY index/methodology/savings-index) =="
 grep -rilE "exactly the same|works just as well|guaranteed equivalent|clinically proven|doctor approved|cure your|treats? your" --include=*.html . | grep -vE 'index\.html|methodology\.html|savings-index\.html|mockup|standalone' && echo "!! COMPLIANCE FAIL" || echo "compliance OK"
