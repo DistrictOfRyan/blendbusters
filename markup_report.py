@@ -60,7 +60,7 @@ def main():
       f'<td class="mono" style="color:var(--accent);font-weight:700">~{money(sv)}/yr</td></tr>'
       for name, cn, sv, mult in clu_rows)
 
-    title = "The Supplement Markup Report — BlendBusters"
+    title = "The Supplement Markup Report · BlendBusters"
     desc = (f"We priced {n} popular supplements against specific ingredient-matched, lower-cost alternatives. "
             f"The gap adds up to ~{money(total_save)}/yr, an average of {avg_mult:.1f}x markup.")
     url = f"{SITE}/markup-report.html"
@@ -154,7 +154,7 @@ def main():
 <section><div class="wrap"><div class="shead"><h2>The biggest markups at a glance</h2><span class="ctag an">BlendBusters analysis</span></div>
 <figure style="margin:0">
 <img src="/supplement-markup-chart.png" alt="Bar chart of the 15 largest supplement markups out of {n} products priced, showing brand monthly price against a matched-ingredients equivalent" width="1600" height="1200" loading="lazy" style="width:100%;height:auto;border:1px solid var(--line);border-radius:10px">
-<figcaption class="fine" style="margin-top:8px">The 15 largest markups out of {n} supplements priced. Free to reuse with attribution (CC BY 4.0) &mdash; <a href="/supplement-markup-chart.png">download the chart</a>.</figcaption>
+<figcaption class="fine" style="margin-top:8px">The 15 largest markups out of {n} supplements priced. Free to reuse with attribution (CC BY 4.0); <a href="/supplement-markup-chart.png">download the chart</a>.</figcaption>
 </figure></div></section>
 <section><div class="wrap"><div class="shead"><h2>The 20 biggest markups</h2><span class="ctag an">BlendBusters analysis</span></div>
 <p class="lead" style="margin-bottom:14px">Ranked by estimated annual overspend versus the ingredient-matched alternative.</p>
