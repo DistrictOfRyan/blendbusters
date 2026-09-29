@@ -302,6 +302,9 @@
 /sync_report_figures.py   /404.html   404!
 /taxonomy.py   /404.html   404!
 /voice.py   /404.html   404!
+/add_mobile_buybar.py   /404.html   404!
+/check_jsonld.py   /404.html   404!
+/fix_item_links.py   /404.html   404!
 
 # Block other internals in the publish root (bytecode, build recipe, working data).
 # The public dataset (supplement-markup-dataset.csv/.json) stays open on purpose.
