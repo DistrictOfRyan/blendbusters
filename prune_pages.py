@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""2026-10-06 prune-and-strengthen program, batch 1.
+"""2026-10-06 prune-and-strengthen program, batches 1-4 (all 132 NOINDEX candidates).
 
 WHY. Google Search Console 2026: 452 (Jul) -> 88 (Aug) -> 64 (Sep) impressions, 0 clicks in Sep.
 URL Inspection of all 243 sitemap URLs on 2026-10-06: 79 indexed, 121 "Discovered - currently not
@@ -48,6 +48,54 @@ NOINDEX = [
     "natrol-sleep-calm", "zzzquil-pure-zzzs", "cymbiotika-magnesium-l-threonate",
     "hydrant", "ritual-hyacera",
 ]
+
+# Batches 2-4 (same rule, same ranking). Re-confirmed 2026-10-06 against fresh GSC (93-day window
+# 2026-07-03..2026-10-04: 0 impressions for every page below) and fresh URL Inspection (69
+# "Discovered - currently not indexed", 33 "URL is unknown to Google"; none indexed).
+NOINDEX_BATCH2 = [
+    "airborne-original-gummies", "align-24-7-digestive-support",
+    "alive-multivitamin-alternative", "animal-pak", "bulletproof-mct-alternative",
+    "creatine-gummies", "culturelle-alternative", "flo-pms", "g-fuel-energy-formula",
+    "gatorlyte-powder", "goli-ashwagandha-alternative", "guru-organic-energy",
+    "hairtamin-advanced-formula", "hormone-harmony", "host-defense-mycommunity-alternative",
+    "instaflex-advanced", "life-extension-multivitamin-alternative", "metamucil-alternative",
+    "momentous-creatine-alternative", "needed-prenatal-multi-essentials", "neuriva",
+    "neuro-sonic", "olly-probiotic-alternative", "optimum-nutrition-amino-energy-rtd",
+    "orgain-protein-alternative", "peachy", "perelel-men-s-multi-support-pack",
+    "performance-lab-nutrigenesis-multi-for-men",
+    "performance-lab-nutrigenesis-multi-for-women", "pre-workout", "qunol-coq10-alternative",
+    "reign-total-body-fuel", "renew-life-ultimate-flora-probiotic", "smartypants-alternative",
+    "sugarbearhair", "sunwarrior-alternative", "testofuel", "thorne-basic-nutrients-2-day",
+    "zenwise-alternative", "zoa-zero-sugar",
+]
+
+NOINDEX_BATCH3 = [
+    "1md-probiotics-alternative", "4life-transfer-factor-alternative", "alani-nu-energy",
+    "ancestral-liver-alternative", "beam-dream", "bellway-alternative",
+    "bubs-collagen-alternative", "clean-cause-yerba-mate", "colonbroom-premium",
+    "dose-and-co-alternative", "everyday-dose-alternative", "florastor-alternative",
+    "ghost-energy", "gruns-alternative", "guayaki-yerba-mate", "kion-aminos-alternative",
+    "legion-pulse-alternative", "lemme-glp1", "maryruths-multivitamin-alternative",
+    "naked-whey-alternative", "neuro-gum-alternative", "new-chapter-multivitamin-alternative",
+    "novos-core", "obvi-collagen-alternative", "optimum-gold-standard-alternative",
+    "ora-greens-alternative", "pendulum-glp1", "premier-protein-alternative",
+    "primal-collagen-alternative", "provitalize-alternative", "qualia-senolytic", "recess-mood",
+    "ritual-synbiotic", "runa-clean-energy", "skinnyfit-collagen-alternative",
+    "soylent-alternative", "thesis", "transparent-labs-whey-alternative",
+    "vega-sport-alternative", "vegamour-gro-advanced",
+]
+
+NOINDEX_BATCH4 = [
+    "arrae-mb1", "field-of-greens-alternative", "herbalife-formula-1-alternative",
+    "it-works-greens-alternative", "jocko-go-alternative", "juice-plus-alternative",
+    "just-thrive-alternative", "kaged-prekaged-alternative", "magic-mind",
+    "modere-biocell-alternative", "olipop-alternative", "onnit-new-mood",
+    "opti-greens-50-alternative", "organifi-green-juice-alternative",
+    "peachy-plump-alternative", "perfect-keto-alternative", "poppi-alternative",
+    "the-nue-co-skin-filter", "truvani-protein-alternative", "usana-cellsentials-alternative",
+    "wellbel-women", "wonderfeel-nmn-alternative",
+]
+NOINDEX = NOINDEX + NOINDEX_BATCH2 + NOINDEX_BATCH3 + NOINDEX_BATCH4
 
 # Brand roundup -> the product page it is about (the strongest sibling: more impressions, 3-5x the
 # inbound links, and the same price data).
