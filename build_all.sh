@@ -58,4 +58,7 @@ python3 check_jsonld.py           # <-- 2026-09-08: every JSON-LD block must PAR
 python3 fix_double_escape.py      # <-- collapse any double-escaped entities (&amp;amp; -> &amp;). MUST run last, after all content post-processors
 echo "== compliance QA (should list ONLY index/methodology/savings-index) =="
 grep -rilE "exactly the same|works just as well|guaranteed equivalent|clinically proven|doctor approved|cure your|treats? your" --include=*.html . | grep -vE 'index\.html|methodology\.html|savings-index\.html|mockup|standalone' && echo "!! COMPLIANCE FAIL" || echo "compliance OK"
+python3 prune_pages.py            # <-- 2026-10-06 prune batch 1: noindex 30 thin/undiscovered pages, fold 10 brand roundups into their product pages
+                                  #     (old URL -> meta-refresh + canonical stub), strengthen 33 keepers' Related blocks + homepage index.
+                                  #     Idempotent; decisions + rule in drafts/blendbusters/prune-plan-2026-10-06.md. MUST run before normalize_urls.py.
 python3 normalize_urls.py         # <-- LAST: canonical/sitemap/links -> clean URLs + _redirects
