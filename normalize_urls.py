@@ -12,6 +12,10 @@ What it does (idempotent, safe to re-run — MUST run LAST in build_all.sh):
      (full-URL, absolute-path, and relative forms). External + asset links untouched.
   3. Rewrite sitemap.xml <loc> to the clean form.
   4. Write _redirects (Netlify) 301'ing every /slug.html -> /slug (and /index.html -> /).
+  5. (2026-10-06) Strip `.html` from every absolute page URL ANYWHERE in the markup, not just
+     canonical/og:url/href: the JSON-LD `mainEntityOfPage` / `url` fields on 239 pages still
+     named https://blendbusters.com/<slug>.html (a URL that 301s), contradicting the canonical.
+     Same for the page URLs listed in llms.txt.
 """
 import glob, re, os
 
@@ -68,11 +72,29 @@ def strip_html_in_links(s):
     s = re.sub(r'href="([a-z0-9-]+)\.html"', repl_rel, s)
     return s
 
+def strip_html_urls_anywhere(s):
+    """Absolute page URLs with a .html tail -> clean URL, wherever they appear (JSON-LD, text)."""
+    def repl(m):
+        slug = m.group(1)
+        if slug == "index":
+            return f"{SITE}/"
+        return f"{SITE}/{slug}" if slug in SLUGS else m.group(0)
+    return re.sub(re.escape(SITE) + r'/([a-z0-9-]+)\.html(?![a-z0-9-])', repl, s)
+
+def fix_llms():
+    if not os.path.exists("llms.txt"):
+        return "llms.txt absent"
+    s = open("llms.txt", encoding="utf-8").read()
+    out = strip_html_urls_anywhere(s)
+    if out != s:
+        open("llms.txt", "w", encoding="utf-8", newline="").write(out)
+    return "llms.txt: page URLs normalized to clean form"
+
 def process_pages():
     n = 0
     for f in PAGE_SET:
         s = open(f, encoding="utf-8").read()
-        out = strip_html_in_links(strip_html_in_head(s))
+        out = strip_html_urls_anywhere(strip_html_in_links(strip_html_in_head(s)))
         if out != s:
             open(f, "w", encoding="utf-8").write(out)
             n += 1
@@ -133,4 +155,5 @@ def write_redirects():
 if __name__ == "__main__":
     print(f"pages normalized: {process_pages()}")
     print(fix_sitemap())
+    print(fix_llms())
     print(write_redirects())
