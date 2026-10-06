@@ -258,6 +258,7 @@
 /add_hublinks.py   /404.html   404!
 /add_ingredient_links.py   /404.html   404!
 /add_midpage_capture.py   /404.html   404!
+/add_mobile_buybar.py   /404.html   404!
 /add_seo.py   /404.html   404!
 /add_similar_blends.py   /404.html   404!
 /add_site_schema.py   /404.html   404!
@@ -278,10 +279,12 @@
 /build_teardowns.py   /404.html   404!
 /build_trust_pages.py   /404.html   404!
 /build_webp.py   /404.html   404!
+/check_jsonld.py   /404.html   404!
 /fix_authorship.py   /404.html   404!
 /fix_buy_links.py   /404.html   404!
 /fix_double_escape.py   /404.html   404!
 /fix_forms.py   /404.html   404!
+/fix_item_links.py   /404.html   404!
 /fix_page_trust.py   /404.html   404!
 /fix_product_form.py   /404.html   404!
 /fix_seo_meta.py   /404.html   404!
@@ -302,9 +305,6 @@
 /sync_report_figures.py   /404.html   404!
 /taxonomy.py   /404.html   404!
 /voice.py   /404.html   404!
-/add_mobile_buybar.py   /404.html   404!
-/check_jsonld.py   /404.html   404!
-/fix_item_links.py   /404.html   404!
 
 # Block other internals in the publish root (bytecode, build recipe, working data).
 # The public dataset (supplement-markup-dataset.csv/.json) stays open on purpose.
