@@ -64,7 +64,7 @@ def cost_viz(brand, match, savings):
     return (f'<div class="wrap">'
       f'<div style="background:var(--card);border:1px solid var(--line);border-radius:16px;padding:24px 26px;margin:20px 0 4px;box-shadow:0 1px 3px rgba(0,0,0,.04)">'
       f'<div style="display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:8px;margin-bottom:18px">'
-      f'<h3 style="margin:0;font-size:16px;font-weight:700;color:var(--ink)">What you pay, side by side</h3>'
+      f'<h2 style="margin:0;font-size:16px;font-weight:700;color:var(--ink)">What you pay, side by side</h2>'
       f'<span style="font-family:var(--mono);font-size:12px;color:var(--ink-3);text-transform:uppercase;letter-spacing:.06em">per month</span></div>'
       f'<div style="margin-bottom:14px"><div style="display:flex;justify-content:space-between;font-size:13.5px;margin-bottom:6px"><span style="color:var(--ink-2);font-weight:600">Brand</span><b style="color:var(--ink);font-family:var(--mono)">${brand:.0f}</b></div>'
       f'<div style="height:24px;background:var(--paper-2);border-radius:7px;overflow:hidden"><div style="height:100%;width:100%;background:var(--ink-3);border-radius:7px"></div></div></div>'
