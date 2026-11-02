@@ -70,6 +70,8 @@ def _strip_out(attrs):
 def unwall(s, link_slug=None, keep_label=False):
     """Cart-add link -> jump to a shopping list (this page's, or /link_slug's)."""
     def rep(m):
+        if "cartall-go" in m.group(1) + m.group(3):
+            return m.group(0)  # add_cart_all.py's one-click button sits beside the direct links on purpose
         attrs = _strip_out(m.group(1) + m.group(3))
         n = len(re.findall(r"ASIN\.\d+=", m.group(2)))
         label = m.group(4)
@@ -197,7 +199,7 @@ def main(dry=False):
         if s != orig and not dry:
             write(p, s)
 
-    left = sum(1 for n in names if "/gp/aws/cart/add" in read(os.path.join(HERE, n)))
+    left = sum(1 for n in names if "/gp/aws/cart/add" in re.sub(r"<!--bb-cartall-start-->.*?<!--bb-cartall-end-->", "", read(os.path.join(HERE, n)), flags=re.S))
     print(f"css {'added' if css_changed else 'already present'} | cart links removed on {unwalled} pages "
           f"(pages still with a cart link: {left}) | buy bars added: {bars} | "
           f"roundup buy links added: {rows} across {pages_rows} pages{' (dry run)' if dry else ''}")

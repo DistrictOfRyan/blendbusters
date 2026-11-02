@@ -55,7 +55,7 @@ NOINDEX = [
 NOINDEX_BATCH2 = [
     "airborne-original-gummies", "align-24-7-digestive-support",
     "alive-multivitamin-alternative", "animal-pak", "bulletproof-mct-alternative",
-    "creatine-gummies", "culturelle-alternative", "flo-pms", "g-fuel-energy-formula",
+    "creatine-gummies", "flo-pms", "g-fuel-energy-formula",
     "gatorlyte-powder", "goli-ashwagandha-alternative", "guru-organic-energy",
     "hairtamin-advanced-formula", "hormone-harmony", "host-defense-mycommunity-alternative",
     "instaflex-advanced", "life-extension-multivitamin-alternative", "metamucil-alternative",
@@ -73,7 +73,7 @@ NOINDEX_BATCH3 = [
     "1md-probiotics-alternative", "4life-transfer-factor-alternative", "alani-nu-energy",
     "ancestral-liver-alternative", "beam-dream", "bellway-alternative",
     "bubs-collagen-alternative", "clean-cause-yerba-mate", "colonbroom-premium",
-    "dose-and-co-alternative", "everyday-dose-alternative", "florastor-alternative",
+    "dose-and-co-alternative", "everyday-dose-alternative",
     "ghost-energy", "gruns-alternative", "guayaki-yerba-mate", "kion-aminos-alternative",
     "legion-pulse-alternative", "lemme-glp1", "maryruths-multivitamin-alternative",
     "naked-whey-alternative", "neuro-gum-alternative", "new-chapter-multivitamin-alternative",
@@ -96,6 +96,12 @@ NOINDEX_BATCH4 = [
     "wellbel-women", "wonderfeel-nmn-alternative",
 ]
 NOINDEX = NOINDEX + NOINDEX_BATCH2 + NOINDEX_BATCH3 + NOINDEX_BATCH4
+
+# 2026-11-02: florastor-alternative and culturelle-alternative restored to the index. The prune
+# plan's own test (drafts/blendbusters/prune-plan-2026-10-06.md) said to restore any of the four
+# ChatGPT landing pages whose chatgpt.com landings stopped after the 10-06 noindex. GA4: 9 ChatGPT
+# landings on these two between 08-23 and 09-24, 0 since 10-06, while other pages kept getting them.
+RESTORED = ["florastor-alternative", "culturelle-alternative"]
 
 # Brand roundup -> the product page it is about (the strongest sibling: more impressions, 3-5x the
 # inbound links, and the same price data).
