@@ -20,6 +20,7 @@ Run:  python add_site_schema.py         (idempotent — safe to re-run)
 import json
 import os
 import re
+import subprocess
 import datetime
 from pathlib import Path
 
@@ -84,13 +85,31 @@ def inject_homepage_schema():
 
 # ---- 2) sitemap <lastmod> ---------------------------------------------------
 def _lastmod_for(loc):
-    """Map a sitemap <loc> back to its file mtime -> YYYY-MM-DD."""
+    """Map a sitemap <loc> back to the date its content last really changed.
+
+    2026-11-04 (AI Founders Oct 28, queue row 4): a rewrite that leaves the text
+    identical used to still bump <lastmod> because this read st_mtime, which
+    changes on every save. Google and Bing both devalue a lastmod that moves on
+    every crawl with no real edit behind it, so we ask git for the last commit
+    that actually touched the file's content and fall back to mtime only when
+    git has no answer (untracked file, or git/the repo unavailable).
+    """
     path = loc[len(SITE):].lstrip("/")
     if path in ("", "/"):
         path = "index.html"
     f = ROOT / path
     if not f.exists() and not path.endswith(".html"):
         f = ROOT / (path + ".html")
+    try:
+        out = subprocess.run(
+            ["git", "log", "-1", "--format=%cs", "--", str(f.relative_to(ROOT))],
+            cwd=ROOT, capture_output=True, text=True, timeout=10,
+        )
+        date_str = out.stdout.strip()
+        if out.returncode == 0 and date_str:
+            return date_str
+    except (OSError, subprocess.SubprocessError, ValueError):
+        pass
     try:
         ts = f.stat().st_mtime
     except OSError:
